@@ -4,7 +4,6 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
-using Unity.VisualScripting;
 
 public class MenuController : MonoBehaviour
 {
@@ -21,14 +20,29 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private TextMeshProUGUI confirmText;
 
+    [SerializeField] private GameObject loadGameButton;
+
     private void Awake()
     {
-        //controls = Keybindinputmanager.Controls;
-
+        controls = Keybindinputmanager.Controls;
+    }
+    private void Start()
+    {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             baseMenu = titleMenu;
             baseMenu.SetActive(true);
+            GameManager.Instance.playerUI.gameObject.SetActive(false);
+            if(PlayerPrefs.GetInt("NewGame") == 0)
+            {
+                loadGameButton.GetComponent<Button>().enabled = false;
+                loadGameButton.transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else
+            {
+                loadGameButton.GetComponent<Button>().enabled = true;
+                loadGameButton.transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
         else
         {
@@ -55,18 +69,14 @@ public class MenuController : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            if (titleMenu.activeSelf == true) return;
+            if (confirmController.activeSelf == true) confirmController.SetActive(false);
+            else if (titleMenu.activeSelf == true) return;
             else CloseSelectedMenu();
         }
         else
         {
             
             if (Player.Instance == null) return;
-
-            //if (PlayerUI.Instance != null)
-            //{
-            //    if (PlayerUI.Instance.upgradeController.GetComponent<UpgradeController>().upgrades.activeSelf == true) return; 
-            //}
 
             if (confirmController.activeSelf == true) confirmController.SetActive(false);
             else if (ingameMenu.activeSelf == false)
@@ -99,30 +109,44 @@ public class MenuController : MonoBehaviour
             //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.menuButton);
         }
     }
-    //public void SetDifficulty(float percentage)
-    //{
-    //    hpScaling = percentage;
-    //    StartGame();
-    //}
-    public void StartGame()
-    {
-        //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.menuButton);
-        gameIsPaused = false;
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1);
-    }
+
     public void ResumeGame()
     {
         ingameMenu.SetActive(false);
         EndPause();
     }
-    public void SetRestartConfirm()
+    public void SetNewGame()
     {
-        OpenConfirmController(StartGame, "Restart Game?");
+        OpenConfirmController(NewGame, "Start new game?");
     }
     public void SetBackToMainMenuConfirm()
     {
         OpenConfirmController(BackToMainMenu, "Back to main menu?");
+    }
+    public void NewGame()
+    {
+        PlayerPrefs.SetInt("NewGame", 1);
+
+        //ResetValues
+
+        gameIsPaused = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+    public void LoadGame()
+    {
+        //LoadValues
+
+        gameIsPaused = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+    public void ResetPlayer()
+    {
+        //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.menuButton);
+        gameIsPaused = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
     }
     public void BackToMainMenu()
     {
