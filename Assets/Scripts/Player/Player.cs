@@ -1,11 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class Player : MonoBehaviour
 {
     public static Player Instance;
-
     private MenuController menuController;
 
     private Controls controls;
@@ -52,13 +50,6 @@ public class Player : MonoBehaviour
         Emtpy,
     }
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else Destroy(gameObject);
 
         controls = Keybindinputmanager.Controls;
         moveInput = controls.Player.Move;
@@ -123,7 +114,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (menuController.gameIsPaused) return;
-
         ReadMovementInput();
         switch (state)
         {
