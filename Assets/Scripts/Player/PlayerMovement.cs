@@ -1,6 +1,7 @@
 using System.Net.NetworkInformation;
 using NUnit.Framework.Constraints;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,7 +12,11 @@ public class PlayerMovement
 
     public void PlayerMove(float grounddrag)
     {
-        player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed, grounddrag);
+        if (player.XWallBoostMovement > 0.1f) player.XWallBoostMovement -= Time.fixedDeltaTime * 7;
+        else if (player.XWallBoostMovement < -0.1f) player.XWallBoostMovement += Time.fixedDeltaTime * 7;
+        else player.XWallBoostMovement = 0;
+
+        player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + player.XWallBoostMovement, grounddrag);
 
         player.rb.linearVelocity = player.playerVelocity;
 
@@ -67,6 +72,7 @@ public class PlayerMovement
     }
     public void JumpInput(InputAction.CallbackContext ctx)
     {
+        if (player.menuController.gameIsPaused) return;
         if (player.currentJumpCount >= player.maxJumpCount) return;
 
         bool pressed = ctx.ReadValueAsButton();
@@ -96,8 +102,10 @@ public class PlayerMovement
     }
     public void DashInput(InputAction.CallbackContext ctx)
     {
+        if (player.menuController.gameIsPaused) return;
         if (player.currentDashCount >= player.maxDashCount) return;
         if (player.state == Player.States.Emtpy) return;
+        if (player.state == Player.States.Dash) return;
 
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
@@ -126,6 +134,33 @@ public class PlayerMovement
         {
             player.SwitchToAir();
         }
+    }
+    public void WallBoostInput(InputAction.CallbackContext ctx)
+    {
+        if (player.menuController.gameIsPaused) return;
+
+        if (player.state == Player.States.Air)
+        {
+            if (player.canWallBoost && player.performedWallBoost == false)
+            {
+                bool pressed = ctx.ReadValueAsButton();
+                if (pressed)
+                {
+                    player.performedWallBoost = true;
+                    if (player.faceRight)
+                    {
+                        player.XWallBoostMovement = player.XWallBoostStrength;
+                        player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
+                    }
+                    else 
+                    {
+                        player.XWallBoostMovement = -player.XWallBoostStrength;
+                        player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
+                    }
+                }
+            }
+        }
+
     }
 
 }

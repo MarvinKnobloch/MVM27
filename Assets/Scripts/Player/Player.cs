@@ -4,10 +4,11 @@ using NUnit.Framework;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
-    private MenuController menuController;
+    [NonSerialized] public MenuController menuController;
 
     private Controls controls;
     private InputAction moveInput;
@@ -35,6 +36,13 @@ public class Player : MonoBehaviour
     public int maxDashCount;
     [NonSerialized] public int currentDashCount;
 
+    [Header("WallBoost")]
+    public bool canWallBoost;
+    public bool performedWallBoost;
+    public float XWallBoostStrength;
+    public float XWallBoostMovement;
+    public float YWallBoostStrength;
+
     //Animations
     [NonSerialized] public Animator animator;
     [NonSerialized] public string currentstate;
@@ -57,6 +65,7 @@ public class Player : MonoBehaviour
         GroundIntoAir,
         Air,
         Dash,
+        WallBoost,
         Death,
         Emtpy,
     }
@@ -100,6 +109,7 @@ public class Player : MonoBehaviour
             controls.Player.Jump.performed += playerMovement.JumpInput;
             controls.Player.Dash.performed += playerMovement.DashInput;
             controls.Player.Interact.performed += InteractInput;
+            controls.Player.WallBoost.performed += playerMovement.WallBoostInput;
         }
         else
         {
@@ -167,6 +177,10 @@ public class Player : MonoBehaviour
         currentDashCount = 0;
         currentJumpCount = 0;
 
+        canWallBoost = false;
+        performedWallBoost = false;
+        XWallBoostMovement = 0;
+
         state = States.Ground;
     }
     public void SwitchGroundIntoAir()
@@ -183,6 +197,7 @@ public class Player : MonoBehaviour
     }
     private void InteractInput(InputAction.CallbackContext ctx)
     {
+        if (menuController.gameIsPaused) return;
         if (currentInteractable == null) return;
 
         bool pressed = ctx.ReadValueAsButton();
