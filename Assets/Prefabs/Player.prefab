@@ -110,10 +110,9 @@ MonoBehaviour:
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 8
-  dashtime: 0
-  dashstrength: 0
-  maxdashstacks: 0
-  currentstate: 
+  dashTime: 0.3
+  dashStrength: 12
+  maxDashCount: 2
   state: 0
 --- !u!61 &56580513609240995
 BoxCollider2D:

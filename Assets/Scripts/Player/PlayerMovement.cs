@@ -1,4 +1,5 @@
 using System.Net.NetworkInformation;
+using NUnit.Framework.Constraints;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement
 {
     public Player player;
+    private float dashTimer;
 
     public void PlayerMove(float grounddrag)
     {
@@ -70,20 +72,18 @@ public class PlayerMovement
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            Jump();
-            //switch (player.state)
-            //{
-            //    case Player.States.Ground:
-            //        Jump();
-            //        break;
-            //    case Player.States.GroundIntoAir:
-            //        Jump();
-            //        break;
-            //    case Player.States.Air:
-            //        Jump();
-            //        break;
-
-            //}
+            switch (player.state)
+            {
+                case Player.States.Ground:
+                    Jump();
+                    break;
+                case Player.States.GroundIntoAir:
+                    Jump();
+                    break;
+                case Player.States.Air:
+                    Jump();
+                    break;
+            }
         }
     }
     private void Jump()
@@ -94,4 +94,38 @@ public class PlayerMovement
 
         if(player.state != Player.States.Air) player.SwitchGroundIntoAir();
     }
+    public void DashInput(InputAction.CallbackContext ctx)
+    {
+        if (player.currentDashCount >= player.maxDashCount) return;
+        if (player.state == Player.States.Emtpy) return;
+
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            StartDash();
+        }
+    }
+    private void StartDash()
+    {
+        player.currentDashCount++;
+        player.rb.linearVelocity = Vector2.zero;
+        player.rb.gravityScale = 0;
+
+        if(player.faceRight) player.rb.AddForce(-player.transform.right * player.dashStrength, ForceMode2D.Impulse);
+        else player.rb.AddForce(player.transform.right * player.dashStrength, ForceMode2D.Impulse);
+
+        dashTimer = 0;
+        player.state = Player.States.Dash;
+
+
+    }
+    public void DashMovement()
+    {
+        dashTimer += Time.deltaTime;
+        if(dashTimer >= player.dashTime)
+        {
+            player.SwitchToAir();
+        }
+    }
+
 }

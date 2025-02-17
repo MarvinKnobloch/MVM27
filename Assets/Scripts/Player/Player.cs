@@ -27,18 +27,19 @@ public class Player : MonoBehaviour
     public LayerMask groundCheckLayer;
 
     [Header("Dash")]
-    public float dashtime;
-    public float dashstrength;
-    public int maxdashstacks;
-    [NonSerialized] public int currentdashstacks;
+    public float dashTime;
+    public float dashStrength;
+    public int maxDashCount;
+    [NonSerialized] public int currentDashCount;
 
     //Animations
     [NonSerialized] public Animator animator;
-    public string currentstate;
+    [NonSerialized] public string currentstate;
 
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
 
+    [Space]
     public States state;
     public enum States
     {
@@ -81,14 +82,14 @@ public class Player : MonoBehaviour
         if (enabled && this.enabled)
         {
             controls.Player.Jump.performed += playerMovement.JumpInput;
-            //controls.Player.Dash.performed += OnDash;
-            //controls.Player.Interact.performed += OnCheat;
+            controls.Player.Dash.performed += playerMovement.DashInput;
+            //controls.Player.Interact.performed += ;
         }
         else
         {
             controls.Player.Jump.performed -= playerMovement.JumpInput;
-            //controls.Player.Dash.performed -= OnDash;
-            //controls.Player.Interact.performed -= OnReset;
+            controls.Player.Dash.performed -= playerMovement.DashInput;
+            //controls.Player.Interact.performed -= ;
         }
     }
     private void FixedUpdate()
@@ -108,7 +109,8 @@ public class Player : MonoBehaviour
             case States.Air:
                 playerMovement.AirMovement();
                 break;
-
+            case States.Dash:
+                break;
         }
     }
     private void Update()
@@ -132,6 +134,9 @@ public class Player : MonoBehaviour
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
+            case States.Dash:
+                playerMovement.DashMovement();
+                break;
 
         }
     }
@@ -143,7 +148,7 @@ public class Player : MonoBehaviour
     public void SwitchToGround()
     {
         rb.gravityScale = baseGravityScale;
-        currentdashstacks = 0;
+        currentDashCount = 0;
         currentJumpCount = 0;
 
         state = States.Ground;
