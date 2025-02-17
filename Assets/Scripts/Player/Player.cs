@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
         Death,
         Emtpy,
     }
-
-
+    private void Awake()
+    {
         controls = Keybindinputmanager.Controls;
         moveInput = controls.Player.Move;
         rb = GetComponent<Rigidbody2D>();

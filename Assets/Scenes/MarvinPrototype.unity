@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 426212178}
   - component: {fileID: 426212177}
   - component: {fileID: 426212176}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Tilemap1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6723,6 +6723,7 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -25,7 +25,6 @@ public class PlayerCollision
                 RaycastHit2D forwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.96f, 0, player.transform.right, 0.2f, player.groundCheckLayer);
                 if (forwardhit)
                 {
-                    Debug.Log("forward");
                     player.playerVelocity.Set(0, player.rb.linearVelocity.y);
                     player.rb.linearVelocity = player.playerVelocity;
                 }
