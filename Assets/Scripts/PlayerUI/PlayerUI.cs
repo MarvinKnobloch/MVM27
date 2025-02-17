@@ -1,16 +1,17 @@
 using UnityEngine;
+using TMPro;
 
 public class PlayerUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject interactionField;
+    [SerializeField] private TextMeshProUGUI interactionText;
 
-    // Update is called once per frame
-    void Update()
+    public void HandleInteractionBox(bool state)
     {
-        
+        interactionField.SetActive(state);
+    }
+    public void InteractionTextUpdate(string text)
+    {
+        interactionText.text = text;
     }
 }

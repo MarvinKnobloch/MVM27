@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using NUnit.Framework;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
@@ -36,6 +39,13 @@ public class Player : MonoBehaviour
     [NonSerialized] public Animator animator;
     [NonSerialized] public string currentstate;
 
+    //Interaction
+    [NonSerialized] public List<IInteractables> interactables = new List<IInteractables>();
+    [NonSerialized] public IInteractables currentInteractable;
+    public IInteractables closestInteraction;
+    private float checkTimer;
+    private float checkInterval = 0.1f;
+
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
 
@@ -52,6 +62,12 @@ public class Player : MonoBehaviour
     }
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+
         controls = Keybindinputmanager.Controls;
         moveInput = controls.Player.Move;
         rb = GetComponent<Rigidbody2D>();
@@ -83,13 +99,13 @@ public class Player : MonoBehaviour
         {
             controls.Player.Jump.performed += playerMovement.JumpInput;
             controls.Player.Dash.performed += playerMovement.DashInput;
-            //controls.Player.Interact.performed += ;
+            controls.Player.Interact.performed += InteractInput;
         }
         else
         {
             controls.Player.Jump.performed -= playerMovement.JumpInput;
             controls.Player.Dash.performed -= playerMovement.DashInput;
-            //controls.Player.Interact.performed -= ;
+            controls.Player.Interact.performed -= InteractInput;
         }
     }
     private void FixedUpdate()
@@ -117,27 +133,27 @@ public class Player : MonoBehaviour
     {
         if (menuController.gameIsPaused) return;
         ReadMovementInput();
+        InteractionUpdate();
         switch (state)
         {
             case States.Emtpy:
                 break;
-                case States.Ground:
+            case States.Ground:
                 playerCollision.GroundCheck();
                 playerMovement.RotatePlayer();
                 break;
-                case States.GroundIntoAir:
+            case States.GroundIntoAir:
                 playerMovement.GroundIntoAirTransition();
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
-                case States.Air:
+            case States.Air:
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
             case States.Dash:
                 playerMovement.DashMovement();
                 break;
-
         }
     }
     private void ReadMovementInput()
@@ -165,7 +181,27 @@ public class Player : MonoBehaviour
 
         state = States.Air;
     }
+    private void InteractInput(InputAction.CallbackContext ctx)
+    {
+        if (currentInteractable == null) return;
 
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            switch (state)
+            {
+                case Player.States.Ground:
+                    currentInteractable.Interaction();
+                    break;
+                case Player.States.GroundIntoAir:
+                    currentInteractable.Interaction();
+                    break;
+                case Player.States.Air:
+                    currentInteractable.Interaction();
+                    break;
+            }
+        }
+    }
     public void ChangeAnimationState(string newstate)
     {
         if (currentstate == newstate) return;
@@ -173,5 +209,51 @@ public class Player : MonoBehaviour
         if (animator == null) return;
 
         animator.CrossFadeInFixedTime(newstate, 0.1f);
+    }
+    public void AddInteraction(IInteractables interactable)
+    {
+        interactables.Add(interactable);
+        GetClosestInteraction();
+        GameManager.Instance.playerUI.HandleInteractionBox(true);
+    }
+    public void RemoveInteraction(IInteractables interactable)
+    {
+        interactables.Remove(interactable);
+        InteractionUpdate();
+    }
+    private void InteractionUpdate()
+    {
+        {
+            if (interactables.Count != 0)
+            {
+                checkTimer += Time.deltaTime;
+                if (checkInterval > checkTimer)
+                {
+                    checkTimer = 0;
+                    GetClosestInteraction();        
+                }
+            }
+            else
+            {
+                currentInteractable = null;
+                GameManager.Instance.playerUI.HandleInteractionBox(false);
+            }
+        }
+    }
+    public void GetClosestInteraction()
+    {
+        float closestDistance = 10f;
+        foreach (IInteractables interaction in Player.Instance.interactables)
+        {
+            float currentDistance;
+            currentDistance = Vector3.Distance(Player.Instance.transform.position, interaction.interactObj.transform.position);
+            if (currentDistance < closestDistance)
+            {
+                closestDistance = currentDistance;
+                closestInteraction = interaction;
+            }
+        }
+        currentInteractable = closestInteraction;
+        GameManager.Instance.playerUI.InteractionTextUpdate(currentInteractable.interactiontext);
     }
 }
