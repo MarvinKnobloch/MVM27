@@ -1,6 +1,5 @@
 using UnityEngine;
 //I know Mervvel is codeing the player I just coded this to test out my enemy State Machine cause there was no code.
-//Strickly here for Joes Testing ***"WHEN DELETED PLEASE LEAVE A COPY"***
 public class Player : MonoBehaviour
 {
     // Singleton instance connection
