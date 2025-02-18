@@ -43,6 +43,10 @@ public class Player : MonoBehaviour
     public float XWallBoostMovement;
     public float YWallBoostStrength;
 
+    [Header("HeavyPunch")]
+    public CircleCollider2D heavyPunchCollider;
+    public LayerMask heavyPunchLayer;
+
     //Animations
     [NonSerialized] public Animator animator;
     [NonSerialized] public string currentstate;
@@ -56,6 +60,7 @@ public class Player : MonoBehaviour
 
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
+    private PlayerAbilties playerAbilties = new PlayerAbilties();
 
     [Space]
     public States state;
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
         Dash,
         WallBoost,
         Death,
+        HeavyPunch,
         Emtpy,
     }
     private void Awake()
@@ -86,6 +92,7 @@ public class Player : MonoBehaviour
 
         playerMovement.player = this;
         playerCollision.player = this;
+        playerAbilties.player = this;
     }
     private void Start()
     {
@@ -110,12 +117,15 @@ public class Player : MonoBehaviour
             controls.Player.Dash.performed += playerMovement.DashInput;
             controls.Player.Interact.performed += InteractInput;
             controls.Player.WallBoost.performed += playerMovement.WallBoostInput;
+            controls.Player.HeavyPunch.performed += playerAbilties.HeavyPunshInput;
         }
         else
         {
             controls.Player.Jump.performed -= playerMovement.JumpInput;
             controls.Player.Dash.performed -= playerMovement.DashInput;
             controls.Player.Interact.performed -= InteractInput;
+            controls.Player.WallBoost.performed -= playerMovement.WallBoostInput;
+            controls.Player.HeavyPunch.performed -= playerAbilties.HeavyPunshInput;
         }
     }
     private void FixedUpdate()
@@ -136,6 +146,8 @@ public class Player : MonoBehaviour
                 playerMovement.AirMovement();
                 break;
             case States.Dash:
+                break;
+            case States.HeavyPunch:
                 break;
         }
     }
@@ -163,6 +175,9 @@ public class Player : MonoBehaviour
                 break;
             case States.Dash:
                 playerMovement.DashMovement();
+                break;
+            case States.HeavyPunch:
+                playerAbilties.HeavyPunch();
                 break;
         }
     }

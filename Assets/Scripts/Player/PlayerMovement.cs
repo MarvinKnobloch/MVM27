@@ -104,13 +104,22 @@ public class PlayerMovement
     {
         if (player.menuController.gameIsPaused) return;
         if (player.currentDashCount >= player.maxDashCount) return;
-        if (player.state == Player.States.Emtpy) return;
-        if (player.state == Player.States.Dash) return;
 
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            StartDash();
+            switch (player.state)
+            {
+                case Player.States.Ground:
+                    StartDash();
+                    break;
+                case Player.States.GroundIntoAir:
+                    StartDash();
+                    break;
+                case Player.States.Air:
+                    StartDash();
+                    break;
+            }
         }
     }
     private void StartDash()

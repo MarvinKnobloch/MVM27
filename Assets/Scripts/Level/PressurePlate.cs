@@ -16,7 +16,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & triggerLayer) != 0)
+        if (Utility.LayerCheck(collision, triggerLayer))
         {
             if(objsOnPlatform.Contains(collision.gameObject) == false)
             {
@@ -34,7 +34,7 @@ public class PressurePlate : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & triggerLayer) != 0)
+        if (Utility.LayerCheck(collision, triggerLayer))
         {
             if (objsOnPlatform.Contains(collision.gameObject) == true)
             {

@@ -135,6 +135,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyPunch"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1f12990-e971-4326-a512-fd84efce55c1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,6 +245,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""WallBoost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aa50b39a-7b77-4234-8ea0-8fec565d4b2d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HeavyPunch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -277,6 +297,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_WallBoost = m_Player.FindAction("WallBoost", throwIfNotFound: true);
+        m_Player_HeavyPunch = m_Player.FindAction("HeavyPunch", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
@@ -366,6 +387,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_WallBoost;
+    private readonly InputAction m_Player_HeavyPunch;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -397,6 +419,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/WallBoost".
         /// </summary>
         public InputAction @WallBoost => m_Wrapper.m_Player_WallBoost;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/HeavyPunch".
+        /// </summary>
+        public InputAction @HeavyPunch => m_Wrapper.m_Player_HeavyPunch;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -438,6 +464,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @WallBoost.started += instance.OnWallBoost;
             @WallBoost.performed += instance.OnWallBoost;
             @WallBoost.canceled += instance.OnWallBoost;
+            @HeavyPunch.started += instance.OnHeavyPunch;
+            @HeavyPunch.performed += instance.OnHeavyPunch;
+            @HeavyPunch.canceled += instance.OnHeavyPunch;
         }
 
         /// <summary>
@@ -464,6 +493,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @WallBoost.started -= instance.OnWallBoost;
             @WallBoost.performed -= instance.OnWallBoost;
             @WallBoost.canceled -= instance.OnWallBoost;
+            @HeavyPunch.started -= instance.OnHeavyPunch;
+            @HeavyPunch.performed -= instance.OnHeavyPunch;
+            @HeavyPunch.canceled -= instance.OnHeavyPunch;
         }
 
         /// <summary>
@@ -635,6 +667,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnWallBoost(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HeavyPunch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHeavyPunch(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.
