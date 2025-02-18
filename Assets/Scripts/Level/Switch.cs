@@ -14,7 +14,7 @@ public class Switch : MonoBehaviour, IInteractables
     private void Awake()
     {
         activateObj = objToControl.GetComponent<IActivate>();
-        activateObj.SetRequirement();
+        //activateObj.SetRequirement();
     }
     public void Interaction()
     {

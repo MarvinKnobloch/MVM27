@@ -8,6 +8,7 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
     private int currentGoals;
     public int requiredGoals;
+    private bool isactiv;
     [SerializeField] private float moveDuration = 1.0f;
     private float timer;
     private float travelTime;
@@ -60,8 +61,9 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     }
     public void CheckRequirements()
     {
-        if (currentGoals >= requiredGoals)
+        if (currentGoals >= requiredGoals && isactiv == false)
         {
+            isactiv = true;
             if (timer != 0)
             {
                 if (fastBack) timer = backDuration - timer;
@@ -80,8 +82,9 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
     public void Deactivate()
     {
-        if (currentGoals == requiredGoals)
+        if (currentGoals == requiredGoals && isactiv)
         {
+            isactiv = false;
             if (timer != 0) timer = moveDuration - timer;
 
             travelTime = moveDuration;

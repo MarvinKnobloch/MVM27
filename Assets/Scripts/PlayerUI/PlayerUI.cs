@@ -14,7 +14,7 @@ public class PlayerUI : MonoBehaviour
     }
     public void HandleInteractionBox(bool state)
     {
-        interactionField.SetActive(state);
+        if(interactionField != null) interactionField.SetActive(state);
     }
     public void InteractionTextUpdate(string text)
     {

@@ -109,13 +109,14 @@ MonoBehaviour:
   groundIntoAirOffset: 0.1
   groundCheckLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   dashTime: 0.3
   dashStrength: 12
   maxDashCount: 2
   canWallBoost: 0
   performedWallBoost: 0
   XWallBoostStrength: 10
+  XWallBoostMovement: 0
   YWallBoostStrength: 10
   state: 0
 --- !u!61 &56580513609240995
