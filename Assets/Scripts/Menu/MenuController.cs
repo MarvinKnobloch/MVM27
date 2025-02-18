@@ -127,30 +127,28 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("NewGame", 1);
 
-        //ResetValues
+        PlayerPrefs.SetFloat("PlayerXSpawn", 1);
+        PlayerPrefs.SetFloat("PlayerYSpawn", 1);
+        PlayerPrefs.SetInt("CurrentLevel", 1);
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void LoadGame()
     {
-        //LoadValues
-
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void ResetPlayer()
     {
-        //LoadValues
-
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void BackToMainMenu()
     {

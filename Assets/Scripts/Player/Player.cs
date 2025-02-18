@@ -93,6 +93,7 @@ public class Player : MonoBehaviour
         playerMovement.player = this;
         playerCollision.player = this;
         playerAbilties.player = this;
+
     }
     private void Start()
     {
