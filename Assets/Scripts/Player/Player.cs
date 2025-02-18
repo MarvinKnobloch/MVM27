@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     [NonSerialized] public Rigidbody2D rb;
     [NonSerialized] public BoxCollider2D playerCollider;
+    [NonSerialized] public Health health;
 
     [Header("Movement")]
     public float movementSpeed;
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
         moveInput = controls.Player.Move;
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        health = GetComponent<Health>();
 
         baseGravityScale = rb.gravityScale;
 
@@ -99,6 +101,8 @@ public class Player : MonoBehaviour
     {
         state = States.Air;
         menuController = GameManager.Instance.menuController;
+
+        if (health != null) health.dieEvent.AddListener(OnDeath);
     }
     private void OnEnable()
     {
@@ -286,5 +290,13 @@ public class Player : MonoBehaviour
         }
         currentInteractable = closestInteraction;
         GameManager.Instance.playerUI.InteractionTextUpdate(currentInteractable.interactiontext);
+    }
+    private void OnDeath()
+    {
+        //animation
+        state = States.Death;
+        rb.linearVelocity = Vector2.zero;
+
+        //trigger GameOver
     }
 }

@@ -41,6 +41,8 @@ public class PressurePlate : MonoBehaviour
                 objsOnPlatform.Remove(collision.gameObject);
                 if (objsOnPlatform.Count == 0)
                 {
+                    if (objToControl == null) return;
+
                     if (objToControl.TryGetComponent(out IActivate iactivate))
                     {
                         iactivate.Deactivate();

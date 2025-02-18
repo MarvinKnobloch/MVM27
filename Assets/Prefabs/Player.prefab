@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5573402502938652071}
   - component: {fileID: 1796597017734716078}
   - component: {fileID: -7011071989602300280}
+  - component: {fileID: 8014953581601795898}
   - component: {fileID: 56580513609240995}
   - component: {fileID: 6082850999215385598}
   m_Layer: 8
@@ -124,6 +125,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1152
   state: 0
+--- !u!114 &8014953581601795898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118283228436607075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1dba10077a6844c8cdd8e455860ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBar: {fileID: 0}
+  HealthBarOffset: 1
+  maxHealth: 10
+  dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!61 &56580513609240995
 BoxCollider2D:
   m_ObjectHideFlags: 0
