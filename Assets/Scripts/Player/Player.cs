@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     private float checkTimer;
     private float checkInterval = 0.1f;
 
+    private PlayerAttack playerAttack;
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
     private PlayerAbilties playerAbilties = new PlayerAbilties();
@@ -74,6 +75,7 @@ public class Player : MonoBehaviour
         WallBoost,
         Death,
         HeavyPunch,
+        Attack,
         Emtpy,
     }
     private void Awake()
@@ -92,6 +94,7 @@ public class Player : MonoBehaviour
 
         baseGravityScale = rb.gravityScale;
 
+        playerAttack = GetComponent<PlayerAttack>();
         playerMovement.player = this;
         playerCollision.player = this;
         playerAbilties.player = this;
@@ -123,6 +126,7 @@ public class Player : MonoBehaviour
             controls.Player.Interact.performed += InteractInput;
             controls.Player.WallBoost.performed += playerMovement.WallBoostInput;
             controls.Player.HeavyPunch.performed += playerAbilties.HeavyPunshInput;
+            controls.Player.Attack.performed += playerAttack.AttackInput;
         }
         else
         {
@@ -153,6 +157,8 @@ public class Player : MonoBehaviour
             case States.Dash:
                 break;
             case States.HeavyPunch:
+                break;
+            case States.Attack:
                 break;
         }
     }

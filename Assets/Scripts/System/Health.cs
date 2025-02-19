@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     //Values
     [Header("Values")]
     [SerializeField] private int maxHealth = 1;
-    private int currentHealth;
+    [SerializeField] private int currentHealth;
     private int baseHealth;
 
     [HideInInspector]
