@@ -153,6 +153,33 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Element1"",
+                    ""type"": ""Button"",
+                    ""id"": ""723c1454-3f2b-453e-a515-320d62c48390"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Element2"",
+                    ""type"": ""Button"",
+                    ""id"": ""365f9a11-3b66-403e-8c28-6c6a45f6783b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Element3"",
+                    ""type"": ""Button"",
+                    ""id"": ""04b7c317-bcba-4d37-9314-fc465b3c9f12"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -276,6 +303,39 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f96413da-ec46-4584-a379-b2244db8e1ce"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Element1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03b20dc2-9189-453f-984f-3c41b96f46bb"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Element2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a2fcd1d-5b7c-4f94-a37c-46dac114f0a5"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Element3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -319,6 +379,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_WallBoost = m_Player.FindAction("WallBoost", throwIfNotFound: true);
         m_Player_HeavyPunch = m_Player.FindAction("HeavyPunch", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_Element1 = m_Player.FindAction("Element1", throwIfNotFound: true);
+        m_Player_Element2 = m_Player.FindAction("Element2", throwIfNotFound: true);
+        m_Player_Element3 = m_Player.FindAction("Element3", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
@@ -410,6 +473,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WallBoost;
     private readonly InputAction m_Player_HeavyPunch;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_Element1;
+    private readonly InputAction m_Player_Element2;
+    private readonly InputAction m_Player_Element3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -449,6 +515,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Element1".
+        /// </summary>
+        public InputAction @Element1 => m_Wrapper.m_Player_Element1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Element2".
+        /// </summary>
+        public InputAction @Element2 => m_Wrapper.m_Player_Element2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Element3".
+        /// </summary>
+        public InputAction @Element3 => m_Wrapper.m_Player_Element3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -496,6 +574,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @Element1.started += instance.OnElement1;
+            @Element1.performed += instance.OnElement1;
+            @Element1.canceled += instance.OnElement1;
+            @Element2.started += instance.OnElement2;
+            @Element2.performed += instance.OnElement2;
+            @Element2.canceled += instance.OnElement2;
+            @Element3.started += instance.OnElement3;
+            @Element3.performed += instance.OnElement3;
+            @Element3.canceled += instance.OnElement3;
         }
 
         /// <summary>
@@ -528,6 +615,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @Element1.started -= instance.OnElement1;
+            @Element1.performed -= instance.OnElement1;
+            @Element1.canceled -= instance.OnElement1;
+            @Element2.started -= instance.OnElement2;
+            @Element2.performed -= instance.OnElement2;
+            @Element2.canceled -= instance.OnElement2;
+            @Element3.started -= instance.OnElement3;
+            @Element3.performed -= instance.OnElement3;
+            @Element3.canceled -= instance.OnElement3;
         }
 
         /// <summary>
@@ -713,6 +809,27 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Element1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnElement1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Element2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnElement2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Element3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnElement3(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.

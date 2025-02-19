@@ -42,4 +42,54 @@ public class PlayerAbilties
         }
         player.SwitchToAir();
     }
+    public void FirstElementInput(InputAction.CallbackContext ctx)
+    {
+        if (player.menuController.gameIsPaused) return;
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            CheckElementalSwitch(0);
+        }
+    }
+    public void SecondElementInput(InputAction.CallbackContext ctx)
+    {
+        if (player.menuController.gameIsPaused) return;
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            CheckElementalSwitch(1);
+        }
+    }
+    public void ThirdElementInput(InputAction.CallbackContext ctx)
+    {
+        if (player.menuController.gameIsPaused) return;
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            CheckElementalSwitch(2);
+        }
+    }
+    private void CheckElementalSwitch(int slot)
+    {
+        if (player.currentElementNumber == slot) return;
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                ElementalSwitch(slot);
+                break;
+            case Player.States.GroundIntoAir:
+                ElementalSwitch(slot);
+                break;
+            case Player.States.Air:
+                ElementalSwitch(slot);
+                break;
+        }
+    }
+    public void ElementalSwitch(int slot)
+    {
+        player.elementalSprite[player.currentElementNumber].SetActive(false);
+
+        player.currentElementNumber = slot;
+        player.elementalSprite[player.currentElementNumber].SetActive(true);
+    }
 }

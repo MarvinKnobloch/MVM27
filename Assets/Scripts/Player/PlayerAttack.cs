@@ -9,14 +9,19 @@ public class PlayerAttack : MonoBehaviour
     private Player player;
     private Controls controls;
 
+    [SerializeField] private int maxComboLength;
     [SerializeField] private AttackValues[] attacks;
     [SerializeField] private LayerMask enemyLayer;
+
     private float attackTimer;
     private float currentAttackTime;
     private float currentBufferTime;
 
-    private int currentChainAttackNumber;
+    private int currentAttackNumber;
+    private int nextAttackNumber;
     private bool chainAttack;
+
+    private int elementalSwitchNumber;
 
     private void Awake()
     {
@@ -51,28 +56,35 @@ public class PlayerAttack : MonoBehaviour
             switch (player.state)
             {
                 case Player.States.Ground:
-                    StartAttack(0);
+                    currentAttackNumber = 0;
+                    nextAttackNumber = 0;
+                    StartAttack();
                     break;
                 case Player.States.GroundIntoAir:
-                    StartAttack(0);
+                    currentAttackNumber = 0;
+                    nextAttackNumber = 0;
+                    StartAttack();
                     break;
                 case Player.States.Air:
-                    StartAttack(0);
+                    currentAttackNumber = 0;
+                    nextAttackNumber = 0;
+                    StartAttack();
                     break;
             }
         }
     }
-    private void StartAttack(int attackComboNumber)
+    private void StartAttack()
     {
         player.rb.linearVelocity = Vector2.zero;
         player.rb.gravityScale = 0;
         player.state = Player.States.Attack;
 
-        currentChainAttackNumber = attackComboNumber;
         chainAttack = false;
         attackTimer = 0;
-        currentAttackTime = attacks[currentChainAttackNumber].attackLength;
-        currentBufferTime = attacks[currentChainAttackNumber].attackLength - attacks[currentChainAttackNumber].inputBuffer;
+        currentAttackTime = attacks[currentAttackNumber].attackLength;
+        currentBufferTime = attacks[currentAttackNumber].attackLength - attacks[currentAttackNumber].inputBuffer;
+
+        elementalSwitchNumber = -1;
 
         state = States.Attack;
     }
@@ -81,17 +93,56 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
         if(attackTimer > currentBufferTime)
         {
-            if (controls.Player.Attack.WasPerformedThisFrame() && currentChainAttackNumber < attacks.Length)
+            if(currentAttackNumber < (maxComboLength -1) && chainAttack == false)
             {
-                chainAttack = true;
+                if (controls.Player.Attack.WasPerformedThisFrame())
+                {
+                    nextAttackNumber++;
+                    chainAttack = true;
+                }
+                else if (controls.Player.Element1.WasPerformedThisFrame())
+                {
+                    if(player.currentElementNumber != 0)
+                    {
+                        Debug.Log("NonElement");
+                        nextAttackNumber = 3;
+                        chainAttack = true;
+                        elementalSwitchNumber = 0;
+                    }
+                }
+                else if (controls.Player.Element2.WasPerformedThisFrame())
+                {
+                    if (player.currentElementNumber != 1)
+                    {
+                        Debug.Log("FireElement");
+                        nextAttackNumber = 4;
+                        chainAttack = true;
+                        elementalSwitchNumber = 1;
+                    }
+                }
+                else if (controls.Player.Element3.WasPerformedThisFrame())
+                {
+                    if (player.currentElementNumber != 2)
+                    {
+                        Debug.Log("AirElement");
+                        nextAttackNumber = 5;
+                        chainAttack = true;
+                        elementalSwitchNumber = 2;
+                    }
+                }
             }
-
             if(attackTimer > currentAttackTime)
             {
                 DealDamage();
                 if (chainAttack == true)
                 {
-                    StartAttack(currentChainAttackNumber + 1);
+                    if(elementalSwitchNumber != -1)
+                    {
+                        Debug.Log("number:" + elementalSwitchNumber);
+                        player.playerAbilties.ElementalSwitch(elementalSwitchNumber);
+                    }
+                    currentAttackNumber = nextAttackNumber;
+                    StartAttack();
                 }
                 else
                 {
@@ -104,13 +155,14 @@ public class PlayerAttack : MonoBehaviour
     }
     private void DealDamage()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentChainAttackNumber].attackCollider.bounds.center, attacks[currentChainAttackNumber].attackCollider.radius, enemyLayer);
+        Debug.Log(currentAttackNumber);
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, enemyLayer);
 
         foreach (Collider2D col in collider)
         {
             if (col.TryGetComponent(out Health health))
             {
-                health.TakeDamage(attacks[currentChainAttackNumber].damage);
+                health.TakeDamage(attacks[currentAttackNumber].damage);
             }
         }
     }

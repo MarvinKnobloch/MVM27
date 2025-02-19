@@ -48,6 +48,10 @@ public class Player : MonoBehaviour
     public CircleCollider2D heavyPunchCollider;
     public LayerMask heavyPunchLayer;
 
+    [Header("ElementalSwitch")]
+    public GameObject[] elementalSprite;
+    [NonSerialized] public int currentElementNumber;
+
     //Animations
     [NonSerialized] public Animator animator;
     [NonSerialized] public string currentstate;
@@ -62,7 +66,7 @@ public class Player : MonoBehaviour
     private PlayerAttack playerAttack;
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
-    private PlayerAbilties playerAbilties = new PlayerAbilties();
+    [NonSerialized] public PlayerAbilties playerAbilties = new PlayerAbilties();
 
     [Space]
     public States state;
@@ -127,6 +131,9 @@ public class Player : MonoBehaviour
             controls.Player.WallBoost.performed += playerMovement.WallBoostInput;
             controls.Player.HeavyPunch.performed += playerAbilties.HeavyPunshInput;
             controls.Player.Attack.performed += playerAttack.AttackInput;
+            controls.Player.Element1.performed += playerAbilties.FirstElementInput;
+            controls.Player.Element2.performed += playerAbilties.SecondElementInput;
+            controls.Player.Element3.performed += playerAbilties.ThirdElementInput;
         }
         else
         {
@@ -135,6 +142,9 @@ public class Player : MonoBehaviour
             controls.Player.Interact.performed -= InteractInput;
             controls.Player.WallBoost.performed -= playerMovement.WallBoostInput;
             controls.Player.HeavyPunch.performed -= playerAbilties.HeavyPunshInput;
+            controls.Player.Element1.performed -= playerAbilties.FirstElementInput;
+            controls.Player.Element2.performed -= playerAbilties.SecondElementInput;
+            controls.Player.Element3.performed -= playerAbilties.ThirdElementInput;
         }
     }
     private void FixedUpdate()
