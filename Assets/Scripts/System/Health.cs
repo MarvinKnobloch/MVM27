@@ -10,8 +10,8 @@ public class Health : MonoBehaviour
 
     //Enemy
     [Header("EnemyHealthbar")]
-    public RectTransform HealthBar;
-    [NonSerialized] public Image HealthBarImage;
+    public GameObject HealthBarBackground;
+    public Image HealthBarImage;
     public float HealthBarOffset = 1f;
 
     //Values
@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
     {
         baseHealth = maxHealth;
 
-        if (HealthBar != null) HealthBarImage = HealthBar.GetComponent<Image>();
+        if (HealthBarBackground != null) HealthBarImage = HealthBarBackground.transform.GetChild(0).GetComponent<Image>();
         currentHealth = maxHealth;
 
         if (gameObject == Player.Instance.gameObject)
@@ -53,16 +53,16 @@ public class Health : MonoBehaviour
 
     void LateUpdate()
     {
-        if (HealthBar == null) return;
-        var healthBarRotation = HealthBar.rotation;
+        if (HealthBarBackground == null) return;
+        var healthBarRotation = HealthBarBackground.transform.rotation;
         healthBarRotation.SetLookRotation(transform.forward * -1);
-        HealthBar.rotation = healthBarRotation;
+        HealthBarBackground.transform.rotation = healthBarRotation;
 
-        var healthBarPosition = HealthBar.position;
+        var healthBarPosition = HealthBarBackground.transform.position;
         healthBarPosition.x = transform.position.x;
         healthBarPosition.y = transform.position.y + HealthBarOffset;
         healthBarPosition.z = transform.position.z;
-        HealthBar.position = healthBarPosition;
+        HealthBarBackground.transform.position = healthBarPosition;
     }
 
     public void TakeDamage(int amount)
@@ -102,9 +102,10 @@ public class Health : MonoBehaviour
     }
     private void EnemyHealthbarUpdate()
     {
-        if (HealthBar != null)
+        if (HealthBarBackground != null)
         {
-            HealthBar.sizeDelta = new Vector2(2 * ((float)currentHealth / maxHealth), HealthBar.sizeDelta.y);
+            Debug.Log(Value +"/" + MaxValue);
+            HealthBarImage.fillAmount = (float)Value / MaxValue;
         }
     }
 }
