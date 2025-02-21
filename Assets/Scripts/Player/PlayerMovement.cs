@@ -1,7 +1,5 @@
-using System.Net.NetworkInformation;
-using NUnit.Framework.Constraints;
-using Unity.IO.LowLevel.Unsafe;
-using Unity.VisualScripting;
+
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +7,12 @@ public class PlayerMovement
 {
     public Player player;
     private float dashTimer;
+
+    const string idleState = "PlayerIdle";
+    const string runState = "PlayerRun";
+    const string jumpState = "PlayerJump";
+    const string fallState = "PlayerFall";
+    const string dashState = "PlayerDash";
 
     public void PlayerMove(float grounddrag)
     {
@@ -21,17 +25,17 @@ public class PlayerMovement
         player.rb.linearVelocity = player.playerVelocity;
 
         //Animation
-        //if (player.state == Player.States.Ground)
-        //{
-        //    if (player.moveDirection == Vector2.zero)
-        //    {
-        //        player.ChangeAnimationState(idlestate);
-        //    }
-        //    else
-        //    {
-        //        player.ChangeAnimationState(walkstate);
-        //    }
-        //}
+        if (player.state == Player.States.Ground)
+        {
+            if (player.moveDirection == Vector2.zero)
+            {
+                player.ChangeAnimationState(idleState);
+            }
+            else
+            {
+                player.ChangeAnimationState(runState);
+            }
+        }
     }
     public void GroundMovement()
     {
@@ -54,7 +58,7 @@ public class PlayerMovement
         if (player.rb.linearVelocity.y < 2)
         {
             //Animation
-            //player.ChangeAnimationState(fallstate);
+            player.ChangeAnimationState(fallState);
         }
     }
     public void RotatePlayer()
@@ -98,6 +102,8 @@ public class PlayerMovement
         player.rb.linearVelocity = Vector2.zero;
         player.rb.AddForce(new Vector2(0, player.jumpStrength), ForceMode2D.Impulse);
 
+        player.ChangeAnimationState(jumpState);
+
         if(player.state != Player.States.Air) player.SwitchGroundIntoAir();
     }
     public void DashInput(InputAction.CallbackContext ctx)
@@ -131,6 +137,7 @@ public class PlayerMovement
         if(player.faceRight) player.rb.AddForce(-player.transform.right * player.dashStrength, ForceMode2D.Impulse);
         else player.rb.AddForce(player.transform.right * player.dashStrength, ForceMode2D.Impulse);
 
+        player.ChangeAnimationState(dashState);
         dashTimer = 0;
         player.state = Player.States.Dash;
 

@@ -53,7 +53,9 @@ public class Player : MonoBehaviour
     [NonSerialized] public int currentElementNumber;
 
     //Animations
-    [NonSerialized] public Animator animator;
+
+    public Animator[] elementalAnimator;
+    [NonSerialized] public Animator currentAnimator;
     [NonSerialized] public string currentstate;
 
     //Interaction
@@ -96,6 +98,7 @@ public class Player : MonoBehaviour
         playerCollider = GetComponent<BoxCollider2D>();
         health = GetComponent<Health>();
 
+        currentAnimator = elementalAnimator[0];
         baseGravityScale = rb.gravityScale;
 
         playerAttack = GetComponent<PlayerAttack>();
@@ -257,9 +260,9 @@ public class Player : MonoBehaviour
     {
         if (currentstate == newstate) return;
         currentstate = newstate;
-        if (animator == null) return;
+        if (currentAnimator == null) return;
 
-        animator.CrossFadeInFixedTime(newstate, 0.1f);
+        currentAnimator.CrossFadeInFixedTime(newstate, 0.1f);
     }
     public void AddInteraction(IInteractables interactable)
     {

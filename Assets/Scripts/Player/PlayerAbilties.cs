@@ -89,6 +89,7 @@ public class PlayerAbilties
     {
         player.elementalSprite[player.currentElementNumber].SetActive(false);
 
+        player.currentAnimator = player.elementalAnimator[slot];
         player.currentElementNumber = slot;
         player.elementalSprite[player.currentElementNumber].SetActive(true);
     }

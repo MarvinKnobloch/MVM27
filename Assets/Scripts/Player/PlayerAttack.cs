@@ -23,6 +23,18 @@ public class PlayerAttack : MonoBehaviour
 
     private int elementalSwitchNumber;
 
+    //Animationen
+    public enum PlayerAnimations
+    {
+        PlayerAttack1,
+        PlayerAttack2,
+        PlayerAttack3,
+
+    }
+        
+
+    
+
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -85,6 +97,7 @@ public class PlayerAttack : MonoBehaviour
         currentBufferTime = attacks[currentAttackNumber].attackLength - attacks[currentAttackNumber].inputBuffer;
 
         elementalSwitchNumber = -1;
+        player.ChangeAnimationState(attacks[currentAttackNumber].animations.ToString());
 
         state = States.Attack;
     }
@@ -175,5 +188,6 @@ public class PlayerAttack : MonoBehaviour
         public float inputBuffer;
         public int damage;
         public CircleCollider2D attackCollider;
+        public PlayerAnimations animations;
     }
 }
