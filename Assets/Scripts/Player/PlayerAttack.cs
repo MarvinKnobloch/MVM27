@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackTimer;
     private float currentAttackTime;
     private float currentBufferTime;
+    private bool readInput;
 
     private int currentAttackNumber;
     private int nextAttackNumber;
@@ -31,10 +32,6 @@ public class PlayerAttack : MonoBehaviour
         PlayerAttack3,
 
     }
-        
-
-    
-
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -55,7 +52,8 @@ public class PlayerAttack : MonoBehaviour
             case States.Empty:
                 break;
             case States.Attack:
-                Attack();
+                //Attack();
+                InputBuffer();
                 break;
         }
     }
@@ -92,6 +90,7 @@ public class PlayerAttack : MonoBehaviour
         player.state = Player.States.Attack;
 
         chainAttack = false;
+        readInput = false;
         attackTimer = 0;
         currentAttackTime = attacks[currentAttackNumber].attackLength;
         currentBufferTime = attacks[currentAttackNumber].attackLength - attacks[currentAttackNumber].inputBuffer;
@@ -106,69 +105,80 @@ public class PlayerAttack : MonoBehaviour
         attackTimer += Time.deltaTime;
         if(attackTimer > currentBufferTime)
         {
-            if(currentAttackNumber < (maxComboLength -1) && chainAttack == false)
-            {
-                if (controls.Player.Attack.WasPerformedThisFrame())
-                {
-                    nextAttackNumber++;
-                    chainAttack = true;
-                }
-                else if (controls.Player.Element1.WasPerformedThisFrame())
-                {
-                    if(player.currentElementNumber != 0)
-                    {
-                        Debug.Log("NonElement");
-                        nextAttackNumber = 3;
-                        chainAttack = true;
-                        elementalSwitchNumber = 0;
-                    }
-                }
-                else if (controls.Player.Element2.WasPerformedThisFrame())
-                {
-                    if (player.currentElementNumber != 1)
-                    {
-                        Debug.Log("FireElement");
-                        nextAttackNumber = 4;
-                        chainAttack = true;
-                        elementalSwitchNumber = 1;
-                    }
-                }
-                else if (controls.Player.Element3.WasPerformedThisFrame())
-                {
-                    if (player.currentElementNumber != 2)
-                    {
-                        Debug.Log("AirElement");
-                        nextAttackNumber = 5;
-                        chainAttack = true;
-                        elementalSwitchNumber = 2;
-                    }
-                }
-            }
+            InputBuffer();
             if(attackTimer > currentAttackTime)
             {
-                DealDamage();
-                if (chainAttack == true)
+                ExecuteAttack();
+            }
+        }
+    }
+    public void ActivateInputBuffer()
+    {
+        readInput = true;
+    }
+    private void InputBuffer()
+    {
+        if (readInput == false) return;
+
+        if (currentAttackNumber < (maxComboLength - 1) && chainAttack == false)
+        {
+            if (controls.Player.Attack.WasPerformedThisFrame())
+            {
+                nextAttackNumber++;
+                chainAttack = true;
+            }
+            else if (controls.Player.Element1.WasPerformedThisFrame())
+            {
+                if (player.currentElementNumber != 0)
                 {
-                    if(elementalSwitchNumber != -1)
-                    {
-                        Debug.Log("number:" + elementalSwitchNumber);
-                        player.playerAbilties.ElementalSwitch(elementalSwitchNumber);
-                    }
-                    currentAttackNumber = nextAttackNumber;
-                    StartAttack();
-                }
-                else
-                {
-                    state = States.Empty;
-                    player.SwitchToAir();
+                    nextAttackNumber = 3;
+                    chainAttack = true;
+                    elementalSwitchNumber = 0;
                 }
             }
+            else if (controls.Player.Element2.WasPerformedThisFrame())
+            {
+                if (player.currentElementNumber != 1)
+                {
+                    nextAttackNumber = 4;
+                    chainAttack = true;
+                    elementalSwitchNumber = 1;
+                }
+            }
+            else if (controls.Player.Element3.WasPerformedThisFrame())
+            {
+                if (player.currentElementNumber != 2)
+                {
+                    nextAttackNumber = 5;
+                    chainAttack = true;
+                    elementalSwitchNumber = 2;
+                }
+            }
+        }
+    }
+    public void ExecuteAttack()
+    {
+        if (player.state != Player.States.Attack) return;
 
+        DealDamage();
+        if (chainAttack == true)
+        {
+            if (elementalSwitchNumber != -1)
+            {
+                Debug.Log("number:" + elementalSwitchNumber);
+                player.playerAbilties.ElementalSwitch(elementalSwitchNumber);
+            }
+            currentAttackNumber = nextAttackNumber;
+            StartAttack();
+        }
+        else
+        {
+            state = States.Empty;
+            player.SwitchToAir();
         }
     }
     private void DealDamage()
     {
-        Debug.Log(currentAttackNumber);
         Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, enemyLayer);
 
         foreach (Collider2D col in collider)
