@@ -25,6 +25,7 @@ public class PlayerAttack : MonoBehaviour
     private int elementalSwitchNumber;
 
     //Animationen
+    const string idleState = "PlayerIdle";
     public enum PlayerAnimations
     {
         PlayerAttack1,
@@ -174,6 +175,8 @@ public class PlayerAttack : MonoBehaviour
         else
         {
             state = States.Empty;
+
+            player.ChangeAnimationState(idleState);
             player.SwitchToAir();
         }
     }
