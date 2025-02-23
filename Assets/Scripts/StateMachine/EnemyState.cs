@@ -1,6 +1,8 @@
-public interface EnemyState
+using UnityEngine;
+
+public abstract class EnemyState
 {
-	void EnterState(FlyingEnemy enemy);
-	void UpdateState(FlyingEnemy enemy);
-	void ExitState(FlyingEnemy enemy);
+    public abstract void EnterState(FlyingEnemy enemy);
+    public abstract void UpdateState(FlyingEnemy enemy);
+    public abstract void ExitState(FlyingEnemy enemy);
 }
