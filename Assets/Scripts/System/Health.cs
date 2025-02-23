@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         if (amount == 0) return;
+        if (Value <= 0) return;
 
         Value -= amount;
 
@@ -85,7 +86,8 @@ public class Health : MonoBehaviour
         {
             StopAllCoroutines();
             dieEvent?.Invoke();
-            Destroy(gameObject);
+
+            if (gameObject != Player.Instance.gameObject) Destroy(gameObject);
         }
     }
     public void Heal(int amount)

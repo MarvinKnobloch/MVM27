@@ -145,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 5671523034248590954, guid: 7df94611f891c1c4fa48b5bddb3cbf0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBarBackground: {fileID: 0}
-  HealthBarImage: {fileID: 0}
   HealthBarOffset: 1
   maxHealth: 10
   currentHealth: 0
@@ -491,7 +490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 5671523034248590954, guid: 7df94611f891c1c4fa48b5bddb3cbf0f, type: 3}
   m_Color: {r: 0.5377358, g: 0.022828398, b: 0.022828398, a: 1}
   m_FlipX: 0
@@ -614,7 +613,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 5671523034248590954, guid: 7df94611f891c1c4fa48b5bddb3cbf0f, type: 3}
   m_Color: {r: 0.13006213, g: 0.7169812, b: 0, a: 1}
   m_FlipX: 0

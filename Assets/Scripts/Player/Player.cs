@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
     public Animator[] elementalAnimator;
     [NonSerialized] public Animator currentAnimator;
     [NonSerialized] public string currentstate;
+    const string deathState = "PlayerDeath";
 
     //Interaction
     [NonSerialized] public List<IInteractables> interactables = new List<IInteractables>();
@@ -315,9 +317,17 @@ public class Player : MonoBehaviour
     private void OnDeath()
     {
         //animation
-        state = States.Death;
+        playerAttack.state = PlayerAttack.States.Empty;
         rb.linearVelocity = Vector2.zero;
+        ChangeAnimationState(deathState);
+        state = States.Death;
 
         //trigger GameOver
+    }
+    public void RestartGame()
+    {
+        menuController.gameIsPaused = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
 }
