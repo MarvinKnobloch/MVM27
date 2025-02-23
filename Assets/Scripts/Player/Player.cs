@@ -130,10 +130,10 @@ public class Player : MonoBehaviour
         {
             controls.Player.Jump.performed += playerMovement.JumpInput;
             controls.Player.Dash.performed += playerMovement.DashInput;
-            controls.Player.Interact.performed += InteractInput;
-            controls.Player.WallBoost.performed += playerMovement.WallBoostInput;
-            controls.Player.HeavyPunch.performed += playerAbilties.HeavyPunshInput;
             controls.Player.Attack.performed += playerAttack.AttackInput;
+            controls.Player.Interact.performed += InteractInput;
+            controls.Player.ElementAbility1.performed += playerAbilties.HeavyPunshInput;
+            controls.Player.ElementAbility2.performed += playerMovement.WallBoostInput;
             controls.Player.Element1.performed += playerAbilties.FirstElementInput;
             controls.Player.Element2.performed += playerAbilties.SecondElementInput;
             controls.Player.Element3.performed += playerAbilties.ThirdElementInput;
@@ -142,9 +142,10 @@ public class Player : MonoBehaviour
         {
             controls.Player.Jump.performed -= playerMovement.JumpInput;
             controls.Player.Dash.performed -= playerMovement.DashInput;
+            controls.Player.Attack.performed -= playerAttack.AttackInput;
             controls.Player.Interact.performed -= InteractInput;
-            controls.Player.WallBoost.performed -= playerMovement.WallBoostInput;
-            controls.Player.HeavyPunch.performed -= playerAbilties.HeavyPunshInput;
+            controls.Player.ElementAbility1.performed -= playerAbilties.HeavyPunshInput;
+            controls.Player.ElementAbility2.performed -= playerMovement.WallBoostInput;
             controls.Player.Element1.performed -= playerAbilties.FirstElementInput;
             controls.Player.Element2.performed -= playerAbilties.SecondElementInput;
             controls.Player.Element3.performed -= playerAbilties.ThirdElementInput;
@@ -216,6 +217,7 @@ public class Player : MonoBehaviour
         currentDashCount = 0;
         currentJumpCount = 0;
 
+        playerAttack.airAttackPerformed = false;
         canWallBoost = false;
         performedWallBoost = false;
         XWallBoostMovement = 0;

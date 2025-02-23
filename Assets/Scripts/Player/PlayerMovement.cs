@@ -60,6 +60,10 @@ public class PlayerMovement
             //Animation
             player.ChangeAnimationState(fallState);
         }
+        else
+        {
+            player.ChangeAnimationState(jumpState);
+        }
     }
     public void RotatePlayer()
     {
@@ -102,7 +106,7 @@ public class PlayerMovement
         player.rb.linearVelocity = Vector2.zero;
         player.rb.AddForce(new Vector2(0, player.jumpStrength), ForceMode2D.Impulse);
 
-        player.ChangeAnimationState(jumpState);
+        //player.ChangeAnimationState(jumpState);
 
         if(player.state != Player.States.Air) player.SwitchGroundIntoAir();
     }

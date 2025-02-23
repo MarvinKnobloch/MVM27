@@ -42,18 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WallBoost",
+                    "name": "ElementAbility1",
                     "type": "Button",
-                    "id": "2c5330cb-308c-4c9a-b76f-a6e93655b7f3",
+                    "id": "d1f12990-e971-4326-a512-fd84efce55c1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HeavyPunch",
+                    "name": "ElementAbility2",
                     "type": "Button",
-                    "id": "d1f12990-e971-4326-a512-fd84efce55c1",
+                    "id": "2c5330cb-308c-4c9a-b76f-a6e93655b7f3",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -90,6 +90,15 @@
                     "name": "Element3",
                     "type": "Button",
                     "id": "04b7c317-bcba-4d37-9314-fc465b3c9f12",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ElementOverflow",
+                    "type": "Button",
+                    "id": "b99b7bb8-c2a2-467f-a99e-4b2e330f4659",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -166,7 +175,7 @@
                 {
                     "name": "",
                     "id": "24dbdecf-d17c-4df3-801a-d99c5262c4a0",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -188,11 +197,11 @@
                 {
                     "name": "",
                     "id": "8e5ca293-787a-4cd8-b376-11dc9e5247ee",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "WallBoost",
+                    "action": "ElementAbility2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -203,14 +212,14 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "HeavyPunch",
+                    "action": "ElementAbility1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "a5377cbc-c07d-4872-8406-270caa20a632",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -248,6 +257,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Element3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2106628a-838e-4f87-a4a4-117b3920d4c9",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ElementOverflow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

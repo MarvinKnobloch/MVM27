@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     //Enemy
     [Header("EnemyHealthbar")]
     public GameObject HealthBarBackground;
-    public Image HealthBarImage;
+    private Image HealthBarImage;
     public float HealthBarOffset = 1f;
 
     //Values

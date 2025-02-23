@@ -128,18 +128,18 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""WallBoost"",
+                    ""name"": ""ElementAbility1"",
                     ""type"": ""Button"",
-                    ""id"": ""2c5330cb-308c-4c9a-b76f-a6e93655b7f3"",
+                    ""id"": ""d1f12990-e971-4326-a512-fd84efce55c1"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HeavyPunch"",
+                    ""name"": ""ElementAbility2"",
                     ""type"": ""Button"",
-                    ""id"": ""d1f12990-e971-4326-a512-fd84efce55c1"",
+                    ""id"": ""2c5330cb-308c-4c9a-b76f-a6e93655b7f3"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -176,6 +176,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""Element3"",
                     ""type"": ""Button"",
                     ""id"": ""04b7c317-bcba-4d37-9314-fc465b3c9f12"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ElementOverflow"",
+                    ""type"": ""Button"",
+                    ""id"": ""b99b7bb8-c2a2-467f-a99e-4b2e330f4659"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -252,7 +261,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""24dbdecf-d17c-4df3-801a-d99c5262c4a0"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -274,11 +283,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8e5ca293-787a-4cd8-b376-11dc9e5247ee"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WallBoost"",
+                    ""action"": ""ElementAbility2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -289,14 +298,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""HeavyPunch"",
+                    ""action"": ""ElementAbility1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""a5377cbc-c07d-4872-8406-270caa20a632"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -334,6 +343,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Element3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2106628a-838e-4f87-a4a4-117b3920d4c9"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ElementOverflow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -376,12 +396,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_WallBoost = m_Player.FindAction("WallBoost", throwIfNotFound: true);
-        m_Player_HeavyPunch = m_Player.FindAction("HeavyPunch", throwIfNotFound: true);
+        m_Player_ElementAbility1 = m_Player.FindAction("ElementAbility1", throwIfNotFound: true);
+        m_Player_ElementAbility2 = m_Player.FindAction("ElementAbility2", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Element1 = m_Player.FindAction("Element1", throwIfNotFound: true);
         m_Player_Element2 = m_Player.FindAction("Element2", throwIfNotFound: true);
         m_Player_Element3 = m_Player.FindAction("Element3", throwIfNotFound: true);
+        m_Player_ElementOverflow = m_Player.FindAction("ElementOverflow", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
@@ -470,12 +491,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Dash;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_WallBoost;
-    private readonly InputAction m_Player_HeavyPunch;
+    private readonly InputAction m_Player_ElementAbility1;
+    private readonly InputAction m_Player_ElementAbility2;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Element1;
     private readonly InputAction m_Player_Element2;
     private readonly InputAction m_Player_Element3;
+    private readonly InputAction m_Player_ElementOverflow;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -504,13 +526,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Player/WallBoost".
+        /// Provides access to the underlying input action "Player/ElementAbility1".
         /// </summary>
-        public InputAction @WallBoost => m_Wrapper.m_Player_WallBoost;
+        public InputAction @ElementAbility1 => m_Wrapper.m_Player_ElementAbility1;
         /// <summary>
-        /// Provides access to the underlying input action "Player/HeavyPunch".
+        /// Provides access to the underlying input action "Player/ElementAbility2".
         /// </summary>
-        public InputAction @HeavyPunch => m_Wrapper.m_Player_HeavyPunch;
+        public InputAction @ElementAbility2 => m_Wrapper.m_Player_ElementAbility2;
         /// <summary>
         /// Provides access to the underlying input action "Player/Attack".
         /// </summary>
@@ -527,6 +549,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Element3".
         /// </summary>
         public InputAction @Element3 => m_Wrapper.m_Player_Element3;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ElementOverflow".
+        /// </summary>
+        public InputAction @ElementOverflow => m_Wrapper.m_Player_ElementOverflow;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -565,12 +591,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @WallBoost.started += instance.OnWallBoost;
-            @WallBoost.performed += instance.OnWallBoost;
-            @WallBoost.canceled += instance.OnWallBoost;
-            @HeavyPunch.started += instance.OnHeavyPunch;
-            @HeavyPunch.performed += instance.OnHeavyPunch;
-            @HeavyPunch.canceled += instance.OnHeavyPunch;
+            @ElementAbility1.started += instance.OnElementAbility1;
+            @ElementAbility1.performed += instance.OnElementAbility1;
+            @ElementAbility1.canceled += instance.OnElementAbility1;
+            @ElementAbility2.started += instance.OnElementAbility2;
+            @ElementAbility2.performed += instance.OnElementAbility2;
+            @ElementAbility2.canceled += instance.OnElementAbility2;
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
@@ -583,6 +609,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started += instance.OnElement3;
             @Element3.performed += instance.OnElement3;
             @Element3.canceled += instance.OnElement3;
+            @ElementOverflow.started += instance.OnElementOverflow;
+            @ElementOverflow.performed += instance.OnElementOverflow;
+            @ElementOverflow.canceled += instance.OnElementOverflow;
         }
 
         /// <summary>
@@ -606,12 +635,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @WallBoost.started -= instance.OnWallBoost;
-            @WallBoost.performed -= instance.OnWallBoost;
-            @WallBoost.canceled -= instance.OnWallBoost;
-            @HeavyPunch.started -= instance.OnHeavyPunch;
-            @HeavyPunch.performed -= instance.OnHeavyPunch;
-            @HeavyPunch.canceled -= instance.OnHeavyPunch;
+            @ElementAbility1.started -= instance.OnElementAbility1;
+            @ElementAbility1.performed -= instance.OnElementAbility1;
+            @ElementAbility1.canceled -= instance.OnElementAbility1;
+            @ElementAbility2.started -= instance.OnElementAbility2;
+            @ElementAbility2.performed -= instance.OnElementAbility2;
+            @ElementAbility2.canceled -= instance.OnElementAbility2;
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
@@ -624,6 +653,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started -= instance.OnElement3;
             @Element3.performed -= instance.OnElement3;
             @Element3.canceled -= instance.OnElement3;
+            @ElementOverflow.started -= instance.OnElementOverflow;
+            @ElementOverflow.performed -= instance.OnElementOverflow;
+            @ElementOverflow.canceled -= instance.OnElementOverflow;
         }
 
         /// <summary>
@@ -789,19 +821,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "WallBoost" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ElementAbility1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnWallBoost(InputAction.CallbackContext context);
+        void OnElementAbility1(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "HeavyPunch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ElementAbility2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHeavyPunch(InputAction.CallbackContext context);
+        void OnElementAbility2(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -830,6 +862,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnElement3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ElementOverflow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnElementOverflow(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.

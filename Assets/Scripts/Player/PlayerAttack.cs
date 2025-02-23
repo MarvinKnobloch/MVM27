@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private AttackValues[] attacks;
     [SerializeField] private LayerMask enemyLayer;
 
+    [NonSerialized] public bool airAttackPerformed;
     private float attackTimer;
     private float currentAttackTime;
     private float currentBufferTime;
@@ -61,6 +61,8 @@ public class PlayerAttack : MonoBehaviour
     public void AttackInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
+        if (airAttackPerformed) return;
+
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
@@ -90,6 +92,7 @@ public class PlayerAttack : MonoBehaviour
         player.rb.gravityScale = 0;
         player.state = Player.States.Attack;
 
+        airAttackPerformed = true;
         chainAttack = false;
         readInput = false;
         attackTimer = 0;
@@ -176,7 +179,7 @@ public class PlayerAttack : MonoBehaviour
         {
             state = States.Empty;
 
-            player.ChangeAnimationState(idleState);
+            player.ChangeAnimationState(idleState);    //backup animation. On frame perfect attackinput the attack animation will not reset
             player.SwitchToAir();
         }
     }
