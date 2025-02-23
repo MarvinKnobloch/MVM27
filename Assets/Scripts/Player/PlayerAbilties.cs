@@ -91,8 +91,9 @@ public class PlayerAbilties
         player.elementalSprite[player.currentElementNumber].SetActive(false);
 
         player.currentAnimator = player.elementalAnimator[slot];
-        player.ChangeAnimationState(switchState);
         player.currentElementNumber = slot;
         player.elementalSprite[player.currentElementNumber].SetActive(true);
+
+        player.ChangeAnimationState(switchState);
     }
 }

@@ -169,7 +169,6 @@ public class PlayerAttack : MonoBehaviour
         {
             if (elementalSwitchNumber != -1)
             {
-                Debug.Log("number:" + elementalSwitchNumber);
                 player.playerAbilties.ElementalSwitch(elementalSwitchNumber);
             }
             currentAttackNumber = nextAttackNumber;

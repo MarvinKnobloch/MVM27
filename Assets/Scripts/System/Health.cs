@@ -104,7 +104,6 @@ public class Health : MonoBehaviour
     {
         if (HealthBarBackground != null)
         {
-            Debug.Log(Value +"/" + MaxValue);
             HealthBarImage.fillAmount = (float)Value / MaxValue;
         }
     }
