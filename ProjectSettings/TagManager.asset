@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - MovingPlatform
+  - Ground
+  - Rope
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - Player
   - InteracableBox
   - Destructable
-  - 
-  - 
+  - MovingPlatform
+  - Rope
   - 
   - 
   - 

@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class DeadState : EnemyState
 {
-	public void EnterState(FlyingEnemy enemy)
-	{
-		//for debug
-		Debug.Log("Enemy is Dead");
-		enemy.gameObject.SetActive(false);
-	}
+    public override void EnterState(FlyingEnemy enemy)
+    {
+        Debug.Log("Enemy is now dead.");
+        enemy.gameObject.SetActive(false);
+    }
 
-	public void UpdateState(FlyingEnemy enemy) { }
+    public override void UpdateState(FlyingEnemy enemy)
+    {
+        //Add if needed
+    }
 
-	public void ExitState(FlyingEnemy enemy) { }
+    public override void ExitState(FlyingEnemy enemy)
+    {
+        Debug.Log("Enemy respawning...");
+        enemy.gameObject.SetActive(true);
+    }
 }

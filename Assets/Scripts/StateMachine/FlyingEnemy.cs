@@ -7,21 +7,25 @@ public class FlyingEnemy : MonoBehaviour
 	public float speed = 3f;
 	public float slamSpeed = 10f;
 	public int health = 3;
-
 	public GameObject player;
 
-	[Header("Collider and Visibility Settings")]
+	[SerializeField] private bool useWaypoints = false;
+	[SerializeField] private Transform[] waypoints;
+	private int currentWaypointIndex = 0;
+	
+	[SerializeField] private float patrolDistance = 5f;
+	private Vector3 startPos;
+	private int moveDirection = 1;
+
 	[SerializeField] public Collider2D damageCollider;
 	[SerializeField] public GameObject spriteObject;
 	[SerializeField] public float onTime = 10f;
 	[SerializeField] public float offTime = 3f;
 
-	[Header("Slam Attack Settings")]
 	[SerializeField] public float groundY = -2f;
 	[SerializeField] public float slamStayTime = 2f;
 	[SerializeField] public float returnSpeed = 3f;
 
-	[Header("Bullet Damage Settings")]
 	[SerializeField] private List<BulletDamageData> bulletDamageList = new List<BulletDamageData>();
 
 	private EnemyState currentState;
@@ -31,12 +35,12 @@ public class FlyingEnemy : MonoBehaviour
 
 	private Rigidbody2D rb;
 	private float originalHeight;
-	private Coroutine toggleCoroutine; 
+	private Coroutine toggleCoroutine;
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-
+		
 		if (damageCollider == null || spriteObject == null)
 		{
 			Debug.LogError("DamageCollider or SpriteObject is not assigned in Inspector!");
@@ -46,6 +50,7 @@ public class FlyingEnemy : MonoBehaviour
 		damageCollider.enabled = false;
 		spriteObject.SetActive(false);
 		originalHeight = transform.position.y;
+		startPos = transform.position;
 
 		ChangeState(idleState);
 		toggleCoroutine = StartCoroutine(ToggleColliderAndSprite());
@@ -54,6 +59,46 @@ public class FlyingEnemy : MonoBehaviour
 	void Update()
 	{
 		currentState?.UpdateState(this);
+	}
+
+	public void HandleMovement()
+	{
+		if (useWaypoints)
+		{
+			MoveBetweenWaypoints();
+		}
+		else
+		{
+			MoveBackAndForth();
+		}
+	}
+
+	private void MoveBackAndForth()
+	{
+		transform.position += Vector3.right * moveDirection * speed * Time.deltaTime;
+
+		if (Mathf.Abs(transform.position.x - startPos.x) >= patrolDistance)
+		{
+			moveDirection *= -1;
+		}
+	}
+
+	private void MoveBetweenWaypoints()
+	{
+		if (waypoints == null || waypoints.Length < 2)
+		{
+			Debug.LogWarning("Please set enough waypoints!");
+			return;
+		}
+
+		Transform targetWaypoint = waypoints[currentWaypointIndex];
+		Vector3 direction = (targetWaypoint.position - transform.position).normalized;
+		transform.position += direction * speed * Time.deltaTime;
+
+		if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+		{
+			currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+		}
 	}
 
 	public void ChangeState(EnemyState newState)
@@ -69,12 +114,10 @@ public class FlyingEnemy : MonoBehaviour
 	{
 		while (true)
 		{
-			Debug.Log("Collider & Sprite ON");
 			damageCollider.enabled = true;
 			spriteObject.SetActive(true);
 			yield return new WaitForSeconds(onTime);
 
-			Debug.Log("Collider & Sprite OFF");
 			damageCollider.enabled = false;
 			spriteObject.SetActive(false);
 			yield return new WaitForSeconds(offTime);
@@ -93,51 +136,39 @@ public class FlyingEnemy : MonoBehaviour
 	public void PrepareForSlam()
 	{
 		originalHeight = transform.position.y;
-        // turn off collider when slamming
 		damageCollider.enabled = false;
-		// stop collider sequence
+
 		if (toggleCoroutine != null)
 		{
 			StopCoroutine(toggleCoroutine);
 			toggleCoroutine = null;
 		}
-
-		
 	}
 
-    public IEnumerator ReturnToOriginalHeight()
-    {
-        yield return new WaitForSeconds(slamStayTime); //rest on ground
+	public IEnumerator ReturnToOriginalHeight()
+	{
+		yield return new WaitForSeconds(slamStayTime);
 
-        Debug.Log("Returning to original height");
+		rb.linearVelocity = Vector2.zero;
 
-        // return speed
-        rb.linearVelocity = Vector2.zero;
+		while (transform.position.y < originalHeight)
+		{
+			rb.linearVelocity = new Vector2(0, returnSpeed);
+			yield return null;
+		}
 
-        while (transform.position.y < originalHeight)
-        {
-            rb.linearVelocity = new Vector2(0, returnSpeed);
-            yield return null;
-        }
+		transform.position = new Vector3(transform.position.x, originalHeight, transform.position.z);
+		rb.linearVelocity = Vector2.zero;
+		damageCollider.enabled = true;
+		spriteObject.SetActive(true);
 
-        // check final position
-        transform.position = new Vector3(transform.position.x, originalHeight, transform.position.z);
+		if (toggleCoroutine == null)
+		{
+			toggleCoroutine = StartCoroutine(ToggleColliderAndSprite());
+		}
 
-        // stop and turn on collider
-        rb.linearVelocity = Vector2.zero;
-        damageCollider.enabled = true;
-        spriteObject.SetActive(true);
-
-        // toggle restert
-        if (toggleCoroutine == null)
-        {
-            toggleCoroutine = StartCoroutine(ToggleColliderAndSprite());
-        }
-
-        ChangeState(idleState);
-    }
-
-
+		ChangeState(idleState);
+	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -150,18 +181,16 @@ public class FlyingEnemy : MonoBehaviour
 
 	public void OnHitByBullet(GameObject bullet)
 	{
-		// Check if this bullet is listed incase enemy is emun to a bullet type.
 		foreach (BulletDamageData bulletData in bulletDamageList)
 		{
 			if (bulletData.bulletPrefab != null && bullet.CompareTag(bulletData.bulletPrefab.tag))
 			{
 				TakeDamage(bulletData.damageAmount);
-				Destroy(bullet); // Destroy bullet
+				Destroy(bullet);
 				return;
 			}
 		}
 
-		// ignore unknown emun bullets
-		Debug.Log("Bullet did not affect this enemy.");
+		Debug.Log("Bullet did not effect this enemy.");
 	}
 }
