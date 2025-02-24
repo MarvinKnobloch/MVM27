@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerAbilties
 {
     public Player player;
-    const string switchState = "PlayerSwitch";
     private float castTimer;
+
+    const string switchState = "PlayerSwitch";
+    const string elementHealState = "PlayerHeal";
 
 
     public void Ability1Input(InputAction.CallbackContext ctx)
@@ -16,7 +18,7 @@ public class PlayerAbilties
         {
             if (player.currentElementNumber == 0) NonElementAbility1();
             if (player.currentElementNumber == 1) FireAbility1();
-            //if (player.currentElementNumber == 2) AirElementAbiltiy1();
+            if (player.currentElementNumber == 2) player.playerMovement.WallBoost();
         }
     }
     private void NonElementAbility1()
@@ -36,7 +38,19 @@ public class PlayerAbilties
     }
     private void StartNonElementHeal()
     {
+        if (player.EnergyValue < player.elementHealCosts) return;
 
+        player.rb.linearVelocity = Vector2.zero;
+        player.ChangeAnimationState(elementHealState);
+        player.state = Player.States.NonElementalHeal;
+    }
+    public void NonElementHeal()
+    {
+        if (player.state != Player.States.NonElementalHeal) return;
+
+        player.EnergyUpdate(-player.elementHealCosts);
+        player.health.Heal(player.elementHealAmount);
+        player.SwitchToAir();
     }
     private void StartHeavyPunsh()
     {

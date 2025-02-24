@@ -21,6 +21,17 @@ public class Destructable : MonoBehaviour
             }
         }
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Player.Instance.currentElementNumber == 0 && Player.Instance.state == Player.States.Dash)
+            {
+                Interaction(Player.Instance.transform);
+            }
+        }
+    }
+
     public void Interaction(Transform interactionTransform)
     { 
         if(destroyPrefab != null)

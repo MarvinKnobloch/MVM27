@@ -300,7 +300,9 @@ MonoBehaviour:
     m_Bits: 1152
   fireballPrefab: {fileID: 6564779881003978094, guid: 7e43342d3d19699418eee7785a0c9d78, type: 3}
   fireballCastTime: 0
-  fireballCosts: 2
+  fireballCosts: 1
+  elementHealAmount: 3
+  elementHealCosts: 1
   elementalSprite:
   - {fileID: 1653151592015962749}
   - {fileID: 5261946198451038558}

@@ -7,9 +7,11 @@ public class ChildernAnimation : MonoBehaviour
 
     private void Awake()
     {
+        player = GetComponentInParent<Player>();
         playerAttack = GetComponentInParent<PlayerAttack>();
     }
     public void ActivateInputBuffer() => playerAttack.ActivateInputBuffer();
     public void ExecuteAttack() => playerAttack.ExecuteAttack();
-    public void Death() => Player.Instance.RestartGame();
+    public void Death() => player.RestartGame();
+    public void NonElementHeal() => player.playerAbilties.NonElementHeal();
 }

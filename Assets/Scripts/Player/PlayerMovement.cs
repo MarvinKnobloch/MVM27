@@ -162,28 +162,22 @@ public class PlayerMovement
             player.SwitchToAir();
         }
     }
-    public void WallBoostInput(InputAction.CallbackContext ctx)
+    public void WallBoost()
     {
-        if (player.menuController.gameIsPaused) return;
-
         if (player.state == Player.States.Air)
         {
             if (player.canWallBoost && player.performedWallBoost == false)
             {
-                bool pressed = ctx.ReadValueAsButton();
-                if (pressed)
+                player.performedWallBoost = true;
+                if (player.faceRight)
                 {
-                    player.performedWallBoost = true;
-                    if (player.faceRight)
-                    {
-                        player.XWallBoostMovement = player.XWallBoostStrength;
-                        player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
-                    }
-                    else 
-                    {
-                        player.XWallBoostMovement = -player.XWallBoostStrength;
-                        player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
-                    }
+                    player.XWallBoostMovement = player.XWallBoostStrength;
+                    player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    player.XWallBoostMovement = -player.XWallBoostStrength;
+                    player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
                 }
             }
         }

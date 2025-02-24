@@ -74,6 +74,10 @@ public class Player : MonoBehaviour
     public float fireballCastTime;
     public int fireballCosts;
 
+    [Header("NonElementHeal")]
+    public int elementHealAmount;
+    public int elementHealCosts;
+
     [Header("ElementalSwitch")]
     public GameObject[] elementalSprite;
     [NonSerialized] public int currentElementNumber;
@@ -90,7 +94,7 @@ public class Player : MonoBehaviour
     public IInteractables closestInteraction;
 
     private PlayerAttack playerAttack;
-    private PlayerMovement playerMovement = new PlayerMovement();
+    [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
     [NonSerialized] public PlayerAbilties playerAbilties = new PlayerAbilties();
     [NonSerialized] public PlayerInteraction playerInteraction = new PlayerInteraction();
@@ -106,6 +110,7 @@ public class Player : MonoBehaviour
         WallBoost,
         Death,
         HeavyPunch,
+        NonElementalHeal,
         FireBall,
         Attack,
         Emtpy,
@@ -163,7 +168,6 @@ public class Player : MonoBehaviour
             controls.Player.Attack.performed += playerAttack.AttackInput;
             controls.Player.Interact.performed += playerInteraction.InteractInput;
             controls.Player.ElementAbility1.performed += playerAbilties.Ability1Input;
-            controls.Player.ElementAbility2.performed += playerMovement.WallBoostInput;
             controls.Player.Element1.performed += playerAbilties.FirstElementInput;
             controls.Player.Element2.performed += playerAbilties.SecondElementInput;
             controls.Player.Element3.performed += playerAbilties.ThirdElementInput;
@@ -175,7 +179,6 @@ public class Player : MonoBehaviour
             controls.Player.Attack.performed -= playerAttack.AttackInput;
             controls.Player.Interact.performed -= playerInteraction.InteractInput;
             controls.Player.ElementAbility1.performed -= playerAbilties.Ability1Input;
-            controls.Player.ElementAbility2.performed -= playerMovement.WallBoostInput;
             controls.Player.Element1.performed -= playerAbilties.FirstElementInput;
             controls.Player.Element2.performed -= playerAbilties.SecondElementInput;
             controls.Player.Element3.performed -= playerAbilties.ThirdElementInput;
@@ -203,6 +206,8 @@ public class Player : MonoBehaviour
                 break;
             case States.HeavyPunch:
                 break;
+            case States.NonElementalHeal:
+                break;
             case States.Attack:
                 break;
             case States.FireBall:
@@ -211,6 +216,8 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1);
+
         if (menuController.gameIsPaused) return;
         ReadMovementInput();
         playerInteraction.InteractionUpdate();
@@ -236,6 +243,8 @@ public class Player : MonoBehaviour
                 break;
             case States.HeavyPunch:
                 playerAbilties.HeavyPunch();
+                break;
+            case States.NonElementalHeal:
                 break;
             case States.FireBall:
                 playerAbilties.CastFireball();
