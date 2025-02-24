@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
     public int maxDashCount;
     [NonSerialized] public int currentDashCount;
 
+    [Header("Other")]
+    public Transform projectileSpawnPosition;
+
     [Header("WallBoost")]
     public bool canWallBoost;
     public bool performedWallBoost;
@@ -49,12 +52,15 @@ public class Player : MonoBehaviour
     public CircleCollider2D heavyPunchCollider;
     public LayerMask heavyPunchLayer;
 
+    [Header("Fireball")]
+    public GameObject fireballPrefab;
+    public float fireballCastTime;
+
     [Header("ElementalSwitch")]
     public GameObject[] elementalSprite;
     [NonSerialized] public int currentElementNumber;
 
     //Animations
-
     public Animator[] elementalAnimator;
     [NonSerialized] public Animator currentAnimator;
     [NonSerialized] public string currentstate;
@@ -64,13 +70,12 @@ public class Player : MonoBehaviour
     [NonSerialized] public List<IInteractables> interactables = new List<IInteractables>();
     [NonSerialized] public IInteractables currentInteractable;
     public IInteractables closestInteraction;
-    private float checkTimer;
-    private float checkInterval = 0.1f;
 
     private PlayerAttack playerAttack;
     private PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
     [NonSerialized] public PlayerAbilties playerAbilties = new PlayerAbilties();
+    [NonSerialized] public PlayerInteraction playerInteraction = new PlayerInteraction();
 
     [Space]
     public States state;
@@ -83,6 +88,7 @@ public class Player : MonoBehaviour
         WallBoost,
         Death,
         HeavyPunch,
+        FireBall,
         Attack,
         Emtpy,
     }
@@ -107,6 +113,7 @@ public class Player : MonoBehaviour
         playerMovement.player = this;
         playerCollision.player = this;
         playerAbilties.player = this;
+        playerInteraction.player = this;
 
     }
     private void Start()
@@ -133,8 +140,8 @@ public class Player : MonoBehaviour
             controls.Player.Jump.performed += playerMovement.JumpInput;
             controls.Player.Dash.performed += playerMovement.DashInput;
             controls.Player.Attack.performed += playerAttack.AttackInput;
-            controls.Player.Interact.performed += InteractInput;
-            controls.Player.ElementAbility1.performed += playerAbilties.HeavyPunshInput;
+            controls.Player.Interact.performed += playerInteraction.InteractInput;
+            controls.Player.ElementAbility1.performed += playerAbilties.Ability1Input;
             controls.Player.ElementAbility2.performed += playerMovement.WallBoostInput;
             controls.Player.Element1.performed += playerAbilties.FirstElementInput;
             controls.Player.Element2.performed += playerAbilties.SecondElementInput;
@@ -145,8 +152,8 @@ public class Player : MonoBehaviour
             controls.Player.Jump.performed -= playerMovement.JumpInput;
             controls.Player.Dash.performed -= playerMovement.DashInput;
             controls.Player.Attack.performed -= playerAttack.AttackInput;
-            controls.Player.Interact.performed -= InteractInput;
-            controls.Player.ElementAbility1.performed -= playerAbilties.HeavyPunshInput;
+            controls.Player.Interact.performed -= playerInteraction.InteractInput;
+            controls.Player.ElementAbility1.performed -= playerAbilties.Ability1Input;
             controls.Player.ElementAbility2.performed -= playerMovement.WallBoostInput;
             controls.Player.Element1.performed -= playerAbilties.FirstElementInput;
             controls.Player.Element2.performed -= playerAbilties.SecondElementInput;
@@ -176,13 +183,15 @@ public class Player : MonoBehaviour
                 break;
             case States.Attack:
                 break;
+            case States.FireBall:
+                break;
         }
     }
     private void Update()
     {
         if (menuController.gameIsPaused) return;
         ReadMovementInput();
-        InteractionUpdate();
+        playerInteraction.InteractionUpdate();
         switch (state)
         {
             case States.Emtpy:
@@ -205,6 +214,9 @@ public class Player : MonoBehaviour
                 break;
             case States.HeavyPunch:
                 playerAbilties.HeavyPunch();
+                break;
+            case States.FireBall:
+                playerAbilties.CastFireball();
                 break;
         }
     }
@@ -238,28 +250,6 @@ public class Player : MonoBehaviour
 
         state = States.Air;
     }
-    private void InteractInput(InputAction.CallbackContext ctx)
-    {
-        if (menuController.gameIsPaused) return;
-        if (currentInteractable == null) return;
-
-        bool pressed = ctx.ReadValueAsButton();
-        if (pressed)
-        {
-            switch (state)
-            {
-                case Player.States.Ground:
-                    currentInteractable.Interaction();
-                    break;
-                case Player.States.GroundIntoAir:
-                    currentInteractable.Interaction();
-                    break;
-                case Player.States.Air:
-                    currentInteractable.Interaction();
-                    break;
-            }
-        }
-    }
     public void ChangeAnimationState(string newstate)
     {
         if (currentstate == newstate) return;
@@ -268,52 +258,12 @@ public class Player : MonoBehaviour
 
         currentAnimator.CrossFadeInFixedTime(newstate, 0.1f);
     }
-    public void AddInteraction(IInteractables interactable)
+    public void CreatePrefab(GameObject obj, Transform spawnPosition)
     {
-        interactables.Add(interactable);
-        GetClosestInteraction();
-        GameManager.Instance.playerUI.HandleInteractionBox(true);
+        GameObject projectile = Instantiate(obj, spawnPosition.position, Quaternion.identity);
+        if(faceRight) projectile.GetComponent<Projectile>().reverseForce = true;
     }
-    public void RemoveInteraction(IInteractables interactable)
-    {
-        interactables.Remove(interactable);
-        InteractionUpdate();
-    }
-    private void InteractionUpdate()
-    {
-        {
-            if (interactables.Count != 0)
-            {
-                checkTimer += Time.deltaTime;
-                if (checkInterval > checkTimer)
-                {
-                    checkTimer = 0;
-                    GetClosestInteraction();        
-                }
-            }
-            else
-            {
-                currentInteractable = null;
-                GameManager.Instance.playerUI.HandleInteractionBox(false);
-            }
-        }
-    }
-    public void GetClosestInteraction()
-    {
-        float closestDistance = 10f;
-        foreach (IInteractables interaction in Player.Instance.interactables)
-        {
-            float currentDistance;
-            currentDistance = Vector3.Distance(Player.Instance.transform.position, interaction.interactObj.transform.position);
-            if (currentDistance < closestDistance)
-            {
-                closestDistance = currentDistance;
-                closestInteraction = interaction;
-            }
-        }
-        currentInteractable = closestInteraction;
-        GameManager.Instance.playerUI.InteractionTextUpdate(currentInteractable.interactiontext);
-    }
+    
     private void OnDeath()
     {
         //animation

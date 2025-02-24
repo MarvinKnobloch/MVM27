@@ -5,25 +5,33 @@ public class PlayerAbilties
 {
     public Player player;
     const string switchState = "PlayerSwitch";
+    private float castTimer;
 
-    public void HeavyPunshInput(InputAction.CallbackContext ctx)
+
+    public void Ability1Input(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            switch (player.state)
-            {
-                case Player.States.Ground:
-                    StartHeavyPunsh();
-                    break;
-                case Player.States.GroundIntoAir:
-                    StartHeavyPunsh();
-                    break;
-                case Player.States.Air:
-                    StartHeavyPunsh();
-                    break;
-            }
+            if (player.currentElementNumber == 0) NonElementAbility1();
+            if (player.currentElementNumber == 1) FireAbility1();
+            //if (player.currentElementNumber == 2) AirElementAbiltiy1();
+        }
+    }
+    private void NonElementAbility1()
+    {
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                StartHeavyPunsh();
+                break;
+            case Player.States.GroundIntoAir:
+                StartHeavyPunsh();
+                break;
+            case Player.States.Air:
+                StartHeavyPunsh();
+                break;
         }
     }
     private void StartHeavyPunsh()
@@ -42,6 +50,39 @@ public class PlayerAbilties
             }
         }
         player.SwitchToAir();
+    }
+    private void FireAbility1()
+    {
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                StartShootFireball();
+                break;
+            case Player.States.GroundIntoAir:
+                StartShootFireball();
+                break;
+            case Player.States.Air:
+                StartShootFireball();
+                break;
+        }
+    }
+    private void StartShootFireball()
+    {
+        castTimer = 0;
+        player.state = Player.States.FireBall;
+    }
+    public void CastFireball()
+    {
+        castTimer += Time.deltaTime;
+        if(castTimer >= player.fireballCastTime)
+        {
+            player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition);
+            player.SwitchToAir();
+        }
+    }
+    private void AirAbility1()
+    {
+
     }
     public void FirstElementInput(InputAction.CallbackContext ctx)
     {

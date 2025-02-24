@@ -28,14 +28,14 @@ public class Switch : MonoBehaviour, IInteractables
     {
         if (collision.CompareTag("Player"))
         {
-            Player.Instance.AddInteraction(this);
+            Player.Instance.playerInteraction.AddInteraction(this);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Player.Instance.RemoveInteraction(this);
+            Player.Instance.playerInteraction.RemoveInteraction(this);
         }
     }
 }
