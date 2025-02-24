@@ -138,8 +138,8 @@ public class PlayerMovement
         player.rb.linearVelocity = Vector2.zero;
         player.rb.gravityScale = 0;
 
-        if(player.faceRight) player.rb.AddForce(-player.transform.right * player.dashStrength, ForceMode2D.Impulse);
-        else player.rb.AddForce(player.transform.right * player.dashStrength, ForceMode2D.Impulse);
+        //if(player.faceRight) player.rb.AddForce(-player.transform.right * player.dashStrength, ForceMode2D.Impulse);
+        //else player.rb.AddForce(player.transform.right * player.dashStrength, ForceMode2D.Impulse);
 
         player.ChangeAnimationState(dashState);
         dashTimer = 0;
@@ -148,6 +148,13 @@ public class PlayerMovement
 
     }
     public void DashMovement()
+    {
+        Vector2 movement = new Vector2(player.dashStrength, 0);
+
+        if (player.faceRight) player.rb.linearVelocity = movement * -player.transform.right;
+        else player.rb.linearVelocity = movement * player.transform.right;
+    }
+    public void DashTime()
     {
         dashTimer += Time.deltaTime;
         if(dashTimer >= player.dashTime)

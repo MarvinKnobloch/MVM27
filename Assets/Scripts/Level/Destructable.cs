@@ -10,6 +10,17 @@ public class Destructable : MonoBehaviour
     [SerializeField] private float XForce;
     [SerializeField] private float YForce;
     [SerializeField] private float randomForce;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (Player.Instance.currentElementNumber == 0 && Player.Instance.state == Player.States.Dash)
+            {
+                Interaction(Player.Instance.transform);
+            }
+        }
+    }
     public void Interaction(Transform interactionTransform)
     { 
         if(destroyPrefab != null)

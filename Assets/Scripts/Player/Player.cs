@@ -6,10 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
     [NonSerialized] public MenuController menuController;
+    [NonSerialized] public PlayerUI playerUI;
 
     private Controls controls;
     private InputAction moveInput;
@@ -41,6 +43,21 @@ public class Player : MonoBehaviour
     [Header("Other")]
     public Transform projectileSpawnPosition;
 
+    [Header("Energy")]
+    [SerializeField] private int maxEnergy;
+    private int currentEnergy;
+    public int EnergyValue
+    {
+        get { return currentEnergy; }
+        set { currentEnergy = Math.Min(Math.Max(0, value), maxEnergy); }
+    }
+
+    public int EnergyMaxValue
+    {
+        get { return maxEnergy; }
+        set { maxEnergy = Math.Max(0, value); currentEnergy = Math.Min(value, currentEnergy); }
+    }
+
     [Header("WallBoost")]
     public bool canWallBoost;
     public bool performedWallBoost;
@@ -55,6 +72,7 @@ public class Player : MonoBehaviour
     [Header("Fireball")]
     public GameObject fireballPrefab;
     public float fireballCastTime;
+    public int fireballCosts;
 
     [Header("ElementalSwitch")]
     public GameObject[] elementalSprite;
@@ -118,9 +136,12 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        state = States.Air;
         menuController = GameManager.Instance.menuController;
+        playerUI = GameManager.Instance.playerUI;
 
+        EnergyUpdate(Mathf.RoundToInt(EnergyMaxValue * 0.5f));
+
+        state = States.Air;
         if (health != null) health.dieEvent.AddListener(OnDeath);
     }
     private void OnEnable()
@@ -178,6 +199,7 @@ public class Player : MonoBehaviour
                 playerMovement.AirMovement();
                 break;
             case States.Dash:
+                playerMovement.DashMovement();
                 break;
             case States.HeavyPunch:
                 break;
@@ -210,7 +232,7 @@ public class Player : MonoBehaviour
                 playerMovement.RotatePlayer();
                 break;
             case States.Dash:
-                playerMovement.DashMovement();
+                playerMovement.DashTime();
                 break;
             case States.HeavyPunch:
                 playerAbilties.HeavyPunch();
@@ -261,9 +283,13 @@ public class Player : MonoBehaviour
     public void CreatePrefab(GameObject obj, Transform spawnPosition)
     {
         GameObject projectile = Instantiate(obj, spawnPosition.position, Quaternion.identity);
-        if(faceRight) projectile.GetComponent<Projectile>().reverseForce = true;
+        if (faceRight) projectile.transform.Rotate(0, 180, 0);
     }
-    
+    public void EnergyUpdate(int amount)
+    {
+        EnergyValue += amount;
+        playerUI.EnergyUIUpdate(EnergyValue, EnergyMaxValue);
+    }
     private void OnDeath()
     {
         //animation

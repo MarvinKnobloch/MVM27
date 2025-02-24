@@ -191,7 +191,12 @@ public class PlayerAttack : MonoBehaviour
             if (col.TryGetComponent(out Health health))
             {
                 health.TakeDamage(attacks[currentAttackNumber].damage);
+           
             }
+        }
+        if(collider.Length != 0)
+        {
+            player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
         }
     }
 
@@ -204,5 +209,6 @@ public class PlayerAttack : MonoBehaviour
         public int damage;
         public CircleCollider2D attackCollider;
         public PlayerAnimations animations;
+        public int energyRestore;
     }
 }

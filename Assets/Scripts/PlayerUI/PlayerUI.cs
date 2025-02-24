@@ -15,6 +15,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image healthbar;
     [SerializeField] private TextMeshProUGUI healthText;
 
+    [Header("Energy")]
+    [SerializeField] private Image energybar;
+    [SerializeField] private TextMeshProUGUI energyText;
 
     private void Awake()
     {
@@ -30,7 +33,12 @@ public class PlayerUI : MonoBehaviour
     }
     public void HealthUIUpdate(int current, int max)
     {
-        healthbar.fillAmount = current / max;
+        healthbar.fillAmount = (float)current / max;
         healthText.text = current + "/" + max;
+    }
+    public void EnergyUIUpdate(int current, int max)
+    {
+        energybar.fillAmount = (float)current / max;
+        energyText.text = current + "/" + max;
     }
 }

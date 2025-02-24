@@ -24,15 +24,19 @@ public class PlayerAbilties
         switch (player.state)
         {
             case Player.States.Ground:
-                StartHeavyPunsh();
+                StartNonElementHeal();
                 break;
             case Player.States.GroundIntoAir:
-                StartHeavyPunsh();
+                StartNonElementHeal();
                 break;
             case Player.States.Air:
-                StartHeavyPunsh();
+                StartNonElementHeal();
                 break;
         }
+    }
+    private void StartNonElementHeal()
+    {
+
     }
     private void StartHeavyPunsh()
     {
@@ -53,6 +57,8 @@ public class PlayerAbilties
     }
     private void FireAbility1()
     {
+        if (player.EnergyValue < player.fireballCosts) return;
+
         switch (player.state)
         {
             case Player.States.Ground:
@@ -69,6 +75,7 @@ public class PlayerAbilties
     private void StartShootFireball()
     {
         castTimer = 0;
+        player.rb.linearVelocityX = 0;
         player.state = Player.States.FireBall;
     }
     public void CastFireball()
@@ -76,6 +83,7 @@ public class PlayerAbilties
         castTimer += Time.deltaTime;
         if(castTimer >= player.fireballCastTime)
         {
+            player.EnergyUpdate(-player.fireballCosts);
             player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition);
             player.SwitchToAir();
         }

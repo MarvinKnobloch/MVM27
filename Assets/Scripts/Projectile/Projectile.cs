@@ -1,16 +1,18 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Vector2 direction;
+    private Vector2 oldPosition;
 
     [Header("ProjectileValues")]
     [SerializeField] private float lifetime = 2f;
-    [SerializeField] private float xForce;
-    [SerializeField] private float yForce;
+    [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask collideLayer;
-    [NonSerialized] public bool reverseForce;
+    
 
     [Header("EnemyValues")]
     [SerializeField] private LayerMask enemyHitLayer;
@@ -25,10 +27,17 @@ public class Projectile : MonoBehaviour
     }
     void Start()
     {
-        if (reverseForce) xForce *= -1;
- 
-        rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
+        oldPosition = transform.position;
         Destroy(gameObject, lifetime);
+    }
+    private void FixedUpdate()
+    {
+        rb.linearVelocityY = 0;
+        rb.transform.Translate(transform.right * projectileSpeed * Time.deltaTime, Space.World);
+
+        direction = ((Vector2)transform.position - oldPosition).normalized;
+        oldPosition = transform.position;
+        transform.right = direction;
     }
     void OnTriggerEnter2D(Collider2D other)
     {

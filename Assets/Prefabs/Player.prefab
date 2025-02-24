@@ -288,6 +288,7 @@ MonoBehaviour:
   dashStrength: 12
   maxDashCount: 2
   projectileSpawnPosition: {fileID: 1794253880594239891}
+  maxEnergy: 50
   canWallBoost: 0
   performedWallBoost: 0
   XWallBoostStrength: 10
@@ -298,7 +299,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1152
   fireballPrefab: {fileID: 6564779881003978094, guid: 7e43342d3d19699418eee7785a0c9d78, type: 3}
-  fireballCastTime: 0.2
+  fireballCastTime: 0
+  fireballCosts: 2
   elementalSprite:
   - {fileID: 1653151592015962749}
   - {fileID: 5261946198451038558}
@@ -327,31 +329,37 @@ MonoBehaviour:
     damage: 1
     attackCollider: {fileID: 4275854736510587761}
     animations: 0
+    energyRestore: 0
   - attackLength: 0.6
     inputBuffer: 0.3
     damage: 2
     attackCollider: {fileID: 4275854736510587761}
     animations: 1
+    energyRestore: 1
   - attackLength: 1
     inputBuffer: 0
     damage: 3
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
+    energyRestore: 2
   - attackLength: 1
     inputBuffer: 0
     damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
+    energyRestore: 2
   - attackLength: 1
     inputBuffer: 0
     damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
+    energyRestore: 2
   - attackLength: 1
     inputBuffer: 0
     damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
+    energyRestore: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
