@@ -29,6 +29,9 @@ public class PlayerUI : MonoBehaviour
     public GameObject messageBox;
     [SerializeField] private TextMeshProUGUI messageBoxText;
 
+    [Header("DialogBox")]
+    public GameObject dialogBox;
+
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;

@@ -77,6 +77,7 @@ public class MenuController : MonoBehaviour
         {
             
             if (Player.Instance == null) return;
+            if (GameManager.Instance.playerUI.dialogBox.activeSelf == true) return;
 
             if (GameManager.Instance.playerUI.messageBox.activeSelf == true) GameManager.Instance.playerUI.MessageBoxDisable();
             else if (confirmController.activeSelf == true) confirmController.SetActive(false);
