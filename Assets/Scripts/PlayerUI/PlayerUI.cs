@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -24,9 +25,23 @@ public class PlayerUI : MonoBehaviour
     [Header("Gold")]
     [SerializeField] private TextMeshProUGUI goldText;
 
+    [Header("MessageBox")]
+    public GameObject messageBox;
+    [SerializeField] private TextMeshProUGUI messageBoxText;
+
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;
+    }
+    private void Start()
+    {
+        StartCoroutine(InteractionFieldDisable());
+    }
+    IEnumerator InteractionFieldDisable()
+    {
+        yield return null;
+        interactionField.SetActive(false);
+        interactionField.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
     }
     private void Update()
     {
@@ -60,5 +75,19 @@ public class PlayerUI : MonoBehaviour
         goldText.text = GameManager.Instance.playerGold.ToString();
 
         PlayerPrefs.SetInt("PlayerGold", GameManager.Instance.playerGold);
+    }
+    public void MessageBoxEnable(string text)
+    {
+        Time.timeScale = 0;
+        GameManager.Instance.menuController.gameIsPaused = true;
+
+        messageBox.SetActive(true);
+        messageBoxText.text = text;
+    }
+    public void MessageBoxDisable()
+    {
+        Time.timeScale = 1;
+        GameManager.Instance.menuController.gameIsPaused = false;
+        messageBox.SetActive(false);
     }
 }

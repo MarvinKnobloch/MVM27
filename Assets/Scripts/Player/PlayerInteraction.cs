@@ -10,7 +10,11 @@ public class PlayerInteraction
 
     public void InteractInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
+        if (player.menuController.gameIsPaused) 
+        {
+            if(player.playerUI.messageBox.activeSelf == true) player.playerUI.MessageBoxDisable();
+            return; 
+        }
         if (player.currentInteractable == null) return;
 
         bool pressed = ctx.ReadValueAsButton();
@@ -40,23 +44,22 @@ public class PlayerInteraction
     {
         player.interactables.Remove(interactable);
         InteractionUpdate();
+
+        if(player.interactables.Count == 0)
+        {
+            player.currentInteractable = null;
+            GameManager.Instance.playerUI.HandleInteractionBox(false);
+        }
     }
     public void InteractionUpdate()
     {
+        if (player.interactables.Count != 0)
         {
-            if (player.interactables.Count != 0)
+            checkTimer += Time.deltaTime;
+            if (checkInterval > checkTimer)
             {
-                checkTimer += Time.deltaTime;
-                if (checkInterval > checkTimer)
-                {
-                    checkTimer = 0;
-                    GetClosestInteraction();
-                }
-            }
-            else
-            {
-                player.currentInteractable = null;
-                GameManager.Instance.playerUI.HandleInteractionBox(false);
+                checkTimer = 0;
+                GetClosestInteraction();
             }
         }
     }

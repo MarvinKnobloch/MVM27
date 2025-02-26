@@ -20,8 +20,8 @@ public class PlayerMovement
         else if (player.XWallBoostMovement < -0.1f) player.XWallBoostMovement += Time.fixedDeltaTime * 7;
         else player.XWallBoostMovement = 0;
 
-        if (player.sidewardsStreamMovement > 0.1f) player.sidewardsStreamMovement -= Time.fixedDeltaTime * 7;
-        else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 7;
+        if (player.sidewardsStreamMovement > 0.1f) player.sidewardsStreamMovement -= Time.fixedDeltaTime * 10;
+        else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 10;
         else player.sidewardsStreamMovement = 0;
 
         player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + player.XWallBoostMovement + player.sidewardsStreamMovement, grounddrag);
@@ -85,7 +85,10 @@ public class PlayerMovement
     public void JumpInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
-        if (player.currentJumpCount >= player.maxJumpCount) return;
+
+        int count = player.maxJumpCount;
+        if (player.doubleJumpUnlocked == false) count -= 1;
+        if (player.currentJumpCount >= count) return;
 
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
@@ -117,6 +120,7 @@ public class PlayerMovement
     public void DashInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
+        if (player.dashUnlocked == false) return;
         if (player.currentDashCount >= player.maxDashCount) return;
 
         bool pressed = ctx.ReadValueAsButton();

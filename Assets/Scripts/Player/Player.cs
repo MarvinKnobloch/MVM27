@@ -102,6 +102,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool airElementUnlocked;
     [NonSerialized] public bool doubleJumpUnlocked;
     [NonSerialized] public bool wallBoostUnlocked;
+    [NonSerialized] public bool dashUnlocked;
 
     private PlayerAttack playerAttack;
     [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
@@ -186,11 +187,8 @@ public class Player : MonoBehaviour
         else doubleJumpUnlocked = false;
         if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBoost.ToString()) == 1) wallBoostUnlocked = true;
         else wallBoostUnlocked = false;
-    }
-    private void CheckAbilityState(string pref, bool ability)
-    {
-        Debug.Log(PlayerPrefs.GetInt(pref.ToString()));
-        if (PlayerPrefs.GetInt(pref.ToString()) == 1) ability = true;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.Dash.ToString()) == 1) dashUnlocked = true;
+        else dashUnlocked = false;
     }
     public void EnableInputs(bool enabled)
     {

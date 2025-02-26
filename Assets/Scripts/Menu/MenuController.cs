@@ -78,7 +78,8 @@ public class MenuController : MonoBehaviour
             
             if (Player.Instance == null) return;
 
-            if (confirmController.activeSelf == true) confirmController.SetActive(false);
+            if (GameManager.Instance.playerUI.messageBox.activeSelf == true) GameManager.Instance.playerUI.MessageBoxDisable();
+            else if (confirmController.activeSelf == true) confirmController.SetActive(false);
             else if (ingameMenu.activeSelf == false)
             {
                 if (gameIsPaused == false)
@@ -133,13 +134,13 @@ public class MenuController : MonoBehaviour
 
         //Abilities
         //Heal???
-        //Dash???
         PlayerPrefs.SetInt("FireElement", 0);
         PlayerPrefs.SetInt("Fireball", 0);
         PlayerPrefs.SetInt("WallBreak", 0);
         PlayerPrefs.SetInt("AirElement", 0);
         PlayerPrefs.SetInt("PlayerDoubleJump", 0);
         PlayerPrefs.SetInt("WallBoost", 0);
+        PlayerPrefs.SetInt("WallDash", 0);
 
         //Values
         PlayerPrefs.SetInt("PlayerGold", 0);
