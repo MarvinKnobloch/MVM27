@@ -71,6 +71,7 @@ public class PlayerAbilties
     }
     private void FireAbility1()
     {
+        if (player.fireBallUnlocked == false) return;
         if (player.EnergyValue < player.fireballCosts) return;
 
         switch (player.state)
@@ -109,6 +110,7 @@ public class PlayerAbilties
     public void FirstElementInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
+
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
@@ -118,6 +120,8 @@ public class PlayerAbilties
     public void SecondElementInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
+        if (player.fireElementUnlocked == false) return;
+
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
@@ -127,6 +131,8 @@ public class PlayerAbilties
     public void ThirdElementInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
+        if (player.airElementUnlocked == false) return;
+
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {

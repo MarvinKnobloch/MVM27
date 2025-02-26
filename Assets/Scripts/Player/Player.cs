@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 using TMPro;
+using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool faceRight;
     [NonSerialized] public float baseGravityScale;
     public LayerMask groundCheckLayer;
+    [NonSerialized] public float sidewardsStreamMovement;
 
     [Header("Dash")]
     public float dashTime;
@@ -93,6 +95,14 @@ public class Player : MonoBehaviour
     [NonSerialized] public IInteractables currentInteractable;
     public IInteractables closestInteraction;
 
+    //AbilitiesUnlocked
+    public bool fireElementUnlocked;
+    [NonSerialized] public bool fireBallUnlocked;
+    [NonSerialized] public bool wallbreakUnlocked;
+    [NonSerialized] public bool airElementUnlocked;
+    [NonSerialized] public bool doubleJumpUnlocked;
+    [NonSerialized] public bool wallBoostUnlocked;
+
     private PlayerAttack playerAttack;
     [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
@@ -148,6 +158,9 @@ public class Player : MonoBehaviour
 
         state = States.Air;
         if (health != null) health.dieEvent.AddListener(OnDeath);
+
+        PlayerAbilityUpdate();
+
     }
     private void OnEnable()
     {
@@ -158,6 +171,26 @@ public class Player : MonoBehaviour
     {
         controls.Disable();
         EnableInputs(false);
+    }
+    public void PlayerAbilityUpdate()
+    {
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.FireElement.ToString()) == 1) fireElementUnlocked = true;
+        else fireElementUnlocked = false;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.Fireball.ToString()) == 1) fireBallUnlocked = true;
+        else fireBallUnlocked = false;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBreak.ToString()) == 1) wallbreakUnlocked = true;
+        else wallbreakUnlocked = false;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.AirElement.ToString()) == 1) airElementUnlocked = true;
+        else airElementUnlocked = false;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString()) == 1) doubleJumpUnlocked = true;
+        else doubleJumpUnlocked = false;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBoost.ToString()) == 1) wallBoostUnlocked = true;
+        else wallBoostUnlocked = false;
+    }
+    private void CheckAbilityState(string pref, bool ability)
+    {
+        Debug.Log(PlayerPrefs.GetInt(pref.ToString()));
+        if (PlayerPrefs.GetInt(pref.ToString()) == 1) ability = true;
     }
     public void EnableInputs(bool enabled)
     {
@@ -261,11 +294,12 @@ public class Player : MonoBehaviour
         rb.gravityScale = baseGravityScale;
         currentDashCount = 0;
         currentJumpCount = 0;
+        XWallBoostMovement = 0;
+        sidewardsStreamMovement = 0;
 
         playerAttack.airAttackPerformed = false;
         canWallBoost = false;
         performedWallBoost = false;
-        XWallBoostMovement = 0;
 
         state = States.Ground;
     }

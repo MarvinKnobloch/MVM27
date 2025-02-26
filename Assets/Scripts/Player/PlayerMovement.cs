@@ -20,7 +20,11 @@ public class PlayerMovement
         else if (player.XWallBoostMovement < -0.1f) player.XWallBoostMovement += Time.fixedDeltaTime * 7;
         else player.XWallBoostMovement = 0;
 
-        player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + player.XWallBoostMovement, grounddrag);
+        if (player.sidewardsStreamMovement > 0.1f) player.sidewardsStreamMovement -= Time.fixedDeltaTime * 7;
+        else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 7;
+        else player.sidewardsStreamMovement = 0;
+
+        player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + player.XWallBoostMovement + player.sidewardsStreamMovement, grounddrag);
 
         player.rb.linearVelocity = player.playerVelocity;
 
@@ -164,6 +168,8 @@ public class PlayerMovement
     }
     public void WallBoost()
     {
+        if (player.wallBoostUnlocked == false) return;
+
         if (player.state == Player.States.Air)
         {
             if (player.canWallBoost && player.performedWallBoost == false)

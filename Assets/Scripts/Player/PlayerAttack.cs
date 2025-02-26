@@ -140,7 +140,7 @@ public class PlayerAttack : MonoBehaviour
                     elementalSwitchNumber = 0;
                 }
             }
-            else if (controls.Player.Element2.WasPerformedThisFrame())
+            else if (controls.Player.Element2.WasPerformedThisFrame() && player.fireElementUnlocked)
             {
                 if (player.currentElementNumber != 1)
                 {
@@ -149,7 +149,7 @@ public class PlayerAttack : MonoBehaviour
                     elementalSwitchNumber = 1;
                 }
             }
-            else if (controls.Player.Element3.WasPerformedThisFrame())
+            else if (controls.Player.Element3.WasPerformedThisFrame() && player.airElementUnlocked)
             {
                 if (player.currentElementNumber != 2)
                 {

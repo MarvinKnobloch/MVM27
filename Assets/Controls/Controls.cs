@@ -182,7 +182,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ElementOverflow"",
+                    ""name"": ""UpgradeMenu"",
                     ""type"": ""Button"",
                     ""id"": ""b99b7bb8-c2a2-467f-a99e-4b2e330f4659"",
                     ""expectedControlType"": """",
@@ -349,11 +349,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2106628a-838e-4f87-a4a4-117b3920d4c9"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/f1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ElementOverflow"",
+                    ""action"": ""UpgradeMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -371,6 +371,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""40b6d143-e473-4154-bc62-221aed49c0bf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -382,6 +391,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MenuEsc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""987208ec-90b6-426e-bd0a-9b9768144ddb"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -402,10 +422,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Element1 = m_Player.FindAction("Element1", throwIfNotFound: true);
         m_Player_Element2 = m_Player.FindAction("Element2", throwIfNotFound: true);
         m_Player_Element3 = m_Player.FindAction("Element3", throwIfNotFound: true);
-        m_Player_ElementOverflow = m_Player.FindAction("ElementOverflow", throwIfNotFound: true);
+        m_Player_UpgradeMenu = m_Player.FindAction("UpgradeMenu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
+        m_Menu_DebugMenu = m_Menu.FindAction("DebugMenu", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -497,7 +518,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Element1;
     private readonly InputAction m_Player_Element2;
     private readonly InputAction m_Player_Element3;
-    private readonly InputAction m_Player_ElementOverflow;
+    private readonly InputAction m_Player_UpgradeMenu;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -550,9 +571,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Element3 => m_Wrapper.m_Player_Element3;
         /// <summary>
-        /// Provides access to the underlying input action "Player/ElementOverflow".
+        /// Provides access to the underlying input action "Player/UpgradeMenu".
         /// </summary>
-        public InputAction @ElementOverflow => m_Wrapper.m_Player_ElementOverflow;
+        public InputAction @UpgradeMenu => m_Wrapper.m_Player_UpgradeMenu;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -609,9 +630,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started += instance.OnElement3;
             @Element3.performed += instance.OnElement3;
             @Element3.canceled += instance.OnElement3;
-            @ElementOverflow.started += instance.OnElementOverflow;
-            @ElementOverflow.performed += instance.OnElementOverflow;
-            @ElementOverflow.canceled += instance.OnElementOverflow;
+            @UpgradeMenu.started += instance.OnUpgradeMenu;
+            @UpgradeMenu.performed += instance.OnUpgradeMenu;
+            @UpgradeMenu.canceled += instance.OnUpgradeMenu;
         }
 
         /// <summary>
@@ -653,9 +674,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started -= instance.OnElement3;
             @Element3.performed -= instance.OnElement3;
             @Element3.canceled -= instance.OnElement3;
-            @ElementOverflow.started -= instance.OnElementOverflow;
-            @ElementOverflow.performed -= instance.OnElementOverflow;
-            @ElementOverflow.canceled -= instance.OnElementOverflow;
+            @UpgradeMenu.started -= instance.OnUpgradeMenu;
+            @UpgradeMenu.performed -= instance.OnUpgradeMenu;
+            @UpgradeMenu.canceled -= instance.OnUpgradeMenu;
         }
 
         /// <summary>
@@ -694,6 +715,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
     private readonly InputAction m_Menu_MenuEsc;
+    private readonly InputAction m_Menu_DebugMenu;
     /// <summary>
     /// Provides access to input actions defined in input action map "Menu".
     /// </summary>
@@ -709,6 +731,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Menu/MenuEsc".
         /// </summary>
         public InputAction @MenuEsc => m_Wrapper.m_Menu_MenuEsc;
+        /// <summary>
+        /// Provides access to the underlying input action "Menu/DebugMenu".
+        /// </summary>
+        public InputAction @DebugMenu => m_Wrapper.m_Menu_DebugMenu;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -738,6 +764,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MenuEsc.started += instance.OnMenuEsc;
             @MenuEsc.performed += instance.OnMenuEsc;
             @MenuEsc.canceled += instance.OnMenuEsc;
+            @DebugMenu.started += instance.OnDebugMenu;
+            @DebugMenu.performed += instance.OnDebugMenu;
+            @DebugMenu.canceled += instance.OnDebugMenu;
         }
 
         /// <summary>
@@ -752,6 +781,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @MenuEsc.started -= instance.OnMenuEsc;
             @MenuEsc.performed -= instance.OnMenuEsc;
             @MenuEsc.canceled -= instance.OnMenuEsc;
+            @DebugMenu.started -= instance.OnDebugMenu;
+            @DebugMenu.performed -= instance.OnDebugMenu;
+            @DebugMenu.canceled -= instance.OnDebugMenu;
         }
 
         /// <summary>
@@ -863,12 +895,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnElement3(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "ElementOverflow" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "UpgradeMenu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnElementOverflow(InputAction.CallbackContext context);
+        void OnUpgradeMenu(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.
@@ -884,5 +916,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMenuEsc(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugMenu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugMenu(InputAction.CallbackContext context);
     }
 }

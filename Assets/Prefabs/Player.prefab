@@ -311,6 +311,7 @@ MonoBehaviour:
   - {fileID: 7736975113925478399}
   - {fileID: 8403596275835272363}
   - {fileID: 3952726360379847716}
+  fireElementUnlocked: 0
   state: 0
 --- !u!114 &4652997060829014732
 MonoBehaviour:
@@ -428,7 +429,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.7, y: 1.2}
+  m_Size: {x: 0.6, y: 0.95}
   m_EdgeRadius: 0
 --- !u!50 &6082850999215385598
 Rigidbody2D:

@@ -2,10 +2,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 public class PlayerUI : MonoBehaviour
 {
     private Controls controls;
+    [SerializeField] private GameObject DebugMenu;
 
     [Header("Interaction")]
     [SerializeField] private GameObject interactionField;
@@ -19,9 +21,20 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image energybar;
     [SerializeField] private TextMeshProUGUI energyText;
 
+    [Header("Gold")]
+    [SerializeField] private TextMeshProUGUI goldText;
+
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;
+    }
+    private void Update()
+    {
+        if (controls.Menu.DebugMenu.WasPerformedThisFrame())
+        {
+            if (DebugMenu.activeSelf == false) DebugMenu.SetActive(true);
+            else DebugMenu.SetActive(false);
+        }
     }
     public void HandleInteractionBox(bool state)
     {
@@ -40,5 +53,12 @@ public class PlayerUI : MonoBehaviour
     {
         energybar.fillAmount = (float)current / max;
         energyText.text = current + "/" + max;
+    }
+    public void GoldUpdate(int amount)
+    {
+        GameManager.Instance.playerGold += amount;
+        goldText.text = GameManager.Instance.playerGold.ToString();
+
+        PlayerPrefs.SetInt("PlayerGold", GameManager.Instance.playerGold);
     }
 }

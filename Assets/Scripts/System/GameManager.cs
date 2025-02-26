@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,17 @@ public class GameManager : MonoBehaviour
 
     public CheckPoint currentCheckpoint;
     [SerializeField] private bool LoadFormCheckpoint;
+
+    [NonSerialized] public int playerGold;
+    public enum AbilityStrings
+    {
+        FireElement,
+        Fireball,
+        WallBreak,
+        AirElement,
+        PlayerDoubleJump,
+        WallBoost,
+    }
     private void Awake()
     {
         if (Instance == null)
@@ -28,5 +40,6 @@ public class GameManager : MonoBehaviour
 
             Player.Instance.transform.position = spawn;
         }
+        playerUI.GoldUpdate(PlayerPrefs.GetInt("PlayerGold"));
     }
 }

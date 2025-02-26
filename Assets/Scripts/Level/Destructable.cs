@@ -15,7 +15,8 @@ public class Destructable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (Player.Instance.currentElementNumber == 0 && Player.Instance.state == Player.States.Dash)
+            Player player = Player.Instance;
+            if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
             {
                 Interaction(Player.Instance.transform);
             }
@@ -25,7 +26,8 @@ public class Destructable : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (Player.Instance.currentElementNumber == 0 && Player.Instance.state == Player.States.Dash)
+            Player player = Player.Instance;
+            if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
             {
                 Interaction(Player.Instance.transform);
             }

@@ -131,6 +131,27 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerYSpawn", 1);
         PlayerPrefs.SetInt("CurrentLevel", 1);
 
+        //Abilities
+        //Heal???
+        //Dash???
+        PlayerPrefs.SetInt("FireElement", 0);
+        PlayerPrefs.SetInt("Fireball", 0);
+        PlayerPrefs.SetInt("WallBreak", 0);
+        PlayerPrefs.SetInt("AirElement", 0);
+        PlayerPrefs.SetInt("PlayerDoubleJump", 0);
+        PlayerPrefs.SetInt("WallBoost", 0);
+
+        //Values
+        PlayerPrefs.SetInt("PlayerGold", 0);
+        PlayerPrefs.SetInt("BonusHealth", 0);
+        PlayerPrefs.SetInt("BonusHeal", 0);
+        PlayerPrefs.SetInt("BonusEnergy", 0);
+        PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
+        PlayerPrefs.SetInt("BonusAttack", 0);
+        PlayerPrefs.SetInt("BonusComboEndDamage", 0);
+        PlayerPrefs.SetInt("BonusSwitchDamage", 0);
+        //FireBallDamage???
+
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
