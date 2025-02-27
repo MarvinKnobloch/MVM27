@@ -10,11 +10,19 @@ public class DialogBox : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI boxText;
+    [SerializeField] private GameObject skipButton;
 
     private DialogObj currentDialog;
     private int currentDialogNumber;
 
     private bool readInput;
+
+    private bool cantSkipDialog;
+    private bool disableInputs;
+    private bool pauseGame;
+    private float autoPlayInterval;
+
+    private float timer;
 
     private void Awake()
     {
@@ -22,23 +30,50 @@ public class DialogBox : MonoBehaviour
     }
     private void Update()
     {
-        if (readInput == false)
+        if (autoPlayInterval != 0)
         {
-            readInput = true;
+            timer += Time.deltaTime;
+            if(timer > autoPlayInterval)
+            {
+                timer = 0;
+                DialogContinue();
+            }
         }
         else
         {
-            if (controls.Player.Interact.WasPerformedThisFrame() || controls.Menu.MenuEsc.WasPerformedThisFrame())
+            if (readInput == false)
             {
-                DialogContinue();
+                readInput = true;
+            }
+            else
+            {
+                if (controls.Player.Interact.WasPerformedThisFrame() || controls.Player.Attack.WasPerformedThisFrame())
+                {
+                    DialogContinue();
+                }
+                else if (controls.Menu.MenuEsc.WasPerformedThisFrame())
+                {
+                    if (cantSkipDialog) return;
+                    DialogBoxDisable();
+                }
             }
         }
     }
     public void DialogStart(DialogObj dialog)
     {
+        timer = 0;
         readInput = false;
-        Time.timeScale = 0;
-        GameManager.Instance.menuController.gameIsPaused = true;
+
+        cantSkipDialog = dialog.cantSkipDialog;
+        disableInputs = dialog.disableInputs;
+        pauseGame = dialog.pauseGame;
+        autoPlayInterval = dialog.autoPlayInterval;
+
+        if (cantSkipDialog) skipButton.SetActive(false);
+        else skipButton.SetActive(true);
+
+        if (disableInputs) GameManager.Instance.menuController.gameIsPaused = true;
+        if (pauseGame) Time.timeScale = 0;
 
         currentDialog = dialog;
         currentDialogNumber = 0;
@@ -60,11 +95,19 @@ public class DialogBox : MonoBehaviour
 
         characterName.text = currentDialog.dialogs[currentDialogNumber].characterName;
         boxText.text = currentDialog.dialogs[currentDialogNumber].dialogText;
+
+        if(currentDialog.dialogs[currentDialogNumber].dialogEvent != null)
+        {
+            currentDialog.dialogs[currentDialogNumber].dialogEvent.OnEventRaised.Invoke();
+        }
     }
     public void DialogBoxDisable()
     {
-        readInput = false;
-        Time.timeScale = 1;
+        if (autoPlayInterval == 0)
+        {
+            readInput = false;
+            Time.timeScale = 1;
+        }
         GameManager.Instance.menuController.gameIsPaused = false;
         gameObject.SetActive(false);
     }

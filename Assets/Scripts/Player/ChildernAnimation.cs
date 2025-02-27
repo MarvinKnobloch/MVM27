@@ -14,4 +14,9 @@ public class ChildernAnimation : MonoBehaviour
     public void ExecuteAttack() => playerAttack.ExecuteAttack();
     public void Death() => player.RestartGame();
     public void NonElementHeal() => player.playerAbilties.NonElementHeal();
+    public void SwitchToIdle()
+    {
+        player.ChangeAnimationState("PlayerIdle");
+        player.SwitchToGround();
+    }
 }

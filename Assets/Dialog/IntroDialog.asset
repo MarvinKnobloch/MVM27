@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb2bd9c5d602644daf4c81729fbb191, type: 3}
+  m_Name: IntroDialog
+  m_EditorClassIdentifier: 
+  cantSkipDialog: 1
+  disableInputs: 1
+  pauseGame: 0
+  autoPlayInterval: 0
+  dialogs:
+  - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: ???
+    dialogText: Oh man how i could end up in this situation...
+    dialogEvent: {fileID: 0}
+  - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: ???
+    dialogText: 'Hey you!
+
+      Wake up!'
+    dialogEvent: {fileID: 0}
+  - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: ???
+    dialogText: Come on. WAKE UP!!!
+    dialogEvent: {fileID: 0}
+  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+    characterName: Player
+    dialogText: 'Uh.
+
+      Oh.'
+    dialogEvent: {fileID: 11400000, guid: c8437c40e4153084498c41a47e0d719a, type: 2}
+  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+    characterName: Player
+    dialogText: What is going on?
+    dialogEvent: {fileID: 11400000, guid: 6e2db33903ba8e6419ce1febef179abb, type: 2}
+  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+    characterName: Player
+    dialogText: How are you?
+    dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}

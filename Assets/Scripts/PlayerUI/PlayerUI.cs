@@ -9,6 +9,8 @@ public class PlayerUI : MonoBehaviour
 {
     private Controls controls;
     [SerializeField] private GameObject DebugMenu;
+    [SerializeField] private Image blackScreen;
+    private Color blackScreenColor;
 
     [Header("Interaction")]
     [SerializeField] private GameObject interactionField;
@@ -32,13 +34,37 @@ public class PlayerUI : MonoBehaviour
     [Header("DialogBox")]
     public GameObject dialogBox;
 
+    [Header("Intro")]
+    [SerializeField] private DialogObj introDialog;
+    [SerializeField] private VoidEventChannel disableBlackScreen;
+    [SerializeField] private VoidEventChannel standUp;
+    [SerializeField] private VoidEventChannel endIntro;
+
+    private float timer;
+
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;
     }
+    private void OnEnable()
+    {
+        disableBlackScreen.OnEventRaised += BlackScreenDisable;
+        standUp.OnEventRaised += IntroStandUp;
+        endIntro.OnEventRaised += IntroDone;
+    }
+    private void OnDisable()
+    {
+        disableBlackScreen.OnEventRaised -= BlackScreenDisable;
+        standUp.OnEventRaised -= IntroStandUp;
+        endIntro.OnEventRaised -= IntroDone;
+    }
     private void Start()
     {
         StartCoroutine(InteractionFieldDisable());
+        if (PlayerPrefs.GetInt("NewGame") == 0)
+        {
+            StartIntro();
+        }
     }
     IEnumerator InteractionFieldDisable()
     {
@@ -92,5 +118,42 @@ public class PlayerUI : MonoBehaviour
         Time.timeScale = 1;
         GameManager.Instance.menuController.gameIsPaused = false;
         messageBox.SetActive(false);
+    }
+    public void StartIntro()
+    {
+        blackScreen.gameObject.SetActive(true);
+        dialogBox.GetComponent<DialogBox>().DialogStart(introDialog);
+        dialogBox.SetActive(true);
+        Player.Instance.state = Player.States.Emtpy;
+        Player.Instance.ChangeAnimationState("PlayerSleep");
+    }
+    public void BlackScreenDisable()
+    {
+        blackScreenColor = blackScreen.color;
+        blackScreenColor.a = 1;
+        StartCoroutine(FadeBlackScreen());
+    }
+    IEnumerator FadeBlackScreen()
+    {
+        float fadeTime = 2;
+        timer = fadeTime;
+        while (blackScreenColor.a > 0.01f)
+        {
+            timer -= Time.deltaTime;
+            float time = timer / fadeTime;
+            blackScreenColor.a = time;
+            blackScreen.color = blackScreenColor;
+            yield return null;
+
+        }
+        blackScreen.gameObject.SetActive(false);
+    }
+    public void IntroStandUp()
+    {
+        Player.Instance.ChangeAnimationState("PlayerStandUp");
+    }
+    public void IntroDone()
+    {
+        PlayerPrefs.SetInt("NewGame", 1);
     }
 }

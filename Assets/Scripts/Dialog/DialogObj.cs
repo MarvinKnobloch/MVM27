@@ -6,7 +6,11 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Dialog", menuName = "ScriptableObjects/DialogMessage")]
 public class DialogObj : ScriptableObject
 {
-    [SerializeField] public Dialog[] dialogs;
+    public bool cantSkipDialog;
+    public bool disableInputs;
+    public bool pauseGame;
+    public float autoPlayInterval;
+    public Dialog[] dialogs;
 }
 [Serializable]
 public struct Dialog
@@ -15,5 +19,5 @@ public struct Dialog
     public string characterName;
     [TextArea]
     public string dialogText;
-    public UnityEvent dialogEvent;
+    public VoidEventChannel dialogEvent;
 }

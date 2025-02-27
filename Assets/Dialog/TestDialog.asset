@@ -20,15 +20,11 @@ MonoBehaviour:
       How are you doing?
 
 '
-    dialogEvent:
-      m_PersistentCalls:
-        m_Calls: []
+    dialogEvent: {fileID: 0}
   - characterSprite: {fileID: 4219289206532570590, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
     dialogText: "Fine i\xB4m testing the dialog system right now.\n"
-    dialogEvent:
-      m_PersistentCalls:
-        m_Calls: []
+    dialogEvent: {fileID: 0}
   - characterSprite: {fileID: 21300000, guid: c5c12fa85a2691845b0f9fe570b641f2, type: 3}
     characterName: Caroline
     dialogText: 'Oh, that sounds very interesting.
@@ -36,14 +32,10 @@ MonoBehaviour:
       Do you like it?
 
 '
-    dialogEvent:
-      m_PersistentCalls:
-        m_Calls: []
+    dialogEvent: {fileID: 0}
   - characterSprite: {fileID: 4219289206532570590, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
     dialogText: 'Not really. I just want to play fortnite
 
 '
-    dialogEvent:
-      m_PersistentCalls:
-        m_Calls: []
+    dialogEvent: {fileID: 0}
