@@ -1,13 +1,9 @@
 using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using TMPro;
-using UnityEditor.Playables;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     public static Player Instance;

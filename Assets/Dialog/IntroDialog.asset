@@ -15,33 +15,48 @@ MonoBehaviour:
   cantSkipDialog: 1
   disableInputs: 1
   pauseGame: 0
-  autoPlayInterval: 0
   dialogs:
   - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
     characterName: ???
-    dialogText: Oh man how i could end up in this situation...
+    dialogText: Oh man how could i end up in this situation...
     dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
   - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
     characterName: ???
     dialogText: 'Hey you!
 
       Wake up!'
     dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
   - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
     characterName: ???
     dialogText: Come on. WAKE UP!!!
     dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
   - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
     dialogText: 'Uh.
 
       Oh.'
     dialogEvent: {fileID: 11400000, guid: c8437c40e4153084498c41a47e0d719a, type: 2}
+    autoPlayInterval: 0
   - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
     dialogText: What is going on?
     dialogEvent: {fileID: 11400000, guid: 6e2db33903ba8e6419ce1febef179abb, type: 2}
+    autoPlayInterval: 0
   - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
-    dialogText: How are you?
+    dialogText: Who are you?
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -2949728678765448516, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: Cinder
+    dialogText: Follow me i know how to escape
+    dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
+    autoPlayInterval: 3
+  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+    characterName: Player
+    dialogText: Wait for me!
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
+    autoPlayInterval: 0

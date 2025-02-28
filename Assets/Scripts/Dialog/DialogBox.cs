@@ -61,13 +61,12 @@ public class DialogBox : MonoBehaviour
     }
     public void DialogStart(DialogObj dialog)
     {
-        timer = 0;
         readInput = false;
 
         cantSkipDialog = dialog.cantSkipDialog;
         disableInputs = dialog.disableInputs;
         pauseGame = dialog.pauseGame;
-        autoPlayInterval = dialog.autoPlayInterval;
+
 
         if (cantSkipDialog) skipButton.SetActive(false);
         else skipButton.SetActive(true);
@@ -90,6 +89,9 @@ public class DialogBox : MonoBehaviour
     }
     private void DialogUpdate()
     {
+        timer = 0;
+        autoPlayInterval = currentDialog.dialogs[currentDialogNumber].autoPlayInterval;
+
         if (currentDialog.dialogs[currentDialogNumber].characterSprite != null) characterImage.sprite = currentDialog.dialogs[currentDialogNumber].characterSprite;
         else characterImage.sprite = null;
 

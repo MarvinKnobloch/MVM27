@@ -9,7 +9,6 @@ public class DialogObj : ScriptableObject
     public bool cantSkipDialog;
     public bool disableInputs;
     public bool pauseGame;
-    public float autoPlayInterval;
     public Dialog[] dialogs;
 }
 [Serializable]
@@ -20,4 +19,5 @@ public struct Dialog
     [TextArea]
     public string dialogText;
     public VoidEventChannel dialogEvent;
+    public float autoPlayInterval;
 }
