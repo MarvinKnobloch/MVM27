@@ -65,20 +65,26 @@ public class Health : MonoBehaviour
         HealthBarBackground.transform.position = healthBarPosition;
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, bool dontIgnoreIFrames)
     {
         if (amount == 0) return;
         if (Value <= 0) return;
 
-        Value -= amount;
 
         if (gameObject == Player.Instance.gameObject)
         {
+            if(dontIgnoreIFrames == false) if (Player.Instance.iframesActive) return;
+
+            Value -= amount;
             playerUI.HealthUIUpdate(Value, MaxValue);
+
+            if(Value > 0) Player.Instance.IFramesStart();
+
             //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
         }
         else
         {
+            Value -= amount;
             EnemyHealthbarUpdate();
         }
 

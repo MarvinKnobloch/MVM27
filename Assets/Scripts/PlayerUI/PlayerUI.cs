@@ -38,7 +38,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private DialogObj introDialog;
     [SerializeField] private VoidEventChannel disableBlackScreen;
     [SerializeField] private VoidEventChannel standUp;
-    [SerializeField] private VoidEventChannel endIntro;
+    [SerializeField] private VoidEventChannel endTutorial;
 
     private float timer;
 
@@ -50,13 +50,13 @@ public class PlayerUI : MonoBehaviour
     {
         disableBlackScreen.OnEventRaised += BlackScreenDisable;
         standUp.OnEventRaised += IntroStandUp;
-        endIntro.OnEventRaised += IntroDone;
+        endTutorial.OnEventRaised += TutorialDone;
     }
     private void OnDisable()
     {
         disableBlackScreen.OnEventRaised -= BlackScreenDisable;
         standUp.OnEventRaised -= IntroStandUp;
-        endIntro.OnEventRaised -= IntroDone;
+        endTutorial.OnEventRaised -= TutorialDone;
     }
     private void Start()
     {
@@ -125,7 +125,7 @@ public class PlayerUI : MonoBehaviour
         dialogBox.GetComponent<DialogBox>().DialogStart(introDialog);
         dialogBox.SetActive(true);
         Player.Instance.state = Player.States.Emtpy;
-        Player.Instance.ChangeAnimationState("PlayerSleep");
+        Player.Instance.ChangeAnimationState("Sleep");
     }
     public void BlackScreenDisable()
     {
@@ -150,10 +150,13 @@ public class PlayerUI : MonoBehaviour
     }
     public void IntroStandUp()
     {
-        Player.Instance.ChangeAnimationState("PlayerStandUp");
+        Player.Instance.ChangeAnimationState("StandUp");
     }
-    public void IntroDone()
+    public void TutorialDone()
     {
+        int progression = PlayerPrefs.GetInt("TutorialProgress");
+        progression++;
+        PlayerPrefs.SetInt("TutorialProgress", progression);
         PlayerPrefs.SetInt("NewGame", 1);
     }
 }

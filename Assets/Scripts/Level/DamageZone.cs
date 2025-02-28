@@ -31,15 +31,15 @@ public class DamageZone : MonoBehaviour
         switch (zone)
         {
             case Zone.NormalZone:
-                Player.Instance.health.TakeDamage(damage);
+                Player.Instance.health.TakeDamage(damage, false);
                 break;
             case Zone.FireZone:
-                if (Player.Instance.currentElementNumber != 1) Player.Instance.health.TakeDamage(damage);
+                if (Player.Instance.currentElementNumber != 1) Player.Instance.health.TakeDamage(damage, false);
                 break;
             case Zone.LavaZone:
                 if (Player.Instance.currentElementNumber == 1 && Player.Instance.state == Player.States.Dash) return;
 
-                Player.Instance.health.TakeDamage(damage);
+                Player.Instance.health.TakeDamage(damage, true);
                 break;
                 
         }

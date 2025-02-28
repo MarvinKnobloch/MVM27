@@ -16,7 +16,7 @@ public class ChildernAnimation : MonoBehaviour
     public void NonElementHeal() => player.playerAbilties.NonElementHeal();
     public void SwitchToIdle()
     {
-        player.ChangeAnimationState("PlayerIdle");
+        player.ChangeAnimationState("Idle");
         player.SwitchToGround();
     }
 }

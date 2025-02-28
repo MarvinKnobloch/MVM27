@@ -1,6 +1,6 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -37,6 +37,15 @@ public class Player : MonoBehaviour
     public float dashStrength;
     public int maxDashCount;
     [NonSerialized] public int currentDashCount;
+
+    [Header("IFrames")]
+    public float iFramesDuration;
+    private float iFramesTimer;
+    [SerializeField] private float iFramesBlinkSpeed;
+    private float iFramesBlinkTimer;
+    [NonSerialized] public bool iFramesBlink;
+    [NonSerialized] public bool iframesActive;
+    [SerializeField] public Color[] spriteColor;
 
     [Header("Other")]
     public Transform projectileSpawnPosition;
@@ -77,14 +86,14 @@ public class Player : MonoBehaviour
     public int elementHealCosts;
 
     [Header("ElementalSwitch")]
-    public GameObject[] elementalSprite;
+    public SpriteRenderer[] elementalSprite;
     [NonSerialized] public int currentElementNumber;
 
     //Animations
     public Animator[] elementalAnimator;
     [NonSerialized] public Animator currentAnimator;
     [NonSerialized] public string currentstate;
-    const string deathState = "PlayerDeath";
+    const string deathState = "Death";
 
     //Interaction
     [NonSerialized] public List<IInteractables> interactables = new List<IInteractables>();
@@ -157,7 +166,6 @@ public class Player : MonoBehaviour
         if (health != null) health.dieEvent.AddListener(OnDeath);
 
         PlayerAbilityUpdate();
-
     }
     private void OnEnable()
     {
@@ -243,7 +251,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1);
+        if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1, false);
 
         if (menuController.gameIsPaused) return;
         ReadMovementInput();
@@ -327,6 +335,37 @@ public class Player : MonoBehaviour
         EnergyValue += amount;
         playerUI.EnergyUIUpdate(EnergyValue, EnergyMaxValue);
     }
+    public void IFramesStart()
+    {
+        iframesActive = true;
+        iFramesTimer = 0;
+        iFramesBlink = false;
+        iFramesBlinkTimer = 0;
+        StartCoroutine(IFrames());
+    }
+    IEnumerator IFrames()
+    {
+        while (iFramesTimer < iFramesDuration)
+        {
+            iFramesTimer += Time.deltaTime;
+            iFramesBlinkTimer += Time.deltaTime;
+
+            if (iFramesBlinkTimer >= iFramesBlinkSpeed)
+            {
+                iFramesBlinkTimer = 0;
+                iFramesBlink = !iFramesBlink;
+
+                if (iFramesBlink) elementalSprite[currentElementNumber].color = Color.red;
+                else elementalSprite[currentElementNumber].color = spriteColor[currentElementNumber];
+            }
+            yield return null;
+        }
+
+        iFramesBlink = false;
+        elementalSprite[currentElementNumber].color = spriteColor[currentElementNumber];
+        iframesActive = false;
+
+    }
     private void OnDeath()
     {
         //animation
@@ -339,8 +378,6 @@ public class Player : MonoBehaviour
     }
     public void RestartGame()
     {
-        menuController.gameIsPaused = false;
-        Time.timeScale = 1;
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        menuController.ResetPlayer(false);
     }
 }

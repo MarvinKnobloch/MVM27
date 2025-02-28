@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TutorialNpc : MonoBehaviour
 {
-    public States state;
+    [SerializeField] private int TutorialNumber;
     [SerializeField] private float movementSpeed;
     [SerializeField] private Transform moveToPosition;
     [SerializeField] private bool disableAfterMove;
@@ -15,6 +15,8 @@ public class TutorialNpc : MonoBehaviour
     private const string runState = "Run";
 
     [SerializeField] private VoidEventChannel introMoveNpc;
+
+    private States state;
     public enum States
     {
         Idle,
@@ -25,14 +27,18 @@ public class TutorialNpc : MonoBehaviour
     {
         SwitchToIdle();
         animator = GetComponent<Animator>();
+        if(PlayerPrefs.GetInt("TutorialProgress") >= TutorialNumber)
+        {
+            transform.parent.gameObject.SetActive(false);
+        }
     }
     private void OnEnable()
     {
-        introMoveNpc.OnEventRaised += SwitchToMove;
+        if(introMoveNpc != null) introMoveNpc.OnEventRaised += SwitchToMove;
     }
     private void OnDisable()
     {
-        introMoveNpc.OnEventRaised -= SwitchToMove;
+        if (introMoveNpc != null) introMoveNpc.OnEventRaised -= SwitchToMove;
     }
     private void Update()
     {

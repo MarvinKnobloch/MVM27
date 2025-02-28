@@ -287,6 +287,12 @@ MonoBehaviour:
   dashTime: 0.3
   dashStrength: 12
   maxDashCount: 2
+  iFramesDuration: 0.8
+  iFramesBlinkSpeed: 0.15
+  spriteColor:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.5372549, g: 0.023529412, b: 0.023529412, a: 1}
+  - {r: 0.12941177, g: 0.7176471, b: 0, a: 1}
   projectileSpawnPosition: {fileID: 1794253880594239891}
   maxEnergy: 50
   canWallBoost: 0
@@ -304,9 +310,9 @@ MonoBehaviour:
   elementHealAmount: 3
   elementHealCosts: 1
   elementalSprite:
-  - {fileID: 1653151592015962749}
-  - {fileID: 5261946198451038558}
-  - {fileID: 5550805844632234912}
+  - {fileID: 507459235316394410}
+  - {fileID: 1587885830499150073}
+  - {fileID: 6006699433970327279}
   elementalAnimator:
   - {fileID: 7736975113925478399}
   - {fileID: 8403596275835272363}

@@ -8,11 +8,11 @@ public class PlayerMovement
     public Player player;
     private float dashTimer;
 
-    const string idleState = "PlayerIdle";
-    const string runState = "PlayerRun";
-    const string jumpState = "PlayerJump";
-    const string fallState = "PlayerFall";
-    const string dashState = "PlayerDash";
+    const string idleState = "Idle";
+    const string runState = "Run";
+    const string jumpState = "Jump";
+    const string fallState = "Fall";
+    const string dashState = "Dash";
 
     public void PlayerMove(float grounddrag)
     {

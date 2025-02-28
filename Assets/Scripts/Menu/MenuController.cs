@@ -132,9 +132,11 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerXSpawn", 3);
         PlayerPrefs.SetFloat("PlayerYSpawn", 3);
         PlayerPrefs.SetInt("CurrentLevel", 1);
+        PlayerPrefs.SetInt("TutorialProgress", 0);
 
         //Abilities
         //Heal???
+        PlayerPrefs.SetInt("Dash", 0);
         PlayerPrefs.SetInt("FireElement", 0);
         PlayerPrefs.SetInt("Fireball", 0);
         PlayerPrefs.SetInt("WallBreak", 0);
@@ -166,12 +168,18 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
-    public void ResetPlayer()
+    public void ResetPlayer(bool playSound)
     {
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
+        if(playSound) AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
+
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        //if (GameManager.Instance.LoadFormCheckpoint)
+        //{
+        //    SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        //}
+        //else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void BackToMainMenu()
     {

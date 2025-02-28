@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DialogBox : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogBox : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private TextMeshProUGUI boxText;
     [SerializeField] private GameObject skipButton;
+    [SerializeField] private TextMeshProUGUI continueText;
 
     private DialogObj currentDialog;
     private int currentDialogNumber;
@@ -91,6 +93,14 @@ public class DialogBox : MonoBehaviour
     {
         timer = 0;
         autoPlayInterval = currentDialog.dialogs[currentDialogNumber].autoPlayInterval;
+        
+        if (autoPlayInterval == 0)
+        {
+            if (controls == null) controls = Keybindinputmanager.Controls;
+
+            continueText.text = "Continue (" + controls.Player.Attack.GetBindingDisplayString() + " or " + controls.Player.Interact.GetBindingDisplayString() + ")";
+        }
+        else continueText.text = string.Empty;
 
         if (currentDialog.dialogs[currentDialogNumber].characterSprite != null) characterImage.sprite = currentDialog.dialogs[currentDialogNumber].characterSprite;
         else characterImage.sprite = null;

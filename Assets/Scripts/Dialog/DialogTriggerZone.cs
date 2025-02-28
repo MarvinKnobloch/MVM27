@@ -13,6 +13,15 @@ public class DialogTriggerZone : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if(dialog.pauseGame == false)
+            {
+                if(dialog.disableInputs == true)
+                {
+                    Player.Instance.rb.linearVelocity = Vector2.zero;
+                    Player.Instance.SwitchToGround();
+                    Player.Instance.ChangeAnimationState("Idle");
+                }
+            }
             GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog);
             GameManager.Instance.playerUI.dialogBox.SetActive(true);
             gameObject.SetActive(false);

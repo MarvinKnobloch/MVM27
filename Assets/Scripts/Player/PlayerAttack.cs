@@ -25,12 +25,12 @@ public class PlayerAttack : MonoBehaviour
     private int elementalSwitchNumber;
 
     //Animationen
-    const string idleState = "PlayerIdle";
+    const string idleState = "Idle";
     public enum PlayerAnimations
     {
-        PlayerAttack1,
-        PlayerAttack2,
-        PlayerAttack3,
+        Attack1,
+        Attack2,
+        Attack3,
 
     }
     private void Awake()
@@ -190,8 +190,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (col.TryGetComponent(out Health health))
             {
-                health.TakeDamage(attacks[currentAttackNumber].damage);
-           
+                health.TakeDamage(attacks[currentAttackNumber].damage, false);
+          
             }
         }
         if(collider.Length != 0)

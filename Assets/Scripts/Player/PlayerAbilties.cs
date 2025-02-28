@@ -6,8 +6,8 @@ public class PlayerAbilties
     public Player player;
     private float castTimer;
 
-    const string switchState = "PlayerSwitch";
-    const string elementHealState = "PlayerHeal";
+    const string switchState = "Switch";
+    const string elementHealState = "Heal";
 
 
     public void Ability1Input(InputAction.CallbackContext ctx)
@@ -157,11 +157,13 @@ public class PlayerAbilties
     }
     public void ElementalSwitch(int slot)
     {
-        player.elementalSprite[player.currentElementNumber].SetActive(false);
+        player.elementalSprite[player.currentElementNumber].gameObject.SetActive(false);
 
         player.currentAnimator = player.elementalAnimator[slot];
         player.currentElementNumber = slot;
-        player.elementalSprite[player.currentElementNumber].SetActive(true);
+        player.elementalSprite[player.currentElementNumber].gameObject.SetActive(true);
+        if (player.iFramesBlink) player.elementalSprite[player.currentElementNumber].color = Color.red;
+        else player.elementalSprite[player.currentElementNumber].color = player.spriteColor[player.currentElementNumber];
 
         player.ChangeAnimationState(switchState);
     }

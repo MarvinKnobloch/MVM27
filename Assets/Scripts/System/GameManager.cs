@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public PlayerUI playerUI;
 
     public CheckPoint currentCheckpoint;
-    [SerializeField] private bool LoadFormCheckpoint;
+    public bool LoadFormCheckpoint;
 
     [NonSerialized] public int playerGold;
     public enum AbilityStrings
@@ -42,5 +42,7 @@ public class GameManager : MonoBehaviour
             Player.Instance.transform.position = spawn;
         }
         playerUI.GoldUpdate(PlayerPrefs.GetInt("PlayerGold"));
+
+        PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
     }
 }

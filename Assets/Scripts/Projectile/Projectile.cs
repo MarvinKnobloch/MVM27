@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
         {
             if(other.TryGetComponent(out Health health))
             {
-                health.TakeDamage(damage);
+                health.TakeDamage(damage, false);
             }
             Destroy(gameObject);
         }
