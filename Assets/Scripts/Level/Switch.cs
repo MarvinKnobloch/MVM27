@@ -30,6 +30,10 @@ public class Switch : MonoBehaviour, IInteractables
         {
             Player.Instance.playerInteraction.AddInteraction(this);
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Fireball"))
+        {
+            Interaction();
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

@@ -283,7 +283,7 @@ MonoBehaviour:
   groundIntoAirOffset: 0.1
   groundCheckLayer:
     serializedVersion: 2
-    m_Bits: 1544
+    m_Bits: 3592
   dashTime: 0.3
   dashStrength: 12
   maxDashCount: 2

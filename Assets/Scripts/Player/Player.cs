@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public float baseGravityScale;
     public LayerMask groundCheckLayer;
     [NonSerialized] public float sidewardsStreamMovement;
+    [NonSerialized] public MovingPlatform movingPlatform;
 
     [Header("Dash")]
     public float dashTime;

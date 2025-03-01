@@ -24,8 +24,17 @@ public class PlayerMovement
         else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 10;
         else player.sidewardsStreamMovement = 0;
 
-        player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + player.XWallBoostMovement + player.sidewardsStreamMovement, grounddrag);
-
+        if (player.movingPlatform != null)
+        {
+            float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
+            player.playerVelocity.Set((player.moveDirection.x * player.movementSpeed) + additionalMovement, player.movingPlatform.velocity.y + grounddrag);
+        }
+        else
+        {
+            float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement;
+            player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + additionalMovement, grounddrag);
+        }
+        
         player.rb.linearVelocity = player.playerVelocity;
 
         //Animation
