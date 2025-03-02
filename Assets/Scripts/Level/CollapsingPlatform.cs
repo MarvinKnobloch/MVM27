@@ -14,6 +14,7 @@ public class CollapsingPlatform : MonoBehaviour
     [SerializeField] private float blinkSpeed;
     private float blinkTimer;
     private bool normalColor;
+    private Color baseColor;
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -21,6 +22,8 @@ public class CollapsingPlatform : MonoBehaviour
         float xsize = spriteRenderer.size.x;
         boxCollider.size = new Vector2(xsize * 0.98f, transform.GetChild(0).transform.localScale.y);  // 0.49f
         transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, 1);
+
+        baseColor = spriteRenderer.color;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,7 +58,7 @@ public class CollapsingPlatform : MonoBehaviour
                 blinkTimer = 0;
                 normalColor = !normalColor;
                 if (normalColor) spriteRenderer.color = Color.red;
-                else spriteRenderer.color = Color.white;
+                else spriteRenderer.color = baseColor;
             }
             yield return null;
         }
