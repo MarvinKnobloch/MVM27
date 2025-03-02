@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public CheckPoint currentCheckpoint;
     public bool LoadFormCheckpoint;
+    [NonSerialized] public bool CheckpointOnSpawn;
 
     [NonSerialized] public int playerGold;
     public enum AbilityStrings
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        if (Player.Instance == null) return;
+
         if (LoadFormCheckpoint)
         {
             float XSpawn = PlayerPrefs.GetFloat("PlayerXSpawn");
@@ -40,9 +44,16 @@ public class GameManager : MonoBehaviour
             Vector3 spawn = new Vector3(XSpawn, YSpawn, 0);
 
             Player.Instance.transform.position = spawn;
+            StartCoroutine(CheckPointOnLoad());
+
         }
         playerUI.GoldUpdate(PlayerPrefs.GetInt("PlayerGold"));
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
+    }
+    IEnumerator CheckPointOnLoad()
+    {
+        yield return new WaitForSeconds(0.3f);
+        CheckpointOnSpawn = true;
     }
 }

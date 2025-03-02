@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyPrefab: {fileID: 4006957860399304334, guid: f2d8a1ae5c5e9c54083bee94d81691ec, type: 3}
-  prefabCount: 4
+  prefabCount: 20
   YSpawnOffset: 1
   XForce: 20
   YForce: 5

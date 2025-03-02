@@ -40,7 +40,9 @@ public class PlayerInteraction
     }
     public void RemoveInteraction(IInteractables interactable)
     {
-        player.interactables.Remove(interactable);
+        if (player.interactables.Contains(interactable)) player.interactables.Remove(interactable);
+        else return;
+
         InteractionUpdate();
 
         if(player.interactables.Count == 0)
