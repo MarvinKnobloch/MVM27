@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  jumpStrength: 10
+  jumpStrength: 10.5
   maxJumpCount: 2
   maxFallSpeed: -20
   groundIntoAirOffset: 0.1
