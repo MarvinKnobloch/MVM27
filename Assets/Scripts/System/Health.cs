@@ -37,18 +37,22 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        baseHealth = maxHealth;
-
         if (HealthBarBackground != null) HealthBarImage = HealthBarBackground.transform.GetChild(0).GetComponent<Image>();
-        currentHealth = maxHealth;
 
         if (gameObject == Player.Instance.gameObject)
         {
             playerUI = GameManager.Instance.playerUI;
+            baseHealth = MaxValue;
+            CalculatePlayerHealth();
+            Value = MaxValue;
             playerUI.HealthUIUpdate(Value, MaxValue);
         }
+        else 
+        { 
+            Value = MaxValue;
+            EnemyHealthbarUpdate();
+        }
 
-        EnemyHealthbarUpdate();
     }
 
     void LateUpdate()
@@ -114,5 +118,10 @@ public class Health : MonoBehaviour
         {
             HealthBarImage.fillAmount = (float)Value / MaxValue;
         }
+    }
+    public void CalculatePlayerHealth()
+    {
+        MaxValue = baseHealth + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusHealth.ToString());
+        playerUI.HealthUIUpdate(Value, MaxValue);
     }
 }

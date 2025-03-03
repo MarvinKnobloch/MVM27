@@ -152,8 +152,8 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BonusEnergy", 0);
         PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
         PlayerPrefs.SetInt("BonusAttack", 0);
-        PlayerPrefs.SetInt("BonusComboEndDamage", 0);
-        PlayerPrefs.SetInt("BonusSwitchDamage", 0);
+        PlayerPrefs.SetInt("BonusFinalAttack", 0);
+        PlayerPrefs.SetInt("BonusSwitchAttack", 0);
         //FireBallDamage???
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);

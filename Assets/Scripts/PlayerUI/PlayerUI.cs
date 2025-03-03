@@ -61,7 +61,7 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         StartCoroutine(InteractionFieldDisable());
-        if (PlayerPrefs.GetInt("NewGame") == 0)
+        if (PlayerPrefs.GetInt("NewGame") == 0 && GameManager.Instance.CheckForNewGame)
         {
             StartIntro();
         }

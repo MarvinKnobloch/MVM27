@@ -49,7 +49,7 @@ public class PlayerAbilties
         if (player.state != Player.States.NonElementalHeal) return;
 
         player.EnergyUpdate(-player.elementHealCosts);
-        player.health.Heal(player.elementHealAmount);
+        player.health.Heal(player.elementHealAmount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusHeal.ToString()));
         player.SwitchToAir();
     }
     private void StartHeavyPunsh()

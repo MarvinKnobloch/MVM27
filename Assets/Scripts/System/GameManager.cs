@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public CheckPoint currentCheckpoint;
     public bool LoadFormCheckpoint;
+    public bool CheckForNewGame;
     [NonSerialized] public bool CheckpointOnSpawn;
 
     [NonSerialized] public int playerGold;

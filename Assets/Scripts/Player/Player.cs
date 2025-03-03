@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     [Header("Energy")]
     [SerializeField] private int maxEnergy;
     private int currentEnergy;
+    private int baseEnergy;
     public int EnergyValue
     {
         get { return currentEnergy; }
@@ -110,11 +111,12 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool wallBoostUnlocked;
     [NonSerialized] public bool dashUnlocked;
 
-    private PlayerAttack playerAttack;
+    [NonSerialized] public PlayerAttack playerAttack;
     [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
     private PlayerCollision playerCollision = new PlayerCollision();
     [NonSerialized] public PlayerAbilties playerAbilties = new PlayerAbilties();
     [NonSerialized] public PlayerInteraction playerInteraction = new PlayerInteraction();
+    private PlayerUpgrades playerUpgrades = new PlayerUpgrades();
 
     [Space]
     public States state;
@@ -154,6 +156,7 @@ public class Player : MonoBehaviour
         playerCollision.player = this;
         playerAbilties.player = this;
         playerInteraction.player = this;
+        playerUpgrades.player = this;
 
     }
     private void Start()
@@ -161,6 +164,8 @@ public class Player : MonoBehaviour
         menuController = GameManager.Instance.menuController;
         playerUI = GameManager.Instance.playerUI;
 
+        baseEnergy = EnergyMaxValue;
+        CalculateMaxEnergy();
         EnergyUpdate(Mathf.RoundToInt(EnergyMaxValue * 0.5f));
 
         state = States.Air;
@@ -331,9 +336,14 @@ public class Player : MonoBehaviour
         GameObject projectile = Instantiate(obj, spawnPosition.position, Quaternion.identity);
         if (faceRight) projectile.transform.Rotate(0, 180, 0);
     }
+    public void CalculateMaxEnergy()
+    {
+        EnergyMaxValue = baseEnergy + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergy.ToString());
+        playerUI.EnergyUIUpdate(EnergyValue, EnergyMaxValue);
+    }
     public void EnergyUpdate(int amount)
     {
-        EnergyValue += amount;
+        EnergyValue += amount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString());
         playerUI.EnergyUIUpdate(EnergyValue, EnergyMaxValue);
     }
     public void IFramesStart()
@@ -367,6 +377,7 @@ public class Player : MonoBehaviour
         iframesActive = false;
 
     }
+    public void AddStatUpgrade(Upgrades.StatsUpgrades upgrade, int amount) => playerUpgrades.AddStatUpgrade(upgrade, amount);
     private void OnDeath()
     {
         //animation

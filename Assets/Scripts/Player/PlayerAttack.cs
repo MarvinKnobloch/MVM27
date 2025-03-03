@@ -24,6 +24,10 @@ public class PlayerAttack : MonoBehaviour
 
     private int elementalSwitchNumber;
 
+    private int upgradeAttack;
+    private int upgradeFinalAttack;
+    private int upgradeSwitchAttack;
+
     //Animationen
     const string idleState = "Idle";
     public enum PlayerAnimations
@@ -33,11 +37,6 @@ public class PlayerAttack : MonoBehaviour
         Attack3,
 
     }
-    private void Awake()
-    {
-        player = GetComponent<Player>();
-        controls = Keybindinputmanager.Controls;
-    }
 
     public States state;
 
@@ -45,6 +44,15 @@ public class PlayerAttack : MonoBehaviour
     {
         Empty,
         Attack,
+    }
+    private void Awake()
+    {
+        player = GetComponent<Player>();
+        controls = Keybindinputmanager.Controls;
+    }
+    private void Start()
+    {
+        SetUpgradeDamage();
     }
     private void Update()
     {
@@ -190,7 +198,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (col.TryGetComponent(out Health health))
             {
-                health.TakeDamage(attacks[currentAttackNumber].damage, false);
+                int upgradeBonusDamage = AddUpgradeDamage();
+                health.TakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage, false);
           
             }
         }
@@ -198,6 +207,18 @@ public class PlayerAttack : MonoBehaviour
         {
             player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
         }
+    }
+    public void SetUpgradeDamage()
+    {
+        upgradeAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusAttack.ToString());
+        upgradeFinalAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusFinalAttack.ToString());
+        upgradeSwitchAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusSwitchAttack.ToString());
+    }
+    private int AddUpgradeDamage()
+    {
+        if (currentAttackNumber < 2) return upgradeAttack;
+        else if (currentAttackNumber == 2) return upgradeAttack + upgradeFinalAttack;
+        else return upgradeAttack + upgradeSwitchAttack;
     }
 
     [Serializable]
