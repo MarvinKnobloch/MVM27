@@ -27,7 +27,6 @@ public class ChangePlayerStats : MonoBehaviour
     }
     public void TextUpdate()
     {
-        Debug.Log("update");
         int count = PlayerPrefs.GetInt(stat.ToString());
         if(count > 0) statText.text = stat.ToString() + " <color=green>" + count + "</color>";
         else if (count == 0) statText.text = stat.ToString() + " <color=white>" + count + "</color>";

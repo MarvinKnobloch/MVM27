@@ -5,7 +5,7 @@ public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private LayerMask triggerLayer;
     private List<GameObject> objsOnPlatform = new List<GameObject>();
-    [SerializeField] private GameObject objToControl;
+    [SerializeField] private GameObject[] objsToControl;
 
     private Transform spriteTransform;
     private float spriteMoveOffset = 0.2f;
@@ -23,9 +23,12 @@ public class PressurePlate : MonoBehaviour
                 objsOnPlatform.Add(collision.gameObject);
                 if(objsOnPlatform.Count == 1)
                 {
-                    if(objToControl.TryGetComponent(out IActivate iactivate))
+                    foreach (GameObject obj in objsToControl)
                     {
-                        iactivate.Activate();
+                        if (obj.TryGetComponent(out IActivate iactivate))
+                        {
+                            iactivate.Activate();
+                        }
                     }
                     spriteTransform.transform.position += new Vector3(0, -spriteMoveOffset,0);
                 }
@@ -41,11 +44,14 @@ public class PressurePlate : MonoBehaviour
                 objsOnPlatform.Remove(collision.gameObject);
                 if (objsOnPlatform.Count == 0)
                 {
-                    if (objToControl == null) return;
+                    if (objsToControl == null) return;
 
-                    if (objToControl.TryGetComponent(out IActivate iactivate))
+                    foreach (GameObject obj in objsToControl)
                     {
-                        iactivate.Deactivate();
+                        if (obj.TryGetComponent(out IActivate iactivate))
+                        {
+                            iactivate.Deactivate();
+                        }
                     }
                     spriteTransform.transform.position += new Vector3(0, spriteMoveOffset, 0);
                 }

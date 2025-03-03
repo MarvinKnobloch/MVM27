@@ -2,26 +2,23 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour, IInteractables
 {
-    public GameObject interactObj { get => gameObject;}
+    public GameObject interactObj { get => gameObject; }
 
     [SerializeField] private string actionText;
     public string interactiontext => actionText;
     [SerializeField] private bool activ;
 
-    [SerializeField] private GameObject objToControl;
-    private IActivate activateObj;
+    [SerializeField] private GameObject[] objsToControl;
 
-    private void Awake()
-    {
-        activateObj = objToControl.GetComponent<IActivate>();
-        //activateObj.SetRequirement();
-    }
     public void Interaction()
     {
         activ = !activ;
-        if(activ) activateObj.Activate();
-        else activateObj.Deactivate();
 
+        foreach (GameObject obj in objsToControl)
+        {
+            if (activ) obj.GetComponent<IActivate>().Activate();
+            else obj.GetComponent<IActivate>().Deactivate();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
