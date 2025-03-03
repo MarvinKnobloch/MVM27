@@ -25,7 +25,6 @@ public class PlayerAttack : MonoBehaviour
     private int elementalSwitchNumber;
 
     private int upgradeAttack;
-    private int upgradeFinalAttack;
     private int upgradeSwitchAttack;
 
     //Animationen
@@ -211,13 +210,11 @@ public class PlayerAttack : MonoBehaviour
     public void SetUpgradeDamage()
     {
         upgradeAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusAttack.ToString());
-        upgradeFinalAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusFinalAttack.ToString());
         upgradeSwitchAttack = PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusSwitchAttack.ToString());
     }
     private int AddUpgradeDamage()
     {
         if (currentAttackNumber < 2) return upgradeAttack;
-        else if (currentAttackNumber == 2) return upgradeAttack + upgradeFinalAttack;
         else return upgradeAttack + upgradeSwitchAttack;
     }
 

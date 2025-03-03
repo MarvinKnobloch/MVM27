@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
@@ -20,7 +21,11 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private bool fastReturn;
     [SerializeField] private float fastTravelTime;
 
-    public State state;
+    [Header("BurningPlatform")]
+    [SerializeField] private bool burningPlatform;
+    [SerializeField] private int burningDamage;
+
+    [NonSerialized] public State state;
 
     public enum State
     {
@@ -158,6 +163,15 @@ public class MovingPlatform : MonoBehaviour
 
                 }
             }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (burningPlatform == false) return;
+
+        if (collision.CompareTag("Player"))
+        {
+            if (Player.Instance.currentElementNumber != 1) Player.Instance.health.TakeDamage(burningDamage, false);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

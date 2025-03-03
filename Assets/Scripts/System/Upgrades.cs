@@ -9,7 +9,6 @@ public class Upgrades : MonoBehaviour
         BonusEnergy,
         BonusEnergyRecharge,
         BonusAttack,
-        BonusFinalAttack,
         BonusSwitchAttack,
     }
 

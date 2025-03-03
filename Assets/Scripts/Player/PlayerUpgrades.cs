@@ -26,10 +26,6 @@ public class PlayerUpgrades
                 PlayerPrefs.SetInt(upgrade.ToString(), StatsUpdate(upgrade, amount));
                 player.playerAttack.SetUpgradeDamage();
                 break;
-            case Upgrades.StatsUpgrades.BonusFinalAttack:
-                PlayerPrefs.SetInt(upgrade.ToString(), StatsUpdate(upgrade, amount));
-                player.playerAttack.SetUpgradeDamage();
-                break;
             case Upgrades.StatsUpgrades.BonusSwitchAttack:
                 PlayerPrefs.SetInt(upgrade.ToString(), StatsUpdate(upgrade, amount));
                 player.playerAttack.SetUpgradeDamage();
