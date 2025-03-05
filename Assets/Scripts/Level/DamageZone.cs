@@ -4,6 +4,7 @@ public class DamageZone : MonoBehaviour
 {
     [SerializeField] private int damage;
     [SerializeField] private Zone zone;
+    [SerializeField] private bool lavaIgnoreIframes;
     public enum Zone
     {
         NormalZone,
@@ -39,7 +40,8 @@ public class DamageZone : MonoBehaviour
             case Zone.LavaZone:
                 if (Player.Instance.currentElementNumber == 1 && Player.Instance.state == Player.States.Dash) return;
 
-                Player.Instance.health.TakeDamage(damage, true);
+                if(lavaIgnoreIframes) Player.Instance.health.TakeDamage(damage, true);
+                else Player.Instance.health.TakeDamage(damage, false);
                 break;
                 
         }

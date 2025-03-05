@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     [Header("ProjectileValues")]
     [SerializeField] private float lifetime = 2f;
-    [SerializeField] public float projectileSpeed;
+    public float projectileSpeed;
     [SerializeField] private LayerMask collideLayer;
     
 
@@ -20,6 +20,11 @@ public class Projectile : MonoBehaviour
 
     [Header("BurnObjects")]
     [SerializeField] private LayerMask burnLayer;
+
+    [Header("ReflectLayer")]
+    [SerializeField] private LayerMask reflectLayer;
+
+    private bool dontupdate;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,10 +43,21 @@ public class Projectile : MonoBehaviour
         oldPosition = transform.position;
         transform.right = direction;
     }
+    public void Reflect()
+    {
+        transform.Rotate(0, 0, 180);
+        //oldPosition = (Vector2)transform.position + direction;
+        //direction = ((Vector2)transform.position - oldPosition).normalized;
+        //transform.right = direction;
+        //dontupdate = true;
+
+
+        //direction = (oldPosition - (Vector2)transform.position).normalized;
+        //oldPosition = transform.position;
+        //oldPosition = (Vector2)transform.position + direction;
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Bullet entered with " + other.gameObject.name);
-
         // Enemy hit check
         if (Utility.LayerCheck(other, enemyHitLayer))
         {
@@ -54,17 +70,24 @@ public class Projectile : MonoBehaviour
         // Collide
         else if(Utility.LayerCheck(other, collideLayer))
         {
-            if(other.gameObject.TryGetComponent(out Reflectable reflectable))
-            { 
-
+            {
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
         //Burn hit check
         else if(Utility.LayerCheck(other, burnLayer))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);
+        }
+        //Reflect
+        else if (Utility.LayerCheck(other, reflectLayer))
+        {
+            if (other.gameObject.TryGetComponent(out Reflectable reflectable))
+            {
+                reflectable.Reflect();
+                Destroy(gameObject);
+            }
         }
     }
 }

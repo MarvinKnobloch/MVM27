@@ -137,7 +137,7 @@ public class TutorialBoss : MonoBehaviour
     public void BossStart()
     {
         boxCollider2D.enabled = true;
-        GameManager.Instance.playerUI.ActivateBossHealth();
+        GameManager.Instance.playerUI.ToggleBossHealth(true);
         GameManager.Instance.playerUI.BossHealthUIUpdate(health.Value, health.MaxValue);
 
         currentPlatforms[currentPhase].SetActive(true);
@@ -224,8 +224,9 @@ public class TutorialBoss : MonoBehaviour
         ChangeAnimationState("Death");
     }
     public void Death() 
-    { 
+    {
         //Trigger Event
+        GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
     }
 

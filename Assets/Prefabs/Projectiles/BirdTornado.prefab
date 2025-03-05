@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4099984877568308752}
   - component: {fileID: 3520822318322040050}
   - component: {fileID: 1738528327188616559}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BirdTornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}

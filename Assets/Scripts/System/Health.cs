@@ -127,6 +127,7 @@ public class Health : MonoBehaviour
                     tutorialBoss.PhaseUpdate(Value, MaxValue);
                     break;
                 case Bosses.AirBoss:
+                    airBoss.PhaseUpdate(Value, MaxValue);
                     break;
             }
 

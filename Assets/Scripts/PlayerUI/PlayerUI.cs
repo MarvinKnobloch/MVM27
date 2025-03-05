@@ -102,9 +102,9 @@ public class PlayerUI : MonoBehaviour
         energybar.fillAmount = (float)current / max;
         energyText.text = current + "/" + max;
     }
-    public void ActivateBossHealth()
+    public void ToggleBossHealth(bool activate)
     {
-        bossHealthbarObject.SetActive(true);
+        bossHealthbarObject.SetActive(activate);
     }
     public void BossHealthUIUpdate(int current, int max)
     {

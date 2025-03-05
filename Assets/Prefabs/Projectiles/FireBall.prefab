@@ -106,7 +106,7 @@ MonoBehaviour:
   projectileSpeed: 15
   collideLayer:
     serializedVersion: 2
-    m_Bits: 32776
+    m_Bits: 8
   enemyHitLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -114,6 +114,9 @@ MonoBehaviour:
   burnLayer:
     serializedVersion: 2
     m_Bits: 8192
+  reflectLayer:
+    serializedVersion: 2
+    m_Bits: 32768
 --- !u!58 &-7170843165169928906
 CircleCollider2D:
   m_ObjectHideFlags: 0

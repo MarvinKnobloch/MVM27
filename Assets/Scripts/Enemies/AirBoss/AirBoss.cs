@@ -16,9 +16,6 @@ public class AirBoss : MonoBehaviour
     private float finalAttackTime;
     private float timer;
 
-    [Header("Damage")]
-    [SerializeField] private LayerMask playerLayer;
-
     [Header("Abilities")]
     [SerializeField] private UnityEvent[] abilities;
     [SerializeField] private bool randomAttackOrder;
@@ -28,6 +25,10 @@ public class AirBoss : MonoBehaviour
     [SerializeField]
     [Range(0, 1)] private float[] phasePercentage;
     private int currentPhase;
+    [SerializeField] private int phaseBonusCharges;
+    [SerializeField] private int phaseBonusChargeSpeed;
+    [SerializeField] private int phaseBonusProjectiles;
+
 
     //Ohter
     private bool isleft;
@@ -35,12 +36,13 @@ public class AirBoss : MonoBehaviour
     [Header("Charge")]
     [SerializeField] private int chargeAmount;
     private int currentCharge;
-    [SerializeField] private int chargeDamage;
+    [SerializeField] public int chargeDamage;
     [SerializeField] private float timeToStartCharge;
     [SerializeField] private Transform[] chargeStartPositions;
     private Vector2 chargeDirection;
     [SerializeField] private float chargeSpeed;
     [SerializeField] private float chargeTime;
+    [SerializeField] private Transform[] chargeStartEndPositions;
     [SerializeField] private Transform[] chargeEndPositions;
     private Transform chargeEndPosition;
 
@@ -48,7 +50,7 @@ public class AirBoss : MonoBehaviour
     [SerializeField] private GameObject projectiles;
     [SerializeField] private int projectileSpawnPhases;
     private int currentProjectilePhase;
-    [SerializeField] private int timeBetweenProjectiles;
+    [SerializeField] private float timeBetweenProjectiles;
     [SerializeField] private int projectileSpawnAmount;
     [SerializeField] private float projectileBaseSpeed;
     [SerializeField] private float projectileRandomSpeed;
@@ -56,6 +58,18 @@ public class AirBoss : MonoBehaviour
     [Header("Tornado")]
     [SerializeField] private GameObject tornado;
     [SerializeField] private Transform tornadoSpawnPosition;
+    [SerializeField] private float tornadoSpawnTime;
+    [SerializeField] private float randomTornadoTime;
+    [SerializeField] private float stunDuration;
+
+    [Header("Lava")]
+    [SerializeField] private GameObject[] lavaForshadowing;
+    [SerializeField] private float timeUntilEruption;
+    [SerializeField] private GameObject[] lavaStreams;
+    private int currentLavaStream;
+    [SerializeField] private float timeBetweenStreams;
+    [SerializeField] private float lavaDuration;
+
     //Animations
     private Animator animator;
     [NonSerialized] public string currentstate;
@@ -69,6 +83,7 @@ public class AirBoss : MonoBehaviour
         Charge,
         ChargeEnd,
         ProjectileThrow,
+        Stunned,
         Death,
     }
 
@@ -110,6 +125,11 @@ public class AirBoss : MonoBehaviour
             case States.ChargeEnd:
                 MoveIntoScreen();
                 break;
+            case States.Stunned:
+                BossIsStunned();
+                break;
+            case States.Death:
+                break;
         }
     }
     private void CalculateFinalAttackTime()
@@ -142,14 +162,18 @@ public class AirBoss : MonoBehaviour
         float percentage = (float)current / max;
         if (percentage <= phasePercentage[currentPhase])
         {
+            chargeAmount += phaseBonusCharges;
+            chargeSpeed += phaseBonusChargeSpeed; 
+            projectileSpawnAmount += phaseBonusProjectiles;
             currentPhase++;
         }
     }
     public void BossStart()
     {
-        boxCollider2D.enabled = true;
-        GameManager.Instance.playerUI.ActivateBossHealth();
+        GameManager.Instance.playerUI.ToggleBossHealth(true);
         GameManager.Instance.playerUI.BossHealthUIUpdate(health.Value, health.MaxValue);
+
+        InvokeRepeating("LavaStreamActivate", 3, timeBetweenStreams);
 
         SwitchToIdle();
     }
@@ -160,14 +184,6 @@ public class AirBoss : MonoBehaviour
         ChangeAnimationState("Idle");
         state = States.Idle;
     }
-    public void AttackEnd()
-    {
-        //if (state == States.Attack)
-        //{
-        //    SwitchToIdle();
-        //}
-    }
-
     public void ChangeAnimationState(string newstate)
     {
         if (currentstate == newstate) return;
@@ -179,11 +195,17 @@ public class AirBoss : MonoBehaviour
     private void OnDeath()
     {
         StopAllCoroutines();
+        CancelInvoke();
+        lavaForshadowing[currentLavaStream].SetActive(false);
+        lavaStreams[currentLavaStream].SetActive(false);
         state = States.Death;
         ChangeAnimationState("Death");
+
+        Death();
     }
     public void Death()
     {
+        GameManager.Instance.playerUI.ToggleBossHealth(false);
         //Trigger Event
         Destroy(gameObject);
     }
@@ -229,14 +251,14 @@ public class AirBoss : MonoBehaviour
                 {
                     isleft = true;
                     transform.localScale = new Vector3(-1, 1, 1);
-                    transform.position = chargeStartPositions[0].position;
+                    transform.position = chargeStartEndPositions[0].position;
                     chargeEndPosition = chargeEndPositions[0];
                 }
                 else
                 { 
                     isleft = false;
                     transform.localScale = new Vector3(1, 1, 1);
-                    transform.position = chargeStartPositions[1].position;
+                    transform.position = chargeStartEndPositions[1].position;
                     chargeEndPosition = chargeEndPositions[1];
                 }
                 state = States.ChargeEnd;
@@ -262,7 +284,8 @@ public class AirBoss : MonoBehaviour
     {
         currentProjectilePhase = 0;
         state = States.ProjectileThrow;
-        StartCoroutine(ThrowProjectiles());
+        StartCoroutine("ThrowProjectiles");
+        StartCoroutine(TornadoSpawn());
     }
     IEnumerator ThrowProjectiles()
     {
@@ -280,7 +303,7 @@ public class AirBoss : MonoBehaviour
         {
             GameObject proj = Instantiate(projectiles, transform.position, Quaternion.identity);
 
-            int randomAngle = UnityEngine.Random.Range(-20, 20);
+            int randomAngle = UnityEngine.Random.Range(-25, 25);
             if (isleft) proj.transform.Rotate(0, 0, 15 + randomAngle);
             else proj.transform.Rotate(0, 0, 165 + randomAngle);
 
@@ -290,8 +313,44 @@ public class AirBoss : MonoBehaviour
     }
     IEnumerator TornadoSpawn()
     {
-        yield return new WaitForSeconds(2 + currentPhase);
+        yield return new WaitForSeconds(tornadoSpawnTime + UnityEngine.Random.Range(-randomTornadoTime, randomTornadoTime));
         GameObject proj = Instantiate(tornado, tornadoSpawnPosition.position, Quaternion.identity);
-        if (isleft) proj.transform.Rotate(0, 0, 180);
+        if (isleft) proj.transform.Rotate(0, 0, 0);
+        else proj.transform.Rotate(0, 0, 180);
+    }
+    public void ReflectHit()
+    {
+        StopCoroutine("ThrowProjectiles");
+        timer = 0;
+        boxCollider2D.enabled = true;
+
+        state = States.Stunned;
+    }
+    private void BossIsStunned()
+    {
+        timer += Time.deltaTime;
+        if(timer > stunDuration)
+        {
+            boxCollider2D.enabled = false;
+            SwitchToIdle();
+        }
+    }
+    private void LavaStreamActivate()
+    {
+        currentLavaStream = UnityEngine.Random.Range(0, 2);
+        lavaForshadowing[currentLavaStream].SetActive(true);
+        StartCoroutine(LavaEruption());
+    }
+    IEnumerator LavaEruption()
+    {
+        yield return new WaitForSeconds(timeUntilEruption);
+        lavaForshadowing[currentLavaStream].SetActive(false);
+        lavaStreams[currentLavaStream].SetActive(true);
+        StartCoroutine(LavaStreamDeactivate());
+    }
+    IEnumerator LavaStreamDeactivate()
+    {
+        yield return new WaitForSeconds(lavaDuration);
+        lavaStreams[currentLavaStream].SetActive(false);
     }
 }

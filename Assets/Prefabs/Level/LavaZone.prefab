@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 9999
   zone: 2
+  lavaIgnoreIframes: 1
 --- !u!61 &3430543796074238519
 BoxCollider2D:
   m_ObjectHideFlags: 0

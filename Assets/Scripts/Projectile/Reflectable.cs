@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Reflectable : MonoBehaviour
 {
     private Projectile projectile;
+    [NonSerialized] public bool isReflected;
 
     private void Awake()
     {
@@ -10,6 +12,7 @@ public class Reflectable : MonoBehaviour
     }
     public void Reflect()
     {
-        projectile.projectileSpeed *= -1;
+        isReflected = true;
+        projectile.Reflect();
     }
 }
