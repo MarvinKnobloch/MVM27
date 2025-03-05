@@ -1,0 +1,2065 @@
+fileFormatVersion: 2
+guid: 7c621e4773e57b542af322513b101298
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1250420148959500229
+    second: MiniBoss_Sheet_0
+  - first:
+      213: -7413127133785882557
+    second: MiniBoss_Sheet_1
+  - first:
+      213: -5545677289996614991
+    second: MiniBoss_Sheet_2
+  - first:
+      213: 8704587820425585307
+    second: MiniBoss_Sheet_3
+  - first:
+      213: 4063688544667647672
+    second: MiniBoss_Sheet_4
+  - first:
+      213: 1733246326773975163
+    second: MiniBoss_Sheet_5
+  - first:
+      213: 2181139157164170250
+    second: MiniBoss_Sheet_6
+  - first:
+      213: -7937888825500501300
+    second: MiniBoss_Sheet_7
+  - first:
+      213: 763188344857807157
+    second: MiniBoss_Sheet_8
+  - first:
+      213: 2007280259047527483
+    second: MiniBoss_Sheet_9
+  - first:
+      213: 1815170103490307879
+    second: MiniBoss_Sheet_10
+  - first:
+      213: 8582571218990849281
+    second: MiniBoss_Sheet_11
+  - first:
+      213: -6540272943115309527
+    second: MiniBoss_Sheet_12
+  - first:
+      213: -5183151194527943068
+    second: MiniBoss_Sheet_13
+  - first:
+      213: 7077035328056233445
+    second: MiniBoss_Sheet_14
+  - first:
+      213: -4933402542037246435
+    second: MiniBoss_Sheet_15
+  - first:
+      213: -6563451707091445163
+    second: MiniBoss_Sheet_16
+  - first:
+      213: -6979450306253427597
+    second: MiniBoss_Sheet_17
+  - first:
+      213: 5316491133757887794
+    second: MiniBoss_Sheet_18
+  - first:
+      213: -6910810471392148604
+    second: MiniBoss_Sheet_19
+  - first:
+      213: -2159860138922330876
+    second: MiniBoss_Sheet_20
+  - first:
+      213: -429940651494712386
+    second: MiniBoss_Sheet_21
+  - first:
+      213: -6800733879163884812
+    second: MiniBoss_Sheet_22
+  - first:
+      213: 4008561693131552722
+    second: MiniBoss_Sheet_23
+  - first:
+      213: 6745988070543982389
+    second: MiniBoss_Sheet_24
+  - first:
+      213: -2149095040964333797
+    second: MiniBoss_Sheet_25
+  - first:
+      213: -7131784154585842281
+    second: MiniBoss_Sheet_26
+  - first:
+      213: 1262645514309252317
+    second: MiniBoss_Sheet_27
+  - first:
+      213: -4776057061623365140
+    second: MiniBoss_Sheet_28
+  - first:
+      213: 3063568733558992335
+    second: MiniBoss_Sheet_29
+  - first:
+      213: 8996236982258479901
+    second: MiniBoss_Sheet_30
+  - first:
+      213: -2010806176424089932
+    second: MiniBoss_Sheet_31
+  - first:
+      213: -2714257605398357488
+    second: MiniBoss_Sheet_32
+  - first:
+      213: -3706046279498585228
+    second: MiniBoss_Sheet_33
+  - first:
+      213: 1916329166076061624
+    second: MiniBoss_Sheet_34
+  - first:
+      213: -4651866240971457021
+    second: MiniBoss_Sheet_35
+  - first:
+      213: -7216003750294895009
+    second: MiniBoss_Sheet_36
+  - first:
+      213: 4303845142702749504
+    second: MiniBoss_Sheet_37
+  - first:
+      213: -2124331848654809131
+    second: MiniBoss_Sheet_38
+  - first:
+      213: 2212367942010137067
+    second: MiniBoss_Sheet_39
+  - first:
+      213: -2913465691109322273
+    second: MiniBoss_Sheet_40
+  - first:
+      213: -4854534686072420765
+    second: MiniBoss_Sheet_41
+  - first:
+      213: -44424846835469283
+    second: MiniBoss_Sheet_42
+  - first:
+      213: -4439199808916644287
+    second: MiniBoss_Sheet_43
+  - first:
+      213: 8603223285767256615
+    second: MiniBoss_Sheet_44
+  - first:
+      213: -471855252879097153
+    second: MiniBoss_Sheet_45
+  - first:
+      213: 3713020344971975504
+    second: MiniBoss_Sheet_46
+  - first:
+      213: -9080091878487835027
+    second: MiniBoss_Sheet_47
+  - first:
+      213: -3715120101905792109
+    second: MiniBoss_Sheet_48
+  - first:
+      213: 1702272910532974574
+    second: MiniBoss_Sheet_49
+  - first:
+      213: 4726737579848211871
+    second: MiniBoss_Sheet_50
+  - first:
+      213: -8362459822813858231
+    second: MiniBoss_Sheet_51
+  - first:
+      213: -6136742616817638865
+    second: MiniBoss_Sheet_52
+  - first:
+      213: 7196353749962332027
+    second: MiniBoss_Sheet_53
+  - first:
+      213: -4043004551848213436
+    second: MiniBoss_Sheet_54
+  - first:
+      213: 7726349602752704423
+    second: MiniBoss_Sheet_55
+  - first:
+      213: 4904167982186280220
+    second: MiniBoss_Sheet_56
+  - first:
+      213: -1556432914725812323
+    second: MiniBoss_Sheet_57
+  - first:
+      213: -7327412086537312559
+    second: MiniBoss_Sheet_58
+  - first:
+      213: 1114482202347702305
+    second: MiniBoss_Sheet_59
+  - first:
+      213: -6809130221367205426
+    second: MiniBoss_Sheet_60
+  - first:
+      213: -7553430239064051777
+    second: MiniBoss_Sheet_61
+  - first:
+      213: -5302984101406825335
+    second: MiniBoss_Sheet_62
+  - first:
+      213: 7842324381041571444
+    second: MiniBoss_Sheet_63
+  - first:
+      213: -8470923080034375836
+    second: MiniBoss_Sheet_64
+  - first:
+      213: 7098583813446021526
+    second: MiniBoss_Sheet_65
+  - first:
+      213: 4372799354676467905
+    second: MiniBoss_Sheet_66
+  - first:
+      213: -6307330581425375920
+    second: MiniBoss_Sheet_67
+  - first:
+      213: 6165704025121152841
+    second: MiniBoss_Sheet_68
+  - first:
+      213: -7446788008934716371
+    second: MiniBoss_Sheet_69
+  - first:
+      213: -8189612186088927170
+    second: MiniBoss_Sheet_70
+  - first:
+      213: -3054000234576555376
+    second: MiniBoss_Sheet_71
+  - first:
+      213: 2940504945653320187
+    second: MiniBoss_Sheet_72
+  - first:
+      213: 3224815040946343006
+    second: MiniBoss_Sheet_73
+  - first:
+      213: 8973654837906775914
+    second: MiniBoss_Sheet_74
+  - first:
+      213: -7313917234002648600
+    second: MiniBoss_Sheet_75
+  - first:
+      213: -3522356060185808383
+    second: MiniBoss_Sheet_76
+  - first:
+      213: 5386698916675216821
+    second: MiniBoss_Sheet_77
+  - first:
+      213: -8943085350852677836
+    second: MiniBoss_Sheet_78
+  - first:
+      213: -7071513392043309607
+    second: MiniBoss_Sheet_79
+  - first:
+      213: 229342100977703229
+    second: MiniBoss_Sheet_80
+  - first:
+      213: -5484267959641747942
+    second: MiniBoss_Sheet_81
+  - first:
+      213: -9015376146161823060
+    second: MiniBoss_Sheet_82
+  - first:
+      213: -6469411044484319935
+    second: MiniBoss_Sheet_83
+  - first:
+      213: -5265220741099846179
+    second: MiniBoss_Sheet_84
+  - first:
+      213: 4098145153277138024
+    second: MiniBoss_Sheet_85
+  - first:
+      213: -1674619605100586778
+    second: MiniBoss_Sheet_86
+  - first:
+      213: -2769760553007381342
+    second: MiniBoss_Sheet_87
+  - first:
+      213: 8238224300526572514
+    second: MiniBoss_Sheet_88
+  - first:
+      213: 3983442858074382280
+    second: MiniBoss_Sheet_89
+  - first:
+      213: -5400368349598087420
+    second: MiniBoss_Sheet_90
+  - first:
+      213: 3706911364375230739
+    second: MiniBoss_Sheet_91
+  - first:
+      213: 1625065418869372554
+    second: MiniBoss_Sheet_92
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c7d8be10826a5110800000000000000
+      internalID: 1250420148959500229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34002e3f5284f1990800000000000000
+      internalID: -7413127133785882557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b20dc213ebc903b0800000000000000
+      internalID: -5545677289996614991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92a8a8f088ecc870800000000000000
+      internalID: 8704587820425585307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be3db6733f156830800000000000000
+      internalID: 4063688544667647672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b780d9fd95abd0810800000000000000
+      internalID: 1733246326773975163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c177cd186f44e10800000000000000
+      internalID: 2181139157164170250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccaff718b24f6d190800000000000000
+      internalID: -7937888825500501300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539c7ff81c3679a00800000000000000
+      internalID: 763188344857807157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b349e25b2ca4bdb10800000000000000
+      internalID: 2007280259047527483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727e2798797c03910800000000000000
+      internalID: 1815170103490307879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10dd07f1d0b6b1770800000000000000
+      internalID: 8582571218990849281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92e638bf8684c35a0800000000000000
+      internalID: -6540272943115309527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 6500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4663509337fb118b0800000000000000
+      internalID: -5183151194527943068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ed8ea7922ea63260800000000000000
+      internalID: 7077035328056233445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e5cdbb688098bb0800000000000000
+      internalID: -4933402542037246435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a1262727fe9e4a0800000000000000
+      internalID: -6563451707091445163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 8500
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ce548dce2042f90800000000000000
+      internalID: -6979450306253427597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 2500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2351727a488f7c940800000000000000
+      internalID: 5316491133757887794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4830f96cd7ed710a0800000000000000
+      internalID: -6910810471392148604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4053207a5a2a602e0800000000000000
+      internalID: -2159860138922330876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb5821614b880af0800000000000000
+      internalID: -429940651494712386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fae8789190fe91a0800000000000000
+      internalID: -6800733879163884812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d738532f9541a730800000000000000
+      internalID: 4008561693131552722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ffbcb88609e9d50800000000000000
+      internalID: 6745988070543982389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1f64c65271ec22e0800000000000000
+      internalID: -2149095040964333797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79db623e810d60d90800000000000000
+      internalID: -7131784154585842281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4b4adc761d58110800000000000000
+      internalID: 1262645514309252317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce181f6386908bdb0800000000000000
+      internalID: -4776057061623365140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcde6cc188bf38a20800000000000000
+      internalID: 3063568733558992335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13bfba0fdd09dc70800000000000000
+      internalID: 8996236982258479901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6a41eaf6e2814e0800000000000000
+      internalID: -2010806176424089932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a1451b615055ad0800000000000000
+      internalID: -2714257605398357488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b24555b8a719cc0800000000000000
+      internalID: -3706046279498585228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b72fa0393b289a10800000000000000
+      internalID: 1916329166076061624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30eb34cec40417fb0800000000000000
+      internalID: -4651866240971457021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5649c532da9bdb90800000000000000
+      internalID: -7216003750294895009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0477613ca545abb30800000000000000
+      internalID: 4303845142702749504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d791e7507bd482e0800000000000000
+      internalID: -2124331848654809131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be9e9ffebe8e3be10800000000000000
+      internalID: 2212367942010137067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd11420e36a4197d0800000000000000
+      internalID: -2913465691109322273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36647d66c6a31acb0800000000000000
+      internalID: -4854534686072420765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d14bb2156db226ff0800000000000000
+      internalID: -44424846835469283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14e9a8e2b4bc462c0800000000000000
+      internalID: -4439199808916644287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ab68f1ff9c46770800000000000000
+      internalID: 8603223285767256615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb24db2c522a379f0800000000000000
+      internalID: -471855252879097153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b5ad1d45c478330800000000000000
+      internalID: 3713020344971975504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6eb2de7b880df180800000000000000
+      internalID: -9080091878487835027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3930efb63fd317cc0800000000000000
+      internalID: -3715120101905792109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7961f6130bf9710800000000000000
+      internalID: 1702272910532974574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9d975919ceb89140800000000000000
+      internalID: 4726737579848211871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94634bce81392fb80800000000000000
+      internalID: -8362459822813858231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2265969a19e5daa0800000000000000
+      internalID: -6136742616817638865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b771e809b959ed360800000000000000
+      internalID: 7196353749962332027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444ccc5e7cc54e7c0800000000000000
+      internalID: -4043004551848213436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af2e8a1702893b60800000000000000
+      internalID: 7726349602752704423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15be01ebca1f0440800000000000000
+      internalID: 4904167982186280220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97ca09a280766ae0800000000000000
+      internalID: -1556432914725812323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d62a03978dcf4a90800000000000000
+      internalID: -7327412086537312559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1280e6388af677f00800000000000000
+      internalID: 1114482202347702305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec1e706d32c1181a0800000000000000
+      internalID: -6809130221367205426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_61
+      rect:
+        serializedVersion: 2
+        x: 5500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbfa4e4a733dc2790800000000000000
+      internalID: -7553430239064051777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_62
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9842a126e040866b0800000000000000
+      internalID: -5302984101406825335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_63
+      rect:
+        serializedVersion: 2
+        x: 6500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4763e51697885dc60800000000000000
+      internalID: 7842324381041571444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_64
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467a4eee65c317a80800000000000000
+      internalID: -8470923080034375836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_65
+      rect:
+        serializedVersion: 2
+        x: 7500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691b9c05e5c338260800000000000000
+      internalID: 7098583813446021526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_66
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c85c8158dd4fac30800000000000000
+      internalID: 4372799354676467905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_67
+      rect:
+        serializedVersion: 2
+        x: 8500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 055be2df04cd778a0800000000000000
+      internalID: -6307330581425375920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_68
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fda8fb42bf09550800000000000000
+      internalID: 6165704025121152841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_69
+      rect:
+        serializedVersion: 2
+        x: 9500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ccec9b2c1b7a890800000000000000
+      internalID: -7446788008934716371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_70
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3095ff6b17a85e80800000000000000
+      internalID: -8189612186088927170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Sheet_71
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 092da1aa7f20e95d0800000000000000
+      internalID: -3054000234576555376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 05b6b5ef1597b4544a19c28db40eff36
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MiniBoss_Sheet_0: 1250420148959500229
+      MiniBoss_Sheet_1: -7413127133785882557
+      MiniBoss_Sheet_10: 1815170103490307879
+      MiniBoss_Sheet_11: 8582571218990849281
+      MiniBoss_Sheet_12: -6540272943115309527
+      MiniBoss_Sheet_13: -5183151194527943068
+      MiniBoss_Sheet_14: 7077035328056233445
+      MiniBoss_Sheet_15: -4933402542037246435
+      MiniBoss_Sheet_16: -6563451707091445163
+      MiniBoss_Sheet_17: -6979450306253427597
+      MiniBoss_Sheet_18: 5316491133757887794
+      MiniBoss_Sheet_19: -6910810471392148604
+      MiniBoss_Sheet_2: -5545677289996614991
+      MiniBoss_Sheet_20: -2159860138922330876
+      MiniBoss_Sheet_21: -429940651494712386
+      MiniBoss_Sheet_22: -6800733879163884812
+      MiniBoss_Sheet_23: 4008561693131552722
+      MiniBoss_Sheet_24: 6745988070543982389
+      MiniBoss_Sheet_25: -2149095040964333797
+      MiniBoss_Sheet_26: -7131784154585842281
+      MiniBoss_Sheet_27: 1262645514309252317
+      MiniBoss_Sheet_28: -4776057061623365140
+      MiniBoss_Sheet_29: 3063568733558992335
+      MiniBoss_Sheet_3: 8704587820425585307
+      MiniBoss_Sheet_30: 8996236982258479901
+      MiniBoss_Sheet_31: -2010806176424089932
+      MiniBoss_Sheet_32: -2714257605398357488
+      MiniBoss_Sheet_33: -3706046279498585228
+      MiniBoss_Sheet_34: 1916329166076061624
+      MiniBoss_Sheet_35: -4651866240971457021
+      MiniBoss_Sheet_36: -7216003750294895009
+      MiniBoss_Sheet_37: 4303845142702749504
+      MiniBoss_Sheet_38: -2124331848654809131
+      MiniBoss_Sheet_39: 2212367942010137067
+      MiniBoss_Sheet_4: 4063688544667647672
+      MiniBoss_Sheet_40: -2913465691109322273
+      MiniBoss_Sheet_41: -4854534686072420765
+      MiniBoss_Sheet_42: -44424846835469283
+      MiniBoss_Sheet_43: -4439199808916644287
+      MiniBoss_Sheet_44: 8603223285767256615
+      MiniBoss_Sheet_45: -471855252879097153
+      MiniBoss_Sheet_46: 3713020344971975504
+      MiniBoss_Sheet_47: -9080091878487835027
+      MiniBoss_Sheet_48: -3715120101905792109
+      MiniBoss_Sheet_49: 1702272910532974574
+      MiniBoss_Sheet_5: 1733246326773975163
+      MiniBoss_Sheet_50: 4726737579848211871
+      MiniBoss_Sheet_51: -8362459822813858231
+      MiniBoss_Sheet_52: -6136742616817638865
+      MiniBoss_Sheet_53: 7196353749962332027
+      MiniBoss_Sheet_54: -4043004551848213436
+      MiniBoss_Sheet_55: 7726349602752704423
+      MiniBoss_Sheet_56: 4904167982186280220
+      MiniBoss_Sheet_57: -1556432914725812323
+      MiniBoss_Sheet_58: -7327412086537312559
+      MiniBoss_Sheet_59: 1114482202347702305
+      MiniBoss_Sheet_6: 2181139157164170250
+      MiniBoss_Sheet_60: -6809130221367205426
+      MiniBoss_Sheet_61: -7553430239064051777
+      MiniBoss_Sheet_62: -5302984101406825335
+      MiniBoss_Sheet_63: 7842324381041571444
+      MiniBoss_Sheet_64: -8470923080034375836
+      MiniBoss_Sheet_65: 7098583813446021526
+      MiniBoss_Sheet_66: 4372799354676467905
+      MiniBoss_Sheet_67: -6307330581425375920
+      MiniBoss_Sheet_68: 6165704025121152841
+      MiniBoss_Sheet_69: -7446788008934716371
+      MiniBoss_Sheet_7: -7937888825500501300
+      MiniBoss_Sheet_70: -8189612186088927170
+      MiniBoss_Sheet_71: -3054000234576555376
+      MiniBoss_Sheet_8: 763188344857807157
+      MiniBoss_Sheet_9: 2007280259047527483
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

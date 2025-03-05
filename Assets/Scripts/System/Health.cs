@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    //Player
     [NonSerialized] public PlayerUI playerUI;
+    [NonSerialized] public Boss boss;
 
     //Enemy
     [Header("EnemyHealthbar")]
     public GameObject HealthBarBackground;
     private Image HealthBarImage;
     public float HealthBarOffset = 1f;
+    [SerializeField] private bool isBoss;
 
     //Values
     [Header("Values")]
@@ -48,7 +49,12 @@ public class Health : MonoBehaviour
             playerUI.HealthUIUpdate(Value, MaxValue);
         }
         else 
-        { 
+        {
+            if (isBoss)
+            {
+                playerUI = GameManager.Instance.playerUI;
+                boss = GetComponent<Boss>(); 
+            }
             Value = MaxValue;
             EnemyHealthbarUpdate();
         }
@@ -86,6 +92,12 @@ public class Health : MonoBehaviour
 
             //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
         }
+        else if (isBoss)
+        {
+            Value -= amount;
+            playerUI.BossHealthUIUpdate(Value, MaxValue);
+            boss.PhaseUpdate(Value, MaxValue);
+        }
         else
         {
             Value -= amount;
@@ -97,7 +109,7 @@ public class Health : MonoBehaviour
             StopAllCoroutines();
             dieEvent?.Invoke();
 
-            if (gameObject != Player.Instance.gameObject) Destroy(gameObject);
+            if (gameObject != Player.Instance.gameObject && isBoss == false) Destroy(gameObject);
         }
     }
     public void Heal(int amount)

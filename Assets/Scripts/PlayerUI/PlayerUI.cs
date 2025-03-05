@@ -40,6 +40,10 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private VoidEventChannel standUp;
     [SerializeField] private VoidEventChannel endTutorial;
 
+    [Header("BossHealth")]
+    [SerializeField] private GameObject bossHealthbarObject;
+    [SerializeField] private Image bossHealthbar;
+
     private float timer;
 
     private void Awake()
@@ -97,6 +101,14 @@ public class PlayerUI : MonoBehaviour
     {
         energybar.fillAmount = (float)current / max;
         energyText.text = current + "/" + max;
+    }
+    public void ActivateBossHealth()
+    {
+        bossHealthbarObject.SetActive(true);
+    }
+    public void BossHealthUIUpdate(int current, int max)
+    {
+        bossHealthbar.fillAmount = (float)current / max;
     }
     public void GoldUpdate(int amount)
     {
