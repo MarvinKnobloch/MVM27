@@ -18,7 +18,7 @@ public class DialogTriggerZone : MonoBehaviour
                 if(dialog.disableInputs == true)
                 {
                     Player.Instance.rb.linearVelocity = Vector2.zero;
-                    Player.Instance.SwitchToGround();
+                    Player.Instance.SwitchToGround(false);
                     Player.Instance.ChangeAnimationState("Idle");
                 }
             }

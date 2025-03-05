@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [NonSerialized] public PlayerUI playerUI;
-    [NonSerialized] public Boss boss;
+
+
 
     //Enemy
     [Header("EnemyHealthbar")]
@@ -20,6 +21,19 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 1;
     private int currentHealth;
     private int baseHealth;
+
+    [Header("Boss")]
+
+    [SerializeField] private Bosses bossType;
+    [NonSerialized] public TutorialBoss tutorialBoss;
+    [NonSerialized] public AirBoss airBoss;
+
+    public enum Bosses
+    {
+        None,
+        TutorialBoss,
+        AirBoss,
+    }
 
     [HideInInspector]
     public UnityEvent dieEvent;
@@ -52,8 +66,17 @@ public class Health : MonoBehaviour
         {
             if (isBoss)
             {
+                switch (bossType)
+                {
+                    case Bosses.TutorialBoss:
+                        tutorialBoss = GetComponent<TutorialBoss>();
+                        break;
+                    case Bosses.AirBoss:
+                        airBoss = GetComponent<AirBoss>();
+                        break;
+                }
                 playerUI = GameManager.Instance.playerUI;
-                boss = GetComponent<Boss>(); 
+
             }
             Value = MaxValue;
             EnemyHealthbarUpdate();
@@ -94,9 +117,19 @@ public class Health : MonoBehaviour
         }
         else if (isBoss)
         {
+
             Value -= amount;
             playerUI.BossHealthUIUpdate(Value, MaxValue);
-            boss.PhaseUpdate(Value, MaxValue);
+
+            switch (bossType)
+            {
+                case Bosses.TutorialBoss:
+                    tutorialBoss.PhaseUpdate(Value, MaxValue);
+                    break;
+                case Bosses.AirBoss:
+                    break;
+            }
+
         }
         else
         {

@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     [Header("ProjectileValues")]
     [SerializeField] private float lifetime = 2f;
-    [SerializeField] private float projectileSpeed;
+    [SerializeField] public float projectileSpeed;
     [SerializeField] private LayerMask collideLayer;
     
 
@@ -20,7 +20,6 @@ public class Projectile : MonoBehaviour
 
     [Header("BurnObjects")]
     [SerializeField] private LayerMask burnLayer;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,16 +51,19 @@ public class Projectile : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        // Collide
+        else if(Utility.LayerCheck(other, collideLayer))
+        {
+            if(other.gameObject.TryGetComponent(out Reflectable reflectable))
+            { 
+
+            }
+            Destroy(gameObject);
+        }
         //Burn hit check
         else if(Utility.LayerCheck(other, burnLayer))
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
-
-        //Destroy if collide
-        else if(Utility.LayerCheck(other, collideLayer))
-        {
             Destroy(gameObject);
         }
     }

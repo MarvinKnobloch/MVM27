@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         else Destroy(gameObject);
+
+        PlayerPrefs.SetInt("NewGame", 1);
     }
     private void Start()
     {

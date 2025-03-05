@@ -297,7 +297,7 @@ public class Player : MonoBehaviour
         moveDirection.x = moveInput.ReadValue<Vector2>().x;
     }
 
-    public void SwitchToGround()
+    public void SwitchToGround(bool onlyResetValues)
     {
         rb.gravityScale = baseGravityScale;
         currentDashCount = 0;
@@ -309,7 +309,7 @@ public class Player : MonoBehaviour
         canWallBoost = false;
         performedWallBoost = false;
 
-        state = States.Ground;
+        if(onlyResetValues == false) state = States.Ground;
     }
     public void SwitchGroundIntoAir()
     {

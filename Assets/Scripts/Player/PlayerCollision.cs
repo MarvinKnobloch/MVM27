@@ -26,7 +26,7 @@ public class PlayerCollision
             if (downwardhit)
             {
                 {
-                    player.SwitchToGround();
+                    player.SwitchToGround(false);
                 }
             }
         }

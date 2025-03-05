@@ -17,6 +17,6 @@ public class ChildernAnimation : MonoBehaviour
     public void SwitchToIdle()
     {
         player.ChangeAnimationState("Idle");
-        player.SwitchToGround();
+        player.SwitchToGround(false);
     }
 }

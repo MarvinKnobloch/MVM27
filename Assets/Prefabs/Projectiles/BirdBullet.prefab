@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7920075610949836580}
   - component: {fileID: -7170843165169928906}
   - component: {fileID: 6009174450584206750}
-  m_Layer: 14
-  m_Name: FireBall
+  m_Layer: 15
+  m_Name: BirdBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,14 +102,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc0394fb1eb74d2c96e47be29de0e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 3
-  projectileSpeed: 15
+  lifetime: 5
+  projectileSpeed: 0
   collideLayer:
     serializedVersion: 2
-    m_Bits: 32776
+    m_Bits: 8
   enemyHitLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   damage: 2
   burnLayer:
     serializedVersion: 2
@@ -165,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
