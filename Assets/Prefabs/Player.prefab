@@ -262,6 +262,7 @@ Transform:
   - {fileID: 4170727385822391733}
   - {fileID: 3646643739226240073}
   - {fileID: 1794253880594239891}
+  - {fileID: 6481228596563148586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-7011071989602300280
@@ -387,6 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBarBackground: {fileID: 0}
   HealthBarOffset: 1
+  isBoss: 0
   maxHealth: 10
   dieEvent:
     m_PersistentCalls:
@@ -710,6 +712,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e57434931f1609a4eae5a750c147188a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7692559484238975251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6481228596563148586}
+  m_Layer: 8
+  m_Name: CameraTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6481228596563148586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692559484238975251}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.534, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5573402502938652071}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8002039866626822945
 GameObject:
   m_ObjectHideFlags: 0
