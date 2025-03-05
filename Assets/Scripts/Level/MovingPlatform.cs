@@ -154,7 +154,7 @@ public class MovingPlatform : MonoBehaviour
                 if (gameObject.TryGetComponent(out MovingPlatform platform))
                 {
                     player.movingPlatform = platform;
-                    player.SwitchToGround();
+                    player.SwitchToGround(true);
 
                     if (platform.moveOnEnter == true)
                     {

@@ -3,11 +3,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Boss : MonoBehaviour
+public class TutorialBoss : MonoBehaviour
 {
     [NonSerialized] public Health health;
     private BoxCollider2D boxCollider2D;
-    [SerializeField] private CircleCollider2D handCollider;
+    private CircleCollider2D handCollider;
+    [SerializeField] private VoidEventChannel triggerBoss;
 
     [Header("AttackTimer")]
     [SerializeField] private float attackTimer;
@@ -29,9 +30,20 @@ public class Boss : MonoBehaviour
     [Range(0, 1)] private float[] phasePercentage;
     private int currentPhase;
 
+    [Header("AirSlam")]
+    [SerializeField] private GameObject airSlamProjectile;
+    [SerializeField] private int projectileAmount;
+    [SerializeField] private Transform airSlamProjectileSpawn;
+    [SerializeField] private float spawnSpreading;
+    [SerializeField] private int projectileWaves;
+    [SerializeField] private int currentProjectileWave;
+    [SerializeField] private float projectileSpawnInterval;
+
     [Header("GroundSlam")]
     [SerializeField] private GameObject[] currentPlatforms;
     [SerializeField] private float timeToSpawnPlatforms;
+    [SerializeField] private GameObject fireZone;
+    [SerializeField] private float fireZoneLifetime;
 
     //Animations
     private Animator animator;
@@ -40,11 +52,12 @@ public class Boss : MonoBehaviour
     public States state;
     public enum States
     {
-        Awake,
+        Wait,
         Idle,
         Attack,
         Death,
     }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -57,6 +70,14 @@ public class Boss : MonoBehaviour
     private void Start()
     {
         if (health != null) health.dieEvent.AddListener(OnDeath);
+    }
+    private void OnEnable()
+    {
+        triggerBoss.OnEventRaised += BossStart;
+    }
+    private void OnDisable()
+    {
+        triggerBoss.OnEventRaised -= BossStart;
     }
 
     void Update()
@@ -101,6 +122,8 @@ public class Boss : MonoBehaviour
         if(percentage <= phasePercentage[currentPhase])
         {
             SwitchToIdle();
+            StopCoroutine("DisableFireZone");
+            fireZone.SetActive(false);
             currentPlatforms[currentPhase].SetActive(false);
             currentPhase++;
             StartCoroutine(ActivateNewPlatforms());
@@ -111,10 +134,10 @@ public class Boss : MonoBehaviour
         yield return new WaitForSeconds(timeToSpawnPlatforms);
         currentPlatforms[currentPhase].SetActive(true);
     }
-    public void AfterAwake()
+    public void BossStart()
     {
         boxCollider2D.enabled = true;
-        GameManager.Instance.playerUI.ActivateBossHealth();
+        GameManager.Instance.playerUI.ToggleBossHealth(true);
         GameManager.Instance.playerUI.BossHealthUIUpdate(health.Value, health.MaxValue);
 
         currentPlatforms[currentPhase].SetActive(true);
@@ -131,7 +154,6 @@ public class Boss : MonoBehaviour
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(handCollider.bounds.center, handCollider.radius, playerLayer);
 
-        Debug.Log(collider.Length);
         foreach (Collider2D col in collider)
         {
             if (col.TryGetComponent(out Health health))
@@ -152,10 +174,39 @@ public class Boss : MonoBehaviour
         ChangeAnimationState("Air");
         state = States.Attack;
     }
+    public void StartAirProjectileSpawn()
+    {
+        currentProjectileWave = 0;
+        StartCoroutine(SpawnAirSlamProjectiles());
+    }
+    IEnumerator SpawnAirSlamProjectiles()
+    {
+        while (currentProjectileWave < projectileWaves)
+        {
+            currentProjectileWave++;
+            for (int i = 0; i < projectileAmount; i++)
+            {
+                float randomSpawnPoistion = UnityEngine.Random.Range(-spawnSpreading, spawnSpreading);
+                Instantiate(airSlamProjectile, new Vector3(airSlamProjectileSpawn.transform.position.x + randomSpawnPoistion, airSlamProjectileSpawn.transform.position.y, 0), Quaternion.identity);
+            }
+            yield return new WaitForSeconds(projectileSpawnInterval);
+        }
+    }
+
     public void GroundSlamStart()
     {
         ChangeAnimationState("Ground");
         state = States.Attack;
+    }
+    public void ActivateFireZone()
+    {
+        fireZone.SetActive(true);
+        StartCoroutine("DisableFireZone");
+    }
+    IEnumerator DisableFireZone()
+    {
+        yield return new WaitForSeconds(fireZoneLifetime);
+        fireZone.SetActive(false);
     }
     public void ChangeAnimationState(string newstate)
     {
@@ -167,12 +218,15 @@ public class Boss : MonoBehaviour
     }
     private void OnDeath()
     {
+        fireZone.SetActive(false);
+        StopAllCoroutines();
         state = States.Death;
         ChangeAnimationState("Death");
     }
     public void Death() 
-    { 
+    {
         //Trigger Event
+        GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
     }
 

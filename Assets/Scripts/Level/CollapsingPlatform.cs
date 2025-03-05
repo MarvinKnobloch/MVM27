@@ -56,7 +56,7 @@ public class CollapsingPlatform : MonoBehaviour
         normalColor = false;
         childObj.SetActive(false);
         boxCollider.enabled = false;
-        StartCoroutine(Respawn());
+        if(respawnTime != 0) StartCoroutine(Respawn());
     }
     IEnumerator PlatformBlink()
     {

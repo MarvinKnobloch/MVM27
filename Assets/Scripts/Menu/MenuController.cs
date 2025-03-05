@@ -136,9 +136,9 @@ public class MenuController : MonoBehaviour
 
         //Abilities
         //Heal???
-        PlayerPrefs.SetInt("Dash", 0);
-        PlayerPrefs.SetInt("FireElement", 0);
-        PlayerPrefs.SetInt("Fireball", 0);
+        PlayerPrefs.SetInt("Dash", 1);
+        PlayerPrefs.SetInt("FireElement", 1);
+        PlayerPrefs.SetInt("Fireball", 1);
         PlayerPrefs.SetInt("WallBreak", 0);
         PlayerPrefs.SetInt("AirElement", 0);
         PlayerPrefs.SetInt("PlayerDoubleJump", 0);
