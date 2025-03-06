@@ -24042,16 +24042,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: 82, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 25, y: 82, z: 0}
     second:
       serializedVersion: 2
@@ -24083,16 +24073,6 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 4, y: 83, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 5, y: 83, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -24754,13 +24734,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 2441
+  - m_RefCount: 2439
     m_Data: {fileID: 11400000, guid: 70ecfadffce87264b8ace7174f599594, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 2441
+  - m_RefCount: 2439
     m_Data: {fileID: 21300000, guid: d2973246b5b24ce4782138b4d9bafa84, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2441
+  - m_RefCount: 2439
     m_Data:
       e00: 1
       e01: 0
@@ -24779,7 +24759,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2441
+  - m_RefCount: 2439
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -24902,12 +24882,8 @@ CompositeCollider2D:
         Y: 950000000
       - X: 249983328
         Y: 820000000
-      - X: 60016664
-        Y: 820000000
-      - X: 60016664
-        Y: 840000000
       - X: 50016664
-        Y: 840000000
+        Y: 820000000
       - X: 50016664
         Y: 950000000
       - X: 19983334
@@ -25052,9 +25028,7 @@ CompositeCollider2D:
       - {x: 27.001638, y: 95}
       - {x: 24.998333, y: 94.99997}
       - {x: 24.998304, y: 82}
-      - {x: 6.0016665, y: 82.00003}
-      - {x: 6.0016375, y: 84}
-      - {x: 5.0016665, y: 84.00003}
+      - {x: 5.0016665, y: 82.00003}
       - {x: 5.0016375, y: 95}
       - {x: 1.9983335, y: 94.99997}
       - {x: 1.9983628, y: 85}
@@ -25930,6 +25904,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
+--- !u!1 &704895801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704895802}
+  m_Layer: 0
+  m_Name: BossCameraPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704895802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704895801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15, y: 86.79, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &717480380
 GameObject:
   m_ObjectHideFlags: 0
@@ -26557,11 +26562,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1307149899 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5573402502938652071, guid: 8e89e156330daee41976c043ec72fd0b, type: 3}
-  m_PrefabInstance: {fileID: 1581592201}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394975418
 GameObject:
   m_ObjectHideFlags: 0
@@ -26579,7 +26579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1394975419
 Transform:
   m_ObjectHideFlags: 0
@@ -27135,7 +27135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!60 &2026599476
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27335,11 +27335,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 721970013142479049, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.7
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 721970013142479049, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 86
+      value: 86.79
       objectReference: {fileID: 0}
     - target: {fileID: 721970013142479049, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27400,11 +27400,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1856548595706184990, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.33
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1856548595706184990, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 85
+      value: 86.79
       objectReference: {fileID: 0}
     - target: {fileID: 1856548595706184990, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27441,11 +27441,11 @@ PrefabInstance:
     - target: {fileID: 6249879480030524743, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
       propertyPath: BoundingShape2D
       value: 
-      objectReference: {fileID: 2026599476}
+      objectReference: {fileID: 0}
     - target: {fileID: 8424315393440835051, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
-      objectReference: {fileID: 1307149899}
+      objectReference: {fileID: 704895802}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27459,6 +27459,7 @@ SceneRoots:
   - {fileID: 2438888632878460861}
   - {fileID: 2026599477}
   - {fileID: 1581592201}
+  - {fileID: 704895802}
   - {fileID: 603817568}
   - {fileID: 2026686468}
   - {fileID: 1610861213}
