@@ -16,7 +16,7 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
     characterName: Player
     dialogText: Bastard
     dialogEvent: {fileID: 0}

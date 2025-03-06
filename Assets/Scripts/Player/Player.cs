@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     private float iFramesBlinkTimer;
     [NonSerialized] public bool iFramesBlink;
     [NonSerialized] public bool iframesActive;
-    [SerializeField] public Color[] spriteColor;
 
     [Header("Other")]
     public Transform projectileSpawnPosition;
@@ -379,13 +378,13 @@ public class Player : MonoBehaviour
                 iFramesBlink = !iFramesBlink;
 
                 if (iFramesBlink) elementalSprite[currentElementNumber].color = Color.red;
-                else elementalSprite[currentElementNumber].color = spriteColor[currentElementNumber];
+                else elementalSprite[currentElementNumber].color = Color.white;
             }
             yield return null;
         }
 
         iFramesBlink = false;
-        elementalSprite[currentElementNumber].color = spriteColor[currentElementNumber];
+        elementalSprite[currentElementNumber].color = Color.white;
         iframesActive = false;
 
     }

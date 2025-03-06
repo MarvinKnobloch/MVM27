@@ -202,8 +202,9 @@ public class PlayerAbilties
         player.currentElementNumber = slot;
         player.elementalSprite[player.currentElementNumber].gameObject.SetActive(true);
         if (player.iFramesBlink) player.elementalSprite[player.currentElementNumber].color = Color.red;
-        else player.elementalSprite[player.currentElementNumber].color = player.spriteColor[player.currentElementNumber];
+        else player.elementalSprite[player.currentElementNumber].color = Color.white;
 
-        player.ChangeAnimationState(switchState);
+        player.currentstate = null;
+        //player.ChangeAnimationState(switchState);
     }
 }
