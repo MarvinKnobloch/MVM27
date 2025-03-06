@@ -43,18 +43,23 @@ public class AudioManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("AudioHasBeenChange") == 0)
         {
-            PlayerPrefs.SetFloat(masterVolume, -10);
-            audioMixer.SetFloat(masterVolume, PlayerPrefs.GetFloat(masterVolume));
-            PlayerPrefs.SetFloat(musicVolume, -8);
-            audioMixer.SetFloat(musicVolume, PlayerPrefs.GetFloat(musicVolume));
-            PlayerPrefs.SetFloat(soundVolume, 10);
-            audioMixer.SetFloat(soundVolume, PlayerPrefs.GetFloat(soundVolume));
+            PlayerPrefs.SetFloat("SliderValue" + masterVolume, 0.8f);
+            PlayerPrefs.SetFloat(masterVolume, Mathf.Log10(PlayerPrefs.GetFloat("SliderValue" + masterVolume) * 20));
+            SetVolume(masterVolume, 0);
+
+            PlayerPrefs.SetFloat("SliderValue" + musicVolume, 0.8f);
+            PlayerPrefs.SetFloat(musicVolume, Mathf.Log10(PlayerPrefs.GetFloat("SliderValue" + musicVolume) * 20));
+            SetVolume(musicVolume, 0);
+
+            PlayerPrefs.SetFloat("SliderValue" + soundVolume, 2.4f);
+            PlayerPrefs.SetFloat(soundVolume, Mathf.Log10(PlayerPrefs.GetFloat("SliderValue" + soundVolume) * 20));
+            SetVolume(soundVolume, 0);
         }
         else
         {
             SetVolume(masterVolume, 0);
             SetVolume(musicVolume, 0);
-            SetVolume(soundVolume, 20);
+            SetVolume(soundVolume, 10);
         }
     }
     private void SetVolume(string volumename, float maxdb)
