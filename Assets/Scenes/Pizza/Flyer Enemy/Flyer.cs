@@ -148,7 +148,6 @@ public class Flyer : MonoBehaviour
     private Transform combatTarget;
     private Vector2 movementTarget; // this is the target to fly to while not alert
     private Vector2 startPosition;
-    private Quaternion startRotation;
     private bool targetInSight;
     private Vector2 targetLastKnownPosition;
     private float targetLastSeenTime;
@@ -176,7 +175,6 @@ public class Flyer : MonoBehaviour
     {
         combatTarget = Player.Instance.transform;
         startPosition = rb.position;
-        startRotation = transform.rotation;
     }
 
     private void Update()
@@ -262,7 +260,6 @@ public class Flyer : MonoBehaviour
             if (rb.position.Approximately(movementTarget) == false && movementTarget != Vector2.zero)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
-                transform.rotation = (direction.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
                 rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
             }
             else
@@ -285,12 +282,7 @@ public class Flyer : MonoBehaviour
             if (rb.position.Approximately(startPosition) == false)
             {
                 Vector2 direction = (startPosition - rb.position).normalized;
-                transform.rotation = (direction.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
                 rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                transform.rotation = startRotation;
             }
         }
         else if (movementType == MovementType.Patrol)
@@ -298,7 +290,6 @@ public class Flyer : MonoBehaviour
             if (rb.position.Approximately(movementTarget) == false)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
-                transform.rotation = (direction.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
                 rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
             }
             else
@@ -346,14 +337,8 @@ public class Flyer : MonoBehaviour
                 desiredAttackPosition = combatTargetPosition + new Vector2(xOffset * DESIRED_ATTACK_RANGE_BUFFER, desiredAttackHeight * DESIRED_ATTACK_RANGE_BUFFER);
 
                 Vector2 desiredDirection = (desiredAttackPosition - rb.position).normalized;
-                transform.rotation = (directionToTarget.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
                 rb.MovePosition(rb.position + desiredDirection * chaseSpeed * Time.fixedDeltaTime);
             }
-        }
-        else
-        {
-            // rotation
-            transform.rotation = (directionToTarget.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
         }
     }
 
@@ -363,7 +348,6 @@ public class Flyer : MonoBehaviour
         if (rb.position.Approximately(targetLastKnownPosition) == false)
         {
             Vector2 direction = (targetLastKnownPosition - rb.position).normalized;
-            transform.rotation = (direction.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
             rb.MovePosition(rb.position + direction * chaseSpeed * Time.fixedDeltaTime);
         }
     }
@@ -374,7 +358,6 @@ public class Flyer : MonoBehaviour
         if (rb.position.Approximately(startPosition) == false)
         {
             Vector2 direction = (startPosition - rb.position).normalized;
-            transform.rotation = (direction.x > 0) ? Quaternion.Euler(0f, 0f, 0f) : Quaternion.Euler(0f, 0f, 180f);
             rb.MovePosition(rb.position + direction * chaseSpeed * OUT_OF_BOUNDS_SPEED_BOOST * Time.fixedDeltaTime);
         }
         else
