@@ -1,64 +1,127 @@
 fileFormatVersion: 2
-guid: 2ea1223805f7a5343bdfb22d1b2c5b7f
+guid: d13e04a6ac8f50c4eb4a6f8f18f1e23c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 975411244708579386
-    second: MiniBoss_Idle_0
+      213: -2433304027756123258
+    second: FirstBossDeath_0
   - first:
-      213: 7952445655044476339
-    second: MiniBoss_Idle_1
+      213: 2909021605486968380
+    second: FirstBossDeath_1
   - first:
-      213: -5669410450730247661
-    second: MiniBoss_Idle_2
+      213: 971404572809603321
+    second: FirstBossDeath_2
   - first:
-      213: 6315149071678066113
-    second: MiniBoss_Idle_3
+      213: 3936123009044534588
+    second: FirstBossDeath_3
   - first:
-      213: 939306322584366320
-    second: MiniBoss_Idle_4
+      213: -8761881945905874196
+    second: FirstBossDeath_4
   - first:
-      213: 6964865309919009718
-    second: MiniBoss_Idle_5
+      213: 7329201752898847846
+    second: FirstBossDeath_5
   - first:
-      213: -4682784749733018153
-    second: MiniBoss_Idle_6
+      213: 3162722940911170706
+    second: FirstBossDeath_6
   - first:
-      213: -5857047268856010399
-    second: MiniBoss_Idle_7
+      213: 8005188960542816327
+    second: FirstBossDeath_7
   - first:
-      213: -2332392932767506993
-    second: MiniBoss_Idle_8
+      213: -8446587696438787097
+    second: FirstBossDeath_8
   - first:
-      213: -1939089850500671327
-    second: MiniBoss_Idle_9
+      213: -1961220996222462033
+    second: FirstBossDeath_9
   - first:
-      213: 7398295452978928394
-    second: MiniBoss_Idle_10
+      213: -6685283423000943060
+    second: FirstBossDeath_10
   - first:
-      213: 6712685845560750122
-    second: MiniBoss_Idle_11
+      213: -3904823115116993282
+    second: FirstBossDeath_11
   - first:
-      213: 8016186324137928522
-    second: MiniBoss_Idle_12
+      213: -2096742337136198812
+    second: FirstBossDeath_12
   - first:
-      213: -4329812311588162293
-    second: MiniBoss_Idle_13
+      213: 523608247006503705
+    second: FirstBossDeath_13
   - first:
-      213: 9010477558100378100
-    second: MiniBoss_Idle_14
+      213: 2076075614430464145
+    second: FirstBossDeath_14
   - first:
-      213: -8663516153633335073
-    second: MiniBoss_Idle_15
+      213: 8069596409712720334
+    second: FirstBossDeath_15
   - first:
-      213: -7501805188108663519
-    second: MiniBoss_Idle_16
+      213: -6509593932741271529
+    second: FirstBossDeath_16
   - first:
-      213: 4449644821274205193
-    second: MiniBoss_Idle_17
+      213: -573979070196648367
+    second: FirstBossDeath_17
   - first:
-      213: 4935779124022181674
-    second: MiniBoss_Idle_18
+      213: -8935719944914393032
+    second: FirstBossDeath_18
+  - first:
+      213: -5768195590569390229
+    second: FirstBossDeath_19
+  - first:
+      213: 656000653170655559
+    second: FirstBossDeath_20
+  - first:
+      213: 7941639274228926075
+    second: FirstBossDeath_21
+  - first:
+      213: 1230943467391727996
+    second: FirstBossDeath_22
+  - first:
+      213: 5843414292208000794
+    second: FirstBossDeath_23
+  - first:
+      213: -7312261017292214495
+    second: FirstBossDeath_24
+  - first:
+      213: 8854329768664630301
+    second: FirstBossDeath_25
+  - first:
+      213: 3933655484948803749
+    second: FirstBossDeath_26
+  - first:
+      213: 4847522509863667256
+    second: FirstBossDeath_27
+  - first:
+      213: -6233377825334263688
+    second: FirstBossDeath_28
+  - first:
+      213: -4727626480653202128
+    second: FirstBossDeath_29
+  - first:
+      213: 3934687034813344230
+    second: FirstBossDeath_30
+  - first:
+      213: -3311769172217922144
+    second: FirstBossDeath_31
+  - first:
+      213: 5015483819963150130
+    second: FirstBossDeath_32
+  - first:
+      213: -2194217871692616676
+    second: FirstBossDeath_33
+  - first:
+      213: 18337122897120049
+    second: FirstBossDeath_34
+  - first:
+      213: -1087995100996290896
+    second: FirstBossDeath_35
+  - first:
+      213: -3377057148690770275
+    second: FirstBossDeath_36
+  - first:
+      213: 1583574834126036569
+    second: FirstBossDeath_37
+  - first:
+      213: -3893074970596005176
+    second: FirstBossDeath_38
+  - first:
+      213: 8188589188833015501
+    second: FirstBossDeath_39
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,7 +165,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 64
@@ -126,7 +189,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 0
@@ -167,7 +230,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MiniBoss_Idle_0
+      name: FirstBossDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -182,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a38c6ceeb5b598d00800000000000000
-      internalID: 975411244708579386
+      spriteID: 68ba11301ea2b3ed0800000000000000
+      internalID: -2433304027756123258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_1
+      name: FirstBossDeath_1
       rect:
         serializedVersion: 2
         x: 500
@@ -204,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3bd468c7033cc5e60800000000000000
-      internalID: 7952445655044476339
+      spriteID: c3ebcfeccbbee5820800000000000000
+      internalID: 2909021605486968380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_2
+      name: FirstBossDeath_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -226,14 +289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 31a165e9b353251b0800000000000000
-      internalID: -5669410450730247661
+      spriteID: 9f8a18fef4f1b7d00800000000000000
+      internalID: 971404572809603321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_3
+      name: FirstBossDeath_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -248,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cd42012f9ae3a750800000000000000
-      internalID: 6315149071678066113
+      spriteID: c355752b50bef9630800000000000000
+      internalID: 3936123009044534588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_4
+      name: FirstBossDeath_4
       rect:
         serializedVersion: 2
         x: 2000
@@ -270,14 +333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fc6becaf16190d00800000000000000
-      internalID: 939306322584366320
+      spriteID: cea3f5aeaca876680800000000000000
+      internalID: -8761881945905874196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_5
+      name: FirstBossDeath_5
       rect:
         serializedVersion: 2
         x: 2500
@@ -292,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6bbd922191c28a060800000000000000
-      internalID: 6964865309919009718
+      spriteID: 664c4b8992e86b560800000000000000
+      internalID: 7329201752898847846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_6
+      name: FirstBossDeath_6
       rect:
         serializedVersion: 2
         x: 3000
@@ -314,14 +377,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d50c80a418630fb0800000000000000
-      internalID: -4682784749733018153
+      spriteID: 2943df702cf34eb20800000000000000
+      internalID: 3162722940911170706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_7
+      name: FirstBossDeath_7
       rect:
         serializedVersion: 2
         x: 3500
@@ -336,14 +399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1696a2b7a8697bea0800000000000000
-      internalID: -5857047268856010399
+      spriteID: 748780142f4281f60800000000000000
+      internalID: 8005188960542816327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_8
+      name: FirstBossDeath_8
       rect:
         serializedVersion: 2
         x: 4000
@@ -358,14 +421,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fcdd2c53cfca1afd0800000000000000
-      internalID: -2332392932767506993
+      spriteID: 7e3c495fd31b7ca80800000000000000
+      internalID: -8446587696438787097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_9
+      name: FirstBossDeath_9
       rect:
         serializedVersion: 2
         x: 4500
@@ -380,14 +443,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a897510e08f615e0800000000000000
-      internalID: -1939089850500671327
+      spriteID: fa75f1a15e758c4e0800000000000000
+      internalID: -1961220996222462033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_10
+      name: FirstBossDeath_10
       rect:
         serializedVersion: 2
         x: 5000
@@ -402,14 +465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0b523244860ca660800000000000000
-      internalID: 7398295452978928394
+      spriteID: c26a83d952a1933a0800000000000000
+      internalID: -6685283423000943060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_11
+      name: FirstBossDeath_11
       rect:
         serializedVersion: 2
         x: 5500
@@ -424,14 +487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a20f0711630482d50800000000000000
-      internalID: 6712685845560750122
+      spriteID: ef4a7b0c0184fc9c0800000000000000
+      internalID: -3904823115116993282
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_12
+      name: FirstBossDeath_12
       rect:
         serializedVersion: 2
         x: 6000
@@ -446,14 +509,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a47e59f7df63f3f60800000000000000
-      internalID: 8016186324137928522
+      spriteID: 46b797114ffd6e2e0800000000000000
+      internalID: -2096742337136198812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_13
+      name: FirstBossDeath_13
       rect:
         serializedVersion: 2
         x: 6500
@@ -468,14 +531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b05bca794aa69e3c0800000000000000
-      internalID: -4329812311588162293
+      spriteID: 913a94c2dea344700800000000000000
+      internalID: 523608247006503705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_14
+      name: FirstBossDeath_14
       rect:
         serializedVersion: 2
         x: 7000
@@ -490,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f1c33b7995ab0d70800000000000000
-      internalID: 9010477558100378100
+      spriteID: 1988af495c3bfcc10800000000000000
+      internalID: 2076075614430464145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_15
+      name: FirstBossDeath_15
       rect:
         serializedVersion: 2
         x: 7500
@@ -512,14 +575,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd893d4a5f105c780800000000000000
-      internalID: -8663516153633335073
+      spriteID: ec9b1b91e27fcff60800000000000000
+      internalID: 8069596409712720334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_16
+      name: FirstBossDeath_16
       rect:
         serializedVersion: 2
         x: 8000
@@ -534,14 +597,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 125c99c7deb34e790800000000000000
-      internalID: -7501805188108663519
+      spriteID: 7102be6bec649a5a0800000000000000
+      internalID: -6509593932741271529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_17
+      name: FirstBossDeath_17
       rect:
         serializedVersion: 2
         x: 8500
@@ -556,14 +619,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90c94b4c36050cd30800000000000000
-      internalID: 4449644821274205193
+      spriteID: 1567b64a311d808f0800000000000000
+      internalID: -573979070196648367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MiniBoss_Idle_18
+      name: FirstBossDeath_18
       rect:
         serializedVersion: 2
         x: 9000
@@ -578,8 +641,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2f712166f86f7440800000000000000
-      internalID: 4935779124022181674
+      spriteID: 8382107bd02fdf380800000000000000
+      internalID: -8935719944914393032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstBossDeath_19
+      rect:
+        serializedVersion: 2
+        x: 9500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f032deba043ffa0800000000000000
+      internalID: -5768195590569390229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstBossDeath_20
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74149a05e159a1900800000000000000
+      internalID: 656000653170655559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FirstBossDeath_21
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b76c4b2e7de563e60800000000000000
+      internalID: 7941639274228926075
       vertices: []
       indices: 
       edges: []
@@ -588,7 +717,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3d1d0ba25b5906046826077e2d185efc
+    spriteID: 2de56942009ca43438dd57b84416ff8d
     internalID: 0
     vertices: []
     indices: 
@@ -598,25 +727,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MiniBoss_Idle_0: 975411244708579386
-      MiniBoss_Idle_1: 7952445655044476339
-      MiniBoss_Idle_10: 7398295452978928394
-      MiniBoss_Idle_11: 6712685845560750122
-      MiniBoss_Idle_12: 8016186324137928522
-      MiniBoss_Idle_13: -4329812311588162293
-      MiniBoss_Idle_14: 9010477558100378100
-      MiniBoss_Idle_15: -8663516153633335073
-      MiniBoss_Idle_16: -7501805188108663519
-      MiniBoss_Idle_17: 4449644821274205193
-      MiniBoss_Idle_18: 4935779124022181674
-      MiniBoss_Idle_2: -5669410450730247661
-      MiniBoss_Idle_3: 6315149071678066113
-      MiniBoss_Idle_4: 939306322584366320
-      MiniBoss_Idle_5: 6964865309919009718
-      MiniBoss_Idle_6: -4682784749733018153
-      MiniBoss_Idle_7: -5857047268856010399
-      MiniBoss_Idle_8: -2332392932767506993
-      MiniBoss_Idle_9: -1939089850500671327
+      FirstBossDeath_0: -2433304027756123258
+      FirstBossDeath_1: 2909021605486968380
+      FirstBossDeath_10: -6685283423000943060
+      FirstBossDeath_11: -3904823115116993282
+      FirstBossDeath_12: -2096742337136198812
+      FirstBossDeath_13: 523608247006503705
+      FirstBossDeath_14: 2076075614430464145
+      FirstBossDeath_15: 8069596409712720334
+      FirstBossDeath_16: -6509593932741271529
+      FirstBossDeath_17: -573979070196648367
+      FirstBossDeath_18: -8935719944914393032
+      FirstBossDeath_19: -5768195590569390229
+      FirstBossDeath_2: 971404572809603321
+      FirstBossDeath_20: 656000653170655559
+      FirstBossDeath_21: 7941639274228926075
+      FirstBossDeath_3: 3936123009044534588
+      FirstBossDeath_4: -8761881945905874196
+      FirstBossDeath_5: 7329201752898847846
+      FirstBossDeath_6: 3162722940911170706
+      FirstBossDeath_7: 8005188960542816327
+      FirstBossDeath_8: -8446587696438787097
+      FirstBossDeath_9: -1961220996222462033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
