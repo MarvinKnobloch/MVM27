@@ -169,9 +169,30 @@ public class PlayerAttack : MonoBehaviour
     }
     public void ExecuteAttack()
     {
+        DealDamage();
+    }
+    private void DealDamage()
+    {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, enemyLayer);
+
+        foreach (Collider2D col in collider)
+        {
+            if (col.TryGetComponent(out Health health))
+            {
+                int upgradeBonusDamage = AddUpgradeDamage();
+                health.TakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage, false);
+
+            }
+        }
+        if (collider.Length != 0)
+        {
+            player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
+        }
+    }
+    public void EndAttack()
+    {
         if (player.state != Player.States.Attack) return;
 
-        DealDamage();
         if (chainAttack == true)
         {
             if (elementalSwitchNumber != -1)
@@ -187,24 +208,6 @@ public class PlayerAttack : MonoBehaviour
 
             player.ChangeAnimationState(idleState);    //backup animation. On frame perfect attackinput the attack animation will not reset
             player.SwitchToAir();
-        }
-    }
-    private void DealDamage()
-    {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, enemyLayer);
-
-        foreach (Collider2D col in collider)
-        {
-            if (col.TryGetComponent(out Health health))
-            {
-                int upgradeBonusDamage = AddUpgradeDamage();
-                health.TakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage, false);
-          
-            }
-        }
-        if(collider.Length != 0)
-        {
-            player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
         }
     }
     public void SetUpgradeDamage()

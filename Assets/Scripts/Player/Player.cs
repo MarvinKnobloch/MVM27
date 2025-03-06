@@ -81,6 +81,8 @@ public class Player : MonoBehaviour
     public float YWallBoostStrength;
 
     [Header("HeavyPunch")]
+    public int heavyPunchDamage;
+    public int heavyPunchCosts;
     public CircleCollider2D heavyPunchCollider;
     public LayerMask heavyPunchLayer;
 
@@ -215,6 +217,7 @@ public class Player : MonoBehaviour
             controls.Player.Attack.performed += playerAttack.AttackInput;
             controls.Player.Interact.performed += playerInteraction.InteractInput;
             controls.Player.ElementAbility1.performed += playerAbilties.Ability1Input;
+            controls.Player.ElementAbility2.performed += playerAbilties.Ability2Input;
             controls.Player.Element1.performed += playerAbilties.FirstElementInput;
             controls.Player.Element2.performed += playerAbilties.SecondElementInput;
             controls.Player.Element3.performed += playerAbilties.ThirdElementInput;
@@ -226,6 +229,7 @@ public class Player : MonoBehaviour
             controls.Player.Attack.performed -= playerAttack.AttackInput;
             controls.Player.Interact.performed -= playerInteraction.InteractInput;
             controls.Player.ElementAbility1.performed -= playerAbilties.Ability1Input;
+            controls.Player.ElementAbility2.performed -= playerAbilties.Ability2Input;
             controls.Player.Element1.performed -= playerAbilties.FirstElementInput;
             controls.Player.Element2.performed -= playerAbilties.SecondElementInput;
             controls.Player.Element3.performed -= playerAbilties.ThirdElementInput;
@@ -263,7 +267,7 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1, false);
+        //if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1, false);
 
         if (menuController.gameIsPaused) return;
         ReadMovementInput();
@@ -291,7 +295,6 @@ public class Player : MonoBehaviour
                 playerMovement.DashTime();
                 break;
             case States.HeavyPunch:
-                playerAbilties.HeavyPunch();
                 break;
             case States.NonElementalHeal:
                 break;

@@ -11,28 +11,28 @@ public class Destructable : MonoBehaviour
     [SerializeField] private float YForce;
     [SerializeField] private float randomForce;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Player player = Player.Instance;
-            if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
-            {
-                Interaction(Player.Instance.transform);
-            }
-        }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Player player = Player.Instance;
-            if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
-            {
-                Interaction(Player.Instance.transform);
-            }
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Player player = Player.Instance;
+    //        if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
+    //        {
+    //            Interaction(Player.Instance.transform);
+    //        }
+    //    }
+    //}
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        Player player = Player.Instance;
+    //        if (player.currentElementNumber == 0 && player.state == Player.States.Dash && player.wallbreakUnlocked)
+    //        {
+    //            Interaction(Player.Instance.transform);
+    //        }
+    //    }
+    //}
 
     public void Interaction(Transform interactionTransform)
     { 

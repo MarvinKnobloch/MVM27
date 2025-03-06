@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
         }
         else Destroy(gameObject);
 
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 120;
+
         PlayerPrefs.SetInt("NewGame", 1);
     }
     private void Start()

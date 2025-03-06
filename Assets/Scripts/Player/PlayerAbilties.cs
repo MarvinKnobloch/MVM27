@@ -21,6 +21,15 @@ public class PlayerAbilties
             if (player.currentElementNumber == 2) player.playerMovement.WallBoost();
         }
     }
+    public void Ability2Input(InputAction.CallbackContext ctx)
+    {
+        if (player.menuController.gameIsPaused) return;
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            if (player.currentElementNumber == 0) NonElementAbility2();
+        }
+    }
     private void NonElementAbility1()
     {
         switch (player.state)
@@ -53,21 +62,50 @@ public class PlayerAbilties
         player.health.Heal(player.elementHealAmount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusHeal.ToString()));
         player.SwitchToAir();
     }
+    private void NonElementAbility2()
+    {
+        if (player.wallbreakUnlocked == false) return;
+
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                StartHeavyPunsh();
+                break;
+            case Player.States.GroundIntoAir:
+                StartHeavyPunsh();
+                break;
+            case Player.States.Air:
+                StartHeavyPunsh();
+                break;
+        }
+    }
     private void StartHeavyPunsh()
     {
+        if (player.EnergyValue < player.heavyPunchCosts) return;
+
+        player.ChangeAnimationState("HeavyPunch");
         player.state = Player.States.HeavyPunch;
     }
-    public void HeavyPunch()
+    public void ExecuteHeavyPunch()
     {
         Collider2D[] collider = Physics2D.OverlapCircleAll(player.heavyPunchCollider.bounds.center, player.heavyPunchCollider.radius, player.heavyPunchLayer);
 
         foreach (Collider2D col in collider)
         {
-            if(col.TryGetComponent(out Destructable destructable))
+            if (col.TryGetComponent(out Destructable destructable))
             {
                 destructable.Interaction(player.transform);
             }
+            else if (col.TryGetComponent(out Health health))
+            {
+                health.TakeDamage(player.heavyPunchDamage, false);
+            }
         }
+        player.EnergyUpdate(-player.heavyPunchCosts);
+    }
+    public void EndHeavyPunch()
+    {
+        if (player.state != Player.States.HeavyPunch) return;
         player.SwitchToAir();
     }
     private void FireAbility1()
