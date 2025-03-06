@@ -8,6 +8,29 @@ public static class Utility
         {
             return true;
         }
-        else return false;
+        else
+            return false;
+    }
+
+    /// <summary>
+    /// A function to check if two vectors are aproximatley equivalent
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static bool Approximately(this Vector3 a, Vector3 b, float tolerance = 0.1f)
+    {
+        return Vector3.Distance(a, b) <= tolerance;
+    }
+
+    /// <summary>
+    /// A function to check if two vectors are aproximatley equivalent
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <returns></returns>
+    public static bool Approximately(this Vector2 a, Vector2 b, float tolerance = 0.1f)
+    {
+        return Vector2.Distance(a, b) <= tolerance;
     }
 }
