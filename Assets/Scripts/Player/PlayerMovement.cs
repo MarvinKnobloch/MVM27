@@ -1,5 +1,3 @@
-
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +5,7 @@ public class PlayerMovement
 {
     public Player player;
     private float dashTimer;
+
 
     const string idleState = "Idle";
     const string runState = "Run";
@@ -122,9 +121,27 @@ public class PlayerMovement
         player.rb.linearVelocity = Vector2.zero;
         player.rb.AddForce(new Vector2(0, player.jumpStrength), ForceMode2D.Impulse);
 
+        player.jumpPerformed = true;
+        player.jumpTimer = 0;
         //player.ChangeAnimationState(jumpState);
 
         if(player.state != Player.States.Air) player.SwitchGroundIntoAir();
+    }
+    public void JumpIsPressed()
+    {
+        if (player.jumpPerformed == false) return;
+
+        player.jumpTimer += Time.deltaTime;
+        if(player.jumpTimer > player.maxJumpTime)
+        {
+            player.jumpPerformed = false;
+        }
+        if (player.controls.Player.Jump.WasReleasedThisFrame())
+        {
+            float velocityReduce = player.maxJumpTime - player.jumpTimer;
+            player.rb.AddForce(new Vector2(0, velocityReduce * -15), ForceMode2D.Impulse);
+            player.jumpPerformed = false;
+        }
     }
     public void DashInput(InputAction.CallbackContext ctx)
     {

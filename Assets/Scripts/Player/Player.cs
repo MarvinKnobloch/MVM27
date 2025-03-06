@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public MenuController menuController;
     [NonSerialized] public PlayerUI playerUI;
 
-    private Controls controls;
+    [NonSerialized] public Controls controls;
     private InputAction moveInput;
 
     [NonSerialized] public Rigidbody2D rb;
@@ -19,12 +19,9 @@ public class Player : MonoBehaviour
 
     [Header("Movement")]
     public float movementSpeed;
-    public float jumpStrength;
-    public int maxJumpCount;
     public int maxFallSpeed;
     public float groundIntoAirOffset;
     [NonSerialized] public float groundIntoAirTimer;
-    [NonSerialized] public int currentJumpCount;
     [NonSerialized] public Vector2 moveDirection;
     [NonSerialized] public Vector2 playerVelocity;
     [NonSerialized] public bool faceRight;
@@ -32,6 +29,15 @@ public class Player : MonoBehaviour
     public LayerMask groundCheckLayer;
     [NonSerialized] public float sidewardsStreamMovement;
     [NonSerialized] public MovingPlatform movingPlatform;
+
+    [Header("Jump")]
+    public float jumpStrength;
+    public int maxJumpCount;
+    [NonSerialized] public int currentJumpCount;
+    public float maxJumpTime;
+    [NonSerialized] public float jumpTimer;
+    [NonSerialized] public bool jumpPerformed;
+
 
     [Header("Dash")]
     public float dashTime;
@@ -197,7 +203,7 @@ public class Player : MonoBehaviour
         else doubleJumpUnlocked = false;
         if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBoost.ToString()) == 1) wallBoostUnlocked = true;
         else wallBoostUnlocked = false;
-        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.Dash.ToString()) == 1) dashUnlocked = true;
+        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDash.ToString()) == 1) dashUnlocked = true;
         else dashUnlocked = false;
     }
     public void EnableInputs(bool enabled)
@@ -271,11 +277,13 @@ public class Player : MonoBehaviour
                 playerMovement.RotatePlayer();
                 break;
             case States.GroundIntoAir:
+                playerMovement.JumpIsPressed();
                 playerMovement.GroundIntoAirTransition();
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
             case States.Air:
+                playerMovement.JumpIsPressed();
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
@@ -305,6 +313,7 @@ public class Player : MonoBehaviour
         XWallBoostMovement = 0;
         sidewardsStreamMovement = 0;
 
+        jumpPerformed = false;
         playerAttack.airAttackPerformed = false;
         canWallBoost = false;
         performedWallBoost = false;

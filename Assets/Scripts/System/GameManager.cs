@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         AirElement,
         PlayerDoubleJump,
         WallBoost,
-        Dash,
+        PlayerDash,
     }
     private void Awake()
     {

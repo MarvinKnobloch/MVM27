@@ -33105,6 +33105,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 5, y: 82, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 25, y: 82, z: 0}
     second:
       serializedVersion: 2
@@ -33136,6 +33146,16 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 4, y: 83, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 5, y: 83, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
@@ -33797,13 +33817,13 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 3202
+  - m_RefCount: 3204
     m_Data: {fileID: 11400000, guid: 70ecfadffce87264b8ace7174f599594, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 3202
+  - m_RefCount: 3204
     m_Data: {fileID: 21300000, guid: d2973246b5b24ce4782138b4d9bafa84, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 3202
+  - m_RefCount: 3204
     m_Data:
       e00: 1
       e01: 0
@@ -33822,7 +33842,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 3202
+  - m_RefCount: 3204
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -33945,8 +33965,12 @@ CompositeCollider2D:
         Y: 950000000
       - X: 249983328
         Y: 820000000
-      - X: 50016664
+      - X: 60016664
         Y: 820000000
+      - X: 60016664
+        Y: 840000000
+      - X: 50016664
+        Y: 840000000
       - X: 50016664
         Y: 950000000
       - X: 19983334
@@ -34115,7 +34139,9 @@ CompositeCollider2D:
       - {x: 27.001638, y: 95}
       - {x: 24.998333, y: 94.99997}
       - {x: 24.998304, y: 82}
-      - {x: 5.0016665, y: 82.00003}
+      - {x: 6.0016665, y: 82.00003}
+      - {x: 6.0016375, y: 84}
+      - {x: 5.0016665, y: 84.00003}
       - {x: 5.0016375, y: 95}
       - {x: 1.9983335, y: 94.99997}
       - {x: 1.9983628, y: 85}
@@ -37822,7 +37848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1394975419
 Transform:
   m_ObjectHideFlags: 0

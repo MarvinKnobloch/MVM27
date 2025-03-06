@@ -278,13 +278,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  jumpStrength: 10.5
-  maxJumpCount: 2
   maxFallSpeed: -20
   groundIntoAirOffset: 0.1
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 3592
+  jumpStrength: 10.5
+  maxJumpCount: 2
+  maxJumpTime: 0.3
   dashTime: 0.3
   dashStrength: 12
   maxDashCount: 2
@@ -390,6 +391,7 @@ MonoBehaviour:
   HealthBarOffset: 1
   isBoss: 0
   maxHealth: 10
+  bossType: 0
   dieEvent:
     m_PersistentCalls:
       m_Calls: []

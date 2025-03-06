@@ -136,14 +136,13 @@ public class MenuController : MonoBehaviour
 
         //Abilities
         //Heal???
-        PlayerPrefs.SetInt("Dash", 1);
-        PlayerPrefs.SetInt("FireElement", 1);
-        PlayerPrefs.SetInt("Fireball", 1);
-        PlayerPrefs.SetInt("WallBreak", 0);
-        PlayerPrefs.SetInt("AirElement", 0);
-        PlayerPrefs.SetInt("PlayerDoubleJump", 0);
-        PlayerPrefs.SetInt("WallBoost", 0);
-        PlayerPrefs.SetInt("WallDash", 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDash.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.FireElement.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.Fireball.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBreak.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.AirElement.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBoost.ToString(), 0);
 
         //Values
         PlayerPrefs.SetInt("PlayerGold", 0);
