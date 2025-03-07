@@ -1,8 +1,7 @@
-using System.Collections;
-using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Health))]
 public class Flyer : MonoBehaviour
 {
     private enum AttackTypes
@@ -10,22 +9,11 @@ public class Flyer : MonoBehaviour
         /// <summary>
         /// a single shot periodically
         /// </summary>
-        StandardShot,
+        SingleShot,
         /// <summary>
         /// shoots multiple projectiles at once for less damage
         /// </summary>
-        ScatterShot,
-        /// <summary>
-        /// rapid fire shots that deal half damage
-        /// </summary>
-        ExplosiveShot,
-    }
-
-    private enum AttackState
-    {
-        None,
-        Cast,
-
+        ScatterShot
     }
 
     private enum MovementType
@@ -37,7 +25,7 @@ public class Flyer : MonoBehaviour
         /// <summary>
         /// Stays in one place, facing one direction. Low range of chase. Acts defensive, not offensive.
         /// </summary>
-        Gaurd,
+        Guard,
         /// <summary>
         /// Moves from point to point. Low range of chase. Smaller chase distance than wander, returns to patroling after attack.
         /// </summary>
@@ -90,7 +78,11 @@ public class Flyer : MonoBehaviour
         /// <summary>
         /// Enemy is dead (playing out animations until destroy)
         /// </summary>
-        Death
+        Death,
+        /// <summary>
+        /// Enemy was hit, movement will be frozen
+        /// </summary>
+        Hit
     }
 
     private enum MovementFrequency
@@ -111,39 +103,48 @@ public class Flyer : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
+    [SerializeField] private Health healthComponent;
+
+    [Header("Height Control")]
+    [SerializeField] private float minimumHeightFromGround = 2f;
+    [SerializeField] private LayerMask groundLayerMask;
 
     [Header("Idle")]
-    [SerializeField] private float walkSpeed = 5.0f;
+    [SerializeField, Min(0f)] private float walkSpeed = 5.0f;
     [SerializeField] private MovementType movementType = MovementType.Wander;
     [Tooltip("How often this will move while on wander or patrol mode.")]
     [SerializeField] private MovementFrequency movementFrequency = MovementFrequency.Normal;
     [Tooltip("The radius distance the enemy can wander from its start point.")]
-    [SerializeField] private float wanderDistance = 2f;
+    [SerializeField, Min(0f)] private float wanderDistance = 2f;
     [SerializeField] private Transform[] patrolPoints;  // TODO: consider caching this is Vector2 on startup to avoid constant cast to Rigidbody position
 
     [Header("Detection")]
-    [SerializeField] private float visionDistance = 5.0f;
+    [SerializeField, Min(0f)] private float visionDistance = 5.0f;
     [Tooltip("Select the layers vision can raycast against. Make sure things like enemies are unchecked.")]
     [SerializeField] private LayerMask visionLayerMask;
 
     [Header("Combat")]
-    [SerializeField] private float chaseSpeed = 3.0f;
+    [SerializeField, Min(0f)] private float chaseSpeed = 3.0f;
     [Tooltip("this is the max area an aenemy is willing to move to while alert.")]
-    [SerializeField] private float chaseDistance = 14.0f;
+    [SerializeField, Min(0f)] private float chaseDistance = 14.0f;
     [Tooltip("The time in seconds we will look for the target after losing them")]
-    [SerializeField] private float timeToSearchWhenLost = 10f;
+    [SerializeField, Min(0f)] private float timeToSearchWhenLost = 10f;
     [Tooltip("The desired distance to be above the target")]
-    [SerializeField] private float desiredAttackHeight = 2f;
+    [SerializeField, Min(0f)] private float desiredAttackHeight = 2f;
     [Tooltip("The desired distance to be from the target")]
-    [SerializeField] private float desiredAttackRange = 3f;
-    [SerializeField] private AttackTypes attackType = AttackTypes.StandardShot;
+    [SerializeField, Min(0f)] private float desiredAttackRange = 3f;
+    [SerializeField] private AttackTypes attackType = AttackTypes.SingleShot;
     [Tooltip("The time in seconds between shots")]
-    [SerializeField] private float attackRate = 3f;
+    [SerializeField, Min(0f)] private float attackRate = 3f;
+    [Tooltip("The time in seconds to freeze when being hit")]
+    [SerializeField, Min(0f)] private float hitFreezeTime = 1f;
+    [Tooltip("The force to push this back when being hit")]
+    [SerializeField, Min(0f)] private float hitPushbackForce = .4f;
     [Tooltip("The position to spawn the attack")]
     [SerializeField] private Transform attackSpawnPosition;
     [SerializeField] private FlyerAttack standardShotPrefab;
     [SerializeField] private FlyerAttack scatterShotPrefab;
-    [SerializeField] private FlyerAttack explosiveShotPrefab;
 
     private Transform combatTarget;
     private Vector2 movementTarget; // this is the target to fly to while not alert
@@ -161,15 +162,26 @@ public class Flyer : MonoBehaviour
     private bool inAttackRange;
     private float nextAttackTime;
     private float attackCastTime; // the time we cast the attack
+    private float hitTime; // the time we were hit
 
     private const float ATTACK_ANIM_BUFFER = 1f; // the time in seconds to wait from starting animation to cast
     private const float OUT_OF_BOUNDS_SPEED_BOOST = 1.5f;
     private const float DESIRED_ATTACK_RANGE_BUFFER = 0.7f; // we have a desired attack range, but the player will likely move while we prepare to attack. This buffer helps that situation.
+    private const float DEATH_DESTROY_TIME = 1.5f;
+
+    private const string FLAP_ANIM = "Flap";
+    private const string HIT_ANIM = "Hit";
+    private const string DIE_ANIM = "Die";
 
     private void Awake()
     {
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+        if (healthComponent == null)
+            healthComponent = GetComponent<Health>();
+
+        healthComponent.hitEvent.AddListener(OnHit);
+        healthComponent.dieEvent.AddListener(OnDie);
     }
 
     private void Start()
@@ -199,9 +211,9 @@ public class Flyer : MonoBehaviour
         else if (!targetInSight && detectionState == DetectionState.Lost && Time.time - targetLastSeenTime > timeToSearchWhenLost)
             detectionState = DetectionState.Idle;
 
+        // handle combat states
         if (detectionState == DetectionState.Alert)
         {
-            // handle combat states
             if (combatState == CombatState.None)
             {
                 nextAttackTime = Time.time + attackRate;
@@ -222,13 +234,33 @@ public class Flyer : MonoBehaviour
                 combatState = CombatState.Chasing;
                 attackCastTime = 0f;
             }
+            else if (combatState == CombatState.Death)
+            {
+
+            }
+            else if (combatState == CombatState.Hit)
+            {
+                if (Time.time - hitTime > hitFreezeTime)
+                {
+                    combatState = CombatState.Chasing;
+                    hitTime = 0f;
+                }
+            }
         }
-        else
+        else if (detectionState == DetectionState.Idle)
         {
             desiredAttackPosition = Vector2.zero;
             combatState = CombatState.None;
             nextAttackTime = 0f;
             attackCastTime = 0f;
+            hitTime = 0f;
+        }
+        else
+        {
+            desiredAttackPosition = Vector2.zero;
+            combatState = CombatState.Chasing;
+            attackCastTime = 0f;
+            hitTime = 0f;
         }
     }
 
@@ -266,7 +298,7 @@ public class Flyer : MonoBehaviour
     {
         if (movementType == MovementType.Wander)
         {
-            if (rb.position.Approximately(movementTarget) == false && movementTarget != Vector2.zero)
+            if (movementTarget != Vector2.zero && rb.position.Approximately(movementTarget) == false)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
                 rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
@@ -286,7 +318,7 @@ public class Flyer : MonoBehaviour
                 }
             }
         }
-        else if (movementType == MovementType.Gaurd)
+        else if (movementType == MovementType.Guard)
         {
             if (rb.position.Approximately(startPosition) == false)
             {
@@ -296,7 +328,7 @@ public class Flyer : MonoBehaviour
         }
         else if (movementType == MovementType.Patrol)
         {
-            if (rb.position.Approximately(movementTarget) == false)
+            if (movementTarget != Vector2.zero && rb.position.Approximately(movementTarget) == false)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
                 rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
@@ -316,6 +348,7 @@ public class Flyer : MonoBehaviour
 
                     // pick a new movement position
                     movementTarget = (Vector2)patrolPoints[patrolIndex].position;
+                    startPosition = movementTarget; // TODO: Decide if I like this. The OutOfBounds check is based on start position. Either I change start position or add special checks for patrol.
                     nextMovementTime = 0f;
                 }
             }
@@ -330,7 +363,11 @@ public class Flyer : MonoBehaviour
             detectionState = DetectionState.OutOfBounds;
             return;
         }
-        
+
+        // freeze movement if we have been hit
+        if (combatState == CombatState.Hit)
+            return;
+
         Vector2 combatTargetPosition = (Vector2)combatTarget.position;
         Vector2 directionToTarget = (combatTargetPosition - rb.position).normalized;
         var distanceToTarget = Vector2.Distance(rb.position, combatTargetPosition);
@@ -339,14 +376,17 @@ public class Flyer : MonoBehaviour
         if (combatState == CombatState.Chasing)
         {
             // try to move to the desired attacking position, with a buffer incase the player tries to move
-            if (distanceToTarget > desiredAttackRange * DESIRED_ATTACK_RANGE_BUFFER)
+            //if (distanceToTarget > desiredAttackRange * DESIRED_ATTACK_RANGE_BUFFER)
+            if (distanceToTarget > desiredAttackRange)
             {
                 // get the desired position + buffer. The offset ensures we can be on the left/right of the target
                 float xOffset = (rb.position.x < combatTargetPosition.x) ? -desiredAttackRange : desiredAttackRange;
                 desiredAttackPosition = combatTargetPosition + new Vector2(xOffset * DESIRED_ATTACK_RANGE_BUFFER, desiredAttackHeight * DESIRED_ATTACK_RANGE_BUFFER);
 
                 Vector2 desiredDirection = (desiredAttackPosition - rb.position).normalized;
-                rb.MovePosition(rb.position + desiredDirection * chaseSpeed * Time.fixedDeltaTime);
+                Vector2 newPosition = rb.position + desiredDirection * chaseSpeed * Time.fixedDeltaTime;
+                newPosition.y = ClampDistanceToGround(newPosition, groundLayerMask, minimumHeightFromGround, chaseSpeed);
+                rb.MovePosition(newPosition);
             }
         }
     }
@@ -357,7 +397,9 @@ public class Flyer : MonoBehaviour
         if (rb.position.Approximately(targetLastKnownPosition) == false)
         {
             Vector2 direction = (targetLastKnownPosition - rb.position).normalized;
-            rb.MovePosition(rb.position + direction * chaseSpeed * Time.fixedDeltaTime);
+            Vector2 newPosition = rb.position + direction * chaseSpeed * Time.fixedDeltaTime;
+            newPosition.y = ClampDistanceToGround(newPosition, groundLayerMask, minimumHeightFromGround, chaseSpeed);
+            rb.MovePosition(newPosition);
         }
     }
 
@@ -393,6 +435,47 @@ public class Flyer : MonoBehaviour
         }
     }
 
+    // this is triggered from the health component
+    private void OnHit()
+    {
+        animator.Play(HIT_ANIM);
+        combatState = CombatState.Hit;
+        hitTime = Time.time;
+
+        if (hitPushbackForce > 0f)
+        {
+            // hit does not provide the object that hit us, so we assume the player direction is the same
+            var direction = (Player.Instance.rb.position - rb.position).normalized;
+            var newPosition = rb.position - direction * hitPushbackForce;
+            rb.MovePosition(newPosition);
+        }
+    }
+
+    // this is triggered from the health component
+    private void OnDie()
+    {
+        combatState = CombatState.Death;
+        animator.Play(DIE_ANIM);
+        Destroy(gameObject, DEATH_DESTROY_TIME);
+    }
+
+    private static float ClampDistanceToGround(Vector2 position, LayerMask layerMask, float minimumHeight, float speed)
+    {
+        // TODO: Consider using something other than infinity
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, Mathf.Infinity, layerMask);
+
+        if (hit.collider != null)
+        {
+            float minimumPoint = hit.point.y + minimumHeight;
+            if (position.y < minimumPoint)
+            {
+                return Mathf.MoveTowards(position.y, minimumPoint, speed * Time.fixedDeltaTime);
+            }
+        }
+
+        return position.y;
+    }
+
     /// <summary>
     /// Returns the time in seconds movement should occur based on the provided frequency
     /// </summary>
@@ -411,7 +494,6 @@ public class Flyer : MonoBehaviour
         return Time.time + frequencyTime;
     }
 
-    // TODO: put this function in a utility place somehwere
     private static bool CheckVision(Transform self, Transform target, float visionDistance, bool forwardVisionOnly, LayerMask layerMask)
     {
         float distanceToTarget = Vector3.Distance(self.position, target.position);
@@ -419,7 +501,7 @@ public class Flyer : MonoBehaviour
         if (distanceToTarget <= visionDistance)
         {
             Vector3 directionToTarget = (target.position - self.position).normalized;
-            
+
             if (forwardVisionOnly)
             {
                 float dotProduct = Vector2.Dot(self.right.normalized, directionToTarget);
@@ -450,6 +532,7 @@ public class Flyer : MonoBehaviour
         }
 
         // idle walk target
+        Gizmos.color = Color.green;
         if (movementTarget != Vector2.zero)
             Gizmos.DrawSphere(movementTarget, 0.1f);
 
@@ -483,6 +566,14 @@ public class Flyer : MonoBehaviour
         Vector3 textPosition = transform.position + (Vector3.up * 1f) + (Vector3.left * 0.5f);
         string message = $"{detectionState} :: {combatState}";
         UnityEditor.Handles.Label(textPosition, message);
+
+        if (combatState != CombatState.None)
+        {
+            // time left to next attack
+            float attackTimeDiff = Mathf.Round((nextAttackTime - Time.time) * 10f) / 10f;
+            message = $"{Mathf.Clamp(attackTimeDiff, 0f, attackTimeDiff)}";
+            UnityEditor.Handles.Label(textPosition + Vector3.up * .5f, message);
+        }
     }
 #endif
 }
