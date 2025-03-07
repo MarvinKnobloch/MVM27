@@ -7,15 +7,20 @@ public abstract class FlyerAttack : MonoBehaviour
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField, Min(0)] protected int damage = 1;
     [SerializeField, Min(0)] protected int speed = 15;
+    [SerializeField, Min(0)] protected float maxLifetime = 5f;
 
     protected Transform target;
     protected Vector2 initalTargetPosition;
 
     protected virtual void Awake()
     {
-        
         if (rb == null)
             rb = GetComponent<Rigidbody2D>();
+    }
+
+    protected virtual void Start()
+    {
+        Destroy(this, maxLifetime);
     }
 
     public virtual void Init(Transform targetTransform)

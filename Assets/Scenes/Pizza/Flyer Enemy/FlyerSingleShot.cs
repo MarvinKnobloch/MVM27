@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FlyerStandardAttack : FlyerAttack
+public class FlyerSingleShot : FlyerAttack
 {
     public override void Cast()
     {
