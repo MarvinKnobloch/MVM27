@@ -1,5 +1,6 @@
 ﻿using Mono.Cecil.Cil;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class FlyerAttack : MonoBehaviour
@@ -15,7 +16,9 @@ public abstract class FlyerAttack : MonoBehaviour
     protected virtual void Awake()
     {
         if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
+            throw new System.ArgumentNullException(nameof(rb));
+
+        // TODO: check the rb layer mask
     }
 
     protected virtual void Start()
@@ -25,9 +28,16 @@ public abstract class FlyerAttack : MonoBehaviour
 
     public virtual void Init(Transform targetTransform)
     {
-        this.target = targetTransform;
+        target = targetTransform;
         initalTargetPosition = (Vector2)targetTransform.position;
     }
 
     public abstract void Cast();
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // TODO: Remove log once we are happy with the flyer
+        Debug.Log($"FLyerAttack::OnCollisionEnter2D hit {collision.gameObject.name}");
+        Destroy(gameObject);
+    }
 }
