@@ -160,8 +160,9 @@ public class Flyer : MonoBehaviour
     private Vector2 desiredAttackPosition;
     private bool inAttackRange;
     private float nextAttackTime;
-    private bool attackHasBeenCast; // a flag to state if we have started the attack or not
+    private float attackCastTime; // the time we cast the attack
 
+    private const float ATTACK_ANIM_BUFFER = 1f; // the time in seconds to wait from starting animation to cast
     private const float OUT_OF_BOUNDS_SPEED_BOOST = 1.5f;
     private const float DESIRED_ATTACK_RANGE_BUFFER = 0.7f; // we have a desired attack range, but the player will likely move while we prepare to attack. This buffer helps that situation.
 
@@ -219,7 +220,15 @@ public class Flyer : MonoBehaviour
             {
                 // leaving this blank, but in the future we could do something like "flee after every shot" or whatever
                 combatState = CombatState.Chasing;
+                attackCastTime = 0f;
             }
+        }
+        else
+        {
+            desiredAttackPosition = Vector2.zero;
+            combatState = CombatState.None;
+            nextAttackTime = 0f;
+            attackCastTime = 0f;
         }
     }
 
@@ -368,13 +377,17 @@ public class Flyer : MonoBehaviour
 
     private void Attack()
     {
-        if (attackHasBeenCast)
+        if (attackCastTime == 0f)
         {
             // TODO: play attack animation
+            attackCastTime = Time.time;
+        }
+        else if (Time.time > attackCastTime + ATTACK_ANIM_BUFFER)
+        {
+            // now spawn the projectile
             var flyerAttack = Instantiate(standardShotPrefab, attackSpawnPosition);
             flyerAttack.Init(combatTarget);
             flyerAttack.Cast();
-            attackHasBeenCast = true;
             nextAttackTime = Time.time + attackRate;
             combatState = CombatState.PostAttackWait;
         }

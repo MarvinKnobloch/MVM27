@@ -6,7 +6,7 @@ public abstract class FlyerAttack : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
     [SerializeField, Min(0)] protected int damage = 1;
-    [SerializeField, Min(0)] protected int speed = 5;
+    [SerializeField, Min(0)] protected int speed = 15;
 
     protected Transform target;
     protected Vector2 initalTargetPosition;
