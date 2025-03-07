@@ -7,14 +7,14 @@ public class Health : MonoBehaviour
 {
     [NonSerialized] public PlayerUI playerUI;
 
-
-
     //Enemy
     [Header("EnemyHealthbar")]
     public GameObject HealthBarBackground;
     private Image HealthBarImage;
     public float HealthBarOffset = 1f;
     [SerializeField] private bool isBoss;
+    [Tooltip("Typically we want this false so that we can play a death animation")]
+    [SerializeField] private bool autoDestoryOnDeath = false;
 
     //Values
     [Header("Values")]
@@ -37,6 +37,8 @@ public class Health : MonoBehaviour
 
     [HideInInspector]
     public UnityEvent dieEvent;
+    [HideInInspector]
+    public UnityEvent hitEvent;
 
     public int Value
     {
@@ -52,7 +54,8 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        if (HealthBarBackground != null) HealthBarImage = HealthBarBackground.transform.GetChild(0).GetComponent<Image>();
+        if (HealthBarBackground != null)
+            HealthBarImage = HealthBarBackground.transform.GetChild(0).GetComponent<Image>();
 
         if (gameObject == Player.Instance.gameObject)
         {
@@ -62,7 +65,7 @@ public class Health : MonoBehaviour
             Value = MaxValue;
             playerUI.HealthUIUpdate(Value, MaxValue);
         }
-        else 
+        else
         {
             if (isBoss)
             {
@@ -78,6 +81,7 @@ public class Health : MonoBehaviour
                 playerUI = GameManager.Instance.playerUI;
 
             }
+
             Value = MaxValue;
             EnemyHealthbarUpdate();
         }
@@ -86,7 +90,9 @@ public class Health : MonoBehaviour
 
     void LateUpdate()
     {
-        if (HealthBarBackground == null) return;
+        if (HealthBarBackground == null)
+            return;
+
         var healthBarRotation = HealthBarBackground.transform.rotation;
         healthBarRotation.SetLookRotation(transform.forward * -1);
         HealthBarBackground.transform.rotation = healthBarRotation;
@@ -100,18 +106,22 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount, bool dontIgnoreIFrames)
     {
-        if (amount == 0) return;
-        if (Value <= 0) return;
-
+        if (amount == 0)
+            return;
+        if (Value <= 0)
+            return;
 
         if (gameObject == Player.Instance.gameObject)
         {
-            if(dontIgnoreIFrames == false) if (Player.Instance.iframesActive) return;
+            if (dontIgnoreIFrames == false)
+                if (Player.Instance.iframesActive)
+                    return;
 
             Value -= amount;
             playerUI.HealthUIUpdate(Value, MaxValue);
 
-            if(Value > 0) Player.Instance.IFramesStart();
+            if (Value > 0)
+                Player.Instance.IFramesStart();
 
             //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
         }
@@ -143,27 +153,32 @@ public class Health : MonoBehaviour
             StopAllCoroutines();
             dieEvent?.Invoke();
 
-            if (gameObject != Player.Instance.gameObject && isBoss == false) Destroy(gameObject);
+            // TODO: This if check was removed in favor of a config boolean. Keeping until I know all assets have been transitioned.
+            //if (gameObject != Player.Instance.gameObject && isBoss == false)
+            if (autoDestoryOnDeath)
+                Destroy(gameObject);
+        }
+        else
+        {
+            hitEvent?.Invoke();
         }
     }
     public void Heal(int amount)
     {
-        if (amount == 0) return;
+        if (amount == 0)
+            return;
 
         Value += amount;
 
-        if (gameObject == Player.Instance.gameObject) playerUI.HealthUIUpdate(Value, MaxValue);
+        if (gameObject == Player.Instance.gameObject)
+            playerUI.HealthUIUpdate(Value, MaxValue);
         else
-        {
             EnemyHealthbarUpdate();
-        }
     }
     private void EnemyHealthbarUpdate()
     {
         if (HealthBarBackground != null)
-        {
             HealthBarImage.fillAmount = (float)Value / MaxValue;
-        }
     }
     public void CalculatePlayerHealth()
     {
