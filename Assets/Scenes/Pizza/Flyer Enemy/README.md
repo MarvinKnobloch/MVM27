@@ -67,3 +67,25 @@ Logic to ensure they chose a location that is a not layered ontop of each other 
 For now, I will assume this is something we return to at the end if needed and we have time.
 ### Visual Indicator
 Do we want a exclamation icon or some similar effect that occurs when an enemy sees the player?
+
+
+
+
+
+## Refactor
+So I decided to refactor this flyer to be much simpler and match the feel of the project.
+Below are some main points as to why.
+### Chase / Lost / Out of Bounds
+This required the flyer to do lots of navigating the map. Currently, there is no pathfinding system in.
+Without that, there was alot of code needed to ensure the flyer didnt get stuck or act odd.
+Adding a pathfinding system in (that checks the tiles and doesnt affect performance) is far beyond
+the scope of the current task. 
+Thinking about how the player controls work, and the theme of the game so far; I decided an older style AI
+is a better match. One that simply wanders around a smal zone. It can do some repositioning after attacking, but that is it.
+I will keep the old flyer code in a backup incase we ever want to return to it.
+## Shots
+I removed explosion shot, just to limit scope of the task.
+The single shot and scatter shot should be enough. I am going to remvoe the "player following" logic
+and let the designers play with it and tweak the settings. If they request something like "shoot ahead"
+or stuff like that, we can do that. But based on the style of the game, I doubt that will be needed. At least
+not now.

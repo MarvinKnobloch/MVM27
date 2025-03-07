@@ -39,34 +39,18 @@ public class Flyer : MonoBehaviour
         /// </summary>
         Idle,
         /// <summary>
-        /// Thinks a target is near and is investigating
-        /// </summary>
-        Suspicous,
-        /// <summary>
         /// Knows of target and is in combat mode
         /// </summary>
-        Alert,
-        /// <summary>
-        /// Lost target and is returning to previous position (at faster speed)
-        /// </summary>
-        Lost,
-        /// <summary>
-        /// States the enemy is out of bounds and will return to their start position
-        /// </summary>
-        OutOfBounds
+        Alert
     }
 
     private enum CombatState
     {
         /// <summary>
-        /// Enemy is not in combat
-        /// </summary>
-        None,
-        /// <summary>
         /// Enemy is chasing target and wont attack until in range.
         /// This is when first sighting player or lost player
         /// </summary>
-        Chasing,
+        PreAttack,
         /// <summary>
         /// Enemy is currently attacking target
         /// </summary>
@@ -74,7 +58,7 @@ public class Flyer : MonoBehaviour
         /// <summary>
         /// Enemy has attacked and and now might relocate
         /// </summary>
-        PostAttackWait,
+        PostAttack,
         /// <summary>
         /// Enemy is dead (playing out animations until destroy)
         /// </summary>
@@ -101,17 +85,53 @@ public class Flyer : MonoBehaviour
         Alot
     }
 
+    private struct CombatData
+    {
+        public CombatState State;
+
+        /// <summary>
+        /// not used, but good information if we want to add gameplay for it later
+        /// </summary>
+        public Vector2 TargetLastKnownPosition;
+
+        /// <summary>
+        /// the time in seconds we last saw the target
+        /// </summary>
+        public float TargetLastSeenTime;
+
+        /// <summary>
+        /// states if the target is in attack range or not
+        /// </summary>
+        public bool TargetInAttackRange;
+
+        /// <summary>
+        /// the time we can attack next (compare against Time.time)
+        /// </summary>
+        public float NextAttackTime;
+
+        /// <summary>
+        /// the time we cast the attack (compare against Time.time)
+        /// </summary>
+        public float AttackCastTime;
+
+        /// <summary>
+        /// the time we were hit (compare against Time.time)
+        /// </summary>
+        public float HitTime;
+
+        /// <summary>
+        /// the position we were in when we became alert (for repositining logic)
+        /// </summary>
+        public Vector2 BecameAlertPosition;
+    }
+
     [Header("Components")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
 
-    [Header("Height Control")]
-    [SerializeField] private float minimumHeightFromGround = 2f;
-    [SerializeField] private LayerMask groundLayerMask;
-
     [Header("Idle")]
-    [SerializeField, Min(0f)] private float walkSpeed = 5.0f;
+    [SerializeField, Min(0f)] private float flySpeed = 5.0f;
     [SerializeField] private MovementType movementType = MovementType.Wander;
     [Tooltip("How often this will move while on wander or patrol mode.")]
     [SerializeField] private MovementFrequency movementFrequency = MovementFrequency.Normal;
@@ -125,48 +145,49 @@ public class Flyer : MonoBehaviour
     [SerializeField] private LayerMask visionLayerMask;
 
     [Header("Combat")]
-    [SerializeField, Min(0f)] private float chaseSpeed = 3.0f;
-    [Tooltip("this is the max area an aenemy is willing to move to while alert.")]
-    [SerializeField, Min(0f)] private float chaseDistance = 14.0f;
-    [Tooltip("The time in seconds we will look for the target after losing them")]
-    [SerializeField, Min(0f)] private float timeToSearchWhenLost = 10f;
-    [Tooltip("The desired distance to be above the target")]
-    [SerializeField, Min(0f)] private float desiredAttackHeight = 2f;
-    [Tooltip("The desired distance to be from the target")]
-    [SerializeField, Min(0f)] private float desiredAttackRange = 3f;
+    [SerializeField, Min(0f)] private float combatFlySpeed = 5.0f;
+    [Tooltip("The time in seconds until the flyer is no longer alert if it cannot find the target")]
+    [SerializeField, Min(0f)] private float timeToLeaveCombat = 10f;
+    [Tooltip("The time in seconds to freeze when being hit. Set to 0 to disable.")]
+    [SerializeField, Min(0f)] private float hitFreezeTime = 1f;
+    [Tooltip("The force to push this back when being hit. Set to 0 to disable.")]
+    [SerializeField, Min(0f)] private float hitPushbackForce = .4f;
+
+    [Header("Combat - Attack")]
     [SerializeField] private AttackTypes attackType = AttackTypes.SingleShot;
+    [Tooltip("The desired distance to be from the target")]
+    [SerializeField, Min(0f)] private float attackRange = 3f;
     [Tooltip("The time in seconds between shots")]
     [SerializeField, Min(0f)] private float attackRate = 3f;
-    [Tooltip("The time in seconds to freeze when being hit")]
-    [SerializeField, Min(0f)] private float hitFreezeTime = 1f;
-    [Tooltip("The force to push this back when being hit")]
-    [SerializeField, Min(0f)] private float hitPushbackForce = .4f;
     [Tooltip("The position to spawn the attack")]
     [SerializeField] private Transform attackSpawnPosition;
     [SerializeField] private FlyerAttack standardShotPrefab;
     [SerializeField] private FlyerAttack scatterShotPrefab;
 
-    private Transform combatTarget;
-    private Vector2 movementTarget; // this is the target to fly to while not alert
-    private Vector2 startPosition;
-    private bool targetInSight;
-    private Vector2 targetLastKnownPosition;
-    private float targetLastSeenTime;
-    private DetectionState detectionState = DetectionState.Idle;
-    private DetectionState lastDetectionState = DetectionState.Idle;
-    private CombatState combatState = CombatState.None;
-    private CombatState lastCombatState = CombatState.None;
-    private float nextMovementTime;
-    private int patrolIndex;
-    private Vector2 desiredAttackPosition;
-    private bool inAttackRange;
-    private float nextAttackTime;
-    private float attackCastTime; // the time we cast the attack
-    private float hitTime; // the time we were hit
+    [Header("Combat - Reposition")]
+    [Tooltip("The radius distance the enemy can reposition after attacking")]
+    [SerializeField, Min(0f)] private float repositionDistance = 2f;
+    [Tooltip("How often this will move while on reposition after attacking.")]
+    [SerializeField] private MovementFrequency repositionFrequency = MovementFrequency.Alot;
 
-    private const float ATTACK_ANIM_BUFFER = 1f; // the time in seconds to wait from starting animation to cast
-    private const float OUT_OF_BOUNDS_SPEED_BOOST = 1.5f;
-    private const float DESIRED_ATTACK_RANGE_BUFFER = 0.7f; // we have a desired attack range, but the player will likely move while we prepare to attack. This buffer helps that situation.
+
+    private Vector2 startPosition;
+    private Transform combatTarget;
+    private DetectionState detectionState = DetectionState.Idle;
+    private int patrolIndex;
+    private Vector2 movementTarget;
+    private float nextMovementTime;
+    private bool targetInSight;
+    private CombatData combatData;
+
+    /// <summary>
+    /// the time in seconds to wait from starting animation to cast
+    /// </summary>
+    private const float ATTACK_ANIM_BUFFER = 1f;
+
+    /// <summary>
+    /// The time in seconds to delay the destory (for animations and such)
+    /// </summary>
     private const float DEATH_DESTROY_TIME = 1.5f;
 
     private const string FLAP_ANIM = "Flap";
@@ -176,9 +197,11 @@ public class Flyer : MonoBehaviour
     private void Awake()
     {
         if (rb == null)
-            rb = GetComponent<Rigidbody2D>();
+            throw new System.ArgumentNullException(nameof(rb));
         if (healthComponent == null)
-            healthComponent = GetComponent<Health>();
+            throw new System.ArgumentNullException(nameof(healthComponent));
+        if (animator == null)
+            throw new System.ArgumentNullException(nameof(animator));
 
         healthComponent.hitEvent.AddListener(OnHit);
         healthComponent.dieEvent.AddListener(OnDie);
@@ -188,110 +211,74 @@ public class Flyer : MonoBehaviour
     {
         combatTarget = Player.Instance.transform;
         startPosition = rb.position;
+        combatData = new CombatData();
     }
 
     private void Update()
     {
+        // handle vision
         targetInSight = CheckVision(transform, combatTarget, visionDistance, false, visionLayerMask);
-
         if (targetInSight)
         {
-            targetLastKnownPosition = (Vector2)combatTarget.position;
-            targetLastSeenTime = Time.time;
+            combatData.TargetLastKnownPosition = (Vector2)combatTarget.position;
+            combatData.TargetLastSeenTime = Time.time;
         }
 
         // handle detection states
-        lastDetectionState = detectionState;
         if (targetInSight && detectionState == DetectionState.Idle)
+        {
+            nextMovementTime = 0f;
+            movementTarget = Vector2.zero;
+            combatData.BecameAlertPosition = rb.position;
+            combatData.NextAttackTime = Time.time + attackRate;
             detectionState = DetectionState.Alert;
-        else if (!targetInSight && detectionState == DetectionState.Alert)
-            detectionState = DetectionState.Lost;
-        else if (targetInSight && detectionState == DetectionState.Lost)
-            detectionState = DetectionState.Alert;
-        else if (!targetInSight && detectionState == DetectionState.Lost && Time.time - targetLastSeenTime > timeToSearchWhenLost)
+        }
+        else if (!targetInSight && detectionState == DetectionState.Alert && Time.time - combatData.TargetLastSeenTime > timeToLeaveCombat)
+        {
+            nextMovementTime = 0f;
+            movementTarget = Vector2.zero;
+            combatData = new CombatData();
             detectionState = DetectionState.Idle;
+        }
 
         // handle combat states
         if (detectionState == DetectionState.Alert)
         {
-            if (combatState == CombatState.None)
+            if (combatData.State == CombatState.PreAttack && combatData.TargetInAttackRange && Time.time > combatData.NextAttackTime)
             {
-                nextAttackTime = Time.time + attackRate;
-                combatState = CombatState.Chasing;
+                combatData.State = CombatState.Attacking;
             }
-            else if (combatState == CombatState.Chasing && inAttackRange && Time.time > nextAttackTime)
+            else if (combatData.State == CombatState.Attacking)
             {
-                combatState = CombatState.Attacking;
-            }
-            else if (combatState == CombatState.Attacking)
-            {
-                // because the attack will take time to cast, etc.. state changes must be handled there
+                // because the attack will take time to cast, etc.. state changes must be handled in Attack()
                 Attack();
             }
-            else if (combatState == CombatState.PostAttackWait)
+            else if (combatData.State == CombatState.PostAttack)
             {
                 // leaving this blank, but in the future we could do something like "flee after every shot" or whatever
-                combatState = CombatState.Chasing;
-                attackCastTime = 0f;
+                combatData.State = CombatState.PreAttack;
             }
-            else if (combatState == CombatState.Death)
+            else if (combatData.State == CombatState.Death)
             {
-
+                // do nothing
             }
-            else if (combatState == CombatState.Hit)
+            else if (combatData.State == CombatState.Hit)
             {
-                if (Time.time - hitTime > hitFreezeTime)
+                if (Time.time - combatData.HitTime > hitFreezeTime)
                 {
-                    combatState = CombatState.Chasing;
-                    hitTime = 0f;
+                    combatData.State = CombatState.PreAttack;
+                    combatData.HitTime = 0f;
                 }
             }
-        }
-        else if (detectionState == DetectionState.Idle)
-        {
-            desiredAttackPosition = Vector2.zero;
-            combatState = CombatState.None;
-            nextAttackTime = 0f;
-            attackCastTime = 0f;
-            hitTime = 0f;
-        }
-        else
-        {
-            desiredAttackPosition = Vector2.zero;
-            combatState = CombatState.Chasing;
-            attackCastTime = 0f;
-            hitTime = 0f;
         }
     }
 
     private void FixedUpdate()
     {
         if (detectionState == DetectionState.Idle)
-        {
-            targetLastKnownPosition = Vector2.zero;
-            targetLastSeenTime = 0f;
-
             HandleNormalMovement();
-        }
-        else if (detectionState == DetectionState.Suspicous)
-        {
-            // TODO: Add support later
-        }
         else if (detectionState == DetectionState.Alert)
-        {
-            nextMovementTime = 0f;
-            movementTarget = Vector2.zero;
-
             HandleAlertMovement();
-        }
-        else if (detectionState == DetectionState.Lost)
-        {
-            HandleLostMovement();
-        }
-        else if (detectionState == DetectionState.OutOfBounds)
-        {
-            HandleOOBMovement();
-        }
     }
 
     private void HandleNormalMovement()
@@ -301,7 +288,7 @@ public class Flyer : MonoBehaviour
             if (movementTarget != Vector2.zero && rb.position.Approximately(movementTarget) == false)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
-                rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + direction * flySpeed * Time.fixedDeltaTime);
             }
             else
             {
@@ -323,7 +310,7 @@ public class Flyer : MonoBehaviour
             if (rb.position.Approximately(startPosition) == false)
             {
                 Vector2 direction = (startPosition - rb.position).normalized;
-                rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + direction * flySpeed * Time.fixedDeltaTime);
             }
         }
         else if (movementType == MovementType.Patrol)
@@ -331,7 +318,7 @@ public class Flyer : MonoBehaviour
             if (movementTarget != Vector2.zero && rb.position.Approximately(movementTarget) == false)
             {
                 Vector2 direction = (movementTarget - rb.position).normalized;
-                rb.MovePosition(rb.position + direction * walkSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + direction * flySpeed * Time.fixedDeltaTime);
             }
             else
             {
@@ -348,7 +335,6 @@ public class Flyer : MonoBehaviour
 
                     // pick a new movement position
                     movementTarget = (Vector2)patrolPoints[patrolIndex].position;
-                    startPosition = movementTarget; // TODO: Decide if I like this. The OutOfBounds check is based on start position. Either I change start position or add special checks for patrol.
                     nextMovementTime = 0f;
                 }
             }
@@ -357,81 +343,59 @@ public class Flyer : MonoBehaviour
 
     private void HandleAlertMovement()
     {
-        if (Vector2.Distance(rb.position, startPosition) > chaseDistance)
-        {
-            // we have left our chase distance, stop chasing and return to start
-            detectionState = DetectionState.OutOfBounds;
-            return;
-        }
-
         // freeze movement if we have been hit
-        if (combatState == CombatState.Hit)
+        if (hitFreezeTime > 0f && combatData.State == CombatState.Hit)
             return;
 
         Vector2 combatTargetPosition = (Vector2)combatTarget.position;
         Vector2 directionToTarget = (combatTargetPosition - rb.position).normalized;
         var distanceToTarget = Vector2.Distance(rb.position, combatTargetPosition);
-        inAttackRange = (desiredAttackRange > distanceToTarget);
+        combatData.TargetInAttackRange = (attackRange > distanceToTarget);
 
-        if (combatState == CombatState.Chasing)
+        // while we are in pre attack phase, reposition
+        if (combatData.State == CombatState.PreAttack)
         {
-            // try to move to the desired attacking position, with a buffer incase the player tries to move
-            //if (distanceToTarget > desiredAttackRange * DESIRED_ATTACK_RANGE_BUFFER)
-            if (distanceToTarget > desiredAttackRange)
+            if (movementTarget != Vector2.zero && rb.position.Approximately(movementTarget) == false)
             {
-                // get the desired position + buffer. The offset ensures we can be on the left/right of the target
-                float xOffset = (rb.position.x < combatTargetPosition.x) ? -desiredAttackRange : desiredAttackRange;
-                desiredAttackPosition = combatTargetPosition + new Vector2(xOffset * DESIRED_ATTACK_RANGE_BUFFER, desiredAttackHeight * DESIRED_ATTACK_RANGE_BUFFER);
-
-                Vector2 desiredDirection = (desiredAttackPosition - rb.position).normalized;
-                Vector2 newPosition = rb.position + desiredDirection * chaseSpeed * Time.fixedDeltaTime;
-                newPosition.y = ClampDistanceToGround(newPosition, groundLayerMask, minimumHeightFromGround, chaseSpeed);
-                rb.MovePosition(newPosition);
+                Vector2 direction = (movementTarget - rb.position).normalized;
+                rb.MovePosition(rb.position + direction * combatFlySpeed * Time.fixedDeltaTime);
             }
-        }
-    }
-
-    private void HandleLostMovement()
-    {
-        // chase to the last known position and wait until state changes to idle
-        if (rb.position.Approximately(targetLastKnownPosition) == false)
-        {
-            Vector2 direction = (targetLastKnownPosition - rb.position).normalized;
-            Vector2 newPosition = rb.position + direction * chaseSpeed * Time.fixedDeltaTime;
-            newPosition.y = ClampDistanceToGround(newPosition, groundLayerMask, minimumHeightFromGround, chaseSpeed);
-            rb.MovePosition(newPosition);
-        }
-    }
-
-    private void HandleOOBMovement()
-    {
-        // double time it back to start so the target cannot cheese the system by playing with enemy bounds
-        if (rb.position.Approximately(startPosition) == false)
-        {
-            Vector2 direction = (startPosition - rb.position).normalized;
-            rb.MovePosition(rb.position + direction * chaseSpeed * OUT_OF_BOUNDS_SPEED_BOOST * Time.fixedDeltaTime);
-        }
-        else
-        {
-            detectionState = DetectionState.Idle;
+            else
+            {
+                if (nextMovementTime == 0f)
+                {
+                    // decide the time to move next
+                    nextMovementTime = GetRepositionFrequencyTime(repositionFrequency);
+                }
+                else if (Time.time > nextMovementTime)
+                {
+                    // pick a new movement position
+                    var fightingPosition = (movementType == MovementType.Patrol) ? combatData.BecameAlertPosition : startPosition;
+                    movementTarget = fightingPosition + (Random.insideUnitCircle * repositionDistance);
+                    nextMovementTime = 0f;
+                }
+            }
         }
     }
 
     private void Attack()
     {
-        if (attackCastTime == 0f)
+        // NOTE: This function is expected to be called on Update()
+
+        if (combatData.AttackCastTime == 0f)
         {
-            // TODO: play attack animation
-            attackCastTime = Time.time;
+            // TODO: play cast attack animation
+            combatData.AttackCastTime = Time.time;
         }
-        else if (Time.time > attackCastTime + ATTACK_ANIM_BUFFER)
+        else if (Time.time > combatData.AttackCastTime + ATTACK_ANIM_BUFFER)
         {
             // now spawn the projectile
             var flyerAttack = Instantiate(standardShotPrefab, attackSpawnPosition);
             flyerAttack.Init(combatTarget);
             flyerAttack.Cast();
-            nextAttackTime = Time.time + attackRate;
-            combatState = CombatState.PostAttackWait;
+            combatData.NextAttackTime = Time.time + attackRate;
+            combatData.State = CombatState.PostAttack;
+            combatData.AttackCastTime = 0f;
         }
     }
 
@@ -439,8 +403,8 @@ public class Flyer : MonoBehaviour
     private void OnHit()
     {
         animator.Play(HIT_ANIM);
-        combatState = CombatState.Hit;
-        hitTime = Time.time;
+        combatData.State = CombatState.Hit;
+        combatData.HitTime = Time.time;
 
         if (hitPushbackForce > 0f)
         {
@@ -454,26 +418,9 @@ public class Flyer : MonoBehaviour
     // this is triggered from the health component
     private void OnDie()
     {
-        combatState = CombatState.Death;
+        combatData.State = CombatState.Death;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
-    }
-
-    private static float ClampDistanceToGround(Vector2 position, LayerMask layerMask, float minimumHeight, float speed)
-    {
-        // TODO: Consider using something other than infinity
-        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.down, Mathf.Infinity, layerMask);
-
-        if (hit.collider != null)
-        {
-            float minimumPoint = hit.point.y + minimumHeight;
-            if (position.y < minimumPoint)
-            {
-                return Mathf.MoveTowards(position.y, minimumPoint, speed * Time.fixedDeltaTime);
-            }
-        }
-
-        return position.y;
     }
 
     /// <summary>
@@ -489,6 +436,24 @@ public class Flyer : MonoBehaviour
             MovementFrequency.Normal => 5f,
             MovementFrequency.Alot => 2f,
             _ => 5f
+        };
+
+        return Time.time + frequencyTime;
+    }
+
+    /// <summary>
+    /// Returns the time in seconds movement should occur based on the provided frequency
+    /// </summary>
+    /// <param name="movementFrequency"></param>
+    /// <returns></returns>
+    private static float GetRepositionFrequencyTime(MovementFrequency movementFrequency)
+    {
+        float frequencyTime = movementFrequency switch
+        {
+            MovementFrequency.Little => 5f,
+            MovementFrequency.Normal => 3f,
+            MovementFrequency.Alot => 1.5f,
+            _ => 3f
         };
 
         return Time.time + frequencyTime;
@@ -521,59 +486,48 @@ public class Flyer : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        // wander area
-        if (movementType == MovementType.Wander)
+        if (detectionState == DetectionState.Idle)
         {
+            // wander area
+            if (movementType == MovementType.Wander)
+            {
+                Gizmos.color = Color.green;
+                if (Application.isPlaying)
+                    Gizmos.DrawWireSphere(startPosition, wanderDistance);
+                else
+                    Gizmos.DrawWireSphere(transform.position, wanderDistance);
+            }
+
+            // idle walk target
             Gizmos.color = Color.green;
-            if (Application.isPlaying)
-                Gizmos.DrawWireSphere(startPosition, wanderDistance);
-            else
-                Gizmos.DrawWireSphere(transform.position, wanderDistance);
-        }
-
-        // idle walk target
-        Gizmos.color = Color.green;
-        if (movementTarget != Vector2.zero)
-            Gizmos.DrawSphere(movementTarget, 0.1f);
-
-        // chase area
-        if (detectionState == DetectionState.Lost)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(startPosition, chaseDistance);
+            if (movementTarget != Vector2.zero)
+                Gizmos.DrawSphere(movementTarget, 0.1f);
         }
 
         // vision area
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, visionDistance);
-
-        // last known position of target
-        if (targetLastKnownPosition != Vector2.zero)
-            Gizmos.DrawSphere(targetLastKnownPosition, 0.1f);
 
         if (detectionState == DetectionState.Alert)
         {
             // attack range
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, desiredAttackRange);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, attackRange);
 
-            // desired attacking position
-            if (targetLastKnownPosition != Vector2.zero)
-                Gizmos.DrawSphere(desiredAttackPosition, 0.1f);
+            // attack range
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(combatData.BecameAlertPosition, repositionDistance);
+
+            // time left to next attack
+            Vector3 tempTextPosition = transform.position + (Vector3.up * 1f) + (Vector3.left * 0.5f);
+            float attackTimeDiff = Mathf.Round((combatData.NextAttackTime - Time.time) * 10f) / 10f;
+            UnityEditor.Handles.Label(tempTextPosition + Vector3.up * .5f, $"{Mathf.Clamp(attackTimeDiff, 0f, attackTimeDiff)}");
         }
 
         // detection state
         Vector3 textPosition = transform.position + (Vector3.up * 1f) + (Vector3.left * 0.5f);
-        string message = $"{detectionState} :: {combatState}";
+        string message = $"{detectionState} :: {combatData.State}";
         UnityEditor.Handles.Label(textPosition, message);
-
-        if (combatState != CombatState.None)
-        {
-            // time left to next attack
-            float attackTimeDiff = Mathf.Round((nextAttackTime - Time.time) * 10f) / 10f;
-            message = $"{Mathf.Clamp(attackTimeDiff, 0f, attackTimeDiff)}";
-            UnityEditor.Handles.Label(textPosition + Vector3.up * .5f, message);
-        }
     }
 #endif
 }

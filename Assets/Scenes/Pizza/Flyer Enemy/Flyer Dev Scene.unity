@@ -1180,7 +1180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2041970002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1220,11 +1220,7 @@ MonoBehaviour:
   rb: {fileID: 2041970004}
   animator: {fileID: 1110465986}
   healthComponent: {fileID: 2041970002}
-  minimumHeightFromGround: 2
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  walkSpeed: 2
+  flySpeed: 5
   movementType: 2
   movementFrequency: 1
   wanderDistance: 2
@@ -1237,18 +1233,18 @@ MonoBehaviour:
   visionLayerMask:
     serializedVersion: 2
     m_Bits: 2824
-  chaseSpeed: 3
-  chaseDistance: 14
-  timeToSearchWhenLost: 10
-  desiredAttackHeight: 2
-  desiredAttackRange: 3
-  attackType: 0
-  attackRate: 3
+  combatFlySpeed: 3
+  timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
+  attackType: 0
+  attackRange: 3
+  attackRate: 3
   attackSpawnPosition: {fileID: 402779906}
   standardShotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
   scatterShotPrefab: {fileID: 0}
+  repositionDistance: 2
+  repositionFrequency: 1
 --- !u!50 &2041970004
 Rigidbody2D:
   serializedVersion: 5
@@ -1396,11 +1392,7 @@ MonoBehaviour:
   rb: {fileID: 2110387634}
   animator: {fileID: 1790425145}
   healthComponent: {fileID: 2110387637}
-  minimumHeightFromGround: 2
-  groundLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  walkSpeed: 2
+  flySpeed: 5
   movementType: 0
   movementFrequency: 1
   wanderDistance: 2
@@ -1409,18 +1401,18 @@ MonoBehaviour:
   visionLayerMask:
     serializedVersion: 2
     m_Bits: 2824
-  chaseSpeed: 3
-  chaseDistance: 14
-  timeToSearchWhenLost: 10
-  desiredAttackHeight: 2
-  desiredAttackRange: 3
-  attackType: 0
-  attackRate: 2
+  combatFlySpeed: 3
+  timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
+  attackType: 0
+  attackRange: 3
+  attackRate: 2
   attackSpawnPosition: {fileID: 631593895}
   standardShotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
   scatterShotPrefab: {fileID: 0}
+  repositionDistance: 2
+  repositionFrequency: 1
 --- !u!50 &2110387634
 Rigidbody2D:
   serializedVersion: 5
