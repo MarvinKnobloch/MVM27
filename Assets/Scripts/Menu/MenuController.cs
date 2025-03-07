@@ -75,7 +75,6 @@ public class MenuController : MonoBehaviour
         }
         else
         {
-            
             if (Player.Instance == null) return;
             if (GameManager.Instance.playerUI.dialogBox.activeSelf == true) return;
 
@@ -152,7 +151,12 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
         PlayerPrefs.SetInt("BonusAttack", 0);
         PlayerPrefs.SetInt("BonusSwitchAttack", 0);
-        //FireBallDamage???
+
+        //Upgrades
+        for (int i = 0; i < 50; i++)
+        {
+            PlayerPrefs.SetInt("Upgrade" + i, 0);
+        }
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;

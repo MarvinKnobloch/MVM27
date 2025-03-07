@@ -30,6 +30,7 @@ public class PlayerUI : MonoBehaviour
     [Header("MessageBox")]
     public GameObject messageBox;
     [SerializeField] private TextMeshProUGUI messageBoxText;
+    [SerializeField] private TextMeshProUGUI messageBoxCloseText;
 
     [Header("DialogBox")]
     public GameObject dialogBox;
@@ -124,6 +125,7 @@ public class PlayerUI : MonoBehaviour
 
         messageBox.SetActive(true);
         messageBoxText.text = text;
+        messageBoxCloseText.text = "Close (<color=green>" + controls.Player.Interact.GetBindingDisplayString() + "</color>)"; 
     }
     public void MessageBoxDisable()
     {
