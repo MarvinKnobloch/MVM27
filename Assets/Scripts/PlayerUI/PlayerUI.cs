@@ -84,8 +84,16 @@ public class PlayerUI : MonoBehaviour
     {
         if (controls.Menu.DebugMenu.WasPerformedThisFrame())
         {
-            if (DebugMenu.activeSelf == false) DebugMenu.SetActive(true);
-            else DebugMenu.SetActive(false);
+            if (DebugMenu.activeSelf == false)
+            {
+                GameManager.Instance.ActivateCursor();
+                DebugMenu.SetActive(true);
+            }
+            else
+            {
+                GameManager.Instance.DeactivateCursor();
+                DebugMenu.SetActive(false);
+            }
         }
     }
     public void HandleInteractionBox(bool state)
