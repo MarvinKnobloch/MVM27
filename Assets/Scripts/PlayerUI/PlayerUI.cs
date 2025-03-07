@@ -24,8 +24,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image energybar;
     [SerializeField] private TextMeshProUGUI energyText;
 
-    [Header("Gold")]
-    [SerializeField] private TextMeshProUGUI goldText;
+    [Header("Currency")]
+    [SerializeField] private TextMeshProUGUI currencyText;
 
     [Header("MessageBox")]
     public GameObject messageBox;
@@ -44,6 +44,9 @@ public class PlayerUI : MonoBehaviour
     [Header("BossHealth")]
     [SerializeField] private GameObject bossHealthbarObject;
     [SerializeField] private Image bossHealthbar;
+
+    [Header("Shop")]
+    [SerializeField] private GameObject shop;
 
     private float timer;
 
@@ -111,15 +114,17 @@ public class PlayerUI : MonoBehaviour
     {
         bossHealthbar.fillAmount = (float)current / max;
     }
-    public void GoldUpdate(int amount)
+    public void PlayerCurrencyUpdate(int amount)
     {
-        GameManager.Instance.playerGold += amount;
-        goldText.text = GameManager.Instance.playerGold.ToString();
+        GameManager.Instance.playerCurrency += amount;
+        currencyText.text = GameManager.Instance.playerCurrency.ToString();
 
-        PlayerPrefs.SetInt("PlayerGold", GameManager.Instance.playerGold);
+        PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
     }
     public void MessageBoxEnable(string text)
     {
+        GameManager.Instance.ActivateCursor();
+
         Time.timeScale = 0;
         GameManager.Instance.menuController.gameIsPaused = true;
 
@@ -129,6 +134,8 @@ public class PlayerUI : MonoBehaviour
     }
     public void MessageBoxDisable()
     {
+        GameManager.Instance.DeactivateCursor();
+
         Time.timeScale = 1;
         GameManager.Instance.menuController.gameIsPaused = false;
         messageBox.SetActive(false);
@@ -136,7 +143,7 @@ public class PlayerUI : MonoBehaviour
     public void StartIntro()
     {
         blackScreen.gameObject.SetActive(true);
-        dialogBox.GetComponent<DialogBox>().DialogStart(introDialog);
+        dialogBox.GetComponent<DialogBox>().DialogStart(introDialog, false);
         dialogBox.SetActive(true);
         Player.Instance.state = Player.States.Emtpy;
         Player.Instance.ChangeAnimationState("Sleep");
@@ -172,5 +179,20 @@ public class PlayerUI : MonoBehaviour
         progression++;
         PlayerPrefs.SetInt("TutorialProgress", progression);
         PlayerPrefs.SetInt("NewGame", 1);
+    }
+    public void ActivateShop()
+    {
+        GameManager.Instance.ActivateCursor();
+
+        Time.timeScale = 0;
+        GameManager.Instance.menuController.gameIsPaused = true;
+        shop.SetActive(true);
+    }
+    public void DeactivateShop()
+    {
+        GameManager.Instance.DeactivateCursor();
+
+        GameManager.Instance.menuController.EndPause();
+        shop.SetActive(false);
     }
 }

@@ -26,6 +26,8 @@ public class DialogBox : MonoBehaviour
 
     private float timer;
 
+    private bool isMerchant;
+
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;
@@ -61,14 +63,17 @@ public class DialogBox : MonoBehaviour
             }
         }
     }
-    public void DialogStart(DialogObj dialog)
+    public void DialogStart(DialogObj dialog, bool merchant)
     {
+        GameManager.Instance.ActivateCursor();
+
         readInput = false;
 
         cantSkipDialog = dialog.cantSkipDialog;
         disableInputs = dialog.disableInputs;
         pauseGame = dialog.pauseGame;
 
+        isMerchant = merchant;
 
         if (cantSkipDialog) skipButton.SetActive(false);
         else skipButton.SetActive(true);
@@ -115,12 +120,23 @@ public class DialogBox : MonoBehaviour
     }
     public void DialogBoxDisable()
     {
-        if (autoPlayInterval == 0)
+        if (isMerchant)
         {
-            readInput = false;
-            Time.timeScale = 1;
+            GameManager.Instance.playerUI.ActivateShop();
+            gameObject.SetActive(false);
         }
-        GameManager.Instance.menuController.gameIsPaused = false;
-        gameObject.SetActive(false);
+        else
+        {
+            if (autoPlayInterval == 0)
+            {
+                readInput = false;
+                Time.timeScale = 1;
+            }
+            GameManager.Instance.menuController.gameIsPaused = false;
+            gameObject.SetActive(false);
+
+            GameManager.Instance.DeactivateCursor();
+        }
+
     }
 }

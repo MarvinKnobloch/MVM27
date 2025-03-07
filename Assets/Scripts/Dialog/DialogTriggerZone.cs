@@ -5,7 +5,7 @@ public class DialogTriggerZone : MonoBehaviour
     [SerializeField] private DialogObj dialog;
     public void Interaction()
     {
-        GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog);
+        GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog, false);
         GameManager.Instance.playerUI.dialogBox.SetActive(true);
     }
 
@@ -22,7 +22,7 @@ public class DialogTriggerZone : MonoBehaviour
                     Player.Instance.ChangeAnimationState("Idle");
                 }
             }
-            GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog);
+            GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog, false);
             GameManager.Instance.playerUI.dialogBox.SetActive(true);
             gameObject.SetActive(false);
         }
