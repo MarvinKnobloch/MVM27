@@ -53,11 +53,18 @@ public class PlayerAbilties
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
     }
+    public void HoldHeal()
+    {
+        if (player.controls.Player.ElementAbility1.WasReleasedThisFrame())
+        {
+            player.SwitchToAir();
+        }
+    }
     public void NonElementHeal()
     {
         if (player.state != Player.States.NonElementalHeal) return;
 
-        player.rb.linearVelocity = Vector2.zero;
+        //player.rb.linearVelocity = Vector2.zero;
         player.EnergyUpdate(-player.elementHealCosts);
         player.health.Heal(player.elementHealAmount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusHeal.ToString()));
         player.SwitchToAir();

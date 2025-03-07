@@ -163,17 +163,27 @@ public class PlayerMovement
                 case Player.States.Air:
                     StartDash();
                     break;
+                case Player.States.NonElementalHeal:
+                    StartDash();
+                    break;
+                case Player.States.Attack:
+                    StartDash();
+                    break;
             }
         }
     }
     private void StartDash()
     {
+        player.playerAttack.state = PlayerAttack.States.Empty;
+
         player.currentDashCount++;
         player.rb.linearVelocity = Vector2.zero;
         player.rb.gravityScale = 0;
 
         //if(player.faceRight) player.rb.AddForce(-player.transform.right * player.dashStrength, ForceMode2D.Impulse);
         //else player.rb.AddForce(player.transform.right * player.dashStrength, ForceMode2D.Impulse);
+
+        RotatePlayer();
 
         player.ChangeAnimationState(dashState);
         dashTimer = 0;
