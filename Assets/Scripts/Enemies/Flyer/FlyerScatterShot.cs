@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,6 +12,8 @@ public class FlyerScatterShot : FlyerAttack
     [SerializeField, Min(1)] private int numberOfShots = 4;
     [SerializeField, Min(0f)] private float shotSpread = 1.2f;
 
+    List<FlyerAttack> shotObjects = new List<FlyerAttack>();
+
     protected override void Awake()
     {
         // dont call away because we do not need the rigidbody
@@ -20,15 +23,17 @@ public class FlyerScatterShot : FlyerAttack
             throw new System.ArgumentException(nameof(shotPrefab));
     }
 
-    public override void Cast()
+    public override void Init(Transform targetTransform)
     {
+        base.Init(targetTransform);
+
         Vector2 baseDirection = (initalTargetPosition - (Vector2)transform.position).normalized;
 
         for (int i = 0; i < numberOfShots; i++)
         {
             Vector2 shotTargetPosition;
 
-            if (i == 1)
+            if (i == 0)
                 shotTargetPosition = initalTargetPosition;
             else
             {
@@ -43,7 +48,13 @@ public class FlyerScatterShot : FlyerAttack
             FlyerAttack shot = Instantiate(shotPrefab, transform);
             shot.Init(target);
             shot.customTargetPosition = shotTargetPosition;
-            shot.Cast();
+            shotObjects.Add(shot);
         }
+    }
+
+    public override void Cast()
+    {
+        foreach (var shot in shotObjects)
+            shot.Cast();
     }
 }

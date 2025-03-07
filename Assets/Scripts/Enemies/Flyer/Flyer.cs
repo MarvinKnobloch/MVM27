@@ -390,7 +390,8 @@ public class Flyer : MonoBehaviour
         else if (Time.time > combatData.AttackCastTime + ATTACK_ANIM_BUFFER)
         {
             // now spawn the projectile
-            var flyerAttack = Instantiate(standardShotPrefab, attackSpawnPosition);
+            var shotPrefab = (attackType == AttackTypes.SingleShot) ? standardShotPrefab : scatterShotPrefab;
+            var flyerAttack = Instantiate(shotPrefab, attackSpawnPosition);
             flyerAttack.Init(combatTarget);
             flyerAttack.Cast();
             combatData.NextAttackTime = Time.time + attackRate;

@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  damage: 1
+  damage: 3
   speed: 15
   maxLifetime: 5
-  shotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
+  shotPrefab: {fileID: 8957950524882410183, guid: d50a6fc325e8b514fb15307e5676b162, type: 3}
   numberOfShots: 4
   shotSpread: 1.2

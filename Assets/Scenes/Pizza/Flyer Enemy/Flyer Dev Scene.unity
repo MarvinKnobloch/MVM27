@@ -261,87 +261,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
   m_PrefabInstance: {fileID: 196335524}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &267131663
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 267131664}
-  - component: {fileID: 267131665}
-  - component: {fileID: 267131666}
-  m_Layer: 7
-  m_Name: Damage Zone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &267131664
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267131663}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2110387636}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &267131665
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267131663}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &267131666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267131663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705b9bce998ec9243bc2089ff19dffd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &402779905
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,57 +328,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 357478178196785349, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
   m_PrefabInstance: {fileID: 196335524}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &903189441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 903189446}
-  - component: {fileID: 903189442}
-  m_Layer: 7
-  m_Name: Flyer Scatter Shot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &903189442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903189441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ca25388e62d6a45866e9db79719be2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  damage: 1
-  speed: 15
-  maxLifetime: 5
-  shotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
-  numberOfShots: 4
-  shotSpread: 1.2
---- !u!4 &903189446
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903189441}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1078054439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,22 +1148,22 @@ MonoBehaviour:
   - {fileID: 117150220}
   - {fileID: 1083455535}
   - {fileID: 2057943355}
-  visionDistance: 5
+  visionDistance: 8
   visionLayerMask:
     serializedVersion: 2
     m_Bits: 2824
-  combatFlySpeed: 3
+  combatFlySpeed: 5
   timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
   attackType: 0
-  attackRange: 3
+  attackRange: 7
   attackRate: 3
-  attackSpawnPosition: {fileID: 402779906}
+  attackSpawnPosition: {fileID: 631593895}
   standardShotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
-  scatterShotPrefab: {fileID: 0}
+  scatterShotPrefab: {fileID: 3847271933393168649, guid: c18a3967e64067f4984a4bf791e9b0ba, type: 3}
   repositionDistance: 2
-  repositionFrequency: 1
+  repositionFrequency: 2
 --- !u!50 &2041970004
 Rigidbody2D:
   serializedVersion: 5
@@ -1448,7 +1316,7 @@ MonoBehaviour:
   movementFrequency: 1
   wanderDistance: 2
   patrolPoints: []
-  visionDistance: 5
+  visionDistance: 8
   visionLayerMask:
     serializedVersion: 2
     m_Bits: 2824
@@ -1456,12 +1324,12 @@ MonoBehaviour:
   timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
-  attackType: 0
-  attackRange: 3
+  attackType: 1
+  attackRange: 7
   attackRate: 2
   attackSpawnPosition: {fileID: 631593895}
   standardShotPrefab: {fileID: 5396797699948304280, guid: 0c254edf0f4d511439beebb637c48651, type: 3}
-  scatterShotPrefab: {fileID: 0}
+  scatterShotPrefab: {fileID: 3847271933393168649, guid: c18a3967e64067f4984a4bf791e9b0ba, type: 3}
   repositionDistance: 2
   repositionFrequency: 1
 --- !u!50 &2110387634
@@ -1543,7 +1411,6 @@ Transform:
   - {fileID: 196335526}
   - {fileID: 1790425143}
   - {fileID: 631593895}
-  - {fileID: 267131664}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2110387637
@@ -9731,4 +9598,3 @@ SceneRoots:
   - {fileID: 2041970006}
   - {fileID: 7406047048514511918}
   - {fileID: 1822723749}
-  - {fileID: 903189446}
