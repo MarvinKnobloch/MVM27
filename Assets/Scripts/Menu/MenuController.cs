@@ -46,6 +46,8 @@ public class MenuController : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.DeactivateCursor();
+
             baseMenu = ingameMenu;
         }
     }
@@ -75,7 +77,6 @@ public class MenuController : MonoBehaviour
         }
         else
         {
-            
             if (Player.Instance == null) return;
             if (GameManager.Instance.playerUI.dialogBox.activeSelf == true) return;
 
@@ -145,14 +146,27 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBoost.ToString(), 0);
 
         //Values
-        PlayerPrefs.SetInt("PlayerGold", 0);
+        PlayerPrefs.SetInt("PlayerCurrency", 0);
         PlayerPrefs.SetInt("BonusHealth", 0);
         PlayerPrefs.SetInt("BonusHeal", 0);
         PlayerPrefs.SetInt("BonusEnergy", 0);
         PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
         PlayerPrefs.SetInt("BonusAttack", 0);
         PlayerPrefs.SetInt("BonusSwitchAttack", 0);
-        //FireBallDamage???
+
+        //OverworldUpgrades
+        for (int i = 0; i < 50; i++)
+        {
+            PlayerPrefs.SetInt("Upgrade" + i, 0);
+        }
+
+        //Shop
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusHealth.ToString(), 0);
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusHeal.ToString(), 0);
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusEnergy.ToString(), 0);
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusEnergyRecharge.ToString(), 0);
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusAttack.ToString(), 0);
+        PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusSwitchAttack.ToString(), 0);
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
@@ -204,15 +218,16 @@ public class MenuController : MonoBehaviour
 
     private void PauseGame()
     {
+        GameManager.Instance.ActivateCursor();
+
         gameIsPaused = true;
         Time.timeScale = 0;
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
     }
-    private void EndPause()
+    public void EndPause()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        GameManager.Instance.DeactivateCursor();
 
         gameIsPaused = false;
         Time.timeScale = 1;

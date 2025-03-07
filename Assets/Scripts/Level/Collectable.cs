@@ -9,7 +9,7 @@ public class Collectable : MonoBehaviour
     {
         Health,
         Energy,
-        Gold,
+        PlayerCurrency,
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,8 +25,8 @@ public class Collectable : MonoBehaviour
                     case Currency.Energy:
                         Player.Instance.EnergyUpdate(collectValues[i].amount);
                         break;
-                    case Currency.Gold:
-                        GameManager.Instance.playerUI.GoldUpdate(collectValues[i].amount);
+                    case Currency.PlayerCurrency:
+                        GameManager.Instance.playerUI.PlayerCurrencyUpdate(collectValues[i].amount);
                         break;
                 }
             }

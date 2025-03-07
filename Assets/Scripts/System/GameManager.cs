@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool CheckForNewGame;
     [NonSerialized] public bool CheckpointOnSpawn;
 
-    [NonSerialized] public int playerGold;
+    [NonSerialized] public int playerCurrency;
     public enum AbilityStrings
     {
         FireElement,
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(CheckPointOnLoad());
 
         }
-        playerUI.GoldUpdate(PlayerPrefs.GetInt("PlayerGold"));
+        playerUI.PlayerCurrencyUpdate(PlayerPrefs.GetInt("PlayerCurrency"));
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
     }
@@ -61,5 +61,16 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         CheckpointOnSpawn = true;
+    }
+
+    public void ActivateCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+    public void DeactivateCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

@@ -296,6 +296,7 @@ public class Player : MonoBehaviour
             case States.HeavyPunch:
                 break;
             case States.NonElementalHeal:
+                playerAbilties.HoldHeal();
                 break;
             case States.FireBall:
                 playerAbilties.CastFireball();

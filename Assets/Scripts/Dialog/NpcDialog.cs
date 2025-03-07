@@ -8,9 +8,10 @@ public class NpcDialog : MonoBehaviour, IInteractables
     public string interactiontext => actionText;
 
     [SerializeField] private DialogObj dialog;
+    [SerializeField] private bool isMerchant;
     public void Interaction()
     {
-        GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog);
+        GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog, isMerchant);
         GameManager.Instance.playerUI.dialogBox.SetActive(true);
     }
 
