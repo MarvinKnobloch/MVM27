@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3599487383266477391}
   - component: {fileID: 5396797699948304280}
   m_Layer: 7
-  m_Name: Flyer Standard Attack
+  m_Name: Flyer Standard Shot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

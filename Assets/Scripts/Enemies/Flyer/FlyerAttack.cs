@@ -1,8 +1,7 @@
-﻿using Mono.Cecil.Cil;
-using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+// TODO: Add support for the shots to pool
+
 public abstract class FlyerAttack : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D rb;
@@ -12,6 +11,7 @@ public abstract class FlyerAttack : MonoBehaviour
 
     protected Transform target;
     protected Vector2 initalTargetPosition;
+    [System.NonSerialized] public Vector2 customTargetPosition;
 
     protected virtual void Awake()
     {

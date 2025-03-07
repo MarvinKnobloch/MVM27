@@ -131,7 +131,7 @@ public class Flyer : MonoBehaviour
     [SerializeField] private Health healthComponent;
 
     [Header("Idle")]
-    [SerializeField, Min(0f)] private float flySpeed = 5.0f;
+    [SerializeField, Min(0f)] private float flySpeed = 5f;
     [SerializeField] private MovementType movementType = MovementType.Wander;
     [Tooltip("How often this will move while on wander or patrol mode.")]
     [SerializeField] private MovementFrequency movementFrequency = MovementFrequency.Normal;
@@ -140,12 +140,12 @@ public class Flyer : MonoBehaviour
     [SerializeField] private Transform[] patrolPoints;  // TODO: consider caching this is Vector2 on startup to avoid constant cast to Rigidbody position
 
     [Header("Detection")]
-    [SerializeField, Min(0f)] private float visionDistance = 5.0f;
+    [SerializeField, Min(0f)] private float visionDistance = 8f;
     [Tooltip("Select the layers vision can raycast against. Make sure things like enemies are unchecked.")]
     [SerializeField] private LayerMask visionLayerMask;
 
     [Header("Combat")]
-    [SerializeField, Min(0f)] private float combatFlySpeed = 5.0f;
+    [SerializeField, Min(0f)] private float combatFlySpeed = 5f;
     [Tooltip("The time in seconds until the flyer is no longer alert if it cannot find the target")]
     [SerializeField, Min(0f)] private float timeToLeaveCombat = 10f;
     [Tooltip("The time in seconds to freeze when being hit. Set to 0 to disable.")]
@@ -156,7 +156,7 @@ public class Flyer : MonoBehaviour
     [Header("Combat - Attack")]
     [SerializeField] private AttackTypes attackType = AttackTypes.SingleShot;
     [Tooltip("The desired distance to be from the target")]
-    [SerializeField, Min(0f)] private float attackRange = 3f;
+    [SerializeField, Min(0f)] private float attackRange = 7f;
     [Tooltip("The time in seconds between shots")]
     [SerializeField, Min(0f)] private float attackRate = 3f;
     [Tooltip("The position to spawn the attack")]
