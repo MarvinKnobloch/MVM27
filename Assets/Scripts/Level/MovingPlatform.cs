@@ -38,9 +38,9 @@ public class MovingPlatform : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         boxCollider = GetComponent<BoxCollider2D>();
-        float xsize = transform.GetChild(0).GetComponent<SpriteRenderer>().size.x;
-        boxCollider.size = new Vector2(xsize * 0.98f, transform.GetChild(0).transform.localScale.y);  // 0.49f
-        transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, 1);
+        float xsize = transform.GetChild(0).GetComponent<SpriteRenderer>().size.x -0.8f;
+        boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
+        transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, boxCollider.size.y);
 
         startPosition = transform.position;
         startPosition.z = 0;
