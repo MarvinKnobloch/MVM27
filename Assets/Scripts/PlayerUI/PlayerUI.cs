@@ -35,12 +35,6 @@ public class PlayerUI : MonoBehaviour
     [Header("DialogBox")]
     public GameObject dialogBox;
 
-    [Header("Intro")]
-    [SerializeField] private DialogObj introDialog;
-    [SerializeField] private VoidEventChannel disableBlackScreen;
-    [SerializeField] private VoidEventChannel standUp;
-    [SerializeField] private VoidEventChannel endTutorial;
-
     [Header("BossHealth")]
     [SerializeField] private GameObject bossHealthbarObject;
     [SerializeField] private Image bossHealthbar;
@@ -54,25 +48,9 @@ public class PlayerUI : MonoBehaviour
     {
         controls = Keybindinputmanager.Controls;
     }
-    private void OnEnable()
-    {
-        disableBlackScreen.OnEventRaised += BlackScreenDisable;
-        standUp.OnEventRaised += IntroStandUp;
-        endTutorial.OnEventRaised += TutorialDone;
-    }
-    private void OnDisable()
-    {
-        disableBlackScreen.OnEventRaised -= BlackScreenDisable;
-        standUp.OnEventRaised -= IntroStandUp;
-        endTutorial.OnEventRaised -= TutorialDone;
-    }
     private void Start()
     {
         StartCoroutine(InteractionFieldDisable());
-        if (PlayerPrefs.GetInt("NewGame") == 0 && GameManager.Instance.CheckForNewGame)
-        {
-            StartIntro();
-        }
     }
     IEnumerator InteractionFieldDisable()
     {
@@ -148,15 +126,13 @@ public class PlayerUI : MonoBehaviour
         GameManager.Instance.menuController.gameIsPaused = false;
         messageBox.SetActive(false);
     }
-    public void StartIntro()
+    public void ActivateBlackscreen()
     {
         blackScreen.gameObject.SetActive(true);
-        dialogBox.GetComponent<DialogBox>().DialogStart(introDialog, false);
-        dialogBox.SetActive(true);
-        Player.Instance.state = Player.States.Emtpy;
-        Player.Instance.ChangeAnimationState("Sleep");
+        blackScreenColor = blackScreen.color;
+        blackScreenColor.a = 1;
     }
-    public void BlackScreenDisable()
+    public void DeactivateBlackScreen()
     {
         blackScreenColor = blackScreen.color;
         blackScreenColor.a = 1;
@@ -176,17 +152,6 @@ public class PlayerUI : MonoBehaviour
 
         }
         blackScreen.gameObject.SetActive(false);
-    }
-    public void IntroStandUp()
-    {
-        Player.Instance.ChangeAnimationState("StandUp");
-    }
-    public void TutorialDone()
-    {
-        int progression = PlayerPrefs.GetInt("TutorialProgress");
-        progression++;
-        PlayerPrefs.SetInt("TutorialProgress", progression);
-        PlayerPrefs.SetInt("NewGame", 1);
     }
     public void ActivateShop()
     {

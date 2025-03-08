@@ -10,6 +10,7 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     [SerializeField] private GameManager.AbilityStrings abilityString;
     [TextArea]
     [SerializeField] private string unlockText;
+    [SerializeField] private bool disableOnCollect;
 
     public void Interaction()
     {
@@ -20,6 +21,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
             Player.Instance.PlayerAbilityUpdate();
             Player.Instance.playerInteraction.RemoveInteraction(this);
             GetComponent<CircleCollider2D>().enabled = false;
+
+            if (disableOnCollect) gameObject.SetActive(false);
         }
     }
 

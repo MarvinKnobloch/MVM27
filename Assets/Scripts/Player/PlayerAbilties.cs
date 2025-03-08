@@ -53,6 +53,8 @@ public class PlayerAbilties
         {
             player.rb.linearVelocity = Vector2.zero;
         }
+        else player.rb.linearVelocityX = 0;
+
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
     }

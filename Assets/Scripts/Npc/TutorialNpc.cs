@@ -15,12 +15,14 @@ public class TutorialNpc : MonoBehaviour
     private const string runState = "Run";
 
     [SerializeField] private VoidEventChannel introMoveNpc;
+    [SerializeField] private VoidEventChannel death;
 
     private States state;
     public enum States
     {
         Idle,
         Move,
+        Death,
     }
 
     private void Awake()
@@ -35,10 +37,12 @@ public class TutorialNpc : MonoBehaviour
     private void OnEnable()
     {
         if(introMoveNpc != null) introMoveNpc.OnEventRaised += SwitchToMove;
+        if (death != null) death.OnEventRaised += HelperDeath;
     }
     private void OnDisable()
     {
         if (introMoveNpc != null) introMoveNpc.OnEventRaised -= SwitchToMove;
+        if (death != null) death.OnEventRaised -= HelperDeath;
     }
     private void Update()
     {
@@ -64,6 +68,12 @@ public class TutorialNpc : MonoBehaviour
     {
         state = States.Idle;
         ChangeAnimationState(idleState);
+    }
+
+    public void HelperDeath()
+    {
+        ChangeAnimationState("Death");
+        state = States.Death;
     }
     private void SwitchToMove()
     {

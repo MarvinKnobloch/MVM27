@@ -146,7 +146,7 @@ public class PlayerMovement
     public void DashInput(InputAction.CallbackContext ctx)
     {
         if (player.menuController.gameIsPaused) return;
-        if (player.dashUnlocked == false) return;
+        if (player.fireElementUnlocked == false) return;
         if (player.currentDashCount >= player.maxDashCount) return;
 
         bool pressed = ctx.ReadValueAsButton();

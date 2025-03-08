@@ -137,7 +137,7 @@ public class MenuController : MonoBehaviour
 
         //Abilities
         //Heal???
-        PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDash.ToString(), 0);
+        //PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDash.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.FireElement.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.Fireball.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBreak.ToString(), 0);
@@ -153,6 +153,9 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
         PlayerPrefs.SetInt("BonusAttack", 0);
         PlayerPrefs.SetInt("BonusSwitchAttack", 0);
+
+        //Progress
+        PlayerPrefs.SetInt("TutorialBoss", 0);
 
         //OverworldUpgrades
         for (int i = 0; i < 50; i++)

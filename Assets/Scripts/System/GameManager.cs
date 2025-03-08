@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     public MenuController menuController;
     public PlayerUI playerUI;
+    [NonSerialized] public CinemachineCamera cinemachineCamera;
 
+    [Space]
     public CheckPoint currentCheckpoint;
     public bool LoadFormCheckpoint;
     public bool CheckForNewGame;

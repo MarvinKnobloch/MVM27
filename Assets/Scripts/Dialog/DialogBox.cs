@@ -127,11 +127,15 @@ public class DialogBox : MonoBehaviour
         }
         else
         {
-            if (autoPlayInterval == 0)
-            {
-                readInput = false;
-                Time.timeScale = 1;
-            }
+            //if (autoPlayInterval == 0)
+            //{
+            //    readInput = false;
+            //    Time.timeScale = 1;
+            //}
+
+            readInput = false;
+            if (pauseGame) Time.timeScale = 1;
+
             GameManager.Instance.menuController.gameIsPaused = false;
             gameObject.SetActive(false);
 
