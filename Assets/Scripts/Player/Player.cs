@@ -120,7 +120,7 @@ public class Player : MonoBehaviour
 
     [NonSerialized] public PlayerAttack playerAttack;
     [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
-    private PlayerCollision playerCollision = new PlayerCollision();
+    [NonSerialized] public PlayerCollision playerCollision = new PlayerCollision();
     [NonSerialized] public PlayerAbilties playerAbilties = new PlayerAbilties();
     [NonSerialized] public PlayerInteraction playerInteraction = new PlayerInteraction();
     private PlayerUpgrades playerUpgrades = new PlayerUpgrades();

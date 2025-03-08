@@ -61,4 +61,16 @@ public class PlayerCollision
             else player.canWallBoost = false;
         }
     }
+    public void CollisionCheckAfterAbilties()
+    {
+        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.96f, 0, -player.transform.up, 0.3f, player.groundCheckLayer);
+        if (downwardhit)
+        {
+            player.SwitchToGround(false);
+        }
+        else
+        {
+            player.SwitchToAir();
+        }
+    }
 }

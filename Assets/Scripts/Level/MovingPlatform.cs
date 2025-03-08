@@ -38,9 +38,9 @@ public class MovingPlatform : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         boxCollider = GetComponent<BoxCollider2D>();
-        float xsize = transform.GetChild(0).GetComponent<SpriteRenderer>().size.x;
-        boxCollider.size = new Vector2(xsize * 0.98f, transform.GetChild(0).transform.localScale.y);  // 0.49f
-        transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, 1);
+        float xsize = transform.GetChild(0).GetComponent<SpriteRenderer>().size.x -0.8f;
+        boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
+        transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, boxCollider.size.y);
 
         startPosition = transform.position;
         startPosition.z = 0;
@@ -149,20 +149,18 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (collision.TryGetComponent(out Player player))
+            if (gameObject.TryGetComponent(out MovingPlatform platform))
             {
-                if (gameObject.TryGetComponent(out MovingPlatform platform))
+                Player player = Player.Instance;
+                player.movingPlatform = platform;
+
+                if (platform.moveOnEnter == true)
                 {
-                    player.movingPlatform = platform;
-                    player.SwitchToGround(true);
-
-                    if (platform.moveOnEnter == true)
-                    {
-                        if (platform.state == MovingPlatform.State.DontMove) platform.CheckLinkedMovement();
-                    }
-
+                    if (platform.state == MovingPlatform.State.DontMove) platform.CheckLinkedMovement();
                 }
+
             }
+
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -178,16 +176,15 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (collision.TryGetComponent(out Player player))
-            {
-                if (player.movingPlatform != null)
-                {
-                    if (player.movingPlatform.gameObject == gameObject)
-                    {
-                        player.movingPlatform = null;
-                        player.rb.gravityScale = player.baseGravityScale;
+            Player player = Player.Instance;
 
-                    }
+            if (player.movingPlatform != null)
+            {
+                if (player.movingPlatform.gameObject == gameObject)
+                {
+                    player.movingPlatform = null;
+                    player.rb.gravityScale = player.baseGravityScale;
+
                 }
             }
         }

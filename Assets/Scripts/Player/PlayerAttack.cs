@@ -95,8 +95,11 @@ public class PlayerAttack : MonoBehaviour
     }
     private void StartAttack()
     {
-        player.rb.linearVelocity = Vector2.zero;
-        player.rb.gravityScale = 0;
+        if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
+        {
+            player.rb.linearVelocity = Vector2.zero; 
+            player.rb.gravityScale = 0;
+        }
         player.state = Player.States.Attack;
 
         airAttackPerformed = true;
@@ -207,7 +210,7 @@ public class PlayerAttack : MonoBehaviour
             state = States.Empty;
 
             player.ChangeAnimationState(idleState);    //backup animation. On frame perfect attackinput the attack animation will not reset
-            player.SwitchToAir();
+            player.playerCollision.CollisionCheckAfterAbilties();
         }
     }
     public void SetUpgradeDamage()

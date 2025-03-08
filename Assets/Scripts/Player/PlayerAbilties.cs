@@ -49,7 +49,10 @@ public class PlayerAbilties
     {
         if (player.EnergyValue < player.elementHealCosts) return;
 
-        player.rb.linearVelocity = Vector2.zero;
+        if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
+        {
+            player.rb.linearVelocity = Vector2.zero;
+        }
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
     }
@@ -67,7 +70,8 @@ public class PlayerAbilties
         //player.rb.linearVelocity = Vector2.zero;
         player.EnergyUpdate(-player.elementHealCosts);
         player.health.Heal(player.elementHealAmount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusHeal.ToString()));
-        player.SwitchToAir();
+        player.playerCollision.CollisionCheckAfterAbilties();
+        //player.SwitchToAir();
     }
     private void NonElementAbility2()
     {
@@ -113,7 +117,7 @@ public class PlayerAbilties
     public void EndHeavyPunch()
     {
         if (player.state != Player.States.HeavyPunch) return;
-        player.SwitchToAir();
+        player.playerCollision.CollisionCheckAfterAbilties();
     }
     private void FireAbility1()
     {
@@ -146,7 +150,7 @@ public class PlayerAbilties
         {
             player.EnergyUpdate(-player.fireballCosts);
             player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition);
-            player.SwitchToAir();
+            player.playerCollision.CollisionCheckAfterAbilties();
         }
     }
     private void AirAbility1()
