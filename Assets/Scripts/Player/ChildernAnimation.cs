@@ -22,4 +22,38 @@ public class ChildernAnimation : MonoBehaviour
         player.ChangeAnimationState("Idle");
         player.SwitchToGround(false);
     }
+    public void NonPlayLeftFoot()
+    {
+        int element = Player.Instance.currentElementNumber;
+        int number = Random.Range(0, 3);
+        switch (element)
+        {
+            case 0:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.nonStepsSounds, number);
+                break;
+            case 1:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.fireStepSounds, number);
+                break;
+            case 2:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.airStepSounds, number);
+                break;
+        }
+    }
+    public void NonPlayRightFoot()
+    {
+        int element = Player.Instance.currentElementNumber;
+        int number = Random.Range(3, 6);
+        switch (element)
+        {
+            case 0:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.nonStepsSounds, number);
+                break;
+            case 1:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.fireStepSounds, number);
+                break;
+            case 2:
+                AudioManager.Instance.PlayFootSteps(AudioManager.Instance.airStepSounds, number);
+                break;
+        }
+    }
 }

@@ -8,7 +8,14 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource soundSource;
+    [SerializeField] private AudioSource footstepSource;
 
+    [Space]
+    [SerializeField] private float minPitch;
+    [SerializeField] private float maxPitch;
+    [SerializeField] private float randomVolumeMultipler;
+
+    [Space]
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private string masterVolume;
     [SerializeField] private string musicVolume;
@@ -16,6 +23,10 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioFiles[] musicFiles;
     [SerializeField] private AudioFiles[] soundFiles;
+
+    [SerializeField] public AudioFiles[] nonStepsSounds;
+    [SerializeField] public AudioFiles[] fireStepSounds;
+    [SerializeField] public AudioFiles[] airStepSounds;
 
     public enum MusicSongs
     {
@@ -86,6 +97,15 @@ public class AudioManager : MonoBehaviour
     public void PlaySoundOneshot(int soundClip)
     {
         soundSource.PlayOneShot(soundFiles[soundClip].audioClip, soundFiles[soundClip].volume);
+    }
+    public void PlayFootSteps(AudioFiles[] files, int soundClip)
+    {
+        float randomVolume = files[soundClip].volume * randomVolumeMultipler;
+        footstepSource.clip = files[soundClip].audioClip;
+        footstepSource.volume = files[soundClip].volume + UnityEngine.Random.Range(-randomVolume, randomVolume);
+        footstepSource.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
+
+        footstepSource.Play();
     }
 }
 [Serializable]
