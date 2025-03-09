@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.45494923, g: 0, b: 0.5377358, a: 1}
+  m_Sprite: {fileID: 4532432243929935131, guid: c1ecad38e19a0ce49907e06c08d78b38, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   actionText: Pray
   abilityString: 3
   unlockText: Air Element Unlocked
+  disableOnCollect: 0
 --- !u!58 &3177535583609564509
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,5 +139,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1.2
+  m_Offset: {x: -0.0022330284, y: -0.040195704}
+  m_Radius: 0.4787042

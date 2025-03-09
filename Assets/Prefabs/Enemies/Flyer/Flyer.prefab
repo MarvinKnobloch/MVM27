@@ -270,7 +270,7 @@ MonoBehaviour:
   timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
-  attackType: 1
+  attackType: 0
   attackRange: 7
   attackRate: 2
   attackSpawnPosition: {fileID: 1268934447128558553}
