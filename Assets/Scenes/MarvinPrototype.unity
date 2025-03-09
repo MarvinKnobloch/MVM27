@@ -37051,7 +37051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1095878557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37064,6 +37064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec19b873e341b446ab660b25c3a58ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killHelper: {fileID: 0}
   triggerBoss: {fileID: 11400000, guid: e043571c1a83dee4eb4e3ea6ff218dd4, type: 2}
   attackTimer: 4
   randomAttackTimer: 1
@@ -37120,6 +37121,7 @@ MonoBehaviour:
   timeToSpawnPlatforms: 4
   fireZone: {fileID: 1914286983}
   fireZoneLifetime: 4
+  fireUpgrade: {fileID: 0}
   state: 0
 --- !u!95 &1095878558
 Animator:
@@ -37392,7 +37394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1116478666
 Transform:
   m_ObjectHideFlags: 0

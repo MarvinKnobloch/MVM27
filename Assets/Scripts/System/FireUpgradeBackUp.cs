@@ -4,7 +4,7 @@ public class FireUpgradeBackUp : MonoBehaviour
 {
     void Start()
     {
-        if (PlayerPrefs.GetInt("TutorialBoss") == 0)
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString()) == 0)
         {
             gameObject.SetActive(false);
         }

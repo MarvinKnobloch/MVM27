@@ -50,7 +50,7 @@ public class Tutorial : MonoBehaviour
     }
     public void TutorialDone()
     {
-        PlayerPrefs.SetInt("TutorialProgress", PlayerPrefs.GetInt("TutorialProgress") + 1);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
         PlayerPrefs.SetInt("NewGame", 1);
     }
     public void BossCamera()

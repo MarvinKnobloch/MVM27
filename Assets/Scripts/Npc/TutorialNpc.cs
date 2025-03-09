@@ -29,7 +29,10 @@ public class TutorialNpc : MonoBehaviour
     {
         SwitchToIdle();
         animator = GetComponent<Animator>();
-        if(PlayerPrefs.GetInt("TutorialProgress") >= TutorialNumber)
+    }
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) >= TutorialNumber)
         {
             transform.parent.gameObject.SetActive(false);
         }

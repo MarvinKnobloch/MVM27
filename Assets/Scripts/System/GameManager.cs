@@ -29,6 +29,15 @@ public class GameManager : MonoBehaviour
         WallBoost,
         PlayerDash,
     }
+    public enum OverworldSaveNames
+    { 
+        Empty,
+        TutorialCollapsedGround,
+        TutorialLeftLock,
+        TutorialRightLock,
+        TutorialBoss,
+        TutorialProgress,
+    }
     private void Awake()
     {
         if (Instance == null)

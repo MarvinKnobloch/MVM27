@@ -64,7 +64,7 @@ public class TutorialBoss : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerPrefs.GetInt("TutorialBoss") == 1) gameObject.SetActive(false);
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString()) == 1) gameObject.SetActive(false);
 
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -228,8 +228,8 @@ public class TutorialBoss : MonoBehaviour
     {
         fireZone.SetActive(false);
 
-        PlayerPrefs.SetInt("TutorialProgress", PlayerPrefs.GetInt("TutorialProgress") + 1);
-        PlayerPrefs.SetInt("TutorialBoss", 1);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
         StopAllCoroutines();
         state = States.Death;
