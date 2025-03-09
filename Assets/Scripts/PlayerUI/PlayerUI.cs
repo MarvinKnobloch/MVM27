@@ -26,6 +26,7 @@ public class PlayerUI : MonoBehaviour
 
     [Header("Currency")]
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private Image[] elementalIcons;
 
     [Header("MessageBox")]
     public GameObject messageBox;
@@ -92,6 +93,22 @@ public class PlayerUI : MonoBehaviour
         energybar.fillAmount = (float)current / max;
         energyText.text = current + "/" + max;
     }
+    public void PlayerCurrencyUpdate(int amount)
+    {
+        GameManager.Instance.playerCurrency += amount;
+        currencyText.text = GameManager.Instance.playerCurrency.ToString();
+
+        PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
+    }
+    public void SetElementalIcon(int number)
+    {
+        for (int i = 0; i < elementalIcons.Length; i++)
+        {
+            if (i == number) elementalIcons[i].gameObject.SetActive(true);
+            else elementalIcons[i].gameObject.SetActive(false);
+        }
+
+    }
     public void ToggleBossHealth(bool activate)
     {
         bossHealthbarObject.SetActive(activate);
@@ -99,13 +116,6 @@ public class PlayerUI : MonoBehaviour
     public void BossHealthUIUpdate(int current, int max)
     {
         bossHealthbar.fillAmount = (float)current / max;
-    }
-    public void PlayerCurrencyUpdate(int amount)
-    {
-        GameManager.Instance.playerCurrency += amount;
-        currencyText.text = GameManager.Instance.playerCurrency.ToString();
-
-        PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
     }
     public void MessageBoxEnable(string text)
     {

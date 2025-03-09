@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
     [NonSerialized] public float jumpTimer;
     [NonSerialized] public bool jumpPerformed;
 
-
     [Header("Dash")]
     public float dashTime;
     public float dashStrength;
@@ -170,6 +169,7 @@ public class Player : MonoBehaviour
     {
         menuController = GameManager.Instance.menuController;
         playerUI = GameManager.Instance.playerUI;
+        playerUI.SetElementalIcon(currentElementNumber);
 
         baseEnergy = EnergyMaxValue;
         CalculateMaxEnergy();

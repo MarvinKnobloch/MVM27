@@ -217,6 +217,7 @@ public class PlayerAbilties
         if (player.iFramesBlink) player.elementalSprite[player.currentElementNumber].color = Color.red;
         else player.elementalSprite[player.currentElementNumber].color = Color.white;
 
+        player.playerUI.SetElementalIcon(player.currentElementNumber);
         player.currentstate = null;
         //player.ChangeAnimationState(switchState);
     }
