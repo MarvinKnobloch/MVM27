@@ -37,13 +37,10 @@ public class CollapsingPlatform : MonoBehaviour
 
     private void Start()
     {
-        if(saveName != GameManager.OverworldSaveNames.Empty)
+        if (saveName != GameManager.OverworldSaveNames.Empty)
         {
-            if(PlayerPrefs.GetInt(saveName.ToString()) == 1)
-            {
-                gameObject.SetActive(false);
-            }
-        }
+            if (GameManager.Instance.LoadProgress(saveName) == true) gameObject.SetActive(false);
+        }         
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,10 +51,7 @@ public class CollapsingPlatform : MonoBehaviour
                 StartCoroutine(StartCollapsing());
                 StartCoroutine(PlatformBlink());
 
-                if (saveName != GameManager.OverworldSaveNames.Empty)
-                {
-                    PlayerPrefs.SetInt(saveName.ToString(), 1);
-                }
+                GameManager.Instance.SaveProgress(saveName);
             }
         }
     }

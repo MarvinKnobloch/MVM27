@@ -85,4 +85,19 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+    public bool LoadProgress(GameManager.OverworldSaveNames saveName)
+    {
+        if (PlayerPrefs.GetInt(saveName.ToString()) == 1)
+        {
+            return true;
+        }
+        else return false;    
+    }
+    public void SaveProgress(GameManager.OverworldSaveNames saveName)
+    {
+        if (saveName != GameManager.OverworldSaveNames.Empty)
+        {
+            PlayerPrefs.SetInt(saveName.ToString(), 1);
+        }
+    }
 }
