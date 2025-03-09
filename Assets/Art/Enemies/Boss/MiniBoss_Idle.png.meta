@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 2ea1223805f7a5343bdfb22d1b2c5b7f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 975411244708579386
+    second: MiniBoss_Idle_0
+  - first:
+      213: 7952445655044476339
+    second: MiniBoss_Idle_1
+  - first:
+      213: -5669410450730247661
+    second: MiniBoss_Idle_2
+  - first:
+      213: 6315149071678066113
+    second: MiniBoss_Idle_3
+  - first:
+      213: 939306322584366320
+    second: MiniBoss_Idle_4
+  - first:
+      213: 6964865309919009718
+    second: MiniBoss_Idle_5
+  - first:
+      213: -4682784749733018153
+    second: MiniBoss_Idle_6
+  - first:
+      213: -5857047268856010399
+    second: MiniBoss_Idle_7
+  - first:
+      213: -2332392932767506993
+    second: MiniBoss_Idle_8
+  - first:
+      213: -1939089850500671327
+    second: MiniBoss_Idle_9
+  - first:
+      213: 7398295452978928394
+    second: MiniBoss_Idle_10
+  - first:
+      213: 6712685845560750122
+    second: MiniBoss_Idle_11
+  - first:
+      213: 8016186324137928522
+    second: MiniBoss_Idle_12
+  - first:
+      213: -4329812311588162293
+    second: MiniBoss_Idle_13
+  - first:
+      213: 9010477558100378100
+    second: MiniBoss_Idle_14
+  - first:
+      213: -8663516153633335073
+    second: MiniBoss_Idle_15
+  - first:
+      213: -7501805188108663519
+    second: MiniBoss_Idle_16
+  - first:
+      213: 4449644821274205193
+    second: MiniBoss_Idle_17
+  - first:
+      213: 4935779124022181674
+    second: MiniBoss_Idle_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MiniBoss_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 60
+        width: 213
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38c6ceeb5b598d00800000000000000
+      internalID: 975411244708579386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 60
+        width: 211
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd468c7033cc5e60800000000000000
+      internalID: 7952445655044476339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 60
+        width: 210
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31a165e9b353251b0800000000000000
+      internalID: -5669410450730247661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 60
+        width: 209
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd42012f9ae3a750800000000000000
+      internalID: 6315149071678066113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 2289
+        y: 60
+        width: 209
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc6becaf16190d00800000000000000
+      internalID: 939306322584366320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 2789
+        y: 60
+        width: 207
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bbd922191c28a060800000000000000
+      internalID: 6964865309919009718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 3290
+        y: 60
+        width: 206
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d50c80a418630fb0800000000000000
+      internalID: -4682784749733018153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 3790
+        y: 60
+        width: 204
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1696a2b7a8697bea0800000000000000
+      internalID: -5857047268856010399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_8
+      rect:
+        serializedVersion: 2
+        x: 4290
+        y: 60
+        width: 204
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcdd2c53cfca1afd0800000000000000
+      internalID: -2332392932767506993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_9
+      rect:
+        serializedVersion: 2
+        x: 4790
+        y: 60
+        width: 205
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a897510e08f615e0800000000000000
+      internalID: -1939089850500671327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 5290
+        y: 60
+        width: 206
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b523244860ca660800000000000000
+      internalID: 7398295452978928394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 5789
+        y: 60
+        width: 207
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a20f0711630482d50800000000000000
+      internalID: 6712685845560750122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 6289
+        y: 60
+        width: 208
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47e59f7df63f3f60800000000000000
+      internalID: 8016186324137928522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 6789
+        y: 60
+        width: 208
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b05bca794aa69e3c0800000000000000
+      internalID: -4329812311588162293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 7289
+        y: 60
+        width: 208
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f1c33b7995ab0d70800000000000000
+      internalID: 9010477558100378100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 7789
+        y: 60
+        width: 210
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd893d4a5f105c780800000000000000
+      internalID: -8663516153633335073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 8289
+        y: 60
+        width: 210
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125c99c7deb34e790800000000000000
+      internalID: -7501805188108663519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 8788
+        y: 60
+        width: 211
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c94b4c36050cd30800000000000000
+      internalID: 4449644821274205193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MiniBoss_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 9288
+        y: 60
+        width: 212
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f712166f86f7440800000000000000
+      internalID: 4935779124022181674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MiniBoss_Idle_0: 975411244708579386
+      MiniBoss_Idle_1: 7952445655044476339
+      MiniBoss_Idle_10: 7398295452978928394
+      MiniBoss_Idle_11: 6712685845560750122
+      MiniBoss_Idle_12: 8016186324137928522
+      MiniBoss_Idle_13: -4329812311588162293
+      MiniBoss_Idle_14: 9010477558100378100
+      MiniBoss_Idle_15: -8663516153633335073
+      MiniBoss_Idle_16: -7501805188108663519
+      MiniBoss_Idle_17: 4449644821274205193
+      MiniBoss_Idle_18: 4935779124022181674
+      MiniBoss_Idle_2: -5669410450730247661
+      MiniBoss_Idle_3: 6315149071678066113
+      MiniBoss_Idle_4: 939306322584366320
+      MiniBoss_Idle_5: 6964865309919009718
+      MiniBoss_Idle_6: -4682784749733018153
+      MiniBoss_Idle_7: -5857047268856010399
+      MiniBoss_Idle_8: -2332392932767506993
+      MiniBoss_Idle_9: -1939089850500671327
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
