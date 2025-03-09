@@ -288,7 +288,7 @@ MonoBehaviour:
   maxJumpTime: 0.3
   dashTime: 0.3
   dashStrength: 12
-  maxDashCount: 2
+  maxDashCount: 1
   iFramesDuration: 0.8
   iFramesBlinkSpeed: 0.15
   projectileSpawnPosition: {fileID: 1794253880594239891}
@@ -388,9 +388,13 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 0}
   HealthBarOffset: 1
   isBoss: 0
+  autoDestoryOnDeath: 0
   maxHealth: 10
   bossType: 0
   dieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  hitEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!61 &56580513609240995
