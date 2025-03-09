@@ -50,8 +50,8 @@ MonoBehaviour:
   musicSource: {fileID: 7246498572151289886}
   soundSource: {fileID: 4486219948365277997}
   footstepSource: {fileID: 2086622214357836655}
-  minPitch: 0.3
-  maxPitch: 1.7
+  minPitch: 0.9
+  maxPitch: 1.1
   randomVolumeMultipler: 0.1
   audioMixer: {fileID: 24100000, guid: a026b48bb016096458bcd8150c48f43d, type: 2}
   masterVolume: MasterVolume
