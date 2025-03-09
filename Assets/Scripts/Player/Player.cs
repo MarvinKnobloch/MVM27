@@ -38,7 +38,6 @@ public class Player : MonoBehaviour
     [NonSerialized] public float jumpTimer;
     [NonSerialized] public bool jumpPerformed;
 
-
     [Header("Dash")]
     public float dashTime;
     public float dashStrength;
@@ -116,7 +115,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool airElementUnlocked;
     [NonSerialized] public bool doubleJumpUnlocked;
     [NonSerialized] public bool wallBoostUnlocked;
-    [NonSerialized] public bool dashUnlocked;
+    //[NonSerialized] public bool dashUnlocked;
 
     [NonSerialized] public PlayerAttack playerAttack;
     [NonSerialized] public PlayerMovement playerMovement = new PlayerMovement();
@@ -170,6 +169,7 @@ public class Player : MonoBehaviour
     {
         menuController = GameManager.Instance.menuController;
         playerUI = GameManager.Instance.playerUI;
+        playerUI.SetElementalIcon(currentElementNumber);
 
         baseEnergy = EnergyMaxValue;
         CalculateMaxEnergy();
@@ -204,8 +204,8 @@ public class Player : MonoBehaviour
         else doubleJumpUnlocked = false;
         if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBoost.ToString()) == 1) wallBoostUnlocked = true;
         else wallBoostUnlocked = false;
-        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDash.ToString()) == 1) dashUnlocked = true;
-        else dashUnlocked = false;
+        //if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDash.ToString()) == 1) dashUnlocked = true;
+        //else dashUnlocked = false;
     }
     public void EnableInputs(bool enabled)
     {

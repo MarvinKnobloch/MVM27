@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,9 @@ public class GameManager : MonoBehaviour
 
     public MenuController menuController;
     public PlayerUI playerUI;
+    [NonSerialized] public CinemachineCamera cinemachineCamera;
 
+    [Space]
     public CheckPoint currentCheckpoint;
     public bool LoadFormCheckpoint;
     public bool CheckForNewGame;
@@ -25,6 +28,15 @@ public class GameManager : MonoBehaviour
         PlayerDoubleJump,
         WallBoost,
         PlayerDash,
+    }
+    public enum OverworldSaveNames
+    { 
+        Empty,
+        TutorialCollapsedGround,
+        TutorialLeftLock,
+        TutorialRightLock,
+        TutorialBoss,
+        TutorialProgress,
     }
     private void Awake()
     {
@@ -72,5 +84,20 @@ public class GameManager : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+    public bool LoadProgress(GameManager.OverworldSaveNames saveName)
+    {
+        if (PlayerPrefs.GetInt(saveName.ToString()) == 1)
+        {
+            return true;
+        }
+        else return false;    
+    }
+    public void SaveProgress(GameManager.OverworldSaveNames saveName)
+    {
+        if (saveName != GameManager.OverworldSaveNames.Empty)
+        {
+            PlayerPrefs.SetInt(saveName.ToString(), 1);
+        }
     }
 }

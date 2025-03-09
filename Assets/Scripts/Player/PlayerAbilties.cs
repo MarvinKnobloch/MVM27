@@ -53,6 +53,8 @@ public class PlayerAbilties
         {
             player.rb.linearVelocity = Vector2.zero;
         }
+        else player.rb.linearVelocityX = 0;
+
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
     }
@@ -215,6 +217,7 @@ public class PlayerAbilties
         if (player.iFramesBlink) player.elementalSprite[player.currentElementNumber].color = Color.red;
         else player.elementalSprite[player.currentElementNumber].color = Color.white;
 
+        player.playerUI.SetElementalIcon(player.currentElementNumber);
         player.currentstate = null;
         //player.ChangeAnimationState(switchState);
     }

@@ -26,6 +26,7 @@ public class PlayerUI : MonoBehaviour
 
     [Header("Currency")]
     [SerializeField] private TextMeshProUGUI currencyText;
+    [SerializeField] private Image[] elementalIcons;
 
     [Header("MessageBox")]
     public GameObject messageBox;
@@ -34,12 +35,6 @@ public class PlayerUI : MonoBehaviour
 
     [Header("DialogBox")]
     public GameObject dialogBox;
-
-    [Header("Intro")]
-    [SerializeField] private DialogObj introDialog;
-    [SerializeField] private VoidEventChannel disableBlackScreen;
-    [SerializeField] private VoidEventChannel standUp;
-    [SerializeField] private VoidEventChannel endTutorial;
 
     [Header("BossHealth")]
     [SerializeField] private GameObject bossHealthbarObject;
@@ -54,25 +49,9 @@ public class PlayerUI : MonoBehaviour
     {
         controls = Keybindinputmanager.Controls;
     }
-    private void OnEnable()
-    {
-        disableBlackScreen.OnEventRaised += BlackScreenDisable;
-        standUp.OnEventRaised += IntroStandUp;
-        endTutorial.OnEventRaised += TutorialDone;
-    }
-    private void OnDisable()
-    {
-        disableBlackScreen.OnEventRaised -= BlackScreenDisable;
-        standUp.OnEventRaised -= IntroStandUp;
-        endTutorial.OnEventRaised -= TutorialDone;
-    }
     private void Start()
     {
         StartCoroutine(InteractionFieldDisable());
-        if (PlayerPrefs.GetInt("NewGame") == 0 && GameManager.Instance.CheckForNewGame)
-        {
-            StartIntro();
-        }
     }
     IEnumerator InteractionFieldDisable()
     {
@@ -114,6 +93,22 @@ public class PlayerUI : MonoBehaviour
         energybar.fillAmount = (float)current / max;
         energyText.text = current + "/" + max;
     }
+    public void PlayerCurrencyUpdate(int amount)
+    {
+        GameManager.Instance.playerCurrency += amount;
+        currencyText.text = GameManager.Instance.playerCurrency.ToString();
+
+        PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
+    }
+    public void SetElementalIcon(int number)
+    {
+        for (int i = 0; i < elementalIcons.Length; i++)
+        {
+            if (i == number) elementalIcons[i].gameObject.SetActive(true);
+            else elementalIcons[i].gameObject.SetActive(false);
+        }
+
+    }
     public void ToggleBossHealth(bool activate)
     {
         bossHealthbarObject.SetActive(activate);
@@ -121,13 +116,6 @@ public class PlayerUI : MonoBehaviour
     public void BossHealthUIUpdate(int current, int max)
     {
         bossHealthbar.fillAmount = (float)current / max;
-    }
-    public void PlayerCurrencyUpdate(int amount)
-    {
-        GameManager.Instance.playerCurrency += amount;
-        currencyText.text = GameManager.Instance.playerCurrency.ToString();
-
-        PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
     }
     public void MessageBoxEnable(string text)
     {
@@ -148,15 +136,13 @@ public class PlayerUI : MonoBehaviour
         GameManager.Instance.menuController.gameIsPaused = false;
         messageBox.SetActive(false);
     }
-    public void StartIntro()
+    public void ActivateBlackscreen()
     {
         blackScreen.gameObject.SetActive(true);
-        dialogBox.GetComponent<DialogBox>().DialogStart(introDialog, false);
-        dialogBox.SetActive(true);
-        Player.Instance.state = Player.States.Emtpy;
-        Player.Instance.ChangeAnimationState("Sleep");
+        blackScreenColor = blackScreen.color;
+        blackScreenColor.a = 1;
     }
-    public void BlackScreenDisable()
+    public void DeactivateBlackScreen()
     {
         blackScreenColor = blackScreen.color;
         blackScreenColor.a = 1;
@@ -176,17 +162,6 @@ public class PlayerUI : MonoBehaviour
 
         }
         blackScreen.gameObject.SetActive(false);
-    }
-    public void IntroStandUp()
-    {
-        Player.Instance.ChangeAnimationState("StandUp");
-    }
-    public void TutorialDone()
-    {
-        int progression = PlayerPrefs.GetInt("TutorialProgress");
-        progression++;
-        PlayerPrefs.SetInt("TutorialProgress", progression);
-        PlayerPrefs.SetInt("NewGame", 1);
     }
     public void ActivateShop()
     {

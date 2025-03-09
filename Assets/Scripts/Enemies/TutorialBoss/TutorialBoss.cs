@@ -8,6 +8,7 @@ public class TutorialBoss : MonoBehaviour
     [NonSerialized] public Health health;
     private BoxCollider2D boxCollider2D;
     private CircleCollider2D handCollider;
+    [SerializeField] private VoidEventChannel killHelper;
     [SerializeField] private VoidEventChannel triggerBoss;
 
     [Header("AttackTimer")]
@@ -45,6 +46,9 @@ public class TutorialBoss : MonoBehaviour
     [SerializeField] private GameObject fireZone;
     [SerializeField] private float fireZoneLifetime;
 
+    [Header("Death")]
+    [SerializeField] private GameObject fireUpgrade;
+
     //Animations
     private Animator animator;
     [NonSerialized] public string currentstate;
@@ -60,6 +64,8 @@ public class TutorialBoss : MonoBehaviour
 
     private void Awake()
     {
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString()) == 1) gameObject.SetActive(false);
+
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
@@ -73,10 +79,12 @@ public class TutorialBoss : MonoBehaviour
     }
     private void OnEnable()
     {
+        killHelper.OnEventRaised += KillHelper;
         triggerBoss.OnEventRaised += BossStart;
     }
     private void OnDisable()
     {
+        killHelper.OnEventRaised -= KillHelper;
         triggerBoss.OnEventRaised -= BossStart;
     }
 
@@ -219,15 +227,28 @@ public class TutorialBoss : MonoBehaviour
     private void OnDeath()
     {
         fireZone.SetActive(false);
+
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
+
         StopAllCoroutines();
         state = States.Death;
         ChangeAnimationState("Death");
     }
     public void Death() 
     {
-        //Trigger Event
+        fireUpgrade.SetActive(true);
         GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
+    }
+
+    public void KillHelper()
+    {
+        ChangeAnimationState("Kill");
+    }
+    public void IdleAfterHelperKill()
+    {
+        ChangeAnimationState("Idle");
     }
 
 }

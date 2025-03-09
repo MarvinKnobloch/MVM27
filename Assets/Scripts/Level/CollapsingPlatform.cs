@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CollapsingPlatform : MonoBehaviour
@@ -19,6 +20,9 @@ public class CollapsingPlatform : MonoBehaviour
     private float blinkTimer;
     private bool normalColor;
     private Color baseColor;
+
+    [Space]
+    [SerializeField] private GameManager.OverworldSaveNames saveName;
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider2D>();
@@ -30,6 +34,14 @@ public class CollapsingPlatform : MonoBehaviour
 
         baseColor = spriteRenderer.color;
     }
+
+    private void Start()
+    {
+        if (saveName != GameManager.OverworldSaveNames.Empty)
+        {
+            if (GameManager.Instance.LoadProgress(saveName) == true) gameObject.SetActive(false);
+        }         
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -38,6 +50,8 @@ public class CollapsingPlatform : MonoBehaviour
             { 
                 StartCoroutine(StartCollapsing());
                 StartCoroutine(PlatformBlink());
+
+                GameManager.Instance.SaveProgress(saveName);
             }
         }
     }

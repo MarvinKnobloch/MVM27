@@ -97,9 +97,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
         {
-            player.rb.linearVelocity = Vector2.zero; 
+            player.rb.linearVelocity = Vector2.zero;
             player.rb.gravityScale = 0;
         }
+        else player.rb.linearVelocityX = 0;
+
         player.state = Player.States.Attack;
 
         airAttackPerformed = true;

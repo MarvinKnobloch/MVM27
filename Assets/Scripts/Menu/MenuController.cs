@@ -133,11 +133,10 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerXSpawn", 3);
         PlayerPrefs.SetFloat("PlayerYSpawn", 3);
         PlayerPrefs.SetInt("CurrentLevel", 1);
-        PlayerPrefs.SetInt("TutorialProgress", 0);
 
         //Abilities
         //Heal???
-        PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDash.ToString(), 0);
+        //PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDash.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.FireElement.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.Fireball.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBreak.ToString(), 0);
@@ -153,6 +152,13 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BonusEnergyRecharge", 0);
         PlayerPrefs.SetInt("BonusAttack", 0);
         PlayerPrefs.SetInt("BonusSwitchAttack", 0);
+
+        //Progress
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialCollapsedGround.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialLeftLock.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialRightLock.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), 0);
 
         //OverworldUpgrades
         for (int i = 0; i < 50; i++)
