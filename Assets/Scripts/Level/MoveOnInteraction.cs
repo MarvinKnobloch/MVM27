@@ -17,6 +17,9 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     [SerializeField] private bool fastBack;
     [SerializeField] private float backDuration;
 
+    [Header("SpriteUpdate")]
+    [SerializeField] private bool spriteUpdate;
+
     private State state;
     public enum State
     {

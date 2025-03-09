@@ -6,18 +6,36 @@ public class Switch : MonoBehaviour, IInteractables
 
     [SerializeField] private string actionText;
     public string interactiontext => actionText;
-    [SerializeField] private bool activ;
+    private bool activ;
 
     [SerializeField] private GameObject[] objsToControl;
 
+    private GameObject inactiveSwitchImage;
+    private GameObject activeSwitchImage;
+
+    private void Awake()
+    {
+        inactiveSwitchImage = transform.GetChild(0).gameObject;
+        activeSwitchImage = transform.GetChild(1).gameObject;
+    }
     public void Interaction()
     {
         activ = !activ;
 
         foreach (GameObject obj in objsToControl)
         {
-            if (activ) obj.GetComponent<IActivate>().Activate();
-            else obj.GetComponent<IActivate>().Deactivate();
+            if (activ)
+            {
+                obj.GetComponent<IActivate>().Activate();
+                inactiveSwitchImage.SetActive(false);
+                activeSwitchImage.SetActive(true);
+            }
+            else
+            { 
+                obj.GetComponent<IActivate>().Deactivate();
+                inactiveSwitchImage.SetActive(true);
+                activeSwitchImage.SetActive(false);
+            }
         }
     }
 
