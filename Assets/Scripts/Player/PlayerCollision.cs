@@ -6,7 +6,7 @@ public class PlayerCollision
 
     public void GroundCheck()
     {
-        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.96f, 0, -player.transform.up, 0.3f, player.groundCheckLayer);
+        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 1f, 0, -player.transform.up, 0.15f, player.groundCheckLayer);
         if (downwardhit)
         {
             Debug.DrawRay(downwardhit.point, downwardhit.normal, Color.green);
@@ -22,7 +22,7 @@ public class PlayerCollision
         {
             ForwardCheck();
 
-            RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.96f, 0, -player.transform.up, 0.2f, player.groundCheckLayer);
+            RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 1f, 0, -player.transform.up, 0.15f, player.groundCheckLayer);
             if (downwardhit)
             {
                 {
@@ -63,7 +63,7 @@ public class PlayerCollision
     }
     public void CollisionCheckAfterAbilties()
     {
-        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.96f, 0, -player.transform.up, 0.3f, player.groundCheckLayer);
+        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 1f, 0, -player.transform.up, 0.15f, player.groundCheckLayer);
         if (downwardhit)
         {
             player.SwitchToGround(false);
