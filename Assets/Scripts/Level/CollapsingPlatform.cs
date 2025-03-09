@@ -28,9 +28,10 @@ public class CollapsingPlatform : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         childObj = transform.GetChild(0).gameObject;
         spriteRenderer = childObj.GetComponent<SpriteRenderer>();
-        float xsize = spriteRenderer.size.x;
-        boxCollider.size = new Vector2(xsize * 0.98f, transform.GetChild(0).transform.localScale.y);  // 0.49f
-        childObj.GetComponent<BoxCollider2D>().size = new Vector2(xsize, 1);
+
+        float xsize = spriteRenderer.size.x - 0.05f;
+        boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
+        childObj.GetComponent<BoxCollider2D>().size = new Vector2(xsize, boxCollider.size.y);
 
         baseColor = spriteRenderer.color;
     }
