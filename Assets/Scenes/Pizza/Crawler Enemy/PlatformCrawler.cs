@@ -1,5 +1,8 @@
+using System;
 using UnityEngine;
 
+// This class existed prior, but there were no uses of it in the game. Marked obsolete as WallCralwer appears to be hte only enemy that is used.
+[Obsolete]
 public class PlatformCrawler : MonoBehaviour
 {
 	[Header("Enemy Settings")]
