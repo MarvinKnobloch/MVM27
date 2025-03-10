@@ -107,7 +107,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 496234559840375071, guid: 6489991dddebce149a6a9ee1759965b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -270,6 +270,7 @@ MonoBehaviour:
   healthComponent: {fileID: 6929812050080539961}
   speed: 2
   fallSpeed: 10
+  riseSpeed: 4
   waypoint: {fileID: 0}
   damage: 1
   freezeOnHitTime: 0.3
@@ -280,6 +281,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  timeToWaitOnGround: 3
 --- !u!114 &6929812050080539961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +297,8 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 1343224786366271924}
   HealthBarOffset: 1
   isBoss: 0
-  autoDestoryOnDeath: 0
-  maxHealth: 10
+  autoDestroyOnDeath: 0
+  maxHealth: 3
   bossType: 0
   dieEvent:
     m_PersistentCalls:

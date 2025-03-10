@@ -15,6 +15,7 @@ public class ThwomperEnemy : MonoBehaviour
     [SerializeField, Min(0f)] private float speed = 2f;
     [Tooltip("The speed we move if the target is in sight.")]
     [SerializeField, Min(0f)] private float fallSpeed = 10f;
+    [SerializeField, Min(0f)] private float riseSpeed = 4f;
     [Tooltip("The waypoint to walk to and from.")]
     [SerializeField] private Transform waypoint;
     [Tooltip("The damage dealt to the target if they collide")]
@@ -24,6 +25,8 @@ public class ThwomperEnemy : MonoBehaviour
     [SerializeField] private LayerMask visionMask;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundMask;
+    [Tooltip("The time in seconds we are to wait before rising.")]
+    [SerializeField, Min(0f)] private float timeToWaitOnGround = 3f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -32,9 +35,10 @@ public class ThwomperEnemy : MonoBehaviour
     private float hitTime = 0f;
     private bool dead = false;
     private bool targetInSight = false;
-    private float lastTimeHitPlayer = 0f; // this the time we hit the player, not the player attacking us
     private MovementState movementState = MovementState.Idle;
     private Vector2 positionBeforeFall = Vector2.zero;
+    private float groundedTime = 0f;
+
 
     private const float WAYPOINT_PROXIMITY = 0.1f;
     private const float DEATH_DESTROY_TIME = 0.5f;
@@ -44,6 +48,7 @@ public class ThwomperEnemy : MonoBehaviour
     private const string IDLE_ANIM = "Idle";
     private const string HIT_ANIM = "Hit";
     private const string DIE_ANIM = "Die";
+    private const string FALL_ANIM = "Fall";
 
     private void Awake()
     {
@@ -62,12 +67,17 @@ public class ThwomperEnemy : MonoBehaviour
 
         healthComponent.hitEvent.AddListener(OnHit);
         healthComponent.dieEvent.AddListener(OnDie);
+
+        // Helps keep the waypoint at a sensible place
+        if (transform.position.y != waypoint.position.y)
+            waypoint.position = new Vector3(waypoint.position.x, transform.position.y, waypoint.position.z);
     }
 
     private void Start()
     {
         startPosition = rb.position;
         target = Player.Instance.transform;
+        healthComponent.AllowDamage = false; // we only allow damage while Grounded
     }
 
     private void Update()
@@ -82,16 +92,28 @@ public class ThwomperEnemy : MonoBehaviour
         {
             movementState = MovementState.Falling;
             positionBeforeFall = rb.position;
+            animator.Play(FALL_ANIM);
+        }
+        else if (movementState == MovementState.Grounded && Time.time - groundedTime > timeToWaitOnGround)
+        {
+            movementState = MovementState.Rising;
+            healthComponent.AllowDamage = false;
+        }
+        else if (movementState == MovementState.Grounded)
+        {
+            healthComponent.AllowDamage = true;
+        }
+        else if (movementState == MovementState.Rising && rb.position.y >= positionBeforeFall.y)
+        {
+            movementState = MovementState.Idle;
+            positionBeforeFall = Vector2.zero;
+            animator.Play(IDLE_ANIM);
+            groundedTime = 0f;
+            col.excludeLayers = 0;
         }
 
         if (hitTime != 0f && Time.time - hitTime > freezeOnHitTime)
             hitTime = 0f;
-
-        // if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
-        // {
-        //     lastTimeHitPlayer = 0f;
-        //     col.excludeLayers = 0;
-        // }
     }
 
     private void FixedUpdate()
@@ -118,33 +140,30 @@ public class ThwomperEnemy : MonoBehaviour
             rb.linearVelocity = new Vector2(0f, -fallSpeed);
 
             if (Physics2D.OverlapCircle(groundCheck.position, GROUND_CHECK_RADIUS, groundMask))
+            {
                 movementState = MovementState.Grounded;
+                groundedTime = Time.time;
+            }
         }
         else if (movementState == MovementState.Grounded)
         {
-            // do nothing
+            rb.linearVelocityY = 0f;
         }
         else if (movementState == MovementState.Rising)
         {
-            rb.linearVelocity = new Vector2(0f, fallSpeed);
-            
-            if (rb.position.y >= positionBeforeFall.y)
-            {
-                movementState = MovementState.Idle;
-                positionBeforeFall = Vector2.zero;
-            }
+            rb.linearVelocity = new Vector2(0f, riseSpeed);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (dead || lastTimeHitPlayer > 0f)
+        if (dead || movementState != MovementState.Falling)
             return;
 
         if (collision.gameObject.CompareTag(target.tag))
         {
+            Debug.Log("hit target");
             Player.Instance.health.TakeDamage(damage, false);
-            lastTimeHitPlayer = Time.time;
             col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }
@@ -193,7 +212,17 @@ public class ThwomperEnemy : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, GROUND_CHECK_RADIUS);
         }
 
-        UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
+        UnityEditor.Handles.Label(rb.position + Vector2.up * 1.75f, movementState.ToString());
+    }
+
+    private void OnValidate()
+    {
+        // Helps keep the waypoint at a sensible place
+        if (waypoint != null && transform.position.y != waypoint.position.y)
+        {
+            waypoint.position = new Vector3(waypoint.position.x, transform.position.y, waypoint.position.z);
+            UnityEditor.EditorUtility.SetDirty(waypoint);
+        }
     }
 #endif
 }
