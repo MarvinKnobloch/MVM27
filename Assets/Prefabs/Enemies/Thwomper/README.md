@@ -27,3 +27,5 @@ We did not have many animations for the Thwomper, so here is what I did.
 ## Notes
 - This enemy does not have an invuneralable to block damage for a period after an attack.
     I might add that so you cannot spam click it to die.
+- If the thwomper hits the player, it will turn off colision to avoid pushing them through the map.
+    If the issue persists, I will change to using a seperate collider for damage detection.
