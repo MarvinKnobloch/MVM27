@@ -457,7 +457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2067382918}
   m_Layer: 0
-  m_Name: Crawler Waypoint
+  m_Name: Roller Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,6 +739,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319579087043213249, guid: 082fed66769b1614dbc2171467d00f52, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 2067382918}
     - target: {fileID: 5998894059368126933, guid: 082fed66769b1614dbc2171467d00f52, type: 3}
       propertyPath: m_Name
       value: Rolller Enemy

@@ -201,14 +201,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5998894059368126933}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -232,13 +232,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6839c5ef308de39468a7b4002b2833a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  healthComponent: {fileID: 0}
+  col: {fileID: 690008495733497796}
+  rb: {fileID: 6522498738444393160}
+  animator: {fileID: 5853518491072573498}
+  healthComponent: {fileID: 5644258311082689311}
   speed: 2
+  chaseSpeed: 3.5
   waypoint: {fileID: 0}
   damage: 1
   freezeOnHitTime: 0.3
+  visionRange: 8
+  visionMask:
+    serializedVersion: 2
+    m_Bits: 256
+  attackBuffer: 1
 --- !u!114 &5644258311082689311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
