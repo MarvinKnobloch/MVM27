@@ -307,6 +307,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f742eea7791cf42acc4cfc97b5dc34, type: 3}
+--- !u!1 &1833453838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833453839}
+  m_Layer: 0
+  m_Name: Thwomper Waypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1833453839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833453838}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.65, y: 6.415615, z: -0.028802324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1848499198
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,11 +737,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4207840283681559414, guid: e78d2266a81359143927036053144160, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 18.79
       objectReference: {fileID: 0}
     - target: {fileID: 4207840283681559414, guid: e78d2266a81359143927036053144160, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9.19
       objectReference: {fileID: 0}
     - target: {fileID: 4207840283681559414, guid: e78d2266a81359143927036053144160, type: 3}
       propertyPath: m_LocalPosition.z
@@ -744,6 +775,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4982468791057364026, guid: e78d2266a81359143927036053144160, type: 3}
+      propertyPath: waypoint
+      value: 
+      objectReference: {fileID: 1833453839}
     - target: {fileID: 6693250834942662761, guid: e78d2266a81359143927036053144160, type: 3}
       propertyPath: m_Name
       value: Thwomper
@@ -8659,3 +8694,4 @@ SceneRoots:
   - {fileID: 3127373029541655202}
   - {fileID: 7406047048514511918}
   - {fileID: 4337520477366955039}
+  - {fileID: 1833453839}

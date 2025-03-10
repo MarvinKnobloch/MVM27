@@ -15,7 +15,7 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField, Min(0f)] private float chaseSpeed = 5f;
     [Tooltip("The waypoint to walk to and from.")]
     [SerializeField] private Transform waypoint;
-    [Tooltip("The damage dealt to the player if they collide")]
+    [Tooltip("The damage dealt to the target if they collide")]
     [SerializeField, Min(0)] private int damage = 1;
     [Tooltip("The time to freeze the enemy on hit. Set to 0 to disable.")]
     [SerializeField, Min(0f)] private float freezeOnHitTime = .3f;
@@ -71,7 +71,7 @@ public class RollerEnemy : MonoBehaviour
         if (moveDirection != Vector2.zero)
         {
             var visionHit = Physics2D.Raycast(rb.position, moveDirection, visionRange, visionMask);
-            targetInSight = visionHit.collider != null && visionHit.collider.CompareTag("Player");
+            targetInSight = visionHit.collider != null && visionHit.collider.CompareTag(target.tag);
         }
 
         if (hitTime != 0f && Time.time - hitTime > freezeOnHitTime)
