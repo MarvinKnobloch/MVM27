@@ -2,13 +2,8 @@ using System;
 using UnityEngine;
 
 // TODO
-// Right now this crawler can only go either horizontal or veritical
-// It cannot be horizontal, an then crawl up a wall. If we decide we wan tthat,
-// I will need to update the script to do so. I chose not to do because of the
-// complexity to make such a transition look good.
-//
-// Also, I disabled vertical until we confirm we need it. Vertical requires ground detection
-// so that we can sure the sprite is facing the right direction
+// Refactor this so the crawler basically crawls on the ground,
+// at any direction or angle // to its target.
 
 public class CrawlerEnemy : MonoBehaviour
 {

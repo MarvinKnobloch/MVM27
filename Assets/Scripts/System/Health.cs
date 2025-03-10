@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
@@ -14,7 +15,8 @@ public class Health : MonoBehaviour
     public float HealthBarOffset = 1f;
     [SerializeField] private bool isBoss;
     [Tooltip("Typically we want this false so that we can play a death animation")]
-    [SerializeField] private bool autoDestoryOnDeath = false;
+    [FormerlySerializedAs("autoDestoryOnDeath")] // TODO: an old mispelling. Fix and remove
+    [SerializeField] private bool autoDestroyOnDeath = false;
 
     //Values
     [Header("Values")]
@@ -51,6 +53,12 @@ public class Health : MonoBehaviour
         get { return maxHealth; }
         set { maxHealth = Math.Max(0, value); currentHealth = Math.Min(value, currentHealth); }
     }
+
+    /// <summary>
+    /// A variable to alter at runtime to decide if damage is allowed or not.
+    /// Example use: Thwomper
+    /// </summary>
+    public bool AllowDamage { get; set; } = true;
 
     void Start()
     {
@@ -106,6 +114,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount, bool dontIgnoreIFrames)
     {
+        if (!AllowDamage)
+            return;
         if (amount == 0)
             return;
         if (Value <= 0)
@@ -155,7 +165,7 @@ public class Health : MonoBehaviour
 
             // TODO: This if check was removed in favor of a config boolean. Keeping until I know all assets have been transitioned.
             //if (gameObject != Player.Instance.gameObject && isBoss == false)
-            if (autoDestoryOnDeath)
+            if (autoDestroyOnDeath)
                 Destroy(gameObject);
         }
         else

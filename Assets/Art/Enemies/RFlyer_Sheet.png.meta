@@ -1,0 +1,550 @@
+fileFormatVersion: 2
+guid: 6c9d37bc1481f034b80b6e6f79d19ab1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1239837907249584847
+    second: RFlyer_Sheet_0
+  - first:
+      213: 5785449367916279013
+    second: RFlyer_Sheet_1
+  - first:
+      213: -824583303767898850
+    second: RFlyer_Sheet_2
+  - first:
+      213: 4705732271654706513
+    second: RFlyer_Sheet_3
+  - first:
+      213: -8800149498188175251
+    second: RFlyer_Sheet_4
+  - first:
+      213: 6438976294954633647
+    second: RFlyer_Sheet_5
+  - first:
+      213: -6942263413153634182
+    second: RFlyer_Sheet_6
+  - first:
+      213: -9019205568324848530
+    second: RFlyer_Sheet_7
+  - first:
+      213: -7759680250050348703
+    second: RFlyer_Sheet_8
+  - first:
+      213: 6284191887969375043
+    second: RFlyer_Sheet_9
+  - first:
+      213: 4075026129459628937
+    second: RFlyer_Sheet_10
+  - first:
+      213: -8735329981472307199
+    second: RFlyer_Sheet_11
+  - first:
+      213: 5083906436451199978
+    second: RFlyer_Sheet_12
+  - first:
+      213: 4079257266063153913
+    second: RFlyer_Sheet_13
+  - first:
+      213: -650337168453282463
+    second: RFlyer_Sheet_14
+  - first:
+      213: 905208205309614698
+    second: RFlyer_Sheet_15
+  - first:
+      213: 4867006762208448645
+    second: RFlyer_Sheet_16
+  - first:
+      213: -5477680678254759270
+    second: RFlyer_Sheet_17
+  - first:
+      213: -8702229710988400350
+    second: RFlyer_Sheet_18
+  - first:
+      213: -5364249287549552780
+    second: RFlyer_Sheet_19
+  - first:
+      213: 5546285370729981501
+    second: RFlyer_Sheet_20
+  - first:
+      213: 7343116224633794671
+    second: RFlyer_Sheet_21
+  - first:
+      213: 5816436004597991897
+    second: RFlyer_Sheet_22
+  - first:
+      213: 8085257189035233053
+    second: RFlyer_Sheet_23
+  - first:
+      213: -4344000648335325595
+    second: RFlyer_Sheet_24
+  - first:
+      213: 8233360289722957187
+    second: RFlyer_Sheet_25
+  - first:
+      213: -8594321966083800201
+    second: RFlyer_Sheet_26
+  - first:
+      213: 2014855605971659029
+    second: RFlyer_Sheet_27
+  - first:
+      213: -8505021698763631779
+    second: RFlyer_Sheet_28
+  - first:
+      213: 8787654877509213683
+    second: RFlyer_Sheet_29
+  - first:
+      213: 3923845011325386564
+    second: RFlyer_Sheet_30
+  - first:
+      213: 440329838101562534
+    second: RFlyer_Sheet_31
+  - first:
+      213: 4442374979829241466
+    second: RFlyer_Sheet_32
+  - first:
+      213: -3023863201919388979
+    second: RFlyer_Sheet_33
+  - first:
+      213: -1647393270240631317
+    second: RFlyer_Sheet_34
+  - first:
+      213: -3549536789179169379
+    second: RFlyer_Sheet_35
+  - first:
+      213: -5135049890088936126
+    second: RFlyer_Sheet_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RFlyer_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13523570ef53bcee0800000000000000
+      internalID: -1239837907249584847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e478a82c8b0a4050800000000000000
+      internalID: 5785449367916279013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e154233aadd7e84f0800000000000000
+      internalID: -824583303767898850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d121ca19e1e4140800000000000000
+      internalID: 4705732271654706513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68692618a69fd580800000000000000
+      internalID: -8800149498188175251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa98ee933d6db5950800000000000000
+      internalID: 6438976294954633647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7869c9153028af90800000000000000
+      internalID: -6942263413153634182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e64b5c7425855d280800000000000000
+      internalID: -9019205568324848530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1697225dce3105490800000000000000
+      internalID: -7759680250050348703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3435ece1a3fe53750800000000000000
+      internalID: 6284191887969375043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b40e0aca66d8830800000000000000
+      internalID: 4075026129459628937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1080682e9afd5c680800000000000000
+      internalID: -8735329981472307199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebeeffd7f9ad8640800000000000000
+      internalID: 5083906436451199978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RFlyer_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa1023eede6c9830800000000000000
+      internalID: 4079257266063153913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: eb85dfa93fa0bb043b3bcccd42caf2b4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RFlyer_Sheet_0: -1239837907249584847
+      RFlyer_Sheet_1: 5785449367916279013
+      RFlyer_Sheet_10: 4075026129459628937
+      RFlyer_Sheet_11: -8735329981472307199
+      RFlyer_Sheet_12: 5083906436451199978
+      RFlyer_Sheet_13: 4079257266063153913
+      RFlyer_Sheet_2: -824583303767898850
+      RFlyer_Sheet_3: 4705732271654706513
+      RFlyer_Sheet_4: -8800149498188175251
+      RFlyer_Sheet_5: 6438976294954633647
+      RFlyer_Sheet_6: -6942263413153634182
+      RFlyer_Sheet_7: -9019205568324848530
+      RFlyer_Sheet_8: -7759680250050348703
+      RFlyer_Sheet_9: 6284191887969375043
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
