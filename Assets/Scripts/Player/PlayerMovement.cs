@@ -67,9 +67,12 @@ public class PlayerMovement
         if (player.rb.linearVelocity.y < player.maxFallSpeed) PlayerMove(player.maxFallSpeed);
         else PlayerMove(player.rb.linearVelocity.y);
 
-        if (player.rb.linearVelocity.y < 2)
+        if(player.rb.linearVelocity.y < -12)
         {
-            //Animation
+            player.ChangeAnimationState("FastFall");
+        }
+        else if (player.rb.linearVelocity.y < 2)
+        {
             player.ChangeAnimationState(fallState);
         }
         else
@@ -110,6 +113,9 @@ public class PlayerMovement
                     Jump();
                     break;
                 case Player.States.Air:
+                    Jump();
+                    break;
+                case Player.States.Land:
                     Jump();
                     break;
             }
@@ -161,6 +167,9 @@ public class PlayerMovement
                     StartDash();
                     break;
                 case Player.States.Air:
+                    StartDash();
+                    break;
+                case Player.States.Land:
                     StartDash();
                     break;
                 case Player.States.NonElementalHeal:

@@ -8,7 +8,10 @@ public class AirBoss : MonoBehaviour
 {
     [NonSerialized] public Health health;
     private BoxCollider2D boxCollider2D;
+    private BoxCollider2D childCollider;
+    private Vector2 childColliderStartSize;
     [SerializeField] private VoidEventChannel triggerBoss;
+    private Rigidbody2D rb;
 
     [Header("AttackTimer")]
     [SerializeField] private float attackTimer;
@@ -83,6 +86,7 @@ public class AirBoss : MonoBehaviour
         Charge,
         ChargeEnd,
         ProjectileThrow,
+        ProjectilesWait,
         Stunned,
         Death,
     }
@@ -92,6 +96,9 @@ public class AirBoss : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
+        childCollider = transform.GetChild(1).gameObject.GetComponent<BoxCollider2D>();
+        childColliderStartSize = childCollider.size;
+        rb = GetComponent<Rigidbody2D>();
 
         health = GetComponent<Health>();
         isleft = false;
@@ -124,6 +131,9 @@ public class AirBoss : MonoBehaviour
                 break;
             case States.ChargeEnd:
                 MoveIntoScreen();
+                break;
+            case States.ProjectilesWait:
+                WaitForNextProjectiles();
                 break;
             case States.Stunned:
                 BossIsStunned();
@@ -198,22 +208,26 @@ public class AirBoss : MonoBehaviour
         CancelInvoke();
         lavaForshadowing[currentLavaStream].SetActive(false);
         lavaStreams[currentLavaStream].SetActive(false);
-        state = States.Death;
-        ChangeAnimationState("Death");
 
-        Death();
+        GameManager.Instance.playerUI.ToggleBossHealth(false);
+
+        boxCollider2D.enabled = false;
+        rb.gravityScale = 0;
+        childCollider.enabled = false;
+
+        ChangeAnimationState("Death");
+        state = States.Death;
     }
     public void Death()
     {
-        GameManager.Instance.playerUI.ToggleBossHealth(false);
-        //Trigger Event
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     public void StartChargeAbility()
     {
         currentCharge = 0;
         timer = 0;
+
         state = States.ChargeStart;
     }
     private void MoveOutOfScreen()
@@ -225,6 +239,7 @@ public class AirBoss : MonoBehaviour
         {
             SetCharge();
 
+            ChangeAnimationState("Charge");
             state = States.Charge;
         }
     }
@@ -234,7 +249,22 @@ public class AirBoss : MonoBehaviour
         transform.position = chargeStartPositions[startPositionNumber].position;
         chargeDirection = (Player.Instance.transform.position - chargeStartPositions[startPositionNumber].position).normalized;
 
+        if (transform.position.x > Player.Instance.transform.position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            transform.right = -chargeDirection;
+        }
+        else
+        { 
+            transform.localScale = new Vector3(-1, 1, 1);
+            transform.right = chargeDirection;
+        }
+
+        childCollider.size = new Vector2(childCollider.size.x, 0.8f);
+
+
         timer = 0;
+
     }
     private void ChargeMovement()
     {
@@ -246,10 +276,12 @@ public class AirBoss : MonoBehaviour
             currentCharge++;
             if (currentCharge >= chargeAmount)
             {
+                transform.rotation = Quaternion.identity;
                 int number = UnityEngine.Random.Range(0, 2);
                 if (number == 0)
                 {
                     isleft = true;
+
                     transform.localScale = new Vector3(-1, 1, 1);
                     transform.position = chargeStartEndPositions[0].position;
                     chargeEndPosition = chargeEndPositions[0];
@@ -261,6 +293,9 @@ public class AirBoss : MonoBehaviour
                     transform.position = chargeStartEndPositions[1].position;
                     chargeEndPosition = chargeEndPositions[1];
                 }
+
+                childCollider.size = childColliderStartSize;
+                ChangeAnimationState("Idle");
                 state = States.ChargeEnd;
             }
             else
@@ -284,20 +319,11 @@ public class AirBoss : MonoBehaviour
     {
         currentProjectilePhase = 0;
         state = States.ProjectileThrow;
-        StartCoroutine("ThrowProjectiles");
+
+        ChangeAnimationState("ProjectileAttack");
         StartCoroutine(TornadoSpawn());
     }
-    IEnumerator ThrowProjectiles()
-    {
-        while (currentProjectilePhase < projectileSpawnPhases)
-        {
-            currentProjectilePhase++;
-            SpawnProjectiles();
-            yield return new WaitForSeconds(timeBetweenProjectiles);
-        }
-        SwitchToIdle();
-    }
-    private void SpawnProjectiles()
+    public void SpawnProjectiles()
     {
         for (int i = 0; i < projectileSpawnAmount; i++)
         {
@@ -309,6 +335,29 @@ public class AirBoss : MonoBehaviour
 
             float randomSpeed = UnityEngine.Random.Range(-projectileRandomSpeed, projectileRandomSpeed);
             proj.GetComponent<Projectile>().projectileSpeed = projectileBaseSpeed + randomSpeed;
+        }
+    }
+   public void SwitchToProjectilesWait()
+    {
+        if (state != States.ProjectileThrow) return;
+
+        currentProjectilePhase++;
+        if (currentProjectilePhase < projectileSpawnPhases)
+        {
+            timer = 0;
+
+            ChangeAnimationState("Idle");
+            state = States.ProjectilesWait;
+        }
+        else SwitchToIdle();
+    }
+    private void WaitForNextProjectiles()
+    {
+        timer += Time.deltaTime;
+        if(timer >= timeBetweenProjectiles)
+        {
+            ChangeAnimationState("ProjectileAttack");
+            state = States.ProjectileThrow;
         }
     }
     IEnumerator TornadoSpawn()
@@ -323,7 +372,9 @@ public class AirBoss : MonoBehaviour
         StopCoroutine("ThrowProjectiles");
         timer = 0;
         boxCollider2D.enabled = true;
+        rb.gravityScale = 2;
 
+        ChangeAnimationState("Stun");
         state = States.Stunned;
     }
     private void BossIsStunned()
@@ -331,8 +382,13 @@ public class AirBoss : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > stunDuration)
         {
+            rb.gravityScale = 0;
             boxCollider2D.enabled = false;
-            SwitchToIdle();
+
+            CalculateFinalAttackTime();
+            timer = finalAttackTime;
+            ChangeAnimationState("Idle");
+            state = States.Idle;
         }
     }
     private void LavaStreamActivate()
