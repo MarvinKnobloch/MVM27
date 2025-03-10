@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     [Space]
     public CheckPoint currentCheckpoint;
     public bool LoadFormCheckpoint;
-    public bool CheckForNewGame;
     [NonSerialized] public bool CheckpointOnSpawn;
 
     [NonSerialized] public int playerCurrency;
@@ -62,9 +61,9 @@ public class GameManager : MonoBehaviour
             Vector3 spawn = new Vector3(XSpawn, YSpawn, 0);
 
             Player.Instance.transform.position = spawn;
-            StartCoroutine(CheckPointOnLoad());
 
         }
+        StartCoroutine(CheckPointOnLoad());
         playerUI.PlayerCurrencyUpdate(PlayerPrefs.GetInt("PlayerCurrency"));
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);

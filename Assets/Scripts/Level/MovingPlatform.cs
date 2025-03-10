@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : MonoBehaviour, IActivate
 {
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
+    private BoxCollider2D childBoxCollider;
+    private SpriteRenderer spriteRenderer;
 
     private Vector3 startPosition;
     private Vector3 endPosition;
+    private Vector3 currentPosition;
 
     [SerializeField] private float travelTime;
     private float moveTimer;
@@ -15,6 +18,7 @@ public class MovingPlatform : MonoBehaviour
     public Vector3 velocity { get; private set; }
     public Vector3 oldPosition { get; private set; }
 
+    [Header("MoveOnEnter")]
     public bool moveOnEnter;
     public bool moveOnEnterDontStop;
     [SerializeField] private GameObject[] linkOtherPlatforms;
@@ -25,22 +29,31 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private bool burningPlatform;
     [SerializeField] private int burningDamage;
 
+    [Header("Useable")]
+    [SerializeField] private bool notUsable;
+    private Color usableColor;
+    private Color notUsableColor;
+
     [NonSerialized] public State state;
+    private State lastState;
 
     public enum State
     {
         MoveToEnd,
         MoveToStart,
-        DontMove,
+        DontMoveOnStartPosition,
+        DontMoveCurrentPosition,
     }
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
         boxCollider = GetComponent<BoxCollider2D>();
-        float xsize = transform.GetChild(0).GetComponent<SpriteRenderer>().size.x -0.8f;
+        childBoxCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+
+        float xsize = spriteRenderer.size.x -0.8f;
         boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
-        transform.GetChild(0).GetComponent<BoxCollider2D>().size = new Vector2(xsize, boxCollider.size.y);
+        childBoxCollider.size = new Vector2(xsize, boxCollider.size.y);
 
         startPosition = transform.position;
         startPosition.z = 0;
@@ -49,11 +62,16 @@ public class MovingPlatform : MonoBehaviour
 
         oldPosition = transform.position;
 
+        usableColor = spriteRenderer.color;
+        Color notUsable = spriteRenderer.color;
+        notUsable.a = 0.2f;
+        notUsableColor = notUsable;
+        SetUsableState();
     }
     private void OnEnable()
     {
         if (moveOnEnter == false) state = State.MoveToEnd;
-        else state = State.DontMove;
+        else state = State.DontMoveOnStartPosition;
     }
     private void Update()
     {
@@ -71,8 +89,11 @@ public class MovingPlatform : MonoBehaviour
             case State.MoveToStart:
                 ToStart();
                 break;
-            case State.DontMove:
-                HoldPosition();
+            case State.DontMoveOnStartPosition:
+                HoldStartPosition();
+                break;
+            case State.DontMoveCurrentPosition:
+                HoldCurrentPosition();
                 break;
         }
     }
@@ -112,7 +133,7 @@ public class MovingPlatform : MonoBehaviour
             {
                 if (moveOnEnterDontStop == false)
                 {
-                    state = State.DontMove;
+                    state = State.DontMoveOnStartPosition;
                     moveTimer = 0;
                 }
                 else
@@ -140,9 +161,14 @@ public class MovingPlatform : MonoBehaviour
         state = State.MoveToEnd;
         moveTimer = 0;
     }
-    private void HoldPosition()
+    private void HoldStartPosition()
     {
         rb.transform.position = startPosition;
+        rb.linearVelocity = Vector2.zero;
+    }
+    private void HoldCurrentPosition()
+    {
+        rb.transform.position = currentPosition;
         rb.linearVelocity = Vector2.zero;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -156,7 +182,7 @@ public class MovingPlatform : MonoBehaviour
 
                 if (platform.moveOnEnter == true)
                 {
-                    if (platform.state == MovingPlatform.State.DontMove) platform.CheckLinkedMovement();
+                    if (platform.state == MovingPlatform.State.DontMoveOnStartPosition) platform.CheckLinkedMovement();
                 }
 
             }
@@ -187,6 +213,51 @@ public class MovingPlatform : MonoBehaviour
 
                 }
             }
+        }
+    }
+
+    public void SetRequirement()
+    {
+        return;
+    }
+
+    public void Activate()
+    {
+        currentPosition = transform.position;
+        lastState = state;
+        state = State.DontMoveCurrentPosition;
+    }
+
+    public void Deactivate()
+    {
+        state = lastState;
+    }
+    public void SwitchPlatformUseabiltity(bool onlyDisable)
+    {
+        if (onlyDisable)
+        {
+            notUsable = true;
+            SetUsableState();
+        }
+        else
+        {
+            notUsable = !notUsable;
+            SetUsableState();
+        }
+    }
+    private void SetUsableState()
+    {
+        if (notUsable)
+        {
+            boxCollider.enabled = false;
+            childBoxCollider.enabled = false;
+            spriteRenderer.color = notUsableColor;
+        }
+        else
+        {
+            boxCollider.enabled = true;
+            childBoxCollider.enabled = true;
+            spriteRenderer.color = usableColor;
         }
     }
 }
