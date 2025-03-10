@@ -2,13 +2,13 @@ using System;
 using UnityEngine;
 using TMPro;
 
-public class ChangePlayerStats : MonoBehaviour
+public class DebugMenu : MonoBehaviour
 {
     [SerializeField] private Upgrades.StatsUpgrades stat;
     [SerializeField] private int amount = 1;
     [SerializeField] private TextMeshProUGUI statText;
 
-    [SerializeField] private ChangePlayerStats[] allstats;
+    [SerializeField] private DebugMenu[] allstats;
 
 
     private void OnEnable()
@@ -53,4 +53,8 @@ public class ChangePlayerStats : MonoBehaviour
             allstats[i].TextUpdate();
         }
     }
+    public void ProgressReset() => GameManager.Instance.menuController.ProgressReset();
+    public void OverworldUpgradesReset() => GameManager.Instance.menuController.OverworldUpgradeReset();
+    public void ShopReset() => GameManager.Instance.menuController.ShopReset();
+
 }

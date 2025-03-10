@@ -41,7 +41,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Image bossHealthbar;
 
     [Header("Shop")]
-    [SerializeField] private GameObject shop;
+    [SerializeField] public GameObject shop;
 
     private float timer;
 

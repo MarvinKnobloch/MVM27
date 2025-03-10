@@ -81,6 +81,7 @@ public class MenuController : MonoBehaviour
             if (GameManager.Instance.playerUI.dialogBox.activeSelf == true) return;
 
             if (GameManager.Instance.playerUI.messageBox.activeSelf == true) GameManager.Instance.playerUI.MessageBoxDisable();
+            else if (GameManager.Instance.playerUI.shop.activeSelf == true) GameManager.Instance.playerUI.DeactivateShop();
             else if (confirmController.activeSelf == true) confirmController.SetActive(false);
             else if (ingameMenu.activeSelf == false)
             {
@@ -154,30 +155,43 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BonusSwitchAttack", 0);
 
         //Progress
+        ProgressReset();
+
+        //OverworldUpgrades
+        OverworldUpgradeReset();
+
+        //Shop
+        ShopReset();
+
+
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
+        gameIsPaused = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+    }
+    public void ProgressReset()
+    {
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialCollapsedGround.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialLeftLock.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialRightLock.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), 0);
-
-        //OverworldUpgrades
+    }
+    public void OverworldUpgradeReset()
+    {
         for (int i = 0; i < 50; i++)
         {
             PlayerPrefs.SetInt("Upgrade" + i, 0);
         }
-
-        //Shop
+    }
+    public void ShopReset()
+    {
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusHealth.ToString(), 0);
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusHeal.ToString(), 0);
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusEnergy.ToString(), 0);
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusEnergyRecharge.ToString(), 0);
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusAttack.ToString(), 0);
         PlayerPrefs.SetInt(Shop.ShopUpgrades.ShopBonusSwitchAttack.ToString(), 0);
-
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
-        gameIsPaused = false;
-        Time.timeScale = 1;
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void LoadGame()
     {
