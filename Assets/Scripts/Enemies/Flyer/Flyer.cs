@@ -152,6 +152,7 @@ public class Flyer : MonoBehaviour
     [SerializeField, Min(0f)] private float hitFreezeTime = 1f;
     [Tooltip("The force to push this back when being hit. Set to 0 to disable.")]
     [SerializeField, Min(0f)] private float hitPushbackForce = .4f;
+    [SerializeField, Min(0)] private int collisionWithPlayerDamage = 1;
 
     [Header("Combat - Attack")]
     [SerializeField] private AttackTypes attackType = AttackTypes.SingleShot;
@@ -279,6 +280,14 @@ public class Flyer : MonoBehaviour
             HandleNormalMovement();
         else if (detectionState == DetectionState.Alert)
             HandleAlertMovement();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.Instance.health.TakeDamage(collisionWithPlayerDamage, false);
+        }
     }
 
     private void HandleNormalMovement()

@@ -38,6 +38,10 @@ public abstract class FlyerAttack : MonoBehaviour
     {
         // TODO: Remove log once we are happy with the flyer
         Debug.Log($"FLyerAttack::OnCollisionEnter2D hit {collision.gameObject.name}");
+
+        if (collision.gameObject.CompareTag("Player"))
+            Player.Instance.health.TakeDamage(damage, false);
+        
         Destroy(gameObject);
     }
 }
