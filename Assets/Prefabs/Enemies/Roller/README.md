@@ -6,6 +6,7 @@ The roller cannot go up/down, only left/right.
 - red line is the vision line. It looks for the player in that line.
 - Freeze On Hit Time is basically when the roller stops moving for a brief moment after getting hit
 - Waypoint is the position the roller will move to. Once it reaches it, it will go back to start.
+- blue dots are the Start Position & Waypoint. So the roller will move between the dots.
 
 ## Combat
 - Moves left/right along from start point to waypoint

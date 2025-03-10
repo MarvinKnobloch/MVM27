@@ -152,6 +152,18 @@ public class RollerEnemy : MonoBehaviour
         Vector2 direction = moveDirection != Vector2.zero ? moveDirection : Vector2.right;
         Gizmos.DrawLine(rb.position, rb.position + direction * visionRange);
 
+        if (waypoint != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(waypoint.position, 0.1f);
+        }
+
+        if (startPosition != Vector2.zero)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(startPosition, 0.1f);
+        }
+
         UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
     }
 #endif
