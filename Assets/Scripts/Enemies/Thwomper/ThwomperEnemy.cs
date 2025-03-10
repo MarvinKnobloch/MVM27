@@ -41,7 +41,7 @@ public class ThwomperEnemy : MonoBehaviour
 
 
     private const float WAYPOINT_PROXIMITY = 0.1f;
-    private const float DEATH_DESTROY_TIME = 0.5f;
+    private const float DEATH_DESTROY_TIME = 1.5f;
     private const float GROUND_CHECK_RADIUS = 0.1f;
     private const float VISION_RANGE = 20f;
 
