@@ -21,6 +21,8 @@ public class AirBossTrigger : MonoBehaviour
         }
         if(collision.gameObject == Player.Instance.gameObject)
         {
+            if (airBoss.state == AirBoss.States.Stunned) return;
+
             Player.Instance.health.TakeDamage(airBoss.chargeDamage, false);
         }
     }

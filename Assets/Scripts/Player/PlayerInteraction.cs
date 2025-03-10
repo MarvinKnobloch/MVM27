@@ -29,6 +29,9 @@ public class PlayerInteraction
                 case Player.States.Air:
                     player.currentInteractable.Interaction();
                     break;
+                case Player.States.Land:
+                    player.currentInteractable.Interaction();
+                    break;
             }
         }
     }
