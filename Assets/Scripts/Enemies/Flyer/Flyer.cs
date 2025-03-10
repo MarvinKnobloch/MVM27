@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// TODO
+// - fix the bug where we allow the flyer to go out of bounds
+
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Health))]
 public class Flyer : MonoBehaviour
