@@ -1,0 +1,360 @@
+fileFormatVersion: 2
+guid: 0f8c7f5d9c985cf40a2e13b634806a80
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 547469886492700345
+    second: breakable_platform_Red_Break_0
+  - first:
+      213: -8894171160354869869
+    second: breakable_platform_Red_Break_1
+  - first:
+      213: 7205027940828652423
+    second: breakable_platform_Red_Break_2
+  - first:
+      213: 1563984863779078303
+    second: breakable_platform_Red_Break_3
+  - first:
+      213: 3918795212642869192
+    second: breakable_platform_Red_Break_4
+  - first:
+      213: 597196057415605683
+    second: breakable_platform_Red_Break_5
+  - first:
+      213: 1020840766657331294
+    second: breakable_platform_Red_Break_6
+  - first:
+      213: -484194125566847602
+    second: breakable_platform_Red_Break_7
+  - first:
+      213: 3556573479911489915
+    second: breakable_platform_Red_Break_8
+  - first:
+      213: -5374088489699095575
+    second: breakable_platform_Red_Break_9
+  - first:
+      213: -8907238780533910863
+    second: breakable_platform_Red_Break_10
+  - first:
+      213: 6598000879157657753
+    second: breakable_platform_Red_Break_11
+  - first:
+      213: 4958283340948967807
+    second: breakable_platform_Red_Break_12
+  - first:
+      213: 4968424088024527989
+    second: breakable_platform_Red_Break_13
+  - first:
+      213: -1071796542597821857
+    second: breakable_platform_Red_Break_14
+  - first:
+      213: 2289945060111291543
+    second: breakable_platform_Red_Break_15
+  - first:
+      213: -1693984642777934486
+    second: breakable_platform_Red_Break_16
+  - first:
+      213: -5665156111659627812
+    second: breakable_platform_Red_Break_17
+  - first:
+      213: -7241259538357966800
+    second: breakable_platform_Red_Break_18
+  - first:
+      213: 4179765849498804321
+    second: breakable_platform_Red_Break_19
+  - first:
+      213: 6842419813736408731
+    second: breakable_platform_Red_Break_20
+  - first:
+      213: -6197962208793544437
+    second: breakable_platform_Red_Break_21
+  - first:
+      213: 2695164974741768715
+    second: breakable_platform_Red_Break_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9beee9d06f0099700800000000000000
+      internalID: 547469886492700345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d2687f37e819480800000000000000
+      internalID: -8894171160354869869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7832bd10db66df360800000000000000
+      internalID: 7205027940828652423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f90c3af72f364b510800000000000000
+      internalID: 1563984863779078303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf5415bb7b526630800000000000000
+      internalID: 3918795212642869192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bd558f66aaa94800800000000000000
+      internalID: 597196057415605683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: breakable_platform_Red_Break_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5009d4c441ca2e00800000000000000
+      internalID: 1020840766657331294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bdc54f49711d4b14a98eb027e3d1d611
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      breakable_platform_Red_Break_0: 547469886492700345
+      breakable_platform_Red_Break_1: -8894171160354869869
+      breakable_platform_Red_Break_2: 7205027940828652423
+      breakable_platform_Red_Break_3: 1563984863779078303
+      breakable_platform_Red_Break_4: 3918795212642869192
+      breakable_platform_Red_Break_5: 597196057415605683
+      breakable_platform_Red_Break_6: 1020840766657331294
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

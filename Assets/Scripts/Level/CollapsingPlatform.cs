@@ -5,8 +5,10 @@ using UnityEngine;
 public class CollapsingPlatform : MonoBehaviour
 {
     private BoxCollider2D boxCollider;
+    private BoxCollider2D childCollider;
     private SpriteRenderer spriteRenderer;
     private GameObject childObj;
+    private Animator animator;
 
     private bool collapsing;
     private int changeSpeedAmount = 3;
@@ -16,10 +18,10 @@ public class CollapsingPlatform : MonoBehaviour
     private float timer;
     [SerializeField] private float respawnTime;
     [SerializeField] private float baseBlinkSpeed;
+    [SerializeField] private Sprite[] platformSprites;
     private float blinkSpeed;
     private float blinkTimer;
     private bool normalColor;
-    private Color baseColor;
 
     [Space]
     [SerializeField] private GameManager.OverworldSaveNames saveName;
@@ -28,12 +30,12 @@ public class CollapsingPlatform : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         childObj = transform.GetChild(0).gameObject;
         spriteRenderer = childObj.GetComponent<SpriteRenderer>();
+        animator = transform.GetChild(0).gameObject.GetComponent<Animator>();
+        childCollider = childObj.GetComponent<BoxCollider2D>();
 
         float xsize = spriteRenderer.size.x - 0.05f;
         boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
-        childObj.GetComponent<BoxCollider2D>().size = new Vector2(xsize, boxCollider.size.y);
-
-        baseColor = spriteRenderer.color;
+        childCollider.size = new Vector2(xsize, boxCollider.size.y);
     }
 
     private void Start()
@@ -67,10 +69,11 @@ public class CollapsingPlatform : MonoBehaviour
             speedChanges++;
         }
         StopAllCoroutines();
-        spriteRenderer.color = baseColor;
+        spriteRenderer.sprite = platformSprites[0];
         normalColor = false;
-        childObj.SetActive(false);
         boxCollider.enabled = false;
+        childCollider.enabled = false;
+        ActivateAnimator();
         if(respawnTime != 0) StartCoroutine(Respawn());
     }
     IEnumerator PlatformBlink()
@@ -84,8 +87,8 @@ public class CollapsingPlatform : MonoBehaviour
             {
                 blinkTimer = 0;
                 normalColor = !normalColor;
-                if (normalColor) spriteRenderer.color = Color.red;
-                else spriteRenderer.color = baseColor;
+                if (normalColor) spriteRenderer.sprite = platformSprites[1];
+                else spriteRenderer.sprite = platformSprites[0];
             }
             yield return null;
         }
@@ -95,6 +98,21 @@ public class CollapsingPlatform : MonoBehaviour
         yield return new WaitForSeconds(respawnTime);
         collapsing = false;
         boxCollider.enabled = true;
-        childObj.SetActive(true);
+        childCollider.enabled = true;
+        spriteRenderer.sprite = platformSprites[0];
+        spriteRenderer.enabled = true;
+        animator.enabled = false;
+    }
+    private void ActivateAnimator()
+    {
+        animator.enabled = true; 
+        animator.Play("Break", -1, 0f);
+        StartCoroutine(DeactivateAnimator());
+    }
+    IEnumerator DeactivateAnimator()
+    {
+        yield return new WaitForSeconds(0.6f);
+        animator.enabled = false;
+        spriteRenderer.enabled = false;
     }
 }

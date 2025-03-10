@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c9a77e79c8d304f43b765e1ac139cf89
+guid: a49b73dc55fdfe841a1a2d6ab8f633ef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6873183457654762329
-    second: breakable_platform_0
+      213: 2617418607505972055
+    second: breakable_platform_red_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,9 +99,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: breakable_platform_0
+      name: breakable_platform_red_0
       rect:
         serializedVersion: 2
         x: 25
@@ -121,15 +121,15 @@ TextureImporter:
         width: 46
         height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 7, y: 0, z: 7, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95b6a9560f3726f50800000000000000
-      internalID: 6873183457654762329
+      spriteID: 75b14e81b50f25420800000000000000
+      internalID: 2617418607505972055
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 35ef669b1f321904fa18bc207bfd0989
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      breakable_platform_0: 6873183457654762329
+      breakable_platform_red_0: 2617418607505972055
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
