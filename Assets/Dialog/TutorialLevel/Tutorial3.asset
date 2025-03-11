@@ -16,23 +16,28 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
-    characterName: Cinder
-    dialogText: We almost made it
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
-    characterName: Cinder
-    dialogText: Go job!
-    dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
-    autoPlayInterval: 2
-  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
-    characterName: Cinder
-    dialogText: Woah, where you did come from?
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
     characterName: Player
-    dialogText: Whats going on?
+    dialogText: Test1
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+    characterName: ???
+    dialogText: Test2
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 0}
+    characterName: ???
+    dialogText: Test3
+    dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
+    autoPlayInterval: 1.5
+  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+    characterName: Player
+    dialogText: Test4
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+    characterName: Player
+    dialogText: Test5
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 0

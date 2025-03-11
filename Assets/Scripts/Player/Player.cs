@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
     [Header("Other")]
     public Transform projectileSpawnPosition;
+    public Transform playerCameraFollow;
 
     [Header("Energy")]
     [SerializeField] private int maxEnergy;
@@ -329,11 +330,11 @@ public class Player : MonoBehaviour
         canWallBoost = false;
         performedWallBoost = false;
 
-
         if (onlyResetValues == false)
         {
-            ChangeAnimationState("Land");
-            state = States.Land;
+            state = States.Ground;
+            //ChangeAnimationState("Land");
+            //state = States.Land;
         }
     }
     public void GroundState()

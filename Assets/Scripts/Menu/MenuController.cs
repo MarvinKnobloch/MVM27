@@ -131,8 +131,8 @@ public class MenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("NewGame", 0);
 
-        PlayerPrefs.SetFloat("PlayerXSpawn", 3);
-        PlayerPrefs.SetFloat("PlayerYSpawn", 3);
+        PlayerPrefs.SetFloat("PlayerXSpawn", 6);
+        PlayerPrefs.SetFloat("PlayerYSpawn", 2.5f);
         PlayerPrefs.SetInt("CurrentLevel", 1);
 
         //Abilities

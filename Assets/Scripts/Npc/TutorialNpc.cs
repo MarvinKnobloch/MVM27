@@ -6,6 +6,7 @@ public class TutorialNpc : MonoBehaviour
     [SerializeField] private int TutorialNumber;
     [SerializeField] private float movementSpeed;
     [SerializeField] private Transform moveToPosition;
+    private bool faceLeft;
     [SerializeField] private bool disableAfterMove;
 
     //Animations
@@ -60,8 +61,10 @@ public class TutorialNpc : MonoBehaviour
     }
     private void NpcMove()
     {
-        transform.Translate(transform.right * movementSpeed * Time.deltaTime, Space.World);
-        if(Vector2.Distance(transform.position, moveToPosition.position) < 0.5f)
+        if(faceLeft) transform.Translate(transform.right * movementSpeed * Time.deltaTime, Space.World);
+        else transform.Translate(-transform.right * movementSpeed * Time.deltaTime, Space.World);
+
+        if (Vector2.Distance(transform.position, moveToPosition.position) < 0.5f)
         {
             if (disableAfterMove) gameObject.SetActive(false);
             else SwitchToIdle();
@@ -82,11 +85,13 @@ public class TutorialNpc : MonoBehaviour
     {
         if (transform.position.x < moveToPosition.position.x)
         {
+            faceLeft = true;
             Vector3 localScale = new Vector3(1, 1, 1);
             transform.localScale = localScale;
         }
         else
         {
+            faceLeft = false;
             Vector3 localScale = new Vector3(-1, 1, 1);
             transform.localScale = localScale;
         }

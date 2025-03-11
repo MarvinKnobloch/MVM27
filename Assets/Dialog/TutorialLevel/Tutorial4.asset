@@ -16,28 +16,23 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
-    characterName: Player
-    dialogText: What is this thing?
-    dialogEvent: {fileID: 11400000, guid: 07d73c6f0d1347449be5ff5ca3dca722, type: 2}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
     characterName: ???
-    dialogText: Be careful! Its dangerous.
+    dialogText: We almost made it
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 21300000, guid: ffed44aa6b80edb48b6adea34145a82e, type: 3}
-    characterName: Robot
-    dialogText: Bi bu bu bi bu bu ba
-    dialogEvent: {fileID: 11400000, guid: 1e341b0c31ce9454d944b4a7f23faa6a, type: 2}
-    autoPlayInterval: 1
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
-    characterName: Player
-    dialogText: NOOOOOOOOOOO!!!
-    dialogEvent: {fileID: 11400000, guid: d358fc8e81297834ea16fee6a1fff643, type: 2}
+  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: ???
+    dialogText: Go job!
+    dialogEvent: {fileID: 11400000, guid: e6862c4843339e444a4dd7137fbdf3e2, type: 2}
+    autoPlayInterval: 2
+  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+    characterName: ???
+    dialogText: Woah, where you did come from?
+    dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
     characterName: Player
-    dialogText: Bastard! I WILL DESTROY YOU!!!
-    dialogEvent: {fileID: 11400000, guid: e043571c1a83dee4eb4e3ea6ff218dd4, type: 2}
-    autoPlayInterval: 1.5
+    dialogText: Whats going on?
+    dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
+    autoPlayInterval: 0

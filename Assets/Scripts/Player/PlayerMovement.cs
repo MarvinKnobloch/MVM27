@@ -145,7 +145,7 @@ public class PlayerMovement
         if (player.controls.Player.Jump.WasReleasedThisFrame())
         {
             float velocityReduce = player.maxJumpTime - player.jumpTimer;
-            player.rb.AddForce(new Vector2(0, velocityReduce * -15), ForceMode2D.Impulse);
+            player.rb.AddForce(new Vector2(0, velocityReduce * -20), ForceMode2D.Impulse);
             player.jumpPerformed = false;
         }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8424315393440835051}
   - component: {fileID: 7091422711835593604}
   - component: {fileID: 6249879480030524743}
+  - component: {fileID: 6859823976448499125}
   m_Layer: 0
   m_Name: Cinemachine
   m_TagString: Untagged
@@ -91,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0.3, y: 0.3, z: 0.3}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -109,10 +110,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundingShape2D: {fileID: 0}
-  Damping: 0.5
+  Damping: 0.1
   SlowingDistance: 5
   OversizeWindow:
     Enabled: 0
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
+--- !u!114 &6859823976448499125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381633632679858201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccd0c0f17bed004dbeac49a35298597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

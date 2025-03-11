@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -48,6 +49,7 @@ public class TutorialBoss : MonoBehaviour
 
     [Header("Death")]
     [SerializeField] private GameObject fireUpgrade;
+    [SerializeField] private MoveOnInteraction[] bossGates;
 
     //Animations
     private Animator animator;
@@ -231,6 +233,8 @@ public class TutorialBoss : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
+        GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
+
         StopAllCoroutines();
         state = States.Death;
         ChangeAnimationState("Death");
@@ -238,6 +242,11 @@ public class TutorialBoss : MonoBehaviour
     public void Death() 
     {
         fireUpgrade.SetActive(true);
+        foreach (var obj in bossGates)
+        {
+            obj.Deactivate();
+        }
+
         GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
     }

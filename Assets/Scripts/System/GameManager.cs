@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public MenuController menuController;
     public PlayerUI playerUI;
     [NonSerialized] public CinemachineCamera cinemachineCamera;
+    [NonSerialized] public CinemachineFollow cinemachineFollow;
+    [NonSerialized] public Vector3 baseDamping;
 
     [Space]
     public CheckPoint currentCheckpoint;
@@ -98,5 +100,16 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt(saveName.ToString(), 1);
         }
+    }
+    public void ChangeCamera(Transform newTarget)
+    {
+        cinemachineFollow.TrackerSettings.PositionDamping = new Vector3(2, 2, 2);
+        cinemachineCamera.Target.TrackingTarget = newTarget;
+        StartCoroutine(ResetCameraDamping());
+    }
+    IEnumerator ResetCameraDamping()
+    {
+        yield return new WaitForSeconds(2);
+        cinemachineFollow.TrackerSettings.PositionDamping = baseDamping;
     }
 }

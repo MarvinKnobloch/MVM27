@@ -7,10 +7,11 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private VoidEventChannel disableBlackScreen;
     [SerializeField] private VoidEventChannel standUp;
     [SerializeField] private VoidEventChannel endTutorial;
-    [SerializeField] private VoidEventChannel bossCamera;
+    [SerializeField] private VoidEventChannel bossCameraAndGates;
 
     [Space]
     [SerializeField] private Transform bossCameraPosition;
+    [SerializeField] private MoveOnInteraction[] bossGates;
 
     private void OnEnable()
     {
@@ -19,7 +20,7 @@ public class Tutorial : MonoBehaviour
         disableBlackScreen.OnEventRaised += DeactivateBlackScreen;
         standUp.OnEventRaised += IntroStandUp;
         endTutorial.OnEventRaised += TutorialDone;
-        bossCamera.OnEventRaised += BossCamera;
+        bossCameraAndGates.OnEventRaised += BossCameraAndGates;
     }
     private void OnDisable()
     {
@@ -28,7 +29,7 @@ public class Tutorial : MonoBehaviour
         disableBlackScreen.OnEventRaised -= DeactivateBlackScreen;
         standUp.OnEventRaised -= IntroStandUp;
         endTutorial.OnEventRaised -= TutorialDone;
-        bossCamera.OnEventRaised -= BossCamera;
+        bossCameraAndGates.OnEventRaised -= BossCameraAndGates;
     }
 
     private void ActivateBlackScreen()
@@ -37,7 +38,6 @@ public class Tutorial : MonoBehaviour
     }
     private void PlayerSleep()
     {
-        Player.Instance.state = Player.States.Emtpy;
         Player.Instance.ChangeAnimationState("Sleep");
     }
     private void DeactivateBlackScreen()
@@ -53,8 +53,12 @@ public class Tutorial : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
         PlayerPrefs.SetInt("NewGame", 1);
     }
-    public void BossCamera()
+    public void BossCameraAndGates()
     {
-        GameManager.Instance.cinemachineCamera.Target.TrackingTarget = bossCameraPosition;
+        GameManager.Instance.ChangeCamera(bossCameraPosition);
+        foreach (var obj in bossGates)
+        {
+            obj.Activate();
+        }
     }
 }

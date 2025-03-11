@@ -292,6 +292,7 @@ MonoBehaviour:
   iFramesDuration: 0.8
   iFramesBlinkSpeed: 0.15
   projectileSpawnPosition: {fileID: 1794253880594239891}
+  playerCameraFollow: {fileID: 6481228596563148586}
   maxEnergy: 50
   canWallBoost: 0
   performedWallBoost: 0
@@ -388,7 +389,7 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 0}
   HealthBarOffset: 1
   isBoss: 0
-  autoDestoryOnDeath: 0
+  autoDestroyOnDeath: 0
   maxHealth: 10
   bossType: 0
   dieEvent:
