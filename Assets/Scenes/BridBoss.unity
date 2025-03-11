@@ -25972,7 +25972,7 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 0}
   HealthBarOffset: 1
   isBoss: 1
-  autoDestoryOnDeath: 0
+  autoDestroyOnDeath: 0
   maxHealth: 100
   bossType: 2
   dieEvent:
@@ -26001,7 +26001,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 717480382}
         m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
-        m_MethodName: StartProjectileSpawn
+        m_MethodName: SetEnemySpawnPhase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26016,6 +26016,20 @@ MonoBehaviour:
       - m_Target: {fileID: 717480382}
         m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
         m_MethodName: StartChargeAbility
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 717480382}
+        m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
+        m_MethodName: StartProjectileSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26061,6 +26075,14 @@ MonoBehaviour:
   tornadoSpawnTime: 2.8
   randomTornadoTime: 0.6
   stunDuration: 5
+  enemiesToSpawn: {fileID: 0}
+  enemySpawnPhases: 2
+  feathers: {fileID: 7432668743870324461, guid: e70a2a790d2a6a74db03027b67deb2c3, type: 3}
+  timeBetweenFeathers: 3
+  feathersAmount: 7
+  feathersAngleSize: 110
+  feahtersRandomAngle: 3
+  feathersPhases: 2
   lavaForshadowing:
   - {fileID: 1227152920}
   - {fileID: 465269264}

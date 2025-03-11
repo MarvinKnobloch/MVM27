@@ -18,8 +18,9 @@ public class DialogTriggerZone : MonoBehaviour
                 if(dialog.disableInputs == true)
                 {
                     Player.Instance.rb.linearVelocity = Vector2.zero;
-                    Player.Instance.SwitchToGround(false);
+                    Player.Instance.SwitchToGround(true);
                     Player.Instance.ChangeAnimationState("Idle");
+                    Player.Instance.state = Player.States.Ground;
                 }
             }
             GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().DialogStart(dialog, false);

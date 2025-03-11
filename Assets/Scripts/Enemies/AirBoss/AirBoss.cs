@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class AirBoss : MonoBehaviour
 {
@@ -65,6 +66,22 @@ public class AirBoss : MonoBehaviour
     [SerializeField] private float randomTornadoTime;
     [SerializeField] private float stunDuration;
 
+    [Header("EnemiesPhase")]
+    [SerializeField] private GameObject enemiesToSpawn;
+    [SerializeField] private int enemySpawnPhases;
+    private int currentEnemySpawnPhase;
+    private Vector2 leftEnemySpawnPosition;
+    private Vector2 rightEnemySpawnPosition;
+    private Vector2 enemySpawnPosition;
+    [SerializeField] private GameObject feathers;
+    [SerializeField] private float timeBetweenFeathers;
+    [SerializeField] private int feathersAmount;
+    [SerializeField] private int feathersAngleSize;
+    [SerializeField] private int feahtersRandomAngle;
+    [SerializeField] private int feathersPhases;
+    private int currentFeathersPhase;
+    private bool enemySpawnPhaseDone;
+
     [Header("Lava")]
     [SerializeField] private GameObject[] lavaForshadowing;
     [SerializeField] private float timeUntilEruption;
@@ -87,6 +104,10 @@ public class AirBoss : MonoBehaviour
         ChargeEnd,
         ProjectileThrow,
         ProjectilesWait,
+        GetToSpawnEnemyPhase,
+        EnemySpawn,
+        WaitForFeathers,
+        ShootFeathers,
         Stunned,
         Death,
     }
@@ -102,6 +123,9 @@ public class AirBoss : MonoBehaviour
 
         health = GetComponent<Health>();
         isleft = false;
+
+        leftEnemySpawnPosition = (Vector2)chargeEndPositions[0].position + Vector2.up * 7;
+        rightEnemySpawnPosition = (Vector2)chargeEndPositions[1].position + Vector2.up * 7;
     }
     private void Start()
     {
@@ -135,6 +159,16 @@ public class AirBoss : MonoBehaviour
             case States.ProjectilesWait:
                 WaitForNextProjectiles();
                 break;
+            case States.GetToSpawnEnemyPhase:
+                MoveToEnemySpawnPosition();
+                break;
+            case States.EnemySpawn:
+                break;
+            case States.WaitForFeathers:
+                WaitForShotFeathers();
+                break;
+            case States.ShootFeathers:
+                break;
             case States.Stunned:
                 BossIsStunned();
                 break;
@@ -158,6 +192,8 @@ public class AirBoss : MonoBehaviour
             }
             else
             {
+                if (currentAttack == 0 && enemySpawnPhaseDone) currentAttack++;
+
                 abilities[currentAttack].Invoke();
                 if (currentAttack < abilities.Length - 1) currentAttack++;
                 else currentAttack = 0;
@@ -367,6 +403,96 @@ public class AirBoss : MonoBehaviour
         if (isleft) proj.transform.Rotate(0, 0, 0);
         else proj.transform.Rotate(0, 0, 180);
     }
+    public void SetEnemySpawnPhase()
+    {
+        if (isleft) enemySpawnPosition = leftEnemySpawnPosition;
+        else enemySpawnPosition = rightEnemySpawnPosition;
+
+        state = States.GetToSpawnEnemyPhase;
+    }
+    private void MoveToEnemySpawnPosition()
+    {
+        var step = 6 * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, enemySpawnPosition, step);
+
+        if (Vector2.Distance(transform.position, enemySpawnPosition) < 0.2f)
+        {
+            if(isleft) transform.localScale = new Vector3(-1, 1, 1);
+            else transform.localScale = new Vector3(1, 1, 1);
+
+            ChangeAnimationState("SpawnEnemies");
+            state = States.EnemySpawn;
+        }
+    }
+    public void SpawnEnemies()
+    {
+        
+    }
+    public void SwitchToWaitForFeathers()
+    {
+        timer = 0;
+        ChangeAnimationState("Idle");
+        state = States.WaitForFeathers;
+    }
+    private void WaitForShotFeathers()
+    {
+        timer += Time.deltaTime;
+        if (timer >= timeBetweenFeathers)
+        {
+            ChangeAnimationState("ShotFeathers");
+            state = States.ShootFeathers;
+        }
+    }
+    public void ShotFeathers()
+    {
+        int angleBetweenFeathers = Mathf.RoundToInt(feathersAngleSize / feathersAmount);
+        int startangle = UnityEngine.Random.Range(-feahtersRandomAngle, feahtersRandomAngle);
+
+        if (isleft) startangle = -15 - startangle;
+        else startangle =  195 + startangle;
+
+        for (int i = 0; i < feathersAmount; i++)
+        {
+            GameObject feather = Instantiate(feathers, transform.position, Quaternion.identity);
+
+            feather.transform.Rotate(0, 0, startangle);
+
+            if (isleft) startangle -= angleBetweenFeathers;
+            else startangle += angleBetweenFeathers;
+
+        }
+    }
+    public void ShotFeathersEnd()
+    {
+        //if (state != States.SpawnFeathers) return;
+
+        currentFeathersPhase++;
+
+        if (currentFeathersPhase < feathersPhases)
+        {
+            timer = 0;
+            SwitchToWaitForFeathers();
+        }
+        else
+        {
+            currentEnemySpawnPhase++;
+
+            if (currentEnemySpawnPhase < enemySpawnPhases)
+            {
+                currentFeathersPhase = 0;
+                isleft = !isleft;
+                ChangeAnimationState("Idle");
+                SetEnemySpawnPhase();
+            }
+            else
+            {
+                enemySpawnPhaseDone = true;
+                currentFeathersPhase = 0;
+                currentEnemySpawnPhase = 0;
+                SwitchToIdle();
+            }
+        }
+    }    
     public void ReflectHit()
     {
         StopCoroutine("ThrowProjectiles");
@@ -385,6 +511,7 @@ public class AirBoss : MonoBehaviour
             rb.gravityScale = 0;
             boxCollider2D.enabled = false;
 
+            enemySpawnPhaseDone = false;
             CalculateFinalAttackTime();
             timer = finalAttackTime;
             ChangeAnimationState("Idle");
