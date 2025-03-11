@@ -43,9 +43,6 @@ public class PlayerAbilties
             case Player.States.Air:
                 StartNonElementHeal();
                 break;
-            case Player.States.Land:
-                StartNonElementHeal();
-                break;
         }
     }
     private void StartNonElementHeal()
@@ -93,9 +90,6 @@ public class PlayerAbilties
             case Player.States.Air:
                 StartHeavyPunsh();
                 break;
-            case Player.States.Land:
-                StartHeavyPunsh();
-                break;
         }
     }
     private void StartHeavyPunsh()
@@ -141,9 +135,6 @@ public class PlayerAbilties
                 StartShootFireball();
                 break;
             case Player.States.Air:
-                StartShootFireball();
-                break;
-            case Player.States.Land:
                 StartShootFireball();
                 break;
         }
@@ -212,9 +203,6 @@ public class PlayerAbilties
                 ElementalSwitch(slot);
                 break;
             case Player.States.Air:
-                ElementalSwitch(slot);
-                break;
-            case Player.States.Land:
                 ElementalSwitch(slot);
                 break;
         }

@@ -23,7 +23,7 @@ public class PlayerMovement
         else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 10;
         else player.sidewardsStreamMovement = 0;
 
-        if (player.movingPlatform != null)
+        if (player.movingPlatform != null && player.state != Player.States.Air)
         {
             float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
             player.playerVelocity.Set((player.moveDirection.x * player.movementSpeed) + additionalMovement, player.movingPlatform.velocity.y + grounddrag);
@@ -33,7 +33,7 @@ public class PlayerMovement
             float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement;
             player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + additionalMovement, grounddrag);
         }
-        
+
         player.rb.linearVelocity = player.playerVelocity;
 
         //Animation
@@ -115,9 +115,6 @@ public class PlayerMovement
                 case Player.States.Air:
                     Jump();
                     break;
-                case Player.States.Land:
-                    Jump();
-                    break;
             }
         }
     }
@@ -167,9 +164,6 @@ public class PlayerMovement
                     StartDash();
                     break;
                 case Player.States.Air:
-                    StartDash();
-                    break;
-                case Player.States.Land:
                     StartDash();
                     break;
                 case Player.States.NonElementalHeal:

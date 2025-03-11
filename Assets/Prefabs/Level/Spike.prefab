@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 686240809486722656}
   - component: {fileID: 5813167561581422580}
   - component: {fileID: 4503263613966748140}
+  - component: {fileID: -285567603141257409}
   - component: {fileID: 8997868480839015453}
   m_Layer: 0
   m_Name: Spike
@@ -104,6 +105,19 @@ MonoBehaviour:
   damage: 2
   zone: 0
   lavaIgnoreIframes: 0
+--- !u!114 &-285567603141257409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369878197911009545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65eef5958489d214290fb46ebdd0969e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleOffset: 0
 --- !u!61 &8997868480839015453
 BoxCollider2D:
   m_ObjectHideFlags: 0

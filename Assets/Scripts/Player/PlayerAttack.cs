@@ -90,11 +90,6 @@ public class PlayerAttack : MonoBehaviour
                     nextAttackNumber = 0;
                     StartAttack();
                     break;
-                case Player.States.Land:
-                    currentAttackNumber = 0;
-                    nextAttackNumber = 0;
-                    StartAttack();
-                    break;
             }
         }
     }

@@ -79,7 +79,7 @@ public class DialogBox : MonoBehaviour
         else skipButton.SetActive(true);
 
         if (disableInputs) GameManager.Instance.menuController.gameIsPaused = true;
-        if (pauseGame) Time.timeScale = 0;
+        if (pauseGame) GameManager.Instance.menuController.TimeScaleToZero();
 
         currentDialog = dialog;
         currentDialogNumber = 0;
@@ -134,7 +134,7 @@ public class DialogBox : MonoBehaviour
             //}
 
             readInput = false;
-            if (pauseGame) Time.timeScale = 1;
+            if (pauseGame) GameManager.Instance.menuController.ResetTimeScale();
 
             GameManager.Instance.menuController.gameIsPaused = false;
             gameObject.SetActive(false);

@@ -132,7 +132,6 @@ public class Player : MonoBehaviour
         Ground,
         GroundIntoAir,
         Air,
-        Land,
         Dash,
         WallBoost,
         Death,
@@ -253,9 +252,6 @@ public class Player : MonoBehaviour
             case States.Air:
                 playerMovement.AirMovement();
                 break;
-            case States.Land:
-                playerMovement.GroundMovement();
-                break;
             case States.Dash:
                 playerMovement.DashMovement();
                 break;
@@ -274,6 +270,7 @@ public class Player : MonoBehaviour
         //if (controls.Player.ElementAbility2.WasPerformedThisFrame()) health.TakeDamage(1, false);
 
         if (menuController.gameIsPaused) return;
+
         ReadMovementInput();
         playerInteraction.InteractionUpdate();
         switch (state)
@@ -293,10 +290,6 @@ public class Player : MonoBehaviour
             case States.Air:
                 playerMovement.JumpIsPressed();
                 playerCollision.AirCheck();
-                playerMovement.RotatePlayer();
-                break;
-            case States.Land:
-                playerCollision.GroundCheck();
                 playerMovement.RotatePlayer();
                 break;
             case States.Dash:
@@ -333,15 +326,7 @@ public class Player : MonoBehaviour
         if (onlyResetValues == false)
         {
             state = States.Ground;
-            //ChangeAnimationState("Land");
-            //state = States.Land;
         }
-    }
-    public void GroundState()
-    {
-        if (state != States.Land) return;
-
-        state = States.Ground;
     }
     public void SwitchGroundIntoAir()
     {

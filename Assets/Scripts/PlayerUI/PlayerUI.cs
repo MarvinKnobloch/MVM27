@@ -121,7 +121,7 @@ public class PlayerUI : MonoBehaviour
     {
         GameManager.Instance.ActivateCursor();
 
-        Time.timeScale = 0;
+        GameManager.Instance.menuController.TimeScaleToZero();
         GameManager.Instance.menuController.gameIsPaused = true;
 
         messageBox.SetActive(true);
@@ -132,7 +132,7 @@ public class PlayerUI : MonoBehaviour
     {
         GameManager.Instance.DeactivateCursor();
 
-        Time.timeScale = 1;
+        GameManager.Instance.menuController.ResetTimeScale();
         GameManager.Instance.menuController.gameIsPaused = false;
         messageBox.SetActive(false);
     }
@@ -167,7 +167,7 @@ public class PlayerUI : MonoBehaviour
     {
         GameManager.Instance.ActivateCursor();
 
-        Time.timeScale = 0;
+        GameManager.Instance.menuController.TimeScaleToZero();
         GameManager.Instance.menuController.gameIsPaused = true;
         shop.SetActive(true);
     }

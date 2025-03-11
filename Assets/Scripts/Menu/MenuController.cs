@@ -21,10 +21,12 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI confirmText;
 
     [SerializeField] private GameObject loadGameButton;
+    private float normalFixedDeltaTime;
 
     private void Awake()
     {
         controls = Keybindinputmanager.Controls;
+        normalFixedDeltaTime = Time.fixedDeltaTime;
     }
     private void Start()
     {
@@ -167,6 +169,7 @@ public class MenuController : MonoBehaviour
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void ProgressReset()
@@ -198,6 +201,7 @@ public class MenuController : MonoBehaviour
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void ResetPlayer(bool playSound)
@@ -205,6 +209,7 @@ public class MenuController : MonoBehaviour
         if(playSound) AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
 
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
         //if (GameManager.Instance.LoadFormCheckpoint)
@@ -218,6 +223,7 @@ public class MenuController : MonoBehaviour
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
         gameIsPaused = false;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(0);
     }
     public void CloseSelectedMenu()
@@ -242,6 +248,7 @@ public class MenuController : MonoBehaviour
 
         gameIsPaused = true;
         Time.timeScale = 0;
+        Time.fixedDeltaTime = 0;
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
     }
@@ -251,6 +258,7 @@ public class MenuController : MonoBehaviour
 
         gameIsPaused = false;
         Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
     }
@@ -270,5 +278,15 @@ public class MenuController : MonoBehaviour
         confirmController.SetActive(false);
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
+    }
+    public void TimeScaleToZero()
+    {
+        Time.timeScale = 0;
+        Time.fixedDeltaTime = 0;
+    }
+    public void ResetTimeScale()
+    {
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = normalFixedDeltaTime;
     }
 }

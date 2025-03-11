@@ -18,7 +18,8 @@ public class ChildernAnimation : MonoBehaviour
     public void ExecuteHeavyPunck() => player.playerAbilties.ExecuteHeavyPunch();
     public void EndHeavyPunch() => player.playerAbilties.EndHeavyPunch();
     public void StandUpEnd() => player.ChangeAnimationState("Idle");
-    public void GroundState() => player.GroundState();
+
+    //public void GroundState() => player.GroundState();
     public void SwitchToIdle()
     {
         player.ChangeAnimationState("Idle");
