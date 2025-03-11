@@ -191,7 +191,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8, y: 0.6}
+  m_Size: {x: 0.8, y: 0.54}
   m_EdgeRadius: 0
 --- !u!50 &6522498738444393160
 Rigidbody2D:
@@ -237,7 +237,7 @@ MonoBehaviour:
   animator: {fileID: 5853518491072573498}
   healthComponent: {fileID: 5644258311082689311}
   speed: 2
-  chaseSpeed: 3.5
+  chaseSpeed: 5
   waypoint: {fileID: 0}
   damage: 1
   freezeOnHitTime: 0.3
@@ -261,7 +261,7 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 3884401751897927832}
   HealthBarOffset: 1
   isBoss: 0
-  autoDestoryOnDeath: 0
+  autoDestroyOnDeath: 0
   maxHealth: 1
   bossType: 0
   dieEvent:

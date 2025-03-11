@@ -5,8 +5,8 @@ it will shove the player out of the way. The Thwomper is only damagable while on
 Thwomper will wait a specified time before going back into the air.
 
 ## Gizmos
-- red line is line of sight
-- blue dots are the start position and waypoint (what it walks between)
+- **red** line is line of sight
+- **blue** dots are the start position and waypoint (what it walks between)
 
 ## Combat
 - Uses a raycast down to check for the player
