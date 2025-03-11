@@ -43,6 +43,13 @@ public class MarkdownInspector : Editor
         // I definitley snatched this regex from online
 
         string output = input;
+
+        // colors
+        output = System.Text.RegularExpressions.Regex.Replace(output, @"\b(red)\b", "<color=red>$1</color>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        output = System.Text.RegularExpressions.Regex.Replace(output, @"\b(blue)\b", "<color=blue>$1</color>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        output = System.Text.RegularExpressions.Regex.Replace(output, @"\b(yellow)\b", "<color=yellow>$1</color>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        output = System.Text.RegularExpressions.Regex.Replace(output, @"\b(green)\b", "<color=green>$1</color>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
         output = System.Text.RegularExpressions.Regex.Replace(output, @"^#### (.+)$", "<b><size=12>$1</size></b>", System.Text.RegularExpressions.RegexOptions.Multiline); // H1
         output = System.Text.RegularExpressions.Regex.Replace(output, @"^### (.+)$", "<b><size=14>$1</size></b>", System.Text.RegularExpressions.RegexOptions.Multiline); // H2
         output = System.Text.RegularExpressions.Regex.Replace(output, @"^## (.+)$", "<b><size=16>$1</size></b>", System.Text.RegularExpressions.RegexOptions.Multiline); // H3

@@ -23,6 +23,7 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private LayerMask visionMask;
     [Tooltip("The time in seconds we are to wait before allowing a hit on the target again.")]
     [SerializeField, Min(0f)] private float attackBuffer = 1f;
+    [SerializeField, Min(0f)] private float maxDistanceFromPatrol = 4f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -31,10 +32,13 @@ public class RollerEnemy : MonoBehaviour
     private float hitTime = 0f;
     private bool dead = false;
     private bool targetInSight = false;
+    private Vector2 lastKnownTargetPosition = Vector2.zero;
     private float lastTimeHitPlayer = 0f; // this the time we hit the player, not the player attacking us
 
     private const float WAYPOINT_PROXIMITY = 0.1f;
     private const float DEATH_DESTROY_TIME = 0.5f;
+    private const float OVER_ROLL_DISTANCE = 2f;
+    private const float VISION_ANGLE = 45f;
 
     private const string IDLE_ANIM = "Idle";
     private const string HIT_ANIM = "Hit";
@@ -67,11 +71,12 @@ public class RollerEnemy : MonoBehaviour
     {
         if (moveDirection != Vector2.zero)
             UpdateSpriteDirection(moveDirection);
-        
+
         if (moveDirection != Vector2.zero)
         {
-            var visionHit = Physics2D.Raycast(rb.position, moveDirection, visionRange, visionMask);
-            targetInSight = visionHit.collider != null && visionHit.collider.CompareTag(target.tag);
+            targetInSight = CheckVision();
+            if (targetInSight)
+                lastKnownTargetPosition = (Vector2)target.position;
         }
 
         if (hitTime != 0f && Time.time - hitTime > freezeOnHitTime)
@@ -89,32 +94,88 @@ public class RollerEnemy : MonoBehaviour
         if (hitTime != 0f || dead)
             return;
 
-        Vector2 targetPosition = (movingTowardsWaypoint) ? (Vector2)waypoint.position : startPosition;
-        if (NearPosition(targetPosition))
+        if (lastKnownTargetPosition != Vector2.zero)
         {
-            movingTowardsWaypoint = !movingTowardsWaypoint;
-            targetPosition = (movingTowardsWaypoint) ? waypoint.position : startPosition;
+            // make sure cap movement from our patrol point
+            if (DistanceOutsidePatrolPoints() > maxDistanceFromPatrol)
+            {
+                lastKnownTargetPosition = Vector2.zero;
+            }
+            else
+            {
+                // calculate the position to roll at (past the player)
+                Vector2 targetPosition = lastKnownTargetPosition + (moveDirection * OVER_ROLL_DISTANCE);
+                if (NearPosition(targetPosition))
+                {
+                    // we hit our target position, turn around and check for the player
+                    moveDirection.x *= -1;
+                    targetInSight = CheckVision();
+                    lastKnownTargetPosition = (targetInSight) ? (Vector2)target.position : Vector2.zero;
+                }
+                else
+                    rb.linearVelocity = new Vector2(moveDirection.x * chaseSpeed, rb.linearVelocity.y);
+            }
         }
+        else
+        {
+            // move to waypoint
+            Vector2 targetPosition = (movingTowardsWaypoint) ? (Vector2)waypoint.position : startPosition;
+            if (NearPosition(targetPosition))
+            {
+                movingTowardsWaypoint = !movingTowardsWaypoint;
+                targetPosition = (movingTowardsWaypoint) ? waypoint.position : startPosition;
+            }
 
-        moveDirection = (targetPosition - rb.position).normalized;
-        moveDirection.y = 0f;
+            moveDirection = (targetPosition - rb.position).normalized;
+            moveDirection.y = 0f;
 
-        float movementSpeed = (targetInSight || lastTimeHitPlayer != 0f) ? chaseSpeed : speed;
-
-        rb.linearVelocity = new Vector2(moveDirection.x * movementSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(moveDirection.x * speed, rb.linearVelocity.y);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (dead || lastTimeHitPlayer > 0f)
             return;
-        
+
         if (collision.gameObject.CompareTag(target.tag))
         {
             Player.Instance.health.TakeDamage(damage, false);
             lastTimeHitPlayer = Time.time;
             col.excludeLayers |= 1 << target.gameObject.layer;
         }
+    }
+
+    private bool CheckVision()
+    {
+        bool sawTarget = false;
+        Vector2 directionToTarget = ((Vector2)target.position - rb.position).normalized;
+        if (Mathf.Sign(directionToTarget.x) == Mathf.Sign(moveDirection.x))
+        {
+            float distanceToTarget = Vector2.Distance(rb.position, (Vector2)target.position);
+            if (distanceToTarget <= visionRange)
+            {
+                float angleToTarget = Vector2.Angle(moveDirection, directionToTarget);
+                if (angleToTarget < VISION_ANGLE * 0.5f)
+                {
+                    var visionHit = Physics2D.Raycast(rb.position, directionToTarget, visionRange, visionMask);
+                    sawTarget = visionHit.collider != null && visionHit.collider.CompareTag(target.tag);
+                }
+            }
+        }
+        return sawTarget;
+    }
+
+    private float DistanceOutsidePatrolPoints()
+    {
+        // if we are in between the patrol points, just return 0
+        var leftPosition = (startPosition.x < waypoint.position.x) ? startPosition.x : waypoint.position.x;
+        var rightPosition = (startPosition.x > waypoint.position.x) ? startPosition.x : waypoint.position.x;
+        if (rb.position.x >= leftPosition && rb.position.x <= rightPosition)
+            return 0f;
+
+        var targetPosition = (moveDirection.x > 0) ? rightPosition : leftPosition;
+        return Mathf.Abs(rb.position.x - targetPosition);
     }
 
     private bool NearPosition(Vector2 targetPosition)
@@ -151,6 +212,15 @@ public class RollerEnemy : MonoBehaviour
         Gizmos.color = Color.red;
         Vector2 direction = moveDirection != Vector2.zero ? moveDirection : Vector2.right;
         Gizmos.DrawLine(rb.position, rb.position + direction * visionRange);
+
+        if (lastKnownTargetPosition != Vector2.zero)
+        {
+            // Gizmos.color = Color.red;
+            // Gizmos.DrawSphere(lastKnownTargetPosition, 0.1f);
+
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(lastKnownTargetPosition + moveDirection * OVER_ROLL_DISTANCE, 0.1f);
+        }
 
         if (waypoint != null)
         {
