@@ -182,7 +182,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""UpgradeMenu"",
+                    ""name"": ""Reset"",
                     ""type"": ""Button"",
                     ""id"": ""b99b7bb8-c2a2-467f-a99e-4b2e330f4659"",
                     ""expectedControlType"": """",
@@ -349,11 +349,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2106628a-838e-4f87-a4a4-117b3920d4c9"",
-                    ""path"": ""<Keyboard>/f1"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""UpgradeMenu"",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -422,7 +422,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Element1 = m_Player.FindAction("Element1", throwIfNotFound: true);
         m_Player_Element2 = m_Player.FindAction("Element2", throwIfNotFound: true);
         m_Player_Element3 = m_Player.FindAction("Element3", throwIfNotFound: true);
-        m_Player_UpgradeMenu = m_Player.FindAction("UpgradeMenu", throwIfNotFound: true);
+        m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
@@ -518,7 +518,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Element1;
     private readonly InputAction m_Player_Element2;
     private readonly InputAction m_Player_Element3;
-    private readonly InputAction m_Player_UpgradeMenu;
+    private readonly InputAction m_Player_Reset;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -571,9 +571,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Element3 => m_Wrapper.m_Player_Element3;
         /// <summary>
-        /// Provides access to the underlying input action "Player/UpgradeMenu".
+        /// Provides access to the underlying input action "Player/Reset".
         /// </summary>
-        public InputAction @UpgradeMenu => m_Wrapper.m_Player_UpgradeMenu;
+        public InputAction @Reset => m_Wrapper.m_Player_Reset;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -630,9 +630,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started += instance.OnElement3;
             @Element3.performed += instance.OnElement3;
             @Element3.canceled += instance.OnElement3;
-            @UpgradeMenu.started += instance.OnUpgradeMenu;
-            @UpgradeMenu.performed += instance.OnUpgradeMenu;
-            @UpgradeMenu.canceled += instance.OnUpgradeMenu;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         /// <summary>
@@ -674,9 +674,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Element3.started -= instance.OnElement3;
             @Element3.performed -= instance.OnElement3;
             @Element3.canceled -= instance.OnElement3;
-            @UpgradeMenu.started -= instance.OnUpgradeMenu;
-            @UpgradeMenu.performed -= instance.OnUpgradeMenu;
-            @UpgradeMenu.canceled -= instance.OnUpgradeMenu;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         /// <summary>
@@ -895,12 +895,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnElement3(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "UpgradeMenu" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Reset" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnUpgradeMenu(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Menu" which allows adding and removing callbacks.

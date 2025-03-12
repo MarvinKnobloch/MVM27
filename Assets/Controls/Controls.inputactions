@@ -96,7 +96,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UpgradeMenu",
+                    "name": "Reset",
                     "type": "Button",
                     "id": "b99b7bb8-c2a2-467f-a99e-4b2e330f4659",
                     "expectedControlType": "",
@@ -263,11 +263,11 @@
                 {
                     "name": "",
                     "id": "2106628a-838e-4f87-a4a4-117b3920d4c9",
-                    "path": "<Keyboard>/f1",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "UpgradeMenu",
+                    "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
