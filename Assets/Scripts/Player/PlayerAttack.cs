@@ -116,9 +116,20 @@ public class PlayerAttack : MonoBehaviour
 
         state = States.Attack;
 
-        if (player.currentElementNumber == 0) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.nonAttackSounds);
-        else if (player.currentElementNumber == 1) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.fireAttackSounds);
-        else if (player.currentElementNumber == 2) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.airAttackSounds);
+        AudioFiles file;
+        if(currentAttackNumber >= 2)
+        {
+            if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[2];
+            else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[2];
+            else file = AudioManager.Instance.airAttackSounds[2];
+        }
+        else
+        {
+            if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[currentAttackNumber];
+            else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
+            else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
+        }
+        AudioManager.Instance.PlayAudioFileOneShot(file);
     }
     private void Attack()
     {

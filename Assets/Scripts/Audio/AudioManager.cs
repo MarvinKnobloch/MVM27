@@ -115,6 +115,10 @@ public class AudioManager : MonoBehaviour
     {
         soundSource.PlayOneShot(soundFiles[soundClip].audioClip, soundFiles[soundClip].volume);
     }
+    public void PlayAudioFileOneShot(AudioFiles file)
+    {
+        soundSource.PlayOneShot(file.audioClip, file.volume);
+    }
     public void PlayRandomOneShot(AudioFiles[] files)
     {
         int randomNumber = UnityEngine.Random.Range(0, files.Length);
