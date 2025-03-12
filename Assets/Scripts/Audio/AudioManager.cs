@@ -143,16 +143,12 @@ public class AudioManager : MonoBehaviour
         footstepSource.Play();
     }
 
-    public void StartMusicFadeOut(int audioFile)
+    public void StartMusicFadeOut(int audioFile, bool ignoreSameClip, float fadeOutSpeed, float fadeInSpeed)
     {
-        if (musicSource.clip == musicFiles[audioFile].audioClip) return;
-        if(musicFiles[audioFile].audioClip == null) return;
-
-        float fadeOutSpeed;
-        if (musicSource.clip == null) fadeOutSpeed = 0.1f;
-        else fadeOutSpeed = 4;
-
-        float fadeInSpeed = 4;
+        if (ignoreSameClip == false)
+        {
+            if (musicSource.clip == musicFiles[audioFile].audioClip) return;
+        }
 
         StopAllCoroutines();
         StartCoroutine(FadeOutMusicVolume(audioFile, fadeOutSpeed, fadeInSpeed));
@@ -173,10 +169,14 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-            musicSource.clip = musicFiles[audioFile].audioClip;
-            musicSource.Play();
+        musicSource.clip = musicFiles[audioFile].audioClip;
+        musicSource.Play();
+
+        if (musicFiles[audioFile].audioClip != null)
+        {
             StartCoroutine(FadeInMusicVolume(audioFile, fadeInSpeed, 0));
-    }
+        }
+    } 
     public IEnumerator FadeInMusicVolume(int audioFile, float fadeinspeed, float startvolume)
     {
         float duration = fadeinspeed;

@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
 
 
-        if (SceneManager.GetActiveScene().buildIndex == 1) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial);
+        if (SceneManager.GetActiveScene().buildIndex == 1) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, false, 0.1f, 4);
     }
     IEnumerator CheckPointOnLoad()
     {

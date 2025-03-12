@@ -15,7 +15,7 @@ public class ChildernAnimation : MonoBehaviour
     public void EndAttack() => playerAttack.EndAttack();
     public void Death() => player.RestartGame();
     public void NonElementHeal() => player.playerAbilties.NonElementHeal();
-    public void ExecuteHeavyPunck() => player.playerAbilties.ExecuteHeavyPunch();
+    public void ExecuteHeavyPunch() => player.playerAbilties.ExecuteHeavyPunch();
     public void EndHeavyPunch() => player.playerAbilties.EndHeavyPunch();
     public void StandUpEnd() => player.ChangeAnimationState("Idle");
 

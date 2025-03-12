@@ -96,6 +96,13 @@ public class PlayerAbilties
     {
         if (player.EnergyValue < player.heavyPunchCosts) return;
 
+        if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
+        {
+            player.rb.linearVelocity = Vector2.zero;
+            player.rb.gravityScale = 0;
+        }
+        else player.rb.linearVelocityX = 0;
+
         player.ChangeAnimationState("HeavyPunch");
         player.state = Player.States.HeavyPunch;
     }
@@ -119,6 +126,7 @@ public class PlayerAbilties
     public void EndHeavyPunch()
     {
         if (player.state != Player.States.HeavyPunch) return;
+
         player.playerCollision.CollisionCheckAfterAbilties();
     }
     private void FireAbility1()
@@ -142,7 +150,15 @@ public class PlayerAbilties
     private void StartShootFireball()
     {
         castTimer = 0;
-        player.rb.linearVelocityX = 0;
+
+        if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
+        {
+            player.rb.linearVelocity = Vector2.zero;
+            player.rb.gravityScale = 0;
+        }
+        else player.rb.linearVelocityX = 0;
+
+        player.ChangeAnimationState("Fireball");
         player.state = Player.States.FireBall;
     }
     public void CastFireball()

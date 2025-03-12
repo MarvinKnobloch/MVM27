@@ -152,6 +152,8 @@ public class TutorialBoss : MonoBehaviour
 
         currentPlatforms[currentPhase].SetActive(true);
         SwitchToIdle();
+
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss, true, 0.1f, 0.1f);
     }
     private void SwitchToIdle()
     {
@@ -234,7 +236,7 @@ public class TutorialBoss : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 2, 4);
 
         StopAllCoroutines();
         state = States.Death;

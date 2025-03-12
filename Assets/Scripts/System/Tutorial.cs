@@ -56,7 +56,7 @@ public class Tutorial : MonoBehaviour
     public void BossCameraAndGatesAndMusic()
     {
         GameManager.Instance.ChangeCamera(bossCameraPosition);
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 3, 3);
         foreach (var obj in bossGates)
         {
             obj.Activate();
