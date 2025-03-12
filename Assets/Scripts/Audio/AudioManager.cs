@@ -24,9 +24,26 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioFiles[] musicFiles;
     [SerializeField] private AudioFiles[] soundFiles;
 
+    [Header("Steps")]
     [SerializeField] public AudioFiles[] nonStepsSounds;
     [SerializeField] public AudioFiles[] fireStepSounds;
     [SerializeField] public AudioFiles[] airStepSounds;
+
+    [Header("Jumps")]
+    [SerializeField] public AudioFiles[] nonJumpSounds;
+    [SerializeField] public AudioFiles[] fireJumpSounds;
+    [SerializeField] public AudioFiles[] airJumpSounds;
+
+    [Header("Dash")]
+    [SerializeField] public AudioFiles[] nonDashSounds;
+    [SerializeField] public AudioFiles[] fireDashSounds;
+    [SerializeField] public AudioFiles[] airDashSounds;
+
+    [Header("Attacks")]
+    [SerializeField] public AudioFiles[] nonAttackSounds;
+    [SerializeField] public AudioFiles[] fireAttackSounds;
+    [SerializeField] public AudioFiles[] airAttackSounds;
+
 
     public enum MusicSongs
     {
@@ -97,6 +114,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySoundOneshot(int soundClip)
     {
         soundSource.PlayOneShot(soundFiles[soundClip].audioClip, soundFiles[soundClip].volume);
+    }
+    public void PlayRandomOneShot(AudioFiles[] files)
+    {
+        int randomNumber = UnityEngine.Random.Range(0, files.Length);
+
+        soundSource.PlayOneShot(files[randomNumber].audioClip, files[randomNumber].volume);
     }
     public void PlayFootSteps(AudioFiles[] files, int soundClip)
     {

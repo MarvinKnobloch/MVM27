@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
         TutorialRightLock,
         TutorialBoss,
         TutorialProgress,
+        TutorialDoorToTutorial3,
+        TutorialDoorToLavaZone,
+        TutorialDoorToEasterEgg,
     }
     private void Awake()
     {

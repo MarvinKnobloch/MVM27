@@ -115,6 +115,10 @@ public class PlayerAttack : MonoBehaviour
         player.ChangeAnimationState(attacks[currentAttackNumber].animations.ToString());
 
         state = States.Attack;
+
+        if (player.currentElementNumber == 0) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.nonAttackSounds);
+        else if (player.currentElementNumber == 1) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.fireAttackSounds);
+        else if (player.currentElementNumber == 2) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.airAttackSounds);
     }
     private void Attack()
     {

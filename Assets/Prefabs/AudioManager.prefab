@@ -102,6 +102,45 @@ MonoBehaviour:
     volume: 0.5
   - audioClip: {fileID: 8300000, guid: c1d9a54be5335b442badc4db69bc4016, type: 3}
     volume: 0.5
+  nonJumpSounds:
+  - audioClip: {fileID: 8300000, guid: 98476d8d0fa69f149921df1ca96ecd59, type: 3}
+    volume: 0.5
+  fireJumpSounds:
+  - audioClip: {fileID: 8300000, guid: c28143adfd2dd664db511520a3ec031c, type: 3}
+    volume: 0.5
+  airJumpSounds:
+  - audioClip: {fileID: 8300000, guid: e5eb38cd02a2503418321c7010168c30, type: 3}
+    volume: 0.5
+  nonDashSounds:
+  - audioClip: {fileID: 8300000, guid: c9f20ec104009a449adb2df5153e7e73, type: 3}
+    volume: 0.5
+  fireDashSounds:
+  - audioClip: {fileID: 8300000, guid: 0fa79feba4288d24f8d96d6fc53b4aa2, type: 3}
+    volume: 0.5
+  airDashSounds:
+  - audioClip: {fileID: 8300000, guid: a50ece077f73a1d4ea586dd1be688f3a, type: 3}
+    volume: 0.5
+  nonAttackSounds:
+  - audioClip: {fileID: 8300000, guid: 5abc34e3cd4f4374da5a7d2399f21710, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 63ec87c973eb55e45be12eaa1b15fda3, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 3fa762466e37dd54abe1e91abd1f1fc9, type: 3}
+    volume: 0.3
+  fireAttackSounds:
+  - audioClip: {fileID: 8300000, guid: b3ea3435b25a5414092adc0b979d1b8b, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 83c5deea600035b429b4ef29cd970088, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: ffd0003d6a547744e907cdb25a514c04, type: 3}
+    volume: 0.3
+  airAttackSounds:
+  - audioClip: {fileID: 8300000, guid: 399073d1a2ea11a4e8cec47539030b56, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 69a036b08a52f954fb9bdb4240fa0eb6, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 9dd69bca904c811418fc78581c21f397, type: 3}
+    volume: 0.3
 --- !u!1 &2366319136788864413
 GameObject:
   m_ObjectHideFlags: 0
