@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
     public int heavyPunchCosts;
     public CircleCollider2D heavyPunchCollider;
     public LayerMask heavyPunchLayer;
+    [NonSerialized] public bool heavyPunchPerformed;
 
     [Header("Fireball")]
     public GameObject fireballPrefab;
@@ -322,6 +323,8 @@ public class Player : MonoBehaviour
         playerAttack.airAttackPerformed = false;
         canWallBoost = false;
         performedWallBoost = false;
+        heavyPunchPerformed = false;
+
 
         if (onlyResetValues == false)
         {

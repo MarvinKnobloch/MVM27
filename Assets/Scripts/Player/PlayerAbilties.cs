@@ -78,6 +78,7 @@ public class PlayerAbilties
     private void NonElementAbility2()
     {
         if (player.wallbreakUnlocked == false) return;
+        if (player.heavyPunchPerformed == true) return;
 
         switch (player.state)
         {
@@ -103,6 +104,7 @@ public class PlayerAbilties
         }
         else player.rb.linearVelocityX = 0;
 
+        player.heavyPunchPerformed = true;
         player.ChangeAnimationState("HeavyPunch");
         player.state = Player.States.HeavyPunch;
     }
