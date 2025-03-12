@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -20,6 +21,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private string masterVolume;
     [SerializeField] private string musicVolume;
     [SerializeField] private string soundVolume;
+
+    //Music
+    private float disableTimer;
+    private DateTime startDate;
+    private DateTime currentDate;
+    private float seconds;
 
     [SerializeField] private AudioFiles[] musicFiles;
     [SerializeField] private AudioFiles[] soundFiles;
@@ -48,8 +55,9 @@ public class AudioManager : MonoBehaviour
     public enum MusicSongs
     {
         Empty,
-        Song1,
-        Song2,
+        Tutorial,
+        Boss,
+        FireArea,
     }
     public enum Sounds
     {
@@ -133,6 +141,57 @@ public class AudioManager : MonoBehaviour
         footstepSource.pitch = UnityEngine.Random.Range(minPitch, maxPitch);
 
         footstepSource.Play();
+    }
+
+    public void StartMusicFadeOut(int audioFile)
+    {
+        if (musicSource.clip == musicFiles[audioFile].audioClip) return;
+        if(musicFiles[audioFile].audioClip == null) return;
+
+        float fadeOutSpeed;
+        if (musicSource.clip == null) fadeOutSpeed = 0.1f;
+        else fadeOutSpeed = 4;
+
+        float fadeInSpeed = 4;
+
+        StopAllCoroutines();
+        StartCoroutine(FadeOutMusicVolume(audioFile, fadeOutSpeed, fadeInSpeed));
+    }
+    public IEnumerator FadeOutMusicVolume(int audioFile, float fadeOutSpeed, float fadeInSpeed)
+    {
+        float duration = fadeOutSpeed;
+        float start = musicSource.volume;
+        float targetVolume = 0;
+        startDate = DateTime.Now;
+        disableTimer = 0f;
+        while (disableTimer < duration)
+        {
+            currentDate = DateTime.Now;
+            seconds = currentDate.Ticks - startDate.Ticks;
+            disableTimer = seconds * 0.0000001f;
+            musicSource.volume = Mathf.Lerp(start, targetVolume, disableTimer / duration);
+            yield return null;
+        }
+
+            musicSource.clip = musicFiles[audioFile].audioClip;
+            musicSource.Play();
+            StartCoroutine(FadeInMusicVolume(audioFile, fadeInSpeed, 0));
+    }
+    public IEnumerator FadeInMusicVolume(int audioFile, float fadeinspeed, float startvolume)
+    {
+        float duration = fadeinspeed;
+        float start = startvolume;
+        startDate = DateTime.Now;
+        disableTimer = 0f;
+        while (disableTimer < duration)
+        {
+            currentDate = DateTime.Now;
+            seconds = currentDate.Ticks - startDate.Ticks;
+            disableTimer = seconds * 0.0000001f;
+            musicSource.volume = Mathf.Lerp(start, musicFiles[audioFile].volume, disableTimer / duration);
+            yield return null;
+        }
+        yield break;
     }
 }
 [Serializable]

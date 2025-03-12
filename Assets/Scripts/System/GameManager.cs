@@ -72,6 +72,9 @@ public class GameManager : MonoBehaviour
         playerUI.PlayerCurrencyUpdate(PlayerPrefs.GetInt("PlayerCurrency"));
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
+
+
+        if (SceneManager.GetActiveScene().buildIndex == 1) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial);
     }
     IEnumerator CheckPointOnLoad()
     {

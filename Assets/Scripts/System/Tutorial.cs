@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
         disableBlackScreen.OnEventRaised += DeactivateBlackScreen;
         standUp.OnEventRaised += IntroStandUp;
         endTutorial.OnEventRaised += TutorialDone;
-        bossCameraAndGates.OnEventRaised += BossCameraAndGates;
+        bossCameraAndGates.OnEventRaised += BossCameraAndGatesAndMusic;
     }
     private void OnDisable()
     {
@@ -29,7 +29,7 @@ public class Tutorial : MonoBehaviour
         disableBlackScreen.OnEventRaised -= DeactivateBlackScreen;
         standUp.OnEventRaised -= IntroStandUp;
         endTutorial.OnEventRaised -= TutorialDone;
-        bossCameraAndGates.OnEventRaised -= BossCameraAndGates;
+        bossCameraAndGates.OnEventRaised -= BossCameraAndGatesAndMusic;
     }
 
     private void ActivateBlackScreen()
@@ -53,9 +53,10 @@ public class Tutorial : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
         PlayerPrefs.SetInt("NewGame", 1);
     }
-    public void BossCameraAndGates()
+    public void BossCameraAndGatesAndMusic()
     {
         GameManager.Instance.ChangeCamera(bossCameraPosition);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss);
         foreach (var obj in bossGates)
         {
             obj.Activate();

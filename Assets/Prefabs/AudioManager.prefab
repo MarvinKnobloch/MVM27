@@ -57,7 +57,15 @@ MonoBehaviour:
   masterVolume: MasterVolume
   musicVolume: MusicVolume
   soundVolume: SoundVolume
-  musicFiles: []
+  musicFiles:
+  - audioClip: {fileID: 0}
+    volume: 0
+  - audioClip: {fileID: 8300000, guid: c68ec313b5170274d9e95d54634bd74a, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 77158cb3ce930eb47a6fec2f1a1a4695, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: f9d99bd184ae29644bd2496c5ee99541, type: 3}
+    volume: 0.2
   soundFiles:
   - audioClip: {fileID: 0}
     volume: 0

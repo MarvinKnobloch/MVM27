@@ -234,6 +234,7 @@ public class TutorialBoss : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial);
 
         StopAllCoroutines();
         state = States.Death;
