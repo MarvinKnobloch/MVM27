@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4760534334112111499}
   - component: {fileID: 8678303774071700854}
   - component: {fileID: 5632844386148759981}
+  - component: {fileID: 5836694087510151660}
   m_Layer: 13
   m_Name: Burnable
   m_TagString: Untagged
@@ -134,3 +135,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.49691343, y: 2.0010567}
   m_EdgeRadius: 0
+--- !u!114 &5836694087510151660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4954847551739914727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473933059a9bdb744b303dd1d95a3826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burningDuration: 1
+  burningEffect: {fileID: 5065832009076650070, guid: 3d571b895e3299d44af0a01c51c3578a, type: 3}
+  burningEffectsAmount: 4
+  burningXSpread: 0.3
+  burningYSpread: 1

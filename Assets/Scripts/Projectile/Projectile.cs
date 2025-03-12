@@ -77,7 +77,14 @@ public class Projectile : MonoBehaviour
         //Burn hit check
         else if(Utility.LayerCheck(other, burnLayer))
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.TryGetComponent(out ObjectBurn objectBurn))
+            {
+                objectBurn.BurningStart();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
             Destroy(gameObject);
         }
         //Reflect

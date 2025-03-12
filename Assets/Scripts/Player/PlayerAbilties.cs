@@ -155,8 +155,8 @@ public class PlayerAbilties
 
         if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
         {
-            player.rb.linearVelocity = Vector2.zero;
-            player.rb.gravityScale = 0;
+            //player.rb.linearVelocity = Vector2.zero;
+            //player.rb.gravityScale = 0;
         }
         else player.rb.linearVelocityX = 0;
 
