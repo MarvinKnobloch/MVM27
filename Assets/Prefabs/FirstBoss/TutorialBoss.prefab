@@ -133,7 +133,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
-  handDamage: 2
+  handDamage: 4
   abilities:
   - m_PersistentCalls:
       m_Calls:
@@ -165,24 +165,24 @@ MonoBehaviour:
         m_CallState: 2
   randomAttackOrder: 0
   phasePercentage:
-  - 0.75
-  - 0.5
-  - 0.25
+  - 0.7
+  - 0.4
+  - 0.2
   airSlamProjectile: {fileID: 885318328794012319, guid: fd452fce67d9d3c4a82e6847885476ea, type: 3}
-  projectileAmount: 20
+  projectileAmount: 22
   airSlamProjectileSpawn: {fileID: 0}
-  spawnSpreading: 8
+  spawnSpreading: 8.7
   projectileWaves: 2
   currentProjectileWave: 0
-  projectileSpawnInterval: 2
+  projectileSpawnInterval: 1.5
   currentPlatforms:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  timeToSpawnPlatforms: 4
+  timeToSpawnPlatforms: 3
   fireZone: {fileID: 0}
-  fireZoneLifetime: 4
+  fireZoneLifetime: 3
   fireUpgrade: {fileID: 0}
   bossGates:
   - {fileID: 0}
@@ -204,7 +204,7 @@ MonoBehaviour:
   HealthBarOffset: 1
   isBoss: 1
   autoDestroyOnDeath: 0
-  maxHealth: 300
+  maxHealth: 190
   bossType: 1
   dieEvent:
     m_PersistentCalls:
@@ -246,7 +246,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 2, y: 2}
+  m_Offset: {x: 2, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -256,7 +256,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 2}
+  m_Size: {x: 2.5, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &5289798472368866827
 GameObject:
@@ -284,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 5289798472368866827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 1.36, z: 0}
+  m_LocalPosition: {x: 0.08, y: 1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,4 +325,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.7
+  m_Radius: 0.8

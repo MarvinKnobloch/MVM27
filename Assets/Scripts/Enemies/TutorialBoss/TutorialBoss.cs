@@ -151,7 +151,11 @@ public class TutorialBoss : MonoBehaviour
         GameManager.Instance.playerUI.BossHealthUIUpdate(health.Value, health.MaxValue);
 
         currentPlatforms[currentPhase].SetActive(true);
-        SwitchToIdle();
+
+        timer = 1.5f;
+        CalculateFinalAttackTime();
+        ChangeAnimationState("Idle");
+        state = States.Idle;
 
         AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss, true, 0.1f, 0.1f);
     }
@@ -232,7 +236,7 @@ public class TutorialBoss : MonoBehaviour
     {
         fireZone.SetActive(false);
 
-        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), 50);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
