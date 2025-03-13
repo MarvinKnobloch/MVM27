@@ -5,7 +5,9 @@ using System;
 public class CheckPoint : MonoBehaviour, IInteractables
 {
     [SerializeField] private GameObject spawnPosition;
-    [SerializeField] private GameObject checkpointImage;
+    [SerializeField] private float YSpawnOffset;
+    [SerializeField] private GameObject checkpointOff;
+    [SerializeField] private GameObject checkpointOn;
     [NonSerialized] public Collider2D checkpointCollider;
 
     public GameObject interactObj { get => gameObject; }
@@ -25,19 +27,26 @@ public class CheckPoint : MonoBehaviour, IInteractables
     {
         if (GameManager.Instance.currentCheckpoint != null)
         {
-            GameManager.Instance.currentCheckpoint.checkpointImage.SetActive(false);
-            GameManager.Instance.currentCheckpoint.checkpointCollider.enabled = true;
+            GameManager.Instance.currentCheckpoint.DeactivateCheckpoint();
         }
 
         PlayerPrefs.SetFloat("PlayerXSpawn", spawnPosition.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerYSpawn", spawnPosition.transform.position.y + 0.5f);
+        PlayerPrefs.SetFloat("PlayerYSpawn", spawnPosition.transform.position.y + YSpawnOffset);
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
 
-        checkpointImage.SetActive(true);
+        checkpointOff.SetActive(false);
+        checkpointOn.SetActive(true);
         Player.Instance.playerInteraction.RemoveInteraction(this);
         checkpointCollider.enabled = false;
 
         GameManager.Instance.currentCheckpoint = this;
+    }
+    public void DeactivateCheckpoint()
+    {
+        GameManager.Instance.currentCheckpoint.checkpointCollider.enabled = true;
+
+        checkpointOff.SetActive(true);
+        checkpointOn.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
