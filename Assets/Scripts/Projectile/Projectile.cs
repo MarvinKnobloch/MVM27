@@ -46,15 +46,6 @@ public class Projectile : MonoBehaviour
     public void Reflect()
     {
         transform.Rotate(0, 0, 180);
-        //oldPosition = (Vector2)transform.position + direction;
-        //direction = ((Vector2)transform.position - oldPosition).normalized;
-        //transform.right = direction;
-        //dontupdate = true;
-
-
-        //direction = (oldPosition - (Vector2)transform.position).normalized;
-        //oldPosition = transform.position;
-        //oldPosition = (Vector2)transform.position + direction;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -92,7 +83,7 @@ public class Projectile : MonoBehaviour
         {
             if (other.gameObject.TryGetComponent(out Reflectable reflectable))
             {
-                reflectable.Reflect();
+                reflectable.ReflectProjectile();
                 Destroy(gameObject);
             }
         }
