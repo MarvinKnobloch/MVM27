@@ -52,8 +52,6 @@ public class GameManager : MonoBehaviour
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 120;
-
-        PlayerPrefs.SetInt("NewGame", 1);
     }
     private void Start()
     {

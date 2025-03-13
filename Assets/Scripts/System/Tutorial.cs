@@ -35,6 +35,7 @@ public class Tutorial : MonoBehaviour
     private void ActivateBlackScreen()
     {
         GameManager.Instance.playerUI.ActivateBlackscreen();
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 0.1f, 4);
     }
     private void PlayerSleep()
     {
@@ -42,6 +43,7 @@ public class Tutorial : MonoBehaviour
     }
     private void DeactivateBlackScreen()
     {
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 4);
         GameManager.Instance.playerUI.DeactivateBlackScreen();
     }
     public void IntroStandUp()

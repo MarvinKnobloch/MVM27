@@ -152,7 +152,7 @@ public class TutorialBoss : MonoBehaviour
 
         currentPlatforms[currentPhase].SetActive(true);
 
-        timer = 1.5f;
+        timer = 2;
         CalculateFinalAttackTime();
         ChangeAnimationState("Idle");
         state = States.Idle;
@@ -235,6 +235,7 @@ public class TutorialBoss : MonoBehaviour
     private void OnDeath()
     {
         fireZone.SetActive(false);
+        currentPlatforms[currentPhase].SetActive(false);
 
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), 50);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
