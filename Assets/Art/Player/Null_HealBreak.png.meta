@@ -47,6 +47,48 @@ TextureImporter:
   - first:
       213: -7979539256013798632
     second: Null_HealBreak_14
+  - first:
+      213: -2930504103824174825
+    second: Null_HealBreak_15
+  - first:
+      213: 5343854202992150716
+    second: Null_HealBreak_16
+  - first:
+      213: -6079385296867549592
+    second: Null_HealBreak_17
+  - first:
+      213: 8036673849372435145
+    second: Null_HealBreak_18
+  - first:
+      213: -8025878867734408199
+    second: Null_HealBreak_19
+  - first:
+      213: 4921659811987801251
+    second: Null_HealBreak_20
+  - first:
+      213: 6609534516650247332
+    second: Null_HealBreak_21
+  - first:
+      213: 8021503521974303548
+    second: Null_HealBreak_22
+  - first:
+      213: -6906871760279782054
+    second: Null_HealBreak_23
+  - first:
+      213: -4086248517441519275
+    second: Null_HealBreak_24
+  - first:
+      213: -528470080364232646
+    second: Null_HealBreak_25
+  - first:
+      213: 7833472511012318165
+    second: Null_HealBreak_26
+  - first:
+      213: -5363057111617087056
+    second: Null_HealBreak_27
+  - first:
+      213: 7684707684014916365
+    second: Null_HealBreak_28
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -159,7 +201,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -181,7 +223,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -203,7 +245,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -225,7 +267,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -247,7 +289,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -269,7 +311,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -291,7 +333,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -313,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 896
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -335,7 +377,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -357,7 +399,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -379,7 +421,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -401,7 +443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 384
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -423,7 +465,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -445,7 +487,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 640
-        y: 0
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -462,11 +504,275 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8134306f25bf24190800000000000000
+      internalID: -7979539256013798632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_15
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7115cb64b02c457d0800000000000000
+      internalID: -2930504103824174825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb843dca51f292a40800000000000000
+      internalID: 5343854202992150716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_17
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86e1a7f484fa1aba0800000000000000
+      internalID: -6079385296867549592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2e38f2940088f60800000000000000
+      internalID: 8036673849372435145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_19
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3506651b95e9090800000000000000
+      internalID: -8025878867734408199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_20
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a449ded58f3d4440800000000000000
+      internalID: 4921659811987801251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_21
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a40f93cf98c9bb50800000000000000
+      internalID: 6609534516650247332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bb2d714fa125f60800000000000000
+      internalID: 8021503521974303548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_23
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5db85b6abcd520a0800000000000000
+      internalID: -6906871760279782054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5518eed8f9aba47c0800000000000000
+      internalID: -4086248517441519275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Null_HealBreak_25
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30c779034f7aa8f0800000000000000
+      internalID: -528470080364232646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: c9346550b40b1d7489edf6c55f372476
     internalID: 0
     vertices: []
     indices: 
@@ -482,7 +788,19 @@ TextureImporter:
       Null_HealBreak_11: -2684993384893126693
       Null_HealBreak_12: 1982287280088771288
       Null_HealBreak_13: -5031507678901220383
+      Null_HealBreak_14: -7979539256013798632
+      Null_HealBreak_15: -2930504103824174825
+      Null_HealBreak_16: 5343854202992150716
+      Null_HealBreak_17: -6079385296867549592
+      Null_HealBreak_18: 8036673849372435145
+      Null_HealBreak_19: -8025878867734408199
       Null_HealBreak_2: -73787578668261721
+      Null_HealBreak_20: 4921659811987801251
+      Null_HealBreak_21: 6609534516650247332
+      Null_HealBreak_22: 8021503521974303548
+      Null_HealBreak_23: -6906871760279782054
+      Null_HealBreak_24: -4086248517441519275
+      Null_HealBreak_25: -528470080364232646
       Null_HealBreak_3: 5250883871332615213
       Null_HealBreak_4: -6319437141433716087
       Null_HealBreak_5: -6928550393520519647

@@ -299,17 +299,17 @@ MonoBehaviour:
   XWallBoostStrength: 10
   XWallBoostMovement: 0
   YWallBoostStrength: 10
-  heavyPunchDamage: 0
-  heavyPunchCosts: 0
+  heavyPunchDamage: 7
+  heavyPunchCosts: 10
   heavyPunchCollider: {fileID: 1608418229943619513}
   heavyPunchLayer:
     serializedVersion: 2
     m_Bits: 1152
   fireballPrefab: {fileID: 6564779881003978094, guid: 7e43342d3d19699418eee7785a0c9d78, type: 3}
   fireballCastTime: 0.25
-  fireballCosts: 1
-  elementHealAmount: 3
-  elementHealCosts: 1
+  fireballCosts: 10
+  elementHealAmount: 4
+  elementHealCosts: 20
   elementalSprite:
   - {fileID: 507459235316394410}
   - {fileID: 1587885830499150073}
@@ -334,42 +334,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxComboLength: 3
   attacks:
-  - attackLength: 0.5
-    inputBuffer: 0.3
-    damage: 1
+  - damage: 3
     attackCollider: {fileID: 4275854736510587761}
     animations: 0
     energyRestore: 0
-  - attackLength: 0.6
-    inputBuffer: 0.3
-    damage: 2
+  - damage: 4
     attackCollider: {fileID: 4275854736510587761}
     animations: 1
-    energyRestore: 1
-  - attackLength: 1
-    inputBuffer: 0
-    damage: 3
+    energyRestore: 2
+  - damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
-    energyRestore: 2
-  - attackLength: 1
-    inputBuffer: 0
-    damage: 5
+    energyRestore: 3
+  - damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
-    energyRestore: 2
-  - attackLength: 1
-    inputBuffer: 0
-    damage: 5
+    energyRestore: 3
+  - damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
-    energyRestore: 2
-  - attackLength: 1
-    inputBuffer: 0
-    damage: 5
+    energyRestore: 3
+  - damage: 5
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
-    energyRestore: 2
+    energyRestore: 3
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128

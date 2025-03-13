@@ -13,9 +13,9 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
 
     [NonSerialized] public bool airAttackPerformed;
-    private float attackTimer;
-    private float currentAttackTime;
-    private float currentBufferTime;
+    //private float attackTimer;
+    //private float currentAttackTime;
+    //private float currentBufferTime;
     private bool readInput;
 
     private int currentAttackNumber;
@@ -107,9 +107,9 @@ public class PlayerAttack : MonoBehaviour
         airAttackPerformed = true;
         chainAttack = false;
         readInput = false;
-        attackTimer = 0;
-        currentAttackTime = attacks[currentAttackNumber].attackLength;
-        currentBufferTime = attacks[currentAttackNumber].attackLength - attacks[currentAttackNumber].inputBuffer;
+        //attackTimer = 0;
+        //currentAttackTime = attacks[currentAttackNumber].attackLength;
+        //currentBufferTime = attacks[currentAttackNumber].attackLength - attacks[currentAttackNumber].inputBuffer;
 
         elementalSwitchNumber = -1;
         player.ChangeAnimationState(attacks[currentAttackNumber].animations.ToString());
@@ -131,18 +131,18 @@ public class PlayerAttack : MonoBehaviour
         }
         AudioManager.Instance.PlayAudioFileOneShot(file);
     }
-    private void Attack()
-    {
-        attackTimer += Time.deltaTime;
-        if(attackTimer > currentBufferTime)
-        {
-            InputBuffer();
-            if(attackTimer > currentAttackTime)
-            {
-                ExecuteAttack();
-            }
-        }
-    }
+    //private void Attack()
+    //{
+    //    attackTimer += Time.deltaTime;
+    //    if(attackTimer > currentBufferTime)
+    //    {
+    //        InputBuffer();
+    //        if(attackTimer > currentAttackTime)
+    //        {
+    //            ExecuteAttack();
+    //        }
+    //    }
+    //}
     public void ActivateInputBuffer()
     {
         readInput = true;
@@ -206,7 +206,10 @@ public class PlayerAttack : MonoBehaviour
         }
         if (collider.Length != 0)
         {
-            player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
+            if (attacks[currentAttackNumber].energyRestore != 0)
+            {
+                player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
+            }
         }
     }
     public void EndAttack()
@@ -245,8 +248,8 @@ public class PlayerAttack : MonoBehaviour
     public struct AttackValues
     {
         //animation
-        public float attackLength;
-        public float inputBuffer;
+        //public float attackLength;
+        //public float inputBuffer;
         public int damage;
         public CircleCollider2D attackCollider;
         public PlayerAnimations animations;

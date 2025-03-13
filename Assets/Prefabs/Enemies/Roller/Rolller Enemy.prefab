@@ -246,6 +246,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackBuffer: 1
+  maxDistanceFromPatrol: 4
 --- !u!114 &5644258311082689311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ MonoBehaviour:
   HealthBarOffset: 1
   isBoss: 0
   autoDestroyOnDeath: 0
-  maxHealth: 1
+  maxHealth: 15
   bossType: 0
   dieEvent:
     m_PersistentCalls:

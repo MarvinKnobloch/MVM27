@@ -298,7 +298,7 @@ MonoBehaviour:
   HealthBarOffset: 1
   isBoss: 0
   autoDestroyOnDeath: 0
-  maxHealth: 3
+  maxHealth: 25
   bossType: 0
   dieEvent:
     m_PersistentCalls:

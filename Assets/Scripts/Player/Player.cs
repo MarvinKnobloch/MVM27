@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
     public IInteractables closestInteraction;
 
     //AbilitiesUnlocked
-    public bool fireElementUnlocked;
+    [NonSerialized] public bool fireElementUnlocked;
     [NonSerialized] public bool fireBallUnlocked;
     [NonSerialized] public bool wallbreakUnlocked;
     [NonSerialized] public bool airElementUnlocked;

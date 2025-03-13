@@ -111,7 +111,7 @@ MonoBehaviour:
   enemyHitLayer:
     serializedVersion: 2
     m_Bits: 128
-  damage: 2
+  damage: 5
   burnLayer:
     serializedVersion: 2
     m_Bits: 8192
