@@ -49,6 +49,7 @@ public class MovingPlatform : MonoBehaviour, IActivate
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         Transform child = transform.GetChild(0);
+        child.transform.position = transform.position + new Vector3(0, -0.24f, 0);
         childBoxCollider = child.GetComponent<BoxCollider2D>();
         spriteRenderer = child.GetComponent<SpriteRenderer>();
 

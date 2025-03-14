@@ -182,6 +182,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToTutorial3.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToLavaZone.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToEasterEgg.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialHiddenArea.ToString(), 0);
     }
     public void OverworldUpgradeReset()
     {

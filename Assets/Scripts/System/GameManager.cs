@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         TutorialDoorToTutorial3,
         TutorialDoorToLavaZone,
         TutorialDoorToEasterEgg,
+        TutorialHiddenArea,
     }
     private void Awake()
     {

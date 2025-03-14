@@ -48,7 +48,6 @@ public class TutorialBoss : MonoBehaviour
     [SerializeField] private float fireZoneLifetime;
 
     [Header("Death")]
-    [SerializeField] private GameObject fireUpgrade;
     [SerializeField] private MoveOnInteraction[] bossGates;
 
     //Animations
@@ -249,7 +248,6 @@ public class TutorialBoss : MonoBehaviour
     }
     public void Death() 
     {
-        fireUpgrade.SetActive(true);
         foreach (var obj in bossGates)
         {
             obj.Deactivate();

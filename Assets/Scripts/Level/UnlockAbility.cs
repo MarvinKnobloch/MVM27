@@ -20,6 +20,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
             PlayerPrefs.SetInt(abilityString.ToString(), 1);
             Player.Instance.PlayerAbilityUpdate();
             Player.Instance.playerInteraction.RemoveInteraction(this);
+            Player.Instance.health.Heal(Player.Instance.health.MaxValue);
+
             GetComponent<CircleCollider2D>().enabled = false;
 
             if (disableOnCollect) gameObject.SetActive(false);

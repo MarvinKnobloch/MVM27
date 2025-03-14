@@ -8,8 +8,12 @@ public class PermaButton : MonoBehaviour, IInteractables
     public string interactiontext => actionText;
 
     [SerializeField] private GameObject[] objsToControl;
-
     [SerializeField] private GameManager.OverworldSaveNames saveName;
+
+    [Space]
+    [TextArea]
+    [SerializeField] private string unlockText;
+
     private CircleCollider2D circleCollider;
 
     void Start()
@@ -29,6 +33,8 @@ public class PermaButton : MonoBehaviour, IInteractables
         circleCollider.enabled = false;
         transform.GetChild(0).transform.position = transform.GetChild(1).transform.position;
 
+        if(unlockText != string.Empty && GameManager.Instance.LoadProgress(saveName) == false) GameManager.Instance.playerUI.MessageBoxEnable(unlockText);
+
         Player.Instance.playerInteraction.RemoveInteraction(this);
         GameManager.Instance.SaveProgress(saveName);
     }
@@ -38,10 +44,6 @@ public class PermaButton : MonoBehaviour, IInteractables
         if (collision.CompareTag("Player"))
         {
             Player.Instance.playerInteraction.AddInteraction(this);
-        }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("Fireball"))
-        {
-            Interaction();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
