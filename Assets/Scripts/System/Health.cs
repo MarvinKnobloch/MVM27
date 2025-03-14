@@ -30,6 +30,10 @@ public class Health : MonoBehaviour
     [NonSerialized] public TutorialBoss tutorialBoss;
     [NonSerialized] public AirBoss airBoss;
 
+    [Header("Enemy")]
+    [SerializeField] private GameObject[] activatePuzzleObjsOnDeath;
+
+
     public enum Bosses
     {
         None,
@@ -163,6 +167,16 @@ public class Health : MonoBehaviour
             StopAllCoroutines();
             dieEvent?.Invoke();
 
+            if(activatePuzzleObjsOnDeath.Length != 0)
+            {
+                foreach (GameObject obj in activatePuzzleObjsOnDeath)
+                {
+                    if(obj.TryGetComponent(out IActivate activate))
+                    {
+                        activate.Activate();
+                    }
+                }
+            }
             // TODO: This if check was removed in favor of a config boolean. Keeping until I know all assets have been transitioned.
             //if (gameObject != Player.Instance.gameObject && isBoss == false)
             if (autoDestroyOnDeath)

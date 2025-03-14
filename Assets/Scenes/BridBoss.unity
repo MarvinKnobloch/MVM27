@@ -26064,7 +26064,7 @@ MonoBehaviour:
   chargeEndPositions:
   - {fileID: 791932677}
   - {fileID: 1148907738}
-  projectiles: {fileID: 6564779881003978094, guid: ce4cacd314f34814c803a291300c0825, type: 3}
+  projectiles: {fileID: 7432668743870324461, guid: 08e99005e0824374f93748a188ac9254, type: 3}
   projectileSpawnPhases: 3
   timeBetweenProjectiles: 1.1
   projectileSpawnAmount: 8

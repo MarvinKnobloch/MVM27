@@ -48,8 +48,9 @@ public class MovingPlatform : MonoBehaviour, IActivate
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        childBoxCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        Transform child = transform.GetChild(0);
+        childBoxCollider = child.GetComponent<BoxCollider2D>();
+        spriteRenderer = child.GetComponent<SpriteRenderer>();
 
         float xsize = spriteRenderer.size.x -0.8f;
         boxCollider.size = new Vector2(xsize * 0.98f, boxCollider.size.y);  // 0.49f
@@ -66,6 +67,14 @@ public class MovingPlatform : MonoBehaviour, IActivate
         Color notUsable = spriteRenderer.color;
         notUsable.a = 0.2f;
         notUsableColor = notUsable;
+
+        if (burningPlatform)
+        {
+            GameObject burnEffect = child.GetChild(0).gameObject;
+            burnEffect.SetActive(true);
+            burnEffect.GetComponent<SpriteRenderer>().size = new Vector2(0.5f, xsize - 0.05f);
+        }
+
         SetUsableState();
     }
     private void OnEnable()
