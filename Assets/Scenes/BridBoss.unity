@@ -26001,6 +26001,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 717480382}
         m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
+        m_MethodName: StartProjectileSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 717480382}
+        m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
         m_MethodName: SetEnemySpawnPhase
         m_Mode: 1
         m_Arguments:
@@ -26016,20 +26030,6 @@ MonoBehaviour:
       - m_Target: {fileID: 717480382}
         m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
         m_MethodName: StartChargeAbility
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 717480382}
-        m_TargetAssemblyTypeName: AirBoss, Assembly-CSharp
-        m_MethodName: StartProjectileSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26332,7 +26332,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26340,7 +26340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 87.1
+      value: 86.99
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26374,6 +26374,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4542032274332038545, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5294870722265100132, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: damage
       value: 2
@@ -26391,7 +26395,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2303512106228202605, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
+    - {fileID: 3365445640836832700, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
@@ -26778,7 +26784,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26786,7 +26792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 87.1
+      value: 86.99
       objectReference: {fileID: 0}
     - target: {fileID: 3788095489015970391, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26820,6 +26826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4542032274332038545, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5294870722265100132, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
       propertyPath: damage
       value: 2
@@ -26837,7 +26847,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2303512106228202605, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
+    - {fileID: 3365445640836832700, guid: 992565b6633af2f4196e51aae09e039c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992565b6633af2f4196e51aae09e039c, type: 3}

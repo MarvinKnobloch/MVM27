@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 957496346458068861}
   - component: {fileID: 1553118063696314480}
   - component: {fileID: 3529428841477570633}
+  - component: {fileID: 6416262134272183080}
   m_Layer: 0
   m_Name: SwitchAttackUpgrade
   m_TagString: Untagged
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.42783144, g: 0, b: 0.5943396, a: 1}
+  m_Sprite: {fileID: -8838081032802042824, guid: 0d6069f00b76ea54384b6f434abd56ee, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   amount: 1
   ID: 5
   upgradeText: 'Switch attack damage increased by '
+  actionText: Collect
 --- !u!58 &3529428841477570633
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,5 +141,27 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 0.8
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.7
+--- !u!95 &6416262134272183080
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4278080827802424707}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 93fa76cde3e6e3c46b27c65877417c42, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
