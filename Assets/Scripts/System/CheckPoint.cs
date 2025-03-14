@@ -37,6 +37,7 @@ public class CheckPoint : MonoBehaviour, IInteractables
         checkpointOff.SetActive(false);
         checkpointOn.SetActive(true);
         Player.Instance.playerInteraction.RemoveInteraction(this);
+        Player.Instance.health.Heal(Player.Instance.health.MaxValue);
         checkpointCollider.enabled = false;
 
         GameManager.Instance.currentCheckpoint = this;

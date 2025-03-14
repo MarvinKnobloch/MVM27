@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eef5958489d214290fb46ebdd0969e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleOffset: 0
+  scaleOffset: -0.2
 --- !u!61 &8997868480839015453
 BoxCollider2D:
   m_ObjectHideFlags: 0

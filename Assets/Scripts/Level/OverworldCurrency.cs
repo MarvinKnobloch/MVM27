@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class OverworldCurrency : MonoBehaviour, IInteractables
@@ -13,14 +14,19 @@ public class OverworldCurrency : MonoBehaviour, IInteractables
     public string interactiontext => actionText;
 
     private CircleCollider2D circleCollider;
+    [NonSerialized] public Animator animator;
+    [NonSerialized] public string currentstate;
 
     private void Awake()
     {
-        circleCollider = GetComponent<CircleCollider2D>();
-
         if (PlayerPrefs.GetInt("Upgrade" + ID) == 1)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            circleCollider = GetComponent<CircleCollider2D>();
+            animator = GetComponent<Animator>();
         }
 
     }
@@ -34,7 +40,11 @@ public class OverworldCurrency : MonoBehaviour, IInteractables
         circleCollider.enabled = false;
         Player.Instance.playerInteraction.RemoveInteraction(this);
 
-        gameObject.SetActive(false);
+        ChangeAnimationState("Break");
+    }
+    public void BreakEnd()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,5 +60,13 @@ public class OverworldCurrency : MonoBehaviour, IInteractables
         {
             Player.Instance.playerInteraction.RemoveInteraction(this);
         }
+    }
+    public void ChangeAnimationState(string newstate)
+    {
+        if (currentstate == newstate) return;
+        currentstate = newstate;
+        if (animator == null) return;
+
+        animator.CrossFadeInFixedTime(newstate, 0.1f);
     }
 }

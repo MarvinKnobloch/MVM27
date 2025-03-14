@@ -83,7 +83,7 @@ MonoBehaviour:
   YSpawnOffset: -0.2
   checkpointOff: {fileID: 1801276687752759195}
   checkpointOn: {fileID: 7519881735599001506}
-  actionText: Activate
+  actionText: Save Game
 --- !u!58 &6522898705302515848
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,0 +1,510 @@
+fileFormatVersion: 2
+guid: d204f84975eda90459b5d3e72d99de23
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8958814672511759462
+    second: Treasure_Break_Sheet_0
+  - first:
+      213: 1844933991454910936
+    second: Treasure_Break_Sheet_1
+  - first:
+      213: 254138636878091667
+    second: Treasure_Break_Sheet_2
+  - first:
+      213: 2481442044075235276
+    second: Treasure_Break_Sheet_3
+  - first:
+      213: 5656438108272523822
+    second: Treasure_Break_Sheet_4
+  - first:
+      213: -6458648168029626622
+    second: Treasure_Break_Sheet_5
+  - first:
+      213: -1991470901289599604
+    second: Treasure_Break_Sheet_6
+  - first:
+      213: -7937762904318023751
+    second: Treasure_Break_Sheet_7
+  - first:
+      213: 7192549900013926632
+    second: Treasure_Break_Sheet_8
+  - first:
+      213: 3679100659874475097
+    second: Treasure_Break_Sheet_9
+  - first:
+      213: 9072534064233957141
+    second: Treasure_Break_Sheet_10
+  - first:
+      213: 5505166576796195955
+    second: Treasure_Break_Sheet_11
+  - first:
+      213: 4483134513512489991
+    second: Treasure_Break_Sheet_12
+  - first:
+      213: -8777708915780082005
+    second: Treasure_Break_Sheet_13
+  - first:
+      213: -391959148710727059
+    second: Treasure_Break_Sheet_14
+  - first:
+      213: -681003165540255411
+    second: Treasure_Break_Sheet_15
+  - first:
+      213: 4968633235887513505
+    second: Treasure_Break_Sheet_16
+  - first:
+      213: 2464236134634698253
+    second: Treasure_Break_Sheet_17
+  - first:
+      213: 750357785543391262
+    second: Treasure_Break_Sheet_18
+  - first:
+      213: 3020382844537694695
+    second: Treasure_Break_Sheet_19
+  - first:
+      213: 1050743977938662070
+    second: Treasure_Break_Sheet_20
+  - first:
+      213: 2630460932847503034
+    second: Treasure_Break_Sheet_21
+  - first:
+      213: -2835563973828096376
+    second: Treasure_Break_Sheet_22
+  - first:
+      213: 5629930770292245281
+    second: Treasure_Break_Sheet_23
+  - first:
+      213: -6948939587373596621
+    second: Treasure_Break_Sheet_24
+  - first:
+      213: -7715167500809466648
+    second: Treasure_Break_Sheet_25
+  - first:
+      213: -9083378676704209352
+    second: Treasure_Break_Sheet_26
+  - first:
+      213: 125721741635842192
+    second: Treasure_Break_Sheet_27
+  - first:
+      213: 2140291895515556370
+    second: Treasure_Break_Sheet_28
+  - first:
+      213: -5324935010490932960
+    second: Treasure_Break_Sheet_29
+  - first:
+      213: 8759198691806023277
+    second: Treasure_Break_Sheet_30
+  - first:
+      213: 4136323723445260991
+    second: Treasure_Break_Sheet_31
+  - first:
+      213: -8328646831127107559
+    second: Treasure_Break_Sheet_32
+  - first:
+      213: -711487928085440956
+    second: Treasure_Break_Sheet_33
+  - first:
+      213: 4860918998139441090
+    second: Treasure_Break_Sheet_34
+  - first:
+      213: -1520493304056458636
+    second: Treasure_Break_Sheet_35
+  - first:
+      213: 8658856599471355756
+    second: Treasure_Break_Sheet_36
+  - first:
+      213: -251180808842203646
+    second: Treasure_Break_Sheet_37
+  - first:
+      213: 5402829215303712756
+    second: Treasure_Break_Sheet_38
+  - first:
+      213: 8127831154257615189
+    second: Treasure_Break_Sheet_39
+  - first:
+      213: -8310769662536708634
+    second: Treasure_Break_Sheet_40
+  - first:
+      213: -6470168397425628823
+    second: Treasure_Break_Sheet_41
+  - first:
+      213: 3913087786744069783
+    second: Treasure_Break_Sheet_42
+  - first:
+      213: -3989165431145311023
+    second: Treasure_Break_Sheet_43
+  - first:
+      213: -526015027285770540
+    second: Treasure_Break_Sheet_44
+  - first:
+      213: 8624196120161322928
+    second: Treasure_Break_Sheet_45
+  - first:
+      213: 3951342616672270467
+    second: Treasure_Break_Sheet_46
+  - first:
+      213: -2336273248240253541
+    second: Treasure_Break_Sheet_47
+  - first:
+      213: -1116490984261289654
+    second: Treasure_Break_Sheet_48
+  - first:
+      213: 8666686656946891956
+    second: Treasure_Break_Sheet_49
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b016c6585eba380800000000000000
+      internalID: -8958814672511759462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d9a6bab0b58a9910800000000000000
+      internalID: 1844933991454910936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39512d66eb1e68300800000000000000
+      internalID: 254138636878091667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7d2df446adf6220800000000000000
+      internalID: 2481442044075235276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2af0998d74bf7e40800000000000000
+      internalID: 5656438108272523822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20fdd57e5b54e56a0800000000000000
+      internalID: -6458648168029626622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d3b1c34cfdc54e0800000000000000
+      internalID: -1991470901289599604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7e9d0d1b667d190800000000000000
+      internalID: -7937762904318023751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e8f99bb60211d360800000000000000
+      internalID: 7192549900013926632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Treasure_Break_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c29b4be8ace0330800000000000000
+      internalID: 3679100659874475097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1dd69da7ba7d7d342aa1d636b8ca7a15
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Treasure_Break_Sheet_0: -8958814672511759462
+      Treasure_Break_Sheet_1: 1844933991454910936
+      Treasure_Break_Sheet_2: 254138636878091667
+      Treasure_Break_Sheet_3: 2481442044075235276
+      Treasure_Break_Sheet_4: 5656438108272523822
+      Treasure_Break_Sheet_5: -6458648168029626622
+      Treasure_Break_Sheet_6: -1991470901289599604
+      Treasure_Break_Sheet_7: -7937762904318023751
+      Treasure_Break_Sheet_8: 7192549900013926632
+      Treasure_Break_Sheet_9: 3679100659874475097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
