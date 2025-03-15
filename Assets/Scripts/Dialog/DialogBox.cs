@@ -51,7 +51,7 @@ public class DialogBox : MonoBehaviour
             }
             else
             {
-                if (controls.Player.Interact.WasPerformedThisFrame() || controls.Player.Attack.WasPerformedThisFrame())
+                if (controls.Player.Interact.WasPerformedThisFrame() || controls.Player.Attack.WasPerformedThisFrame() || Input.GetButtonDown("Attack") || Input.GetButtonDown("Interact"))
                 {
                     DialogContinue();
                 }

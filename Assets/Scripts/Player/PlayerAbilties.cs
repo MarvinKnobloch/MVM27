@@ -12,23 +12,33 @@ public class PlayerAbilties
 
     public void Ability1Input(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            if (player.currentElementNumber == 0) NonElementAbility1();
-            if (player.currentElementNumber == 1) FireAbility1();
-            if (player.currentElementNumber == 2) player.playerMovement.WallBoost();
+            Ability1Performed();
         }
+    }
+    private void Ability1Performed()
+    {
+        if (player.menuController.gameIsPaused) return;
+
+        if (player.currentElementNumber == 0) NonElementAbility1();
+        if (player.currentElementNumber == 1) FireAbility1();
+        if (player.currentElementNumber == 2) player.playerMovement.WallBoost();
     }
     public void Ability2Input(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            if (player.currentElementNumber == 0) NonElementAbility2();
+            Ability2Performed();
         }
+    }
+    public void Ability2Performed()
+    {
+        if (player.menuController.gameIsPaused) return;
+
+        if (player.currentElementNumber == 0) NonElementAbility2();
     }
     private void NonElementAbility1()
     {
@@ -60,7 +70,7 @@ public class PlayerAbilties
     }
     public void HoldHeal()
     {
-        if (player.controls.Player.ElementAbility1.WasReleasedThisFrame())
+        if (player.controls.Player.ElementAbility1.WasReleasedThisFrame() || Input.GetButtonUp("Ability1"))
         {
             player.SwitchToAir();
         }
@@ -179,35 +189,47 @@ public class PlayerAbilties
     }
     public void FirstElementInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
-
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            CheckElementalSwitch(0);
+            Element1Performed();
         }
     }
     public void SecondElementInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
-        if (player.fireElementUnlocked == false) return;
-
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            CheckElementalSwitch(1);
+            Element2Performed();
         }
     }
     public void ThirdElementInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
-        if (player.airElementUnlocked == false) return;
-
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            CheckElementalSwitch(2);
+            Element3Performed();
         }
+    }
+    private void Element1Performed()
+    {
+        if (player.menuController.gameIsPaused) return;
+
+        CheckElementalSwitch(0);
+    }
+    private void Element2Performed()
+    {
+        if (player.menuController.gameIsPaused) return;
+        if (player.fireElementUnlocked == false) return;
+
+        CheckElementalSwitch(1);
+    }
+    private void Element3Performed()
+    {
+        if (player.menuController.gameIsPaused) return;
+        if (player.airElementUnlocked == false) return;
+
+        CheckElementalSwitch(2);
     }
     private void CheckElementalSwitch(int slot)
     {
@@ -238,5 +260,29 @@ public class PlayerAbilties
         player.playerUI.SetElementalIcon(player.currentElementNumber);
         player.currentstate = null;
         //player.ChangeAnimationState(switchState);
+    }
+
+    public void ControllerAbility1Input()
+    {
+        if (Input.GetButtonDown("Ability1"))
+        {
+            Ability1Performed();
+        }
+    }
+    public void ControllerAbility2Input()
+    {
+        if (Input.GetButtonDown("Ability2")) Ability2Performed();
+    }
+    public void ControllerElement1Input()
+    {
+        if (Input.GetButtonDown("Element1")) Element1Performed();
+    }
+    public void ControllerElement2Input()
+    {
+        if (Input.GetButtonDown("Element2")) Element2Performed();
+    }
+    public void ControllerElement3Input()
+    {
+        if (Input.GetButtonDown("Element3")) Element3Performed();
     }
 }

@@ -274,22 +274,42 @@ public class Player : MonoBehaviour
 
         ReadMovementInput();
         playerInteraction.InteractionUpdate();
+
+        playerInteraction.ControllerInteractInput();
+        playerAbilties.ControllerAbility1Input();
+        playerAbilties.ControllerAbility2Input();
+        playerMovement.ControllerDashInput();
         switch (state)
         {
             case States.Emtpy:
                 break;
             case States.Ground:
+                playerMovement.ControllerJumpInput();
+                playerAttack.ControllerAttackInput();
+                playerAbilties.ControllerElement1Input();
+                playerAbilties.ControllerElement2Input();
+                playerAbilties.ControllerElement3Input();
                 playerCollision.GroundCheck();
                 playerMovement.RotatePlayer();
                 break;
             case States.GroundIntoAir:
                 playerMovement.JumpIsPressed();
+                playerMovement.ControllerJumpInput();
+                playerAttack.ControllerAttackInput();
+                playerAbilties.ControllerElement1Input();
+                playerAbilties.ControllerElement2Input();
+                playerAbilties.ControllerElement3Input();
                 playerMovement.GroundIntoAirTransition();
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
             case States.Air:
                 playerMovement.JumpIsPressed();
+                playerMovement.ControllerJumpInput();
+                playerAttack.ControllerAttackInput();
+                playerAbilties.ControllerElement1Input();
+                playerAbilties.ControllerElement2Input();
+                playerAbilties.ControllerElement3Input();
                 playerCollision.AirCheck();
                 playerMovement.RotatePlayer();
                 break;
@@ -309,6 +329,11 @@ public class Player : MonoBehaviour
     private void ReadMovementInput()
     {
         moveDirection.x = moveInput.ReadValue<Vector2>().x;
+
+        if (moveDirection.x == 0)
+        {
+            moveDirection.x = Input.GetAxis("Horizontal");
+        }
     }
 
     public void SwitchToGround(bool onlyResetValues)
