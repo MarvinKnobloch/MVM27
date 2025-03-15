@@ -60,11 +60,11 @@ MonoBehaviour:
   musicFiles:
   - audioClip: {fileID: 0}
     volume: 0
-  - audioClip: {fileID: 8300000, guid: c68ec313b5170274d9e95d54634bd74a, type: 3}
+  - audioClip: {fileID: 8300000, guid: 1e3081a78b0600143a58be590a2810e9, type: 3}
     volume: 0.2
-  - audioClip: {fileID: 8300000, guid: 77158cb3ce930eb47a6fec2f1a1a4695, type: 3}
+  - audioClip: {fileID: 8300000, guid: efbaf7ff1f84bee4aaf91324f7816d2e, type: 3}
     volume: 0.2
-  - audioClip: {fileID: 8300000, guid: f9d99bd184ae29644bd2496c5ee99541, type: 3}
+  - audioClip: {fileID: 8300000, guid: f338839606dd9004eb6d4c0439996b86, type: 3}
     volume: 0.2
   soundFiles:
   - audioClip: {fileID: 0}
