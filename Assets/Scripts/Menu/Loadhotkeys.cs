@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Loadhotkeys : MonoBehaviour
 {
     [SerializeField] private InputActionReference inputActionReference;
-    [Range(0, 4)]
+    [Range(0, 9)]
     [SerializeField] private int selectedBinding;
     [SerializeField] private InputBinding.DisplayStringOptions displayStringOptions;
     [SerializeField] private InputBinding inputBinding;
