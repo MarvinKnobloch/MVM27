@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2740262582852690203}
   - component: {fileID: 9048998808703362488}
   - component: {fileID: 1286815068722230821}
-  - component: {fileID: 8005472491019588068}
   m_Layer: 0
   m_Name: AttackUpgrade
   m_TagString: Untagged
@@ -106,6 +105,9 @@ MonoBehaviour:
   amount: 1
   ID: 4
   upgradeText: 'Attack damage increased by '
+  objSprite:
+  - {fileID: -644306091, guid: f0b60f5acb016c741bec8b9083d1eb3a, type: 3}
+  - {fileID: -587109772, guid: f0b60f5acb016c741bec8b9083d1eb3a, type: 3}
   actionText: Collect
 --- !u!58 &1286815068722230821
 CircleCollider2D:
@@ -143,25 +145,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.7
---- !u!95 &8005472491019588068
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637291486342621717}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8723a8dba52e45347885e9d064194b1f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

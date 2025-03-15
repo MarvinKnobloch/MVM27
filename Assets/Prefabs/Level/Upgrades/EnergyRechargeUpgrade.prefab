@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 715310630467884355}
   - component: {fileID: 331153663574656136}
   - component: {fileID: 4627729284843178317}
-  - component: {fileID: 4250936821881238464}
   m_Layer: 0
   m_Name: EnergyRechargeUpgrade
   m_TagString: Untagged
@@ -106,6 +105,9 @@ MonoBehaviour:
   amount: 1
   ID: 3
   upgradeText: 'Energy recharge amount increased by '
+  objSprite:
+  - {fileID: 803351373797648074, guid: 27335471567f5c34282a746ef348421b, type: 3}
+  - {fileID: 6138073072012670079, guid: 27335471567f5c34282a746ef348421b, type: 3}
   actionText: Collect
 --- !u!58 &4627729284843178317
 CircleCollider2D:
@@ -143,25 +145,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.7
---- !u!95 &4250936821881238464
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3544497172103908279}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 36c5f15170f15614396df57387e396f6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

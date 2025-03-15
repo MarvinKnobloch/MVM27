@@ -7,9 +7,11 @@ public class OverworldUpgrade : MonoBehaviour, IInteractables
     [SerializeField] private int amount;
     [SerializeField] private int ID;
     [TextArea][SerializeField] private string upgradeText;
+    [SerializeField] private Sprite[] objSprite;
 
-    private Animator animator;
     private CircleCollider2D circleCollider;
+    private SpriteRenderer spriteRenderer;
+
 
     [Space]
     [SerializeField] private string actionText;
@@ -18,11 +20,16 @@ public class OverworldUpgrade : MonoBehaviour, IInteractables
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         circleCollider = GetComponent<CircleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         if(PlayerPrefs.GetInt("Upgrade" + ID) == 1)
         {
             Collected();
+        }
+        else
+        {
+            spriteRenderer.sprite = objSprite[0];
         }
     }
     public void Interaction()
@@ -50,7 +57,7 @@ public class OverworldUpgrade : MonoBehaviour, IInteractables
     }
     private void Collected()
     {
+        spriteRenderer.sprite = objSprite[1];
         circleCollider.enabled = false;
-        animator.enabled = true;
     }
 }
