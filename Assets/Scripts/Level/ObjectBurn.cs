@@ -8,6 +8,8 @@ public class ObjectBurn : MonoBehaviour
     [SerializeField] private int burningEffectsAmount;
     [SerializeField] private float burningXSpread;
     [SerializeField] private float burningYSpread;
+
+    [SerializeField] private Animator animator;
     private bool isBurning;
     public void BurningStart()
     {
@@ -23,6 +25,18 @@ public class ObjectBurn : MonoBehaviour
     IEnumerator Burn()
     {
         yield return new WaitForSeconds(burningDuration);
+        if (animator != null)
+        {
+            animator.enabled = true;
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+        else ObjectDestroy();
+    }
+    public void ObjectDestroy()
+    {
         Destroy(gameObject);
     }
 }

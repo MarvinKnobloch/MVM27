@@ -14,11 +14,15 @@ public class Background : MonoBehaviour
     private float farthestback;
     [Range(0.1f, 1f)] public float backgroundspeed;
 
-    private void Start()
+    private void Awake()
     {
         cam = Camera.main.transform;
         camstartposi = cam.position;
+        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+    }
 
+    private void Start()
+    {
         int backgroundcount = transform.childCount;
         mats = new Material[backgroundcount];
         backspeed = new float[backgroundcount];
@@ -49,7 +53,9 @@ public class Background : MonoBehaviour
     private void LateUpdate()
     {
         distance = cam.position.x - camstartposi.x;
-        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+
+        transform.position = Vector3.Lerp(transform.position, new Vector3(cam.position.x, cam.position.y, 0), 40 * Time.deltaTime);
+        //transform.position = new Vector3(cam.position.x, cam.position.y, 0);
 
         for (int i = 0; i < backgrounds.Length; i++)
         {

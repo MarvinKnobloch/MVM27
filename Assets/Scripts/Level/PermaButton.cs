@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PermaButton : MonoBehaviour, IInteractables
@@ -15,10 +16,13 @@ public class PermaButton : MonoBehaviour, IInteractables
     [SerializeField] private string unlockText;
 
     private CircleCollider2D circleCollider;
+    private Animator animator;
+    private string currentstate;
 
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
+        animator = GetComponent<Animator>();
         if (saveName != GameManager.OverworldSaveNames.Empty)
         {
             if (GameManager.Instance.LoadProgress(saveName) == true) Interaction();
@@ -31,8 +35,8 @@ public class PermaButton : MonoBehaviour, IInteractables
             obj.GetComponent<IActivate>().Activate();
         }
         circleCollider.enabled = false;
-        transform.GetChild(0).transform.position = transform.GetChild(1).transform.position;
 
+        ChangeAnimationState("Pressed");
         if(unlockText != string.Empty && GameManager.Instance.LoadProgress(saveName) == false) GameManager.Instance.playerUI.MessageBoxEnable(unlockText);
 
         Player.Instance.playerInteraction.RemoveInteraction(this);
@@ -52,5 +56,13 @@ public class PermaButton : MonoBehaviour, IInteractables
         {
             Player.Instance.playerInteraction.RemoveInteraction(this);
         }
+    }
+    public void ChangeAnimationState(string newstate)
+    {
+        if (currentstate == newstate) return;
+        currentstate = newstate;
+        if (animator == null) return;
+
+        animator.CrossFadeInFixedTime(newstate, 0.1f);
     }
 }

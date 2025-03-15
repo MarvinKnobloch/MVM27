@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8678303774071700854}
   - component: {fileID: 5632844386148759981}
   - component: {fileID: 5836694087510151660}
+  - component: {fileID: 3707916626096419498}
   m_Layer: 13
   m_Name: Burnable
   m_TagString: Untagged
@@ -147,8 +148,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473933059a9bdb744b303dd1d95a3826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burningDuration: 1
+  burningDuration: 0.6
   burningEffect: {fileID: 5065832009076650070, guid: 3d571b895e3299d44af0a01c51c3578a, type: 3}
   burningEffectsAmount: 4
   burningXSpread: 0.3
   burningYSpread: 1
+  animator: {fileID: 3707916626096419498}
+--- !u!95 &3707916626096419498
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4954847551739914727}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24a5b052335eeb54ea9ab1e02c409a68, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

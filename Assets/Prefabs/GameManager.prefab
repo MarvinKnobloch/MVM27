@@ -3865,7 +3865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Eingabe
+  m_text: W
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5039,7 +5039,7 @@ MonoBehaviour:
   inputBinding:
     m_Name: 
     m_Id: c2a7ecd4-232a-42ae-8013-75dafd344a5c
-    m_Path: <Keyboard>/enter
+    m_Path: <Keyboard>/w
     m_Interactions: 
     m_Processors: 
     m_Groups: 
@@ -34602,7 +34602,7 @@ MonoBehaviour:
   inputBinding:
     m_Name: 
     m_Id: c2a7ecd4-232a-42ae-8013-75dafd344a5c
-    m_Path: <Keyboard>/enter
+    m_Path: <Keyboard>/w
     m_Interactions: 
     m_Processors: 
     m_Groups: 

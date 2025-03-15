@@ -7,11 +7,11 @@ public class PressurePlate : MonoBehaviour
     private List<GameObject> objsOnPlatform = new List<GameObject>();
     [SerializeField] private GameObject[] objsToControl;
 
-    private Transform spriteTransform;
-    private float spriteMoveOffset = 0.2f;
+    private Animator animator;
+    private string currentstate;
     private void Awake()
     {
-        spriteTransform = transform.GetChild(0).transform;
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +30,7 @@ public class PressurePlate : MonoBehaviour
                             iactivate.Activate();
                         }
                     }
-                    spriteTransform.transform.position += new Vector3(0, -spriteMoveOffset,0);
+                    ChangeAnimationState("Pressed");
                 }
             }
         }
@@ -53,9 +53,17 @@ public class PressurePlate : MonoBehaviour
                             iactivate.Deactivate();
                         }
                     }
-                    spriteTransform.transform.position += new Vector3(0, spriteMoveOffset, 0);
+                    ChangeAnimationState("Release");
                 }
             }
         }
+    }
+    public void ChangeAnimationState(string newstate)
+    {
+        if (currentstate == newstate) return;
+        currentstate = newstate;
+        if (animator == null) return;
+
+        animator.CrossFadeInFixedTime(newstate, 0.1f);
     }
 }
