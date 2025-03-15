@@ -55,7 +55,7 @@ public class DialogBox : MonoBehaviour
                 {
                     DialogContinue();
                 }
-                else if (controls.Menu.MenuEsc.WasPerformedThisFrame())
+                else if (controls.Menu.MenuEsc.WasPerformedThisFrame() || Input.GetButtonDown("Menu"))
                 {
                     if (cantSkipDialog) return;
                     DialogBoxDisable();

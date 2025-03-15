@@ -16,55 +16,47 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
     dialogText: Oh man how could i end up in this situation...
     dialogEvent: {fileID: 11400000, guid: aa745d3acacfd234b8f64548294eeaa0, type: 2}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
     dialogText: 'Hey you!
 
       Wake up!'
     dialogEvent: {fileID: 11400000, guid: 28ea079340f3c384f967744da5f0d634, type: 2}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
     dialogText: Come on. WAKE UP!!!
     dialogEvent: {fileID: 0}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: 'Uh.
 
       Oh.'
     dialogEvent: {fileID: 11400000, guid: b948191f22c852047b167a550077e00b, type: 2}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: What is going on?
     dialogEvent: {fileID: 11400000, guid: 6e2db33903ba8e6419ce1febef179abb, type: 2}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Who are you?
     dialogEvent: {fileID: 0}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ??
     dialogText: Follow me i know how to escape
     dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
-    dialogIntEvent: {fileID: 0}
     autoPlayInterval: 2
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Wait for me!
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
-    dialogIntEvent: {fileID: 11400000, guid: 20c6acdfeac133542a102656df3935fd, type: 2}
     autoPlayInterval: 0

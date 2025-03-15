@@ -16,22 +16,22 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
     dialogText: Test1
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Test2
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 3504535086711214500, guid: 14a8da4c78b756340941f15df65ddaed, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: Cinder
     dialogText: Test3
     dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}
     autoPlayInterval: 1.5
-  - characterSprite: {fileID: -8577397097120999278, guid: bb7e16660322bbd43b582b287f9d4123, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Test4
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}

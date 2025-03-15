@@ -56,7 +56,7 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-        if (controls.Menu.MenuEsc.WasPerformedThisFrame())
+        if (controls.Menu.MenuEsc.WasPerformedThisFrame() || Input.GetButtonDown("Menu"))
         {
             HandleMenu();
         }

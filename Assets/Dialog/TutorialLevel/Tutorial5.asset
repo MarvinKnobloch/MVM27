@@ -16,27 +16,27 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: What is this thing?
     dialogEvent: {fileID: 11400000, guid: 07d73c6f0d1347449be5ff5ca3dca722, type: 2}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8008996720072965830, guid: 18e0c610b23d37b42bcbe8f8ed77b75f, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
     dialogText: Be careful! Its dangerous.
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 21300000, guid: ffed44aa6b80edb48b6adea34145a82e, type: 3}
+  - characterSprite: {fileID: -2937943283622719129, guid: ea23934e7a643a1478763822f52d7920, type: 3}
     characterName: Robot
     dialogText: Bi bu bu bi bu bu ba
     dialogEvent: {fileID: 11400000, guid: 1e341b0c31ce9454d944b4a7f23faa6a, type: 2}
     autoPlayInterval: 1
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: NOOOOOOOOOOO!!!
     dialogEvent: {fileID: 11400000, guid: d358fc8e81297834ea16fee6a1fff643, type: 2}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Bastard! I WILL DESTROY YOU!!!
     dialogEvent: {fileID: 11400000, guid: e043571c1a83dee4eb4e3ea6ff218dd4, type: 2}
