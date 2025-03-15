@@ -81,7 +81,7 @@ public class CrawlerEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player.Instance.health.TakeDamage(damage, false);
+            Player.Instance.health.PlayerTakeDamage(damage, false, true);
         }
     }
 

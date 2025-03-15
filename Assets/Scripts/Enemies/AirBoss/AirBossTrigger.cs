@@ -23,7 +23,7 @@ public class AirBossTrigger : MonoBehaviour
         {
             if (airBoss.state == AirBoss.States.Stunned) return;
 
-            Player.Instance.health.TakeDamage(airBoss.chargeDamage, false);
+            Player.Instance.health.PlayerTakeDamage(airBoss.chargeDamage, false, true);
         }
     }
 }

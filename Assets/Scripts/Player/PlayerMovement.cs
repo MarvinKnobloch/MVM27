@@ -6,7 +6,6 @@ public class PlayerMovement
     public Player player;
     private float dashTimer;
 
-
     const string idleState = "Idle";
     const string runState = "Run";
     const string jumpState = "Jump";
@@ -248,6 +247,14 @@ public class PlayerMovement
                     player.rb.AddForce(player.transform.up * player.YWallBoostStrength, ForceMode2D.Impulse);
                 }
             }
+        }
+    }
+    public void PlayerHitStun()
+    {
+        player.hitStunTimer += Time.deltaTime;
+        if(player.hitStunTimer >= player.hitStunTime)
+        {
+            player.SwitchToAir();
         }
     }
 

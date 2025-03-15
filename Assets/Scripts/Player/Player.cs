@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -51,6 +52,15 @@ public class Player : MonoBehaviour
     private float iFramesBlinkTimer;
     [NonSerialized] public bool iFramesBlink;
     [NonSerialized] public bool iframesActive;
+
+    [Header("GetHitValues")]
+    public float hitStunTime;
+    [NonSerialized] public float hitStunTimer;
+    private CinemachineImpulseSource impulseSource;
+    [SerializeField] private float impulseBaseForce;
+    [SerializeField] private float randomImpulseForce;
+    [SerializeField] private float baseImpulseVelocity;
+    [SerializeField] private float randomImpulseVelocity;
 
     [Header("Other")]
     public Transform projectileSpawnPosition;
@@ -140,6 +150,7 @@ public class Player : MonoBehaviour
         NonElementalHeal,
         FireBall,
         Attack,
+        GetHit,
         Emtpy,
     }
     private void Awake()
@@ -155,6 +166,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
         health = GetComponent<Health>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
 
         currentAnimator = elementalAnimator[0];
         baseGravityScale = rb.gravityScale;
@@ -324,6 +336,9 @@ public class Player : MonoBehaviour
             case States.FireBall:
                 playerAbilties.CastFireball();
                 break;
+            case States.GetHit:
+                playerMovement.PlayerHitStun();
+                break;
         }
     }
     private void ReadMovementInput()
@@ -367,6 +382,20 @@ public class Player : MonoBehaviour
         rb.gravityScale = baseGravityScale;
 
         state = States.Air;
+    }
+    public void SwitchToGetHitStun()
+    {
+        rb.gravityScale = baseGravityScale;
+        rb.linearVelocity = Vector2.zero;
+
+        float force = impulseBaseForce + UnityEngine.Random.Range(-randomImpulseForce, randomImpulseForce);
+        float xVelocity =  baseImpulseVelocity + UnityEngine.Random.Range(-randomImpulseVelocity, randomImpulseVelocity);
+        float yVelocity =  baseImpulseVelocity + UnityEngine.Random.Range(-randomImpulseVelocity, randomImpulseVelocity);
+        impulseSource.DefaultVelocity = new Vector3(xVelocity, yVelocity, 0);
+        impulseSource.GenerateImpulseWithForce(force);
+        hitStunTimer = 0;
+        ChangeAnimationState("GetHit");
+        state = States.GetHit;
     }
     public void ChangeAnimationState(string newstate)
     {

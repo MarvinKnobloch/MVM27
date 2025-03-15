@@ -289,7 +289,7 @@ public class Flyer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player.Instance.health.TakeDamage(collisionWithPlayerDamage, false);
+            Player.Instance.health.PlayerTakeDamage(collisionWithPlayerDamage, false, true);
         }
     }
 

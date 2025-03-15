@@ -205,7 +205,7 @@ public class MovingPlatform : MonoBehaviour, IActivate
 
         if (collision.CompareTag("Player"))
         {
-            if (Player.Instance.currentElementNumber != 1) Player.Instance.health.TakeDamage(burningDamage, false);
+            if (Player.Instance.currentElementNumber != 1) Player.Instance.health.PlayerTakeDamage(burningDamage, false, false);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

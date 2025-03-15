@@ -116,7 +116,7 @@ public class Health : MonoBehaviour
         HealthBarBackground.transform.position = healthBarPosition;
     }
 
-    public void TakeDamage(int amount, bool dontIgnoreIFrames)
+    public void PlayerTakeDamage(int amount, bool dontIgnoreIFrames, bool knockBack)
     {
         if (!AllowDamage)
             return;
@@ -125,21 +125,36 @@ public class Health : MonoBehaviour
         if (Value <= 0)
             return;
 
-        if (gameObject == Player.Instance.gameObject)
+        if (dontIgnoreIFrames == false)
+            if (Player.Instance.iframesActive)
+                return;
+
+        Value -= amount;
+        playerUI.HealthUIUpdate(Value, MaxValue);
+
+        if (Value > 0)
+            Player.Instance.IFramesStart();
+
+        CheckForDeath();
+        //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
+
+        if (Value > 0 && knockBack)
         {
-            if (dontIgnoreIFrames == false)
-                if (Player.Instance.iframesActive)
-                    return;
-
-            Value -= amount;
-            playerUI.HealthUIUpdate(Value, MaxValue);
-
-            if (Value > 0)
-                Player.Instance.IFramesStart();
-
-            //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
+            Player.Instance.SwitchToGetHitStun();
+            //hitEvent?.Invoke();
         }
-        else if (isBoss)
+    }
+
+    public void EnemyTakeDamage(int amount)
+    {
+        if (!AllowDamage)
+            return;
+        if (amount == 0)
+            return;
+        if (Value <= 0)
+            return;
+
+        if (isBoss)
         {
 
             Value -= amount;
@@ -154,24 +169,32 @@ public class Health : MonoBehaviour
                     airBoss.PhaseUpdate(Value, MaxValue);
                     break;
             }
-
         }
         else
         {
             Value -= amount;
             EnemyHealthbarUpdate();
         }
+        CheckForDeath();
 
+        if(Value > 0)
+        {
+            hitEvent?.Invoke();
+        }
+
+    }
+    private void CheckForDeath()
+    {
         if (Value <= 0)
         {
             StopAllCoroutines();
             dieEvent?.Invoke();
 
-            if(activatePuzzleObjsOnDeath.Length != 0)
+            if (activatePuzzleObjsOnDeath.Length != 0)
             {
                 foreach (GameObject obj in activatePuzzleObjsOnDeath)
                 {
-                    if(obj.TryGetComponent(out IActivate activate))
+                    if (obj.TryGetComponent(out IActivate activate))
                     {
                         activate.Activate();
                     }
@@ -181,10 +204,6 @@ public class Health : MonoBehaviour
             //if (gameObject != Player.Instance.gameObject && isBoss == false)
             if (autoDestroyOnDeath)
                 Destroy(gameObject);
-        }
-        else
-        {
-            hitEvent?.Invoke();
         }
     }
     public void Heal(int amount)

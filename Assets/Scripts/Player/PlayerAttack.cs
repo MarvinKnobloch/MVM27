@@ -204,7 +204,7 @@ public class PlayerAttack : MonoBehaviour
             if (col.TryGetComponent(out Health health))
             {
                 int upgradeBonusDamage = AddUpgradeDamage();
-                health.TakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage, false);
+                health.EnemyTakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage);
 
             }
         }

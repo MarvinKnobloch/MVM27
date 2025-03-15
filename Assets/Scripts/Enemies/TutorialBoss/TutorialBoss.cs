@@ -173,7 +173,7 @@ public class TutorialBoss : MonoBehaviour
         {
             if (col.TryGetComponent(out Health health))
             {
-                health.TakeDamage(handDamage, false);
+                health.PlayerTakeDamage(handDamage, false, true);
             }
         }
     }

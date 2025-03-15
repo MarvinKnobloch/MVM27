@@ -163,7 +163,7 @@ public class ThwomperEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag(target.tag))
         {
             Debug.Log("hit target");
-            Player.Instance.health.TakeDamage(damage, false);
+            Player.Instance.health.PlayerTakeDamage(damage, false, true);
             col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }

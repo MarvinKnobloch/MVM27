@@ -130,7 +130,7 @@ public class PlayerAbilties
             }
             else if (col.TryGetComponent(out Health health))
             {
-                health.TakeDamage(player.heavyPunchDamage, false);
+                health.EnemyTakeDamage(player.heavyPunchDamage);
             }
         }
         player.EnergyUpdate(-player.heavyPunchCosts);

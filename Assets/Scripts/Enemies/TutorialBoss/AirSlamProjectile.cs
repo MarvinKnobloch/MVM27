@@ -21,7 +21,7 @@ public class AirSlamProjectile : MonoBehaviour
         {
             if (collision.CompareTag("Player"))
             {
-                Player.Instance.health.TakeDamage(damage, false);
+                Player.Instance.health.PlayerTakeDamage(damage, false, false);
             }
             Destroy(gameObject);
         }

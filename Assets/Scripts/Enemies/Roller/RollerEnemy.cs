@@ -140,7 +140,7 @@ public class RollerEnemy : MonoBehaviour
 
         if (collision.gameObject.CompareTag(target.tag))
         {
-            Player.Instance.health.TakeDamage(damage, false);
+            Player.Instance.health.PlayerTakeDamage(damage, false, true);
             lastTimeHitPlayer = Time.time;
             col.excludeLayers |= 1 << target.gameObject.layer;
         }
