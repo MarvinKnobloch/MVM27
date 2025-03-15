@@ -95,27 +95,32 @@ public class PlayerMovement
     }
     public void JumpInput(InputAction.CallbackContext ctx)
     {
+
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            JumpInputPerformed();
+        }
+    }
+    private void JumpInputPerformed()
+    {
         if (player.menuController.gameIsPaused) return;
 
         int count = player.maxJumpCount;
         if (player.doubleJumpUnlocked == false) count -= 1;
         if (player.currentJumpCount >= count) return;
 
-        bool pressed = ctx.ReadValueAsButton();
-        if (pressed)
+        switch (player.state)
         {
-            switch (player.state)
-            {
-                case Player.States.Ground:
-                    Jump();
-                    break;
-                case Player.States.GroundIntoAir:
-                    Jump();
-                    break;
-                case Player.States.Air:
-                    Jump();
-                    break;
-            }
+            case Player.States.Ground:
+                Jump();
+                break;
+            case Player.States.GroundIntoAir:
+                Jump();
+                break;
+            case Player.States.Air:
+                Jump();
+                break;
         }
     }
     private void Jump()
@@ -144,7 +149,7 @@ public class PlayerMovement
         {
             player.jumpPerformed = false;
         }
-        if (player.controls.Player.Jump.WasReleasedThisFrame())
+        if (player.controls.Player.Jump.WasReleasedThisFrame() || Input.GetButtonUp("Jump"))
         {
             float velocityReduce = player.maxJumpTime - player.jumpTimer;
             player.rb.AddForce(new Vector2(0, velocityReduce * -20), ForceMode2D.Impulse);
@@ -153,31 +158,38 @@ public class PlayerMovement
     }
     public void DashInput(InputAction.CallbackContext ctx)
     {
+        bool pressed = ctx.ReadValueAsButton();
+        if (pressed)
+        {
+            DashInputPerformed();
+        }
+    }
+    private void DashInputPerformed()
+    {
         if (player.menuController.gameIsPaused) return;
         if (player.fireElementUnlocked == false) return;
         if (player.currentDashCount >= player.maxDashCount) return;
 
-        bool pressed = ctx.ReadValueAsButton();
-        if (pressed)
+        switch (player.state)
         {
-            switch (player.state)
-            {
-                case Player.States.Ground:
-                    StartDash();
-                    break;
-                case Player.States.GroundIntoAir:
-                    StartDash();
-                    break;
-                case Player.States.Air:
-                    StartDash();
-                    break;
-                case Player.States.NonElementalHeal:
-                    StartDash();
-                    break;
-                case Player.States.Attack:
-                    StartDash();
-                    break;
-            }
+            case Player.States.Ground:
+                StartDash();
+                break;
+            case Player.States.GroundIntoAir:
+                StartDash();
+                break;
+            case Player.States.Air:
+                StartDash();
+                break;
+            case Player.States.NonElementalHeal:
+                StartDash();
+                break;
+            case Player.States.Attack:
+                StartDash();
+                break;
+            case Player.States.HeavyPunch:
+                StartDash();
+                break;
         }
     }
     private void StartDash()
@@ -237,7 +249,15 @@ public class PlayerMovement
                 }
             }
         }
+    }
 
+    public void ControllerDashInput()
+    {
+        if (Input.GetButtonDown("Dash")) DashInputPerformed();
+    }
+    public void ControllerJumpInput()
+    {
+        if (Input.GetButtonDown("Jump")) JumpInputPerformed();
     }
 
 }

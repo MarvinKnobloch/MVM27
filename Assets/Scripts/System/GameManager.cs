@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [NonSerialized] public bool CheckpointOnSpawn;
 
     [NonSerialized] public int playerCurrency;
+
+    [NonSerialized] public bool webGLBuild;
     public enum AbilityStrings
     {
         FireElement,
@@ -56,7 +58,13 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (Player.Instance == null) return;
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            webGLBuild = true;
+        }
+        else webGLBuild = false;
+
+            if (Player.Instance == null) return;
 
         if (LoadFormCheckpoint)
         {

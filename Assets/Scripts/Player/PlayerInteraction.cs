@@ -8,28 +8,32 @@ public class PlayerInteraction
 
     public void InteractInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) 
-        {
-            if(player.playerUI.messageBox.activeSelf == true) player.playerUI.MessageBoxDisable();
-            return; 
-        }
-        if (player.currentInteractable == null) return;
-
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            switch (player.state)
-            {
-                case Player.States.Ground:
-                    player.currentInteractable.Interaction();
-                    break;
-                case Player.States.GroundIntoAir:
-                    player.currentInteractable.Interaction();
-                    break;
-                case Player.States.Air:
-                    player.currentInteractable.Interaction();
-                    break;
-            }
+            InteractPerformed();
+        }
+    }
+    private void InteractPerformed()
+    {
+        if (player.menuController.gameIsPaused)
+        {
+            if (player.playerUI.messageBox.activeSelf == true) player.playerUI.MessageBoxDisable();
+            return;
+        }
+        if (player.currentInteractable == null) return;
+
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                player.currentInteractable.Interaction();
+                break;
+            case Player.States.GroundIntoAir:
+                player.currentInteractable.Interaction();
+                break;
+            case Player.States.Air:
+                player.currentInteractable.Interaction();
+                break;
         }
     }
     public void AddInteraction(IInteractables interactable)
@@ -78,5 +82,10 @@ public class PlayerInteraction
         }
         player.currentInteractable = player.closestInteraction;
         GameManager.Instance.playerUI.InteractionTextUpdate(player.currentInteractable.interactiontext);
+    }
+
+    public void ControllerInteractInput()
+    {
+        if (Input.GetButtonDown("Interact")) InteractPerformed();
     }
 }

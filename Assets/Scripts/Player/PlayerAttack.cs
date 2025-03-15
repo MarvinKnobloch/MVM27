@@ -67,30 +67,34 @@ public class PlayerAttack : MonoBehaviour
     }
     public void AttackInput(InputAction.CallbackContext ctx)
     {
-        if (player.menuController.gameIsPaused) return;
-        if (airAttackPerformed) return;
-
         bool pressed = ctx.ReadValueAsButton();
         if (pressed)
         {
-            switch (player.state)
-            {
-                case Player.States.Ground:
-                    currentAttackNumber = 0;
-                    nextAttackNumber = 0;
-                    StartAttack();
-                    break;
-                case Player.States.GroundIntoAir:
-                    currentAttackNumber = 0;
-                    nextAttackNumber = 0;
-                    StartAttack();
-                    break;
-                case Player.States.Air:
-                    currentAttackNumber = 0;
-                    nextAttackNumber = 0;
-                    StartAttack();
-                    break;
-            }
+            AttackInputPerformed();
+        }
+    }
+    private void AttackInputPerformed()
+    {
+        if (player.menuController.gameIsPaused) return;
+        if (airAttackPerformed) return;
+
+        switch (player.state)
+        {
+            case Player.States.Ground:
+                currentAttackNumber = 0;
+                nextAttackNumber = 0;
+                StartAttack();
+                break;
+            case Player.States.GroundIntoAir:
+                currentAttackNumber = 0;
+                nextAttackNumber = 0;
+                StartAttack();
+                break;
+            case Player.States.Air:
+                currentAttackNumber = 0;
+                nextAttackNumber = 0;
+                StartAttack();
+                break;
         }
     }
     private void StartAttack()
@@ -153,12 +157,12 @@ public class PlayerAttack : MonoBehaviour
 
         if (currentAttackNumber < (maxComboLength - 1) && chainAttack == false)
         {
-            if (controls.Player.Attack.WasPerformedThisFrame())
+            if (controls.Player.Attack.WasPerformedThisFrame() || Input.GetButtonDown("Attack"))
             {
                 nextAttackNumber++;
                 chainAttack = true;
             }
-            else if (controls.Player.Element1.WasPerformedThisFrame())
+            else if (controls.Player.Element1.WasPerformedThisFrame() || Input.GetButtonDown("Element1"))
             {
                 if (player.currentElementNumber != 0)
                 {
@@ -167,7 +171,7 @@ public class PlayerAttack : MonoBehaviour
                     elementalSwitchNumber = 0;
                 }
             }
-            else if (controls.Player.Element2.WasPerformedThisFrame() && player.fireElementUnlocked)
+            else if (controls.Player.Element2.WasPerformedThisFrame() && player.fireElementUnlocked || Input.GetButtonDown("Element2") && player.fireElementUnlocked)
             {
                 if (player.currentElementNumber != 1)
                 {
@@ -176,7 +180,7 @@ public class PlayerAttack : MonoBehaviour
                     elementalSwitchNumber = 1;
                 }
             }
-            else if (controls.Player.Element3.WasPerformedThisFrame() && player.airElementUnlocked)
+            else if (controls.Player.Element3.WasPerformedThisFrame() && player.airElementUnlocked || Input.GetButtonDown("Element3") && player.fireElementUnlocked)
             {
                 if (player.currentElementNumber != 2)
                 {
@@ -254,5 +258,9 @@ public class PlayerAttack : MonoBehaviour
         public CircleCollider2D attackCollider;
         public PlayerAnimations animations;
         public int energyRestore;
+    }
+    public void ControllerAttackInput()
+    {
+        if (Input.GetButtonDown("Attack")) AttackInputPerformed();
     }
 }

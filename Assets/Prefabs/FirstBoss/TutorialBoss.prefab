@@ -183,7 +183,6 @@ MonoBehaviour:
   timeToSpawnPlatforms: 3
   fireZone: {fileID: 0}
   fireZoneLifetime: 3
-  fireUpgrade: {fileID: 0}
   bossGates:
   - {fileID: 0}
   - {fileID: 0}
@@ -204,8 +203,9 @@ MonoBehaviour:
   HealthBarOffset: 1
   isBoss: 1
   autoDestroyOnDeath: 0
-  maxHealth: 160
+  maxHealth: 145
   bossType: 1
+  activatePuzzleObjsOnDeath: []
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
