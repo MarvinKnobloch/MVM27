@@ -67,12 +67,16 @@ public class PlayerAbilties
 
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
+
+        AudioManager.Instance.PlayHoldButton(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.NonHeal]);
     }
     public void HoldHeal()
     {
         if (player.controls.Player.ElementAbility1.WasReleasedThisFrame() || Input.GetButtonUp("Ability1"))
         {
             player.SwitchToAir();
+
+            AudioManager.Instance.StopHoldButton();
         }
     }
     public void NonElementHeal()
@@ -176,11 +180,13 @@ public class PlayerAbilties
     public void CastFireball()
     {
         castTimer += Time.deltaTime;
-        if(castTimer >= player.fireballCastTime)
+        if (castTimer >= player.fireballCastTime)
         {
             player.EnergyUpdate(-player.fireballCosts);
             player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition);
             player.playerCollision.CollisionCheckAfterAbilties();
+
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.FireBall]);
         }
     }
     private void AirAbility1()

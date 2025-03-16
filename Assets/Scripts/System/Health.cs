@@ -132,11 +132,13 @@ public class Health : MonoBehaviour
         Value -= amount;
         playerUI.HealthUIUpdate(Value, MaxValue);
 
+
         if (Value > 0)
             Player.Instance.IFramesStart();
 
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.playerGetHitSounds[Player.Instance.currentElementNumber]);
+
         CheckForDeath();
-        //AudioController.Instance.PlaySoundOneshot((int)AudioController.Sounds.);
 
         if (Value > 0 && knockBack)
         {

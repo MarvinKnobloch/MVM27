@@ -212,7 +212,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (attacks[currentAttackNumber].energyRestore != 0)
             {
-                player.EnergyUpdate(attacks[currentAttackNumber].energyRestore);
+                player.EnergyUpdate(attacks[currentAttackNumber].energyRestore + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
             }
         }
     }

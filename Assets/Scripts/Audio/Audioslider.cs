@@ -49,7 +49,7 @@ public class Audioslider : MonoBehaviour
             skipFirstSound = false;
             return;
         }
-        else AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.menuButton);
+        else AudioManager.Instance.PlaySoundOneshot((int)AudioManager.Sounds.MenuButton);
     }
     private void SetDecibel(float sliderValue, string audioString, int maxDecibel)
     {

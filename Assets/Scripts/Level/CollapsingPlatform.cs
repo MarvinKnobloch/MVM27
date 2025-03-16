@@ -75,6 +75,8 @@ public class CollapsingPlatform : MonoBehaviour
         childCollider.enabled = false;
         ActivateAnimator();
         if(respawnTime != 0) StartCoroutine(Respawn());
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.PlatformBreak]);
     }
     IEnumerator PlatformBlink()
     {

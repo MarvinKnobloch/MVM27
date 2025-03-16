@@ -50,6 +50,13 @@ public class TutorialBoss : MonoBehaviour
     [Header("Death")]
     [SerializeField] private MoveOnInteraction[] bossGates;
 
+    [Header("ScreenShake")]
+    private CinemachineImpulseSource impulseSource;
+    [SerializeField] private float impulseBaseForce;
+    [SerializeField] private float randomImpulseForce;
+    [SerializeField] private float baseImpulseVelocity;
+    [SerializeField] private float randomImpulseVelocity;
+
     //Animations
     private Animator animator;
     [NonSerialized] public string currentstate;
@@ -73,6 +80,7 @@ public class TutorialBoss : MonoBehaviour
         handCollider = GetComponentInChildren<CircleCollider2D>();
 
         health = GetComponent<Health>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
     private void Start()
     {
@@ -188,6 +196,8 @@ public class TutorialBoss : MonoBehaviour
     {
         ChangeAnimationState("Air");
         state = States.Attack;
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossAirSlam]);
     }
     public void StartAirProjectileSpawn()
     {
@@ -212,6 +222,8 @@ public class TutorialBoss : MonoBehaviour
     {
         ChangeAnimationState("Ground");
         state = States.Attack;
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossGroundSlam]);
     }
     public void ActivateFireZone()
     {
@@ -222,6 +234,14 @@ public class TutorialBoss : MonoBehaviour
     {
         yield return new WaitForSeconds(fireZoneLifetime);
         fireZone.SetActive(false);
+    }
+    public void ScreenShake()
+    {
+        float force = impulseBaseForce + UnityEngine.Random.Range(-randomImpulseForce, randomImpulseForce);
+        float xVelocity = baseImpulseVelocity + UnityEngine.Random.Range(-randomImpulseVelocity, randomImpulseVelocity);
+        float yVelocity = baseImpulseVelocity + UnityEngine.Random.Range(-randomImpulseVelocity, randomImpulseVelocity);
+        impulseSource.DefaultVelocity = new Vector3(xVelocity, yVelocity, 0);
+        impulseSource.GenerateImpulseWithForce(force);
     }
     public void ChangeAnimationState(string newstate)
     {

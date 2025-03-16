@@ -58,7 +58,7 @@ public class Collectable : MonoBehaviour
                         Player.Instance.health.Heal(collectValues[i].amount);
                         break;
                     case Currency.Energy:
-                        Player.Instance.EnergyUpdate(collectValues[i].amount);
+                        Player.Instance.EnergyUpdate(collectValues[i].amount + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
                         break;
                     case Currency.PlayerCurrency:
                         GameManager.Instance.playerUI.PlayerCurrencyUpdate(collectValues[i].amount);

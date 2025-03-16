@@ -23,6 +23,8 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     private int currentSpriteNumber;
     [SerializeField] private Sprite[] gateSprites;
 
+    private bool playSound;
+
     private State state;
     public enum State
     {
@@ -58,6 +60,8 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     {
         yield return null;
         CheckRequirements();
+
+        playSound = true;
     }
 
     public void Activate()
@@ -89,6 +93,8 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
             }
 
             state = State.moveToEnd;
+
+            if(playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]);
         }
     }
 
@@ -107,6 +113,8 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
             }
 
             state = State.moveToStart;
+
+            if (playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorClose]);
         }
         currentGoals--;
 

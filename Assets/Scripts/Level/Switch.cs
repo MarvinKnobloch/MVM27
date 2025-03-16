@@ -37,6 +37,9 @@ public class Switch : MonoBehaviour, IInteractables
                 activeSwitchImage.SetActive(false);
             }
         }
+
+        if(activ) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.SwitchActive]);
+        else AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.SwitchDeactive]);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

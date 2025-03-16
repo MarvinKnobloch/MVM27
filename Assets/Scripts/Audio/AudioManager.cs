@@ -10,7 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioSource footstepSource;
-
+    [SerializeField] private AudioSource holdButtonSource;
+ 
     [Space]
     [SerializeField] private float minPitch;
     [SerializeField] private float maxPitch;
@@ -29,7 +30,9 @@ public class AudioManager : MonoBehaviour
     private float seconds;
 
     [SerializeField] private AudioFiles[] musicFiles;
-    [SerializeField] private AudioFiles[] soundFiles;
+
+    [Header("Utiltiy")]
+    [SerializeField] private AudioFiles[] utilityFiles;
 
     [Header("Steps")]
     [SerializeField] public AudioFiles[] nonStepsSounds;
@@ -46,10 +49,22 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioFiles[] fireDashSounds;
     [SerializeField] public AudioFiles[] airDashSounds;
 
+    [Header("PlayerGetHit")]
+    [SerializeField] public AudioFiles[] playerGetHitSounds;
+
     [Header("Attacks")]
     [SerializeField] public AudioFiles[] nonAttackSounds;
     [SerializeField] public AudioFiles[] fireAttackSounds;
     [SerializeField] public AudioFiles[] airAttackSounds;
+
+    [Header("Abilities")]
+    [SerializeField] public AudioFiles[] abilitySounds;
+
+    [Header("World")]
+    [SerializeField] public AudioFiles[] worldSounds;
+
+    [Header("BossSounds")]
+    [SerializeField] public AudioFiles[] bossSounds;
 
 
     public enum MusicSongs
@@ -62,7 +77,27 @@ public class AudioManager : MonoBehaviour
     public enum Sounds
     {
         Empty,
-        menuButton,
+        MenuButton,
+        CurrenyGain,
+    }
+    public enum AbiltySounds
+    {
+        NonHeal,
+        FireBall,
+    }
+    public enum WolrdSounds
+    {
+        DoorOpen,
+        DoorClose,
+        DoorPip,
+        SwitchActive,
+        SwitchDeactive,
+        PlatformBreak,
+    }
+    public enum BossSounds
+    {
+        FirstBossAirSlam,
+        FirstBossGroundSlam,
     }
 
     private void Awake()
@@ -121,7 +156,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundOneshot(int soundClip)
     {
-        soundSource.PlayOneShot(soundFiles[soundClip].audioClip, soundFiles[soundClip].volume);
+        soundSource.PlayOneShot(utilityFiles[soundClip].audioClip, utilityFiles[soundClip].volume);
     }
     public void PlayAudioFileOneShot(AudioFiles file)
     {
@@ -142,6 +177,14 @@ public class AudioManager : MonoBehaviour
 
         footstepSource.Play();
     }
+    public void PlayHoldButton(AudioFiles file)
+    {
+        holdButtonSource.clip = file.audioClip;
+        holdButtonSource.volume = file.volume;
+
+        holdButtonSource.Play();
+    }
+    public void StopHoldButton() => holdButtonSource.Stop();
 
     public void StartMusicFadeOut(int audioFile, bool ignoreSameClip, float fadeOutSpeed, float fadeInSpeed)
     {
