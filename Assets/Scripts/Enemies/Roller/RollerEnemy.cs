@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class RollerEnemy : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class RollerEnemy : MonoBehaviour
     [Tooltip("The time in seconds we are to wait before allowing a hit on the target again.")]
     [SerializeField, Min(0f)] private float attackBuffer = 1f;
     [SerializeField, Min(0f)] private float maxDistanceFromPatrol = 4f;
+    [SerializeField] private LayerMask groundCheckMask;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -39,6 +41,7 @@ public class RollerEnemy : MonoBehaviour
     private const float DEATH_DESTROY_TIME = 0.5f;
     private const float OVER_ROLL_DISTANCE = 2f;
     private const float VISION_ANGLE = 45f;
+    private const float GROUND_CHECK = 0.5f;
 
     private const string IDLE_ANIM = "Idle";
     private const string HIT_ANIM = "Hit";
@@ -74,7 +77,7 @@ public class RollerEnemy : MonoBehaviour
 
         if (moveDirection != Vector2.zero)
         {
-            targetInSight = CheckVision();
+            targetInSight = CheckVision() && IsGroundAhead();
             if (targetInSight)
                 lastKnownTargetPosition = (Vector2)target.position;
         }
@@ -97,7 +100,7 @@ public class RollerEnemy : MonoBehaviour
         if (lastKnownTargetPosition != Vector2.zero)
         {
             // make sure cap movement from our patrol point
-            if (DistanceOutsidePatrolPoints() > maxDistanceFromPatrol)
+            if (DistanceOutsidePatrolPoints() > maxDistanceFromPatrol || !IsGroundAhead())
             {
                 lastKnownTargetPosition = Vector2.zero;
             }
@@ -168,19 +171,38 @@ public class RollerEnemy : MonoBehaviour
 
     private float DistanceOutsidePatrolPoints()
     {
+        // figure out which waypoint is left/right
+        var leftWaypoint = (startPosition.x < waypoint.position.x) ? startPosition.x : waypoint.position.x;
+        var rightWaypoint = (startPosition.x > waypoint.position.x) ? startPosition.x : waypoint.position.x;
+
         // if we are in between the patrol points, just return 0
-        var leftPosition = (startPosition.x < waypoint.position.x) ? startPosition.x : waypoint.position.x;
-        var rightPosition = (startPosition.x > waypoint.position.x) ? startPosition.x : waypoint.position.x;
-        if (rb.position.x >= leftPosition && rb.position.x <= rightPosition)
+        if (rb.position.x >= leftWaypoint && rb.position.x <= rightWaypoint)
             return 0f;
 
-        var targetPosition = (moveDirection.x > 0) ? rightPosition : leftPosition;
+        // if the target is between the patrol pionts, return 0
+        if (target.position.x >= leftWaypoint && target.position.x <= rightWaypoint)
+            return 0f;
+
+        // if target is closer to waypoints then us, return 0f
+        float centerPoint = (leftWaypoint + rightWaypoint) / 2f;
+        float distanceFromCenter = Mathf.Abs(rb.position.x - centerPoint);
+        float targetDistanceFromCenter = Mathf.Abs(target.position.x - centerPoint);
+        if (distanceFromCenter > targetDistanceFromCenter)
+            return 0f;
+
+        var targetPosition = (moveDirection.x > 0) ? rightWaypoint : leftWaypoint;
         return Mathf.Abs(rb.position.x - targetPosition);
     }
 
     private bool NearPosition(Vector2 targetPosition)
     {
         return (Mathf.Abs(rb.position.x - targetPosition.x) < WAYPOINT_PROXIMITY);
+    }
+
+    private bool IsGroundAhead()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position + moveDirection * GROUND_CHECK, Vector2.down, GROUND_CHECK, groundCheckMask);
+        return hit.collider != null;
     }
 
     private void UpdateSpriteDirection(Vector3 direction)
@@ -213,6 +235,12 @@ public class RollerEnemy : MonoBehaviour
         Vector2 direction = moveDirection != Vector2.zero ? moveDirection : Vector2.right;
         Gizmos.DrawLine(rb.position, rb.position + direction * visionRange);
 
+        // ground check raycast
+        Gizmos.color = Color.green;
+        Vector2 rayStart = rb.position + moveDirection * GROUND_CHECK;
+        Vector2 rayEnd = rayStart + (Vector2.down * GROUND_CHECK);
+        Gizmos.DrawLine(rayStart, rayEnd);
+
         if (lastKnownTargetPosition != Vector2.zero)
         {
             // Gizmos.color = Color.red;
@@ -234,7 +262,8 @@ public class RollerEnemy : MonoBehaviour
             Gizmos.DrawSphere(startPosition, 0.1f);
         }
 
-        UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
+        //UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
+        //UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, IsGroundAhead() ? "Ground Ahead" : "No Ground Ahead");
     }
 #endif
 }
