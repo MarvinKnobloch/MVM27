@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioFiles[] musicFiles;
 
     [Header("Utiltiy")]
-    [SerializeField] private AudioFiles[] utilityFiles;
+    [SerializeField] public AudioFiles[] utilityFiles;
 
     [Header("Steps")]
     [SerializeField] public AudioFiles[] nonStepsSounds;
@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
         Boss,
         FireArea,
     }
-    public enum Sounds
+    public enum UtilitySounds
     {
         Empty,
         MenuButton,

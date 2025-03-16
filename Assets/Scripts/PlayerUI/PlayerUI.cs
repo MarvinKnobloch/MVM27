@@ -11,6 +11,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject DebugMenu;
     [SerializeField] private Image blackScreen;
     private Color blackScreenColor;
+    private bool playCurrenySound;
 
     [Header("Interaction")]
     [SerializeField] private GameObject interactionField;
@@ -58,6 +59,8 @@ public class PlayerUI : MonoBehaviour
         yield return null;
         interactionField.SetActive(false);
         interactionField.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+
+        playCurrenySound = true;
     }
     private void Update()
     {
@@ -99,6 +102,8 @@ public class PlayerUI : MonoBehaviour
         currencyText.text = GameManager.Instance.playerCurrency.ToString();
 
         PlayerPrefs.SetInt("PlayerCurrency", GameManager.Instance.playerCurrency);
+
+        if(amount > 0 && playCurrenySound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.CurrenyGain]);
     }
     public void SetElementalIcon(int number)
     {
