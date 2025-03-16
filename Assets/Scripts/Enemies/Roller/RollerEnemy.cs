@@ -26,6 +26,8 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField, Min(0f)] private float attackBuffer = 1f;
     [SerializeField, Min(0f)] private float maxDistanceFromPatrol = 4f;
     [SerializeField] private LayerMask groundCheckMask;
+    [Tooltip("When the roller chases the player, it will go this far past the player as its target. Careful its not greater than MaxDistanceFromPatrol")]
+    [SerializeField] private float overRollDistance = 2f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -39,7 +41,6 @@ public class RollerEnemy : MonoBehaviour
 
     private const float WAYPOINT_PROXIMITY = 0.1f;
     private const float DEATH_DESTROY_TIME = 0.5f;
-    private const float OVER_ROLL_DISTANCE = 2f;
     private const float VISION_ANGLE = 45f;
     private const float GROUND_CHECK = 0.5f;
 
@@ -107,7 +108,7 @@ public class RollerEnemy : MonoBehaviour
             else
             {
                 // calculate the position to roll at (past the player)
-                Vector2 targetPosition = lastKnownTargetPosition + (moveDirection * OVER_ROLL_DISTANCE);
+                Vector2 targetPosition = lastKnownTargetPosition + (moveDirection * overRollDistance);
                 if (NearPosition(targetPosition))
                 {
                     // we hit our target position, turn around and check for the player
@@ -247,7 +248,7 @@ public class RollerEnemy : MonoBehaviour
             // Gizmos.DrawSphere(lastKnownTargetPosition, 0.1f);
 
             Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(lastKnownTargetPosition + moveDirection * OVER_ROLL_DISTANCE, 0.1f);
+            Gizmos.DrawSphere(lastKnownTargetPosition + moveDirection * overRollDistance, 0.1f);
         }
 
         if (waypoint != null)
