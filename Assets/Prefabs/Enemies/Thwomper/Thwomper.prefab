@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 9
-  m_Sprite: {fileID: 496234559840375071, guid: 6489991dddebce149a6a9ee1759965b0, type: 3}
+  m_Sprite: {fileID: -1133056914, guid: 6489991dddebce149a6a9ee1759965b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -300,6 +300,7 @@ MonoBehaviour:
   autoDestroyOnDeath: 0
   maxHealth: 25
   bossType: 0
+  activatePuzzleObjsOnDeath: []
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
