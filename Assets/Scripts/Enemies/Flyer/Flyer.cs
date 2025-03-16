@@ -192,7 +192,7 @@ public class Flyer : MonoBehaviour
     /// <summary>
     /// The time in seconds to delay the destory (for animations and such)
     /// </summary>
-    private const float DEATH_DESTROY_TIME = 1.5f;
+    private const float DEATH_DESTROY_TIME = 1.2f;
 
     private const string FLAP_ANIM = "Flap";
     private const string HIT_ANIM = "Hit";
