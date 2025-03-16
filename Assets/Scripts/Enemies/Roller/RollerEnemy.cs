@@ -9,6 +9,7 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
+    [SerializeField] private RollerDamageCollider damageCollider;
 
     [Header("Config")]
     [SerializeField, Min(0f)] private float speed = 2f;
@@ -60,9 +61,12 @@ public class RollerEnemy : MonoBehaviour
             throw new System.ArgumentNullException(nameof(animator));
         if (waypoint == null)
             throw new ArgumentNullException(nameof(waypoint));
+        if (damageCollider == null)
+            throw new ArgumentNullException(nameof(damageCollider));
 
         healthComponent.hitEvent.AddListener(OnHit);
         healthComponent.dieEvent.AddListener(OnDie);
+        damageCollider.OnTriggerEnter += TrigerEnter;
     }
 
     private void Start()
@@ -89,7 +93,6 @@ public class RollerEnemy : MonoBehaviour
         if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
         {
             lastTimeHitPlayer = 0f;
-            col.excludeLayers = 0;
         }
     }
 
@@ -137,16 +140,16 @@ public class RollerEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // this function is attached to the event from roller damage collider
+    public void TrigerEnter(Collider2D collider)
     {
         if (dead || lastTimeHitPlayer > 0f)
             return;
 
-        if (collision.gameObject.CompareTag(target.tag))
+        if (collider.gameObject.CompareTag(target.tag))
         {
             Player.Instance.health.PlayerTakeDamage(damage, false, true);
             lastTimeHitPlayer = Time.time;
-            col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }
 
