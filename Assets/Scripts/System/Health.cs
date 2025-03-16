@@ -188,7 +188,6 @@ public class Health : MonoBehaviour
         if (Value <= 0)
         {
             StopAllCoroutines();
-            dieEvent?.Invoke();
 
             if (activatePuzzleObjsOnDeath.Length != 0)
             {
@@ -200,6 +199,11 @@ public class Health : MonoBehaviour
                     }
                 }
             }
+
+            if (gameObject.TryGetComponent(out EnemyDrops enemyDrops)) enemyDrops.DropsOnDeath();
+
+
+            dieEvent?.Invoke();
             // TODO: This if check was removed in favor of a config boolean. Keeping until I know all assets have been transitioned.
             //if (gameObject != Player.Instance.gameObject && isBoss == false)
             if (autoDestroyOnDeath)

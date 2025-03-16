@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 1598233514074072878}
   - component: {fileID: 1689205900872896571}
   - component: {fileID: 5533275544690917738}
+  - component: {fileID: 6517954093014678561}
   m_Layer: 7
   m_Name: Flyer
   m_TagString: Untagged
@@ -297,12 +298,29 @@ MonoBehaviour:
   autoDestroyOnDeath: 0
   maxHealth: 30
   bossType: 0
+  activatePuzzleObjsOnDeath: []
   dieEvent:
     m_PersistentCalls:
       m_Calls: []
   hitEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6517954093014678561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4600587074112094543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51888adbabb3e5f4ea78b59d726dc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropsOnDeath:
+  - dropChance: 100
+    objectToDrop: {fileID: 4324425268743135067, guid: ec66c4f848447d241b07c1fe6915fc11, type: 3}
+    objectValue: 2
 --- !u!1001 &1611616346220060866
 PrefabInstance:
   m_ObjectHideFlags: 0
