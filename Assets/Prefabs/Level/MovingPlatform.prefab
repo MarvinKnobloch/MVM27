@@ -87,6 +87,8 @@ MonoBehaviour:
   fastTravelTime: 0
   burningPlatform: 0
   burningDamage: 0
+  burningSprite: {fileID: 7176902821624291635, guid: b1df0ae40a5289f4fb5dbbda22330f37, type: 3}
+  animatorController: {fileID: 9100000, guid: 994d4bab7ce21de46acd47c0a0f672ad, type: 2}
   notUsable: 0
 --- !u!61 &1650885133091870746
 BoxCollider2D:

@@ -28,6 +28,8 @@ public class MovingPlatform : MonoBehaviour, IActivate
     [Header("BurningPlatform")]
     [SerializeField] private bool burningPlatform;
     [SerializeField] private int burningDamage;
+    [SerializeField] private Sprite burningSprite;
+    [SerializeField] private RuntimeAnimatorController animatorController;
 
     [Header("Useable")]
     [SerializeField] private bool notUsable;
@@ -71,9 +73,8 @@ public class MovingPlatform : MonoBehaviour, IActivate
 
         if (burningPlatform)
         {
-            GameObject burnEffect = child.GetChild(0).gameObject;
-            burnEffect.SetActive(true);
-            burnEffect.GetComponent<SpriteRenderer>().size = new Vector2(0.5f, xsize - 0.05f);
+            spriteRenderer.sprite = burningSprite;
+            child.GetComponent<Animator>().runtimeAnimatorController = animatorController; 
         }
 
         SetUsableState();
