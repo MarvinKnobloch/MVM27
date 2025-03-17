@@ -1,11 +1,9 @@
 using System;
 using UnityEngine;
-using UnityEngine.Splines;
 
 public class RollerEnemy : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Collider2D col;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
@@ -29,6 +27,8 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private LayerMask groundCheckMask;
     [Tooltip("When the roller chases the player, it will go this far past the player as its target. Careful its not greater than MaxDistanceFromPatrol")]
     [SerializeField] private float overRollDistance = 2f;
+    [Tooltip("How much to knock the enemy back when hit.")]
+    [SerializeField, Min(0f)] private float knockbackForce = 5f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -51,8 +51,6 @@ public class RollerEnemy : MonoBehaviour
 
     private void Awake()
     {
-        if (col == null)
-            throw new ArgumentNullException(nameof(col));
         if (rb == null)
             throw new ArgumentNullException(nameof(rb));
         if (healthComponent == null)
@@ -91,9 +89,7 @@ public class RollerEnemy : MonoBehaviour
             hitTime = 0f;
 
         if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
-        {
             lastTimeHitPlayer = 0f;
-        }
     }
 
     private void FixedUpdate()
@@ -222,6 +218,15 @@ public class RollerEnemy : MonoBehaviour
     {
         hitTime = Time.time;
         animator.Play(HIT_ANIM);
+
+        var knockbackDirection = (rb.position - (Vector2)target.transform.position).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+
+        // make the roller aware of the player and ready to chase
+        lastKnownTargetPosition = (Vector2)target.position;
+        moveDirection = ((Vector2)target.position - rb.position).normalized;
+        moveDirection.y = 0f;
     }
 
     // this is triggered from the health component

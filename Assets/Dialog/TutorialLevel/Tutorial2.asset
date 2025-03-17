@@ -18,21 +18,44 @@ MonoBehaviour:
   dialogs:
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: Test1
+    dialogText: "You seem wide awake already, that\u2019s such a relief!"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Test2
+    dialogText: '... Yes....
+
+'
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Cinder
-    dialogText: Test3
-    dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}
+    characterName: ???
+    dialogText: "You\u2019re not so talkative, huh? Well, listen carefully, friend!\r\nThe
+      gates around here were open before, but I think something must have caused
+      them all to shut... and that means we\u2019re trapped in here until we can
+      open them up."
+    dialogEvent: {fileID: 0}
     autoPlayInterval: 1.5
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Test4
+    dialogText: ... OK....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: Player
+    dialogText: "And just a warning, we\u2019re in a Factory... even though it\u2019s
+      old and overgrown, make sure to protect yourself if you must.\r\n(LMB to attack,
+      hold Q in Null Form to recover health)"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: Player
+    dialogText: "Anyways, I\u2019ll be up ahead. Meet me there, friend, and mind
+      the thorns!"
+    dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: ... OK... Friend.
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 0

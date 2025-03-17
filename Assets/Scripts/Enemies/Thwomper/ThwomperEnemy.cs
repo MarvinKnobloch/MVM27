@@ -157,14 +157,17 @@ public class ThwomperEnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (dead || movementState != MovementState.Falling)
+        if (dead)
+            return;
+        if (movementState != MovementState.Falling && movementState != MovementState.Idle)
             return;
 
         if (collision.gameObject.CompareTag(target.tag))
         {
-            Debug.Log("hit target");
             Player.Instance.health.PlayerTakeDamage(damage, false, true);
-            col.excludeLayers |= 1 << target.gameObject.layer;
+
+            if (movementState == MovementState.Falling)
+                col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }
 

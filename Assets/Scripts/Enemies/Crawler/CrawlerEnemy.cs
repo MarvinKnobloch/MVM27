@@ -1,4 +1,6 @@
 using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // TODO
@@ -13,23 +15,36 @@ public class CrawlerEnemy : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
+    [SerializeField] private CrawlerDamageCollider damageCollider;
 
     [Header("Config")]
-    [SerializeField] private float speed = 2f;
-    //[Tooltip("Crawlsers can only move either hoizontal or veritcal along the waypoints.")]
-    //[SerializeField] private MovementType moveType = MovementType.Horizontal;
-    private MovementType moveType = MovementType.Horizontal;
+    [SerializeField] private float speed = 1.2f;
+    [SerializeField] private LayerMask groundLayerMask;
     [Tooltip("The waypoint to walk to and from.")]
     [SerializeField] private Transform waypoint;
     [Tooltip("The damage dealt to the player if they collide")]
     [SerializeField] private int damage = 1;
+    [SerializeField, Min(0f)]
+    private float freezeOnHitTime = .3f;
+    [Tooltip("The time in seconds we are to wait before allowing a hit on the target again.")]
+    [SerializeField, Min(0f)] private float attackBuffer = 1f;
+    [Tooltip("How much to knock the enemy back when hit.")]
+    [SerializeField, Min(0f)] private float knockbackForce = 2.5f;
 
+    private Transform target;
     private Vector2 startPosition = Vector2.zero;
     private Vector2 moveDirection = Vector2.zero;
     private bool movingTowardsWaypoint = true;
-    
+    private float hitTime = 0f;
+    private bool dead = false;
+    private float lastTimeHitPlayer = 0f; // this the time we hit the player, not the player attacking us
+
     private const float WAYPOINT_PROXIMITY = 0.1f;
     private const float DEATH_DESTROY_TIME = 0.5f;
+
+    private const string IDLE_ANIM = "Idle";
+    private const string HIT_ANIM = "Hit";
+    private const string DIE_ANIM = "Die";
 
     private void Awake()
     {
@@ -44,21 +59,34 @@ public class CrawlerEnemy : MonoBehaviour
 
         healthComponent.hitEvent.AddListener(OnHit);
         healthComponent.dieEvent.AddListener(OnDie);
+        damageCollider.OnTriggerEnter += TrigerEnter;
     }
 
     private void Start()
     {
         startPosition = rb.position;
+        target = Player.Instance.transform;
+
     }
 
     private void Update()
     {
         if (moveDirection != Vector2.zero)
             UpdateSpriteDirection(moveDirection);
+
+        if (hitTime != 0f && Time.time - hitTime > freezeOnHitTime)
+            hitTime = 0f;
+
+        if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
+            lastTimeHitPlayer = 0f;
     }
 
     private void FixedUpdate()
     {
+        if (hitTime != 0f || dead)
+            return;
+
+        // move to waypoint
         Vector2 targetPosition = (movingTowardsWaypoint) ? (Vector2)waypoint.position : startPosition;
         if (NearPosition(targetPosition))
         {
@@ -67,58 +95,67 @@ public class CrawlerEnemy : MonoBehaviour
         }
 
         moveDirection = (targetPosition - rb.position).normalized;
+        moveDirection.y = 0f;
 
-        // Basically, whatever the startposition is for either x/y (based on the enum) we will stay that the whole way. No gravity
-        if (moveType == MovementType.Horizontal)
-            moveDirection.y = 0f;
-        else
-            moveDirection.x = 0f;
-
-        rb.MovePosition(rb.position + (moveDirection * speed * Time.fixedDeltaTime));
+        rb.linearVelocity = new Vector2(moveDirection.x * speed, rb.linearVelocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void TrigerEnter(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Debug.Log(collider.gameObject.name, collider.gameObject);
+        if (dead || lastTimeHitPlayer > 0f)
+            return;
+
+        if (collider.gameObject.CompareTag(target.tag))
         {
             Player.Instance.health.PlayerTakeDamage(damage, false, true);
         }
     }
 
-    private bool NearPosition(Vector2 targePosition)
+    private bool NearPosition(Vector2 targetPosition)
     {
-        if (moveType == MovementType.Horizontal)
-            return (Mathf.Abs(rb.position.x - targePosition.x) < WAYPOINT_PROXIMITY);
-        else
-            return (Mathf.Abs(rb.position.y - targePosition.y) < WAYPOINT_PROXIMITY);
+        return (Mathf.Abs(rb.position.x - targetPosition.x) < WAYPOINT_PROXIMITY);
     }
 
     private void UpdateSpriteDirection(Vector3 direction)
     {
-        if (moveType == MovementType.Horizontal)
-        {
-            if (direction.x > 0)
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            else
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
+        if (direction.x > 0)
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         else
-        {
-            if (direction.y > 0)
-                transform.rotation = Quaternion.Euler(0, 0, -90);
-            else
-                transform.rotation = Quaternion.Euler(0, 0, 90);
-        }
+            transform.rotation = Quaternion.Euler(0, 180, 0);
     }
 
+    // this is triggered from the health component
     private void OnHit()
     {
-        // todo play hit anim
+        hitTime = Time.time;
+        animator.Play(HIT_ANIM);
+
+        var knockbackDirection = (rb.position - (Vector2)target.transform.position).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 
+    // this is triggered from the health component
     private void OnDie()
     {
-        // todo play death anim
+        dead = true;
+        animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (waypoint != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(waypoint.position, 0.1f);
+        }
+
+        if (startPosition != Vector2.zero)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawSphere(startPosition, 0.1f);
+        }
     }
 }

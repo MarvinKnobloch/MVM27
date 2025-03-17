@@ -16,28 +16,40 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: Player
+    dialogText: Hello again, friend!
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: ???
+    dialogText: ... Hello....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: ???
+    dialogText: "There\u2019s a big shaft up ahead that I had climbed up earlier,
+      and it should lead us down to the central room of this place!\r\nThere\u2019s
+      an exit to the Ashen Forest beyond, but I fear it may be closed off with all
+      the gates active right now...."
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Test1
+    dialogText: ... Ah... an exit....
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: ???
-    dialogText: Test2
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: ???
-    dialogText: Test3
+    characterName: Player
+    dialogText: "Right! Though, it will likely be difficult to get through with everything
+      in here so active.\r\nBut, I\u2019m too weak to fight back against any of the
+      machines here... I\u2019ll just have to sneak ahead and see if I can help you
+      get around.\r\nAlright then! Stay safe, friend, and make sure to stop at lamps
+      if you need a rest.\r\r"
     dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
-    autoPlayInterval: 1.5
+    autoPlayInterval: 5
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Test4
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
-    characterName: Player
-    dialogText: Test5
+    dialogText: "... OK....\r"
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 0
