@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     public bool LoadFormCheckpoint;
     [NonSerialized] public bool CheckpointOnSpawn;
 
-    [NonSerialized] public int playerCurrency;
+    [Space]
+    [SerializeField] private Player player;
+    [SerializeField] private Background background;
 
-    [NonSerialized] public bool webGLBuild;
+    [NonSerialized] public int playerCurrency;
     public enum AbilityStrings
     {
         FireElement,
@@ -55,17 +57,20 @@ public class GameManager : MonoBehaviour
 
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 120;
+
+        if (player != null && LoadFormCheckpoint)
+        {
+            float XSpawn = PlayerPrefs.GetFloat("PlayerXSpawn");
+            float YSpawn = PlayerPrefs.GetFloat("PlayerYSpawn");
+            Vector3 spawn = new Vector3(XSpawn, YSpawn, 0);
+
+            player.gameObject.transform.position = spawn;
+        } 
+        if (background != null) background.BackgroundOnStart();
     }
     private void Start()
     {
-
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
-        {
-            webGLBuild = true;
-        }
-        else webGLBuild = false;
-
-            if (Player.Instance == null) return;
+        if (Player.Instance == null) return;
 
         if (LoadFormCheckpoint)
         {
@@ -101,7 +106,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         CheckpointOnSpawn = true;
     }
-
     public void ActivateCursor()
     {
         Cursor.lockState = CursorLockMode.None;

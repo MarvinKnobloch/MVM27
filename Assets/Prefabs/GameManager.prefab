@@ -11649,6 +11649,7 @@ MonoBehaviour:
   playerUI: {fileID: 2530458674294965036}
   currentCheckpoint: {fileID: 0}
   LoadFormCheckpoint: 0
+  setBackgroundPosition: {fileID: 11400000, guid: 4b31468bc0eec154989929ffde5feb6c, type: 2}
 --- !u!1 &3595919935570034237
 GameObject:
   m_ObjectHideFlags: 0

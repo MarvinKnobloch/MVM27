@@ -14,11 +14,11 @@ public class Background : MonoBehaviour
     private float farthestback;
     [Range(0.1f, 1f)] public float backgroundspeed;
 
+
     private void Awake()
     {
         cam = Camera.main.transform;
         camstartposi = cam.position;
-        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
     }
 
     private void Start()
@@ -34,6 +34,13 @@ public class Background : MonoBehaviour
             mats[i] = backgrounds[i].GetComponent<Renderer>().material;
         }
         backspeedcalculation(backgroundcount);
+
+        //transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+    }
+    public void BackgroundOnStart()
+    {
+        if(cam == null) cam = Camera.main.transform;
+        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
     }
     private void backspeedcalculation(int backgroundcount)
     {
