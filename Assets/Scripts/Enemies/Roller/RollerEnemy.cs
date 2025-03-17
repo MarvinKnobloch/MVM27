@@ -4,7 +4,6 @@ using UnityEngine;
 public class RollerEnemy : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private Collider2D col;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
@@ -50,8 +49,6 @@ public class RollerEnemy : MonoBehaviour
 
     private void Awake()
     {
-        if (col == null)
-            throw new ArgumentNullException(nameof(col));
         if (rb == null)
             throw new ArgumentNullException(nameof(rb));
         if (healthComponent == null)
