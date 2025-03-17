@@ -185,8 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_AssetsPPU: 64
-  m_RefResolutionX: 1366
-  m_RefResolutionY: 768
+  m_RefResolutionX: 1696
+  m_RefResolutionY: 954
   m_CropFrame: 3
   m_GridSnapping: 0
   m_FilterMode: 0

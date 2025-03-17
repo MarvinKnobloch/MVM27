@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             webGLBuild = true;
@@ -89,6 +90,10 @@ public class GameManager : MonoBehaviour
         {
             //AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
             AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
         }
     }
     IEnumerator CheckPointOnLoad()

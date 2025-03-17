@@ -61,6 +61,11 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
         yield return null;
         CheckRequirements();
 
+        StartCoroutine(ActiavteSound());
+    }
+    IEnumerator ActiavteSound()
+    {
+        yield return new WaitForSeconds(0.5f);
         playSound = true;
     }
 
@@ -94,7 +99,10 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
             state = State.moveToEnd;
 
-            if(playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]);
+            if (playSound)
+            {
+                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]); 
+            }
         }
     }
 
@@ -114,7 +122,10 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
             state = State.moveToStart;
 
-            if (playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorClose]);
+            if (playSound) 
+            {
+                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorClose]);
+            }
         }
         currentGoals--;
 

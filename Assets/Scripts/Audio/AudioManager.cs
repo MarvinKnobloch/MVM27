@@ -157,17 +157,17 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundOneshot(int soundClip)
     {
-        soundSource.PlayOneShot(utilityFiles[soundClip].audioClip, utilityFiles[soundClip].volume);
+        if (soundSource != null) soundSource.PlayOneShot(utilityFiles[soundClip].audioClip, utilityFiles[soundClip].volume);
     }
     public void PlayAudioFileOneShot(AudioFiles file)
     {
-        soundSource.PlayOneShot(file.audioClip, file.volume);
+        if(soundSource != null) soundSource.PlayOneShot(file.audioClip, file.volume);
     }
     public void PlayRandomOneShot(AudioFiles[] files)
     {
         int randomNumber = UnityEngine.Random.Range(0, files.Length);
 
-        soundSource.PlayOneShot(files[randomNumber].audioClip, files[randomNumber].volume);
+        if (soundSource != null) soundSource.PlayOneShot(files[randomNumber].audioClip, files[randomNumber].volume);
     }
     public void PlayFootSteps(AudioFiles[] files, int soundClip)
     {

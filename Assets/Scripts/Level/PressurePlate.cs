@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PressurePlate : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class PressurePlate : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (SceneManager.GetActiveScene().buildIndex != PlayerPrefs.GetInt("CurrentLevel")) return;
+
         if (Utility.LayerCheck(collision, triggerLayer))
         {
             if (objsOnPlatform.Contains(collision.gameObject) == true)
@@ -62,6 +65,8 @@ public class PressurePlate : MonoBehaviour
     }
     public void ChangeAnimationState(string newstate)
     {
+        if (gameObject.activeSelf == false) return;
+
         if (currentstate == newstate) return;
         currentstate = newstate;
         if (animator == null) return;
