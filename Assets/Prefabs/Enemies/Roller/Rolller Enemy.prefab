@@ -344,7 +344,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   overRollDistance: 2
-  knockbackForce: 2.5
+  knockbackForce: 5
 --- !u!114 &5644258311082689311
 MonoBehaviour:
   m_ObjectHideFlags: 0
