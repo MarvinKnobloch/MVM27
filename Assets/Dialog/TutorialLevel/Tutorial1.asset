@@ -59,4 +59,4 @@ MonoBehaviour:
     characterName: Player
     dialogText: Wait for me!
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
-    autoPlayInterval: 0
+    autoPlayInterval: 2

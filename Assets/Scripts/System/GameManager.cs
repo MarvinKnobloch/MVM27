@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
-            //AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, false, 0.1f, 0.01f); 
+            //AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
+            AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
         }
     }
     IEnumerator CheckPointOnLoad()
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeCamera(Transform newTarget)
     {
-        cinemachineFollow.TrackerSettings.PositionDamping = new Vector3(2, 2, 2);
+        cinemachineFollow.TrackerSettings.PositionDamping = new Vector3(1, 1, 1);
         cinemachineCamera.Target.TrackingTarget = newTarget;
         StartCoroutine(ResetCameraDamping());
     }

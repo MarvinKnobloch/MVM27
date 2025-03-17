@@ -35,7 +35,7 @@ MonoBehaviour:
     characterName: Player
     dialogText: NOOOOOOOOOOO!!!
     dialogEvent: {fileID: 11400000, guid: d358fc8e81297834ea16fee6a1fff643, type: 2}
-    autoPlayInterval: 0
+    autoPlayInterval: 1.5
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Bastard! I WILL DESTROY YOU!!!
