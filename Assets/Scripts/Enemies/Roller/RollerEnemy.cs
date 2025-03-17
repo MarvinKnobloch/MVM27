@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Splines;
 
 public class RollerEnemy : MonoBehaviour
 {
@@ -91,9 +90,7 @@ public class RollerEnemy : MonoBehaviour
             hitTime = 0f;
 
         if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
-        {
             lastTimeHitPlayer = 0f;
-        }
     }
 
     private void FixedUpdate()
