@@ -18,21 +18,30 @@ MonoBehaviour:
   dialogs:
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: We almost made it
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: ???
-    dialogText: Go job!
-    dialogEvent: {fileID: 11400000, guid: e6862c4843339e444a4dd7137fbdf3e2, type: 2}
-    autoPlayInterval: 2
-  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: ???
-    dialogText: Woah, where you did come from?
+    dialogText: "Friend! We\u2019re almost out of here!\nI was able to open the gate
+      to this room, and the exit should be just beyond here!"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: ???
+    dialogText: ... Ah... thank you....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: ???
+    dialogText: "It still feels strange, though... just what was it that made this
+      run-down Factory start up again? I hope this isn\u2019t a sign that the Machine
+      God has grown stronger...."
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: Player
-    dialogText: Whats going on?
+    dialogText: "Wait, did you hear something?\nI think it came from up ahead...
+      I\u2019m going to take a look."
+    dialogEvent: {fileID: 11400000, guid: e6862c4843339e444a4dd7137fbdf3e2, type: 2}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: ... OK...
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 0

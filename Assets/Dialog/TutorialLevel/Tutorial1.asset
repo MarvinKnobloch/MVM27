@@ -18,45 +18,45 @@ MonoBehaviour:
   dialogs:
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: Oh man how could i end up in this situation...
+    dialogText: I thought this Factory was supposed to be abandoned... why did everything
+      come alive so suddenly when I was just passing through?
     dialogEvent: {fileID: 11400000, guid: aa745d3acacfd234b8f64548294eeaa0, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: 'Hey you!
-
-      Wake up!'
+    dialogText: "Huh...? Is that another machine laying on the floor?\nOhh, I\u2019ve
+      got no choice, I\u2019m completely cornered!"
     dialogEvent: {fileID: 11400000, guid: 28ea079340f3c384f967744da5f0d634, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: Come on. WAKE UP!!!
+    dialogText: Hey! Wake up!!
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: 'Uh.
-
-      Oh.'
+    dialogText: ...?
     dialogEvent: {fileID: 11400000, guid: b948191f22c852047b167a550077e00b, type: 2}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: Player
-    dialogText: What is going on?
+    dialogText: "Wait a minute... you look like another Elemental! But I\u2019ve
+      never seen one like you before...."
     dialogEvent: {fileID: 11400000, guid: 6e2db33903ba8e6419ce1febef179abb, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Who are you?
+    dialogText: ....
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ??
-    dialogText: Follow me i know how to escape
+    dialogText: "Well, that doesn\u2019t matter! Get yourself ready and follow me!\r\n(A/D
+      to move, Space to jump)"
     dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
     autoPlayInterval: 2
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Wait for me!
+    dialogText: ... OK....
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 2
