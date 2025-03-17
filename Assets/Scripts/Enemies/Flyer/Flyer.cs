@@ -156,6 +156,7 @@ public class Flyer : MonoBehaviour
     [Tooltip("The force to push this back when being hit. Set to 0 to disable.")]
     [SerializeField, Min(0f)] private float hitPushbackForce = .4f;
     [SerializeField, Min(0)] private int collisionWithPlayerDamage = 1;
+    [SerializeField] private LayerMask groundLayerMask;
 
     [Header("Combat - Attack")]
     [SerializeField] private AttackTypes attackType = AttackTypes.SingleShot;
@@ -427,7 +428,9 @@ public class Flyer : MonoBehaviour
             // hit does not provide the object that hit us, so we assume the player direction is the same
             var direction = (Player.Instance.rb.position - rb.position).normalized;
             var newPosition = rb.position - direction * hitPushbackForce;
-            rb.MovePosition(newPosition);
+            Collider2D hit = Physics2D.OverlapCircle(newPosition, 0.1f, groundLayerMask);
+            if (!hit)
+                rb.MovePosition(newPosition);
         }
     }
 
