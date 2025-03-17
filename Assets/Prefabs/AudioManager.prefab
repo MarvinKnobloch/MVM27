@@ -178,6 +178,10 @@ MonoBehaviour:
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: 7b61021b04f0b134aa80ae7c3421db26, type: 3}
     volume: 0.2
+  - audioClip: {fileID: 8300000, guid: eb7f3c4ccc267d84f9dc1f55e7c1b32e, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: a4d66ef2b08df154f985f21caf09f7ff, type: 3}
+    volume: 0.2
   bossSounds:
   - audioClip: {fileID: 8300000, guid: 8d31954419a86a9478205ba4db3ebb94, type: 3}
     volume: 0.2

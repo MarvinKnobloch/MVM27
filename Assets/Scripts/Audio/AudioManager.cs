@@ -93,6 +93,8 @@ public class AudioManager : MonoBehaviour
         SwitchActive,
         SwitchDeactive,
         PlatformBreak,
+        PermaButton,
+        CheckPoint,
     }
     public enum BossSounds
     {

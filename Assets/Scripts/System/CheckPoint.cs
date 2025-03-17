@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 public class CheckPoint : MonoBehaviour, IInteractables
 {
@@ -15,9 +16,17 @@ public class CheckPoint : MonoBehaviour, IInteractables
     [SerializeField] private string actionText;
 
     public string interactiontext => actionText;
+
+    private bool playSound;
     private void Awake()
     {
         checkpointCollider = GetComponent<Collider2D>();
+        StartCoroutine(ActivateSound());
+    }
+    IEnumerator ActivateSound()
+    {
+        yield return new WaitForSeconds(0.3f);
+        playSound = true;
     }
     public void Interaction()
     {
@@ -41,6 +50,8 @@ public class CheckPoint : MonoBehaviour, IInteractables
         checkpointCollider.enabled = false;
 
         GameManager.Instance.currentCheckpoint = this;
+
+        if(playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.CheckPoint]);
     }
     public void DeactivateCheckpoint()
     {
