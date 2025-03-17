@@ -105,7 +105,7 @@ MonoBehaviour:
   amount: 50
   ID: 48
   pickUpText: 'Obtained '
-  secondText: ' currrency'
+  secondText: ' crystals'
   actionText: Open
 --- !u!58 &4820069761559428473
 CircleCollider2D:

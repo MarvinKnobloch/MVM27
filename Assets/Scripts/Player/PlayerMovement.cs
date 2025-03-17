@@ -50,7 +50,7 @@ public class PlayerMovement
     }
     public void GroundMovement()
     {
-        PlayerMove(-7);
+        PlayerMove(-10);
     }
     public void GroundIntoAirTransition()
     {
