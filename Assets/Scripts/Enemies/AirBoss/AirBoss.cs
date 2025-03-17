@@ -56,6 +56,8 @@ public class AirBoss : MonoBehaviour
     [SerializeField] private Transform[] chargeStartEndPositions;
     [SerializeField] private Transform[] chargeEndPositions;
     private Transform chargeEndPosition;
+    [SerializeField] private GameObject energyDrop;
+    [SerializeField] private Transform energyDropPosition;
 
     [Header("ProjectileSpawn")]
     [SerializeField] private GameObject projectiles;
@@ -75,11 +77,13 @@ public class AirBoss : MonoBehaviour
 
     [Header("EnemiesPhase")]
     [SerializeField] private GameObject enemiesToSpawn;
+    [SerializeField] private Transform[] waypoints;
+    //[SerializeField] private Transform enemySpawnPosition;
     [SerializeField] private int enemySpawnPhases;
     private int currentEnemySpawnPhase;
-    private Vector2 leftEnemySpawnPosition;
-    private Vector2 rightEnemySpawnPosition;
-    private Vector2 enemySpawnPosition;
+    private Vector2 birdLeftPositionOnEnemySpawn;
+    private Vector2 birdRightPositionOnEnemySpawn;
+    private Vector2 birdEnemySpawnPosition;
     [SerializeField] private GameObject feathers;
     [SerializeField] private float timeBetweenFeathers;
     [SerializeField] private int feathersAmount;
@@ -137,8 +141,8 @@ public class AirBoss : MonoBehaviour
         health = GetComponent<Health>();
         isleft = true;
 
-        leftEnemySpawnPosition = (Vector2)chargeEndPositions[0].position + Vector2.up * 7;
-        rightEnemySpawnPosition = (Vector2)chargeEndPositions[1].position + Vector2.up * 7;
+        birdLeftPositionOnEnemySpawn = (Vector2)chargeEndPositions[0].position + Vector2.up * 7;
+        birdRightPositionOnEnemySpawn = (Vector2)chargeEndPositions[1].position + Vector2.up * 7;
     }
     private void Start()
     {
@@ -308,6 +312,10 @@ public class AirBoss : MonoBehaviour
         {
             SetCharge();
 
+            if(Player.Instance.EnergyValue < Player.Instance.fireballCosts)
+            {
+                Instantiate(energyDrop, energyDropPosition.position, Quaternion.identity);
+            }
             ChangeAnimationState("Charge");
             state = States.Charge;
         }
@@ -438,17 +446,17 @@ public class AirBoss : MonoBehaviour
     }
     public void SetEnemySpawnPhase()
     {
-        if (isleft) enemySpawnPosition = leftEnemySpawnPosition;
-        else enemySpawnPosition = rightEnemySpawnPosition;
+        if (isleft) birdEnemySpawnPosition = birdLeftPositionOnEnemySpawn;
+        else birdEnemySpawnPosition = birdRightPositionOnEnemySpawn;
 
         state = States.GetToSpawnEnemyPhase;
     }
     private void MoveToEnemySpawnPosition()
     {
         var step = 6 * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, enemySpawnPosition, step);
+        transform.position = Vector2.MoveTowards(transform.position, birdEnemySpawnPosition, step);
 
-        if (Vector2.Distance(transform.position, enemySpawnPosition) < 0.2f)
+        if (Vector2.Distance(transform.position, birdEnemySpawnPosition) < 0.2f)
         {
             if(isleft) transform.localScale = new Vector3(-1, 1, 1);
             else transform.localScale = new Vector3(1, 1, 1);
@@ -459,7 +467,17 @@ public class AirBoss : MonoBehaviour
     }
     public void SpawnEnemies()
     {
-        
+        GameObject enemy1 = Instantiate(enemiesToSpawn, tornadoSpawnPosition.position, Quaternion.identity);
+
+        Transform waypoint;
+        if (isleft) waypoint = waypoints[1];
+        else waypoint = waypoints[0];
+        enemy1.GetComponent<ThwomperEnemy>().SetWaypoints(tornadoSpawnPosition, waypoint);
+
+        enemy1.SetActive(true);
+
+        //GameObject enemy2 = Instantiate(enemiesToSpawn, energyDropPosition.position + -Vector3.right * 3, Quaternion.identity);
+        //enemy2.GetComponent<CrawlerEnemy>().SetWaypoints(waypoints[1], waypoints[0]);
     }
     public void SwitchToWaitForFeathers()
     {

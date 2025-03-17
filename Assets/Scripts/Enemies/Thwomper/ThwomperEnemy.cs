@@ -30,6 +30,7 @@ public class ThwomperEnemy : MonoBehaviour
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
+    [SerializeField] private bool setStartPositionWithScript;
     private Vector2 moveDirection = Vector2.zero;
     private bool movingTowardsWaypoint = true;
     private float hitTime = 0f;
@@ -60,8 +61,8 @@ public class ThwomperEnemy : MonoBehaviour
             throw new System.ArgumentNullException(nameof(healthComponent));
         if (animator == null)
             throw new System.ArgumentNullException(nameof(animator));
-        if (waypoint == null)
-            throw new ArgumentNullException(nameof(waypoint));
+        //if (waypoint == null)
+        //    throw new ArgumentNullException(nameof(waypoint));
         if (groundCheck == null)
             throw new ArgumentNullException(nameof(groundCheck));
 
@@ -75,7 +76,7 @@ public class ThwomperEnemy : MonoBehaviour
 
     private void Start()
     {
-        startPosition = rb.position;
+        if (setStartPositionWithScript == false) startPosition = rb.position; startPosition = rb.position;
         target = Player.Instance.transform;
         healthComponent.AllowDamage = false; // we only allow damage while Grounded
     }
@@ -189,6 +190,11 @@ public class ThwomperEnemy : MonoBehaviour
         dead = true;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+    }
+    public void SetWaypoints(Transform startPosi, Transform endPosi)
+    {
+        startPosition = startPosi.position;
+        waypoint = endPosi;
     }
 
 #if UNITY_EDITOR
