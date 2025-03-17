@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class RollerEnemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
+    [SerializeField] private RollerDamageCollider damageCollider;
 
     [Header("Config")]
     [SerializeField, Min(0f)] private float speed = 2f;
@@ -24,6 +26,9 @@ public class RollerEnemy : MonoBehaviour
     [Tooltip("The time in seconds we are to wait before allowing a hit on the target again.")]
     [SerializeField, Min(0f)] private float attackBuffer = 1f;
     [SerializeField, Min(0f)] private float maxDistanceFromPatrol = 4f;
+    [SerializeField] private LayerMask groundCheckMask;
+    [Tooltip("When the roller chases the player, it will go this far past the player as its target. Careful its not greater than MaxDistanceFromPatrol")]
+    [SerializeField] private float overRollDistance = 2f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -37,8 +42,8 @@ public class RollerEnemy : MonoBehaviour
 
     private const float WAYPOINT_PROXIMITY = 0.1f;
     private const float DEATH_DESTROY_TIME = 0.5f;
-    private const float OVER_ROLL_DISTANCE = 2f;
     private const float VISION_ANGLE = 45f;
+    private const float GROUND_CHECK = 0.5f;
 
     private const string IDLE_ANIM = "Idle";
     private const string HIT_ANIM = "Hit";
@@ -56,9 +61,12 @@ public class RollerEnemy : MonoBehaviour
             throw new System.ArgumentNullException(nameof(animator));
         if (waypoint == null)
             throw new ArgumentNullException(nameof(waypoint));
+        if (damageCollider == null)
+            throw new ArgumentNullException(nameof(damageCollider));
 
         healthComponent.hitEvent.AddListener(OnHit);
         healthComponent.dieEvent.AddListener(OnDie);
+        damageCollider.OnTriggerEnter += TrigerEnter;
     }
 
     private void Start()
@@ -74,7 +82,7 @@ public class RollerEnemy : MonoBehaviour
 
         if (moveDirection != Vector2.zero)
         {
-            targetInSight = CheckVision();
+            targetInSight = CheckVision() && IsGroundAhead();
             if (targetInSight)
                 lastKnownTargetPosition = (Vector2)target.position;
         }
@@ -85,7 +93,6 @@ public class RollerEnemy : MonoBehaviour
         if (lastTimeHitPlayer > 0f && Time.time - lastTimeHitPlayer > attackBuffer)
         {
             lastTimeHitPlayer = 0f;
-            col.excludeLayers = 0;
         }
     }
 
@@ -97,14 +104,14 @@ public class RollerEnemy : MonoBehaviour
         if (lastKnownTargetPosition != Vector2.zero)
         {
             // make sure cap movement from our patrol point
-            if (DistanceOutsidePatrolPoints() > maxDistanceFromPatrol)
+            if (DistanceOutsidePatrolPoints() > maxDistanceFromPatrol || !IsGroundAhead())
             {
                 lastKnownTargetPosition = Vector2.zero;
             }
             else
             {
                 // calculate the position to roll at (past the player)
-                Vector2 targetPosition = lastKnownTargetPosition + (moveDirection * OVER_ROLL_DISTANCE);
+                Vector2 targetPosition = lastKnownTargetPosition + (moveDirection * overRollDistance);
                 if (NearPosition(targetPosition))
                 {
                     // we hit our target position, turn around and check for the player
@@ -133,16 +140,16 @@ public class RollerEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // this function is attached to the event from roller damage collider
+    public void TrigerEnter(Collider2D collider)
     {
         if (dead || lastTimeHitPlayer > 0f)
             return;
 
-        if (collision.gameObject.CompareTag(target.tag))
+        if (collider.gameObject.CompareTag(target.tag))
         {
             Player.Instance.health.PlayerTakeDamage(damage, false, true);
             lastTimeHitPlayer = Time.time;
-            col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }
 
@@ -168,19 +175,38 @@ public class RollerEnemy : MonoBehaviour
 
     private float DistanceOutsidePatrolPoints()
     {
+        // figure out which waypoint is left/right
+        var leftWaypoint = (startPosition.x < waypoint.position.x) ? startPosition.x : waypoint.position.x;
+        var rightWaypoint = (startPosition.x > waypoint.position.x) ? startPosition.x : waypoint.position.x;
+
         // if we are in between the patrol points, just return 0
-        var leftPosition = (startPosition.x < waypoint.position.x) ? startPosition.x : waypoint.position.x;
-        var rightPosition = (startPosition.x > waypoint.position.x) ? startPosition.x : waypoint.position.x;
-        if (rb.position.x >= leftPosition && rb.position.x <= rightPosition)
+        if (rb.position.x >= leftWaypoint && rb.position.x <= rightWaypoint)
             return 0f;
 
-        var targetPosition = (moveDirection.x > 0) ? rightPosition : leftPosition;
+        // if the target is between the patrol pionts, return 0
+        if (target.position.x >= leftWaypoint && target.position.x <= rightWaypoint)
+            return 0f;
+
+        // if target is closer to waypoints then us, return 0f
+        float centerPoint = (leftWaypoint + rightWaypoint) / 2f;
+        float distanceFromCenter = Mathf.Abs(rb.position.x - centerPoint);
+        float targetDistanceFromCenter = Mathf.Abs(target.position.x - centerPoint);
+        if (distanceFromCenter > targetDistanceFromCenter)
+            return 0f;
+
+        var targetPosition = (moveDirection.x > 0) ? rightWaypoint : leftWaypoint;
         return Mathf.Abs(rb.position.x - targetPosition);
     }
 
     private bool NearPosition(Vector2 targetPosition)
     {
         return (Mathf.Abs(rb.position.x - targetPosition.x) < WAYPOINT_PROXIMITY);
+    }
+
+    private bool IsGroundAhead()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position + moveDirection * GROUND_CHECK, Vector2.down, GROUND_CHECK, groundCheckMask);
+        return hit.collider != null;
     }
 
     private void UpdateSpriteDirection(Vector3 direction)
@@ -213,13 +239,19 @@ public class RollerEnemy : MonoBehaviour
         Vector2 direction = moveDirection != Vector2.zero ? moveDirection : Vector2.right;
         Gizmos.DrawLine(rb.position, rb.position + direction * visionRange);
 
+        // ground check raycast
+        Gizmos.color = Color.green;
+        Vector2 rayStart = rb.position + moveDirection * GROUND_CHECK;
+        Vector2 rayEnd = rayStart + (Vector2.down * GROUND_CHECK);
+        Gizmos.DrawLine(rayStart, rayEnd);
+
         if (lastKnownTargetPosition != Vector2.zero)
         {
             // Gizmos.color = Color.red;
             // Gizmos.DrawSphere(lastKnownTargetPosition, 0.1f);
 
             Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(lastKnownTargetPosition + moveDirection * OVER_ROLL_DISTANCE, 0.1f);
+            Gizmos.DrawSphere(lastKnownTargetPosition + moveDirection * overRollDistance, 0.1f);
         }
 
         if (waypoint != null)
@@ -234,7 +266,8 @@ public class RollerEnemy : MonoBehaviour
             Gizmos.DrawSphere(startPosition, 0.1f);
         }
 
-        UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
+        //UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, targetInSight ? "Target in Sight" : "No Target");
+        //UnityEditor.Handles.Label(rb.position + Vector2.up * 0.5f, IsGroundAhead() ? "Ground Ahead" : "No Ground Ahead");
     }
 #endif
 }

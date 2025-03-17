@@ -106,67 +106,287 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Thwomper_0
+      name: Thwomper_Sheet_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 31
-        width: 62
-        height: 66
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f11de88f3baf2e600800000000000000
-      internalID: 496234559840375071
+      spriteID: 8b297cf4b70b7dc46ab143be382c0c32
+      internalID: -1133056914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thwomper_1
+      name: Thwomper_Sheet_1
       rect:
         serializedVersion: 2
-        x: 161
-        y: 31
-        width: 62
-        height: 66
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 70d5eac90080a8fe0800000000000000
-      internalID: -1186126753137009401
+      spriteID: 36ee710e8f4ab01499b0e51a5fa0a3e3
+      internalID: -1544317289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Thwomper_2
+      name: Thwomper_Sheet_2
       rect:
         serializedVersion: 2
-        x: 289
-        y: 31
-        width: 62
-        height: 66
+        x: 256
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 364312b3dc550b6a0800000000000000
-      internalID: -6435549527563750301
+      spriteID: ae816b305034ad943afa8b8e20d3d073
+      internalID: -1977709894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9cc60e726d3e644f86c7ef063f4a2e2
+      internalID: -1812917208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5ebd18cf8a1b24d9876cb7057ac1f0
+      internalID: -1682624808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed79e04a33b89ba43882a32465f86e2f
+      internalID: -761256164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eba8c7ba215e4ea4681dd5147d0ac793
+      internalID: -1176717075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 792518059de8a6547bcf389eaf98f194
+      internalID: -1279414109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1744e89681cbc1438b36d62c9dfb841
+      internalID: -1439285460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eed203518ebfb942a98913aa567ca03
+      internalID: -973070390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007733a96f8eef442aab0c338e91afdf
+      internalID: 845537988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580a5b4843d559c40a25217467b8dede
+      internalID: 1802649963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thwomper_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548e1aff712e06b44969ac4b637cc26d
+      internalID: 1523919924
       vertices: []
       indices: 
       edges: []
@@ -175,7 +395,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c68a779a1d5910c4a82997b18e3f488b
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +405,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Thwomper_0: 496234559840375071
-      Thwomper_1: -1186126753137009401
-      Thwomper_2: -6435549527563750301
+      Thwomper_Sheet_0: -1133056914
+      Thwomper_Sheet_1: -1544317289
+      Thwomper_Sheet_10: 845537988
+      Thwomper_Sheet_11: 1802649963
+      Thwomper_Sheet_12: 1523919924
+      Thwomper_Sheet_2: -1977709894
+      Thwomper_Sheet_3: -1812917208
+      Thwomper_Sheet_4: -1682624808
+      Thwomper_Sheet_5: -761256164
+      Thwomper_Sheet_6: -1176717075
+      Thwomper_Sheet_7: -1279414109
+      Thwomper_Sheet_8: -1439285460
+      Thwomper_Sheet_9: -973070390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
