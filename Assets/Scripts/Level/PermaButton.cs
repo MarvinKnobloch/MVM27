@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class PermaButton : MonoBehaviour, IInteractables
     private Animator animator;
     private string currentstate;
 
+    private bool playSound;
+
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
@@ -28,6 +31,13 @@ public class PermaButton : MonoBehaviour, IInteractables
         {
             if (GameManager.Instance.LoadProgress(saveName) == true) Interaction();
         }
+
+        StartCoroutine(ActiavteSound());
+    }
+    IEnumerator ActiavteSound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playSound = true;
     }
     public void Interaction()
     {
@@ -45,6 +55,8 @@ public class PermaButton : MonoBehaviour, IInteractables
 
         Player.Instance.playerInteraction.RemoveInteraction(this);
         GameManager.Instance.SaveProgress(saveName);
+
+        if(playSound) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.PermaButton]);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
