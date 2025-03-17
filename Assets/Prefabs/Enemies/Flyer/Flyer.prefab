@@ -272,6 +272,9 @@ MonoBehaviour:
   hitFreezeTime: 1
   hitPushbackForce: 0.4
   collisionWithPlayerDamage: 1
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
   attackType: 0
   attackRange: 7
   attackRate: 2
