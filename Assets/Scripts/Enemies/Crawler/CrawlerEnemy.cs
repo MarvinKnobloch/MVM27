@@ -28,6 +28,8 @@ public class CrawlerEnemy : MonoBehaviour
     private float freezeOnHitTime = .3f;
     [Tooltip("The time in seconds we are to wait before allowing a hit on the target again.")]
     [SerializeField, Min(0f)] private float attackBuffer = 1f;
+    [Tooltip("How much to knock the enemy back when hit.")]
+    [SerializeField, Min(0f)] private float knockbackForce = 2.5f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -128,6 +130,10 @@ public class CrawlerEnemy : MonoBehaviour
     {
         hitTime = Time.time;
         animator.Play(HIT_ANIM);
+
+        var knockbackDirection = (rb.position - (Vector2)target.transform.position).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 
     // this is triggered from the health component

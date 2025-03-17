@@ -27,6 +27,8 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private LayerMask groundCheckMask;
     [Tooltip("When the roller chases the player, it will go this far past the player as its target. Careful its not greater than MaxDistanceFromPatrol")]
     [SerializeField] private float overRollDistance = 2f;
+    [Tooltip("How much to knock the enemy back when hit.")]
+    [SerializeField, Min(0f)] private float knockbackForce = 2.5f;
 
     private Transform target;
     private Vector2 startPosition = Vector2.zero;
@@ -216,6 +218,10 @@ public class RollerEnemy : MonoBehaviour
     {
         hitTime = Time.time;
         animator.Play(HIT_ANIM);
+
+        var knockbackDirection = (rb.position - (Vector2)target.transform.position).normalized;
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 
     // this is triggered from the health component

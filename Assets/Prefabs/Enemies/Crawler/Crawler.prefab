@@ -236,6 +236,7 @@ MonoBehaviour:
   damage: 1
   freezeOnHitTime: 0.3
   attackBuffer: 1
+  knockbackForce: 2.5
 --- !u!114 &8950373215047647398
 MonoBehaviour:
   m_ObjectHideFlags: 0
