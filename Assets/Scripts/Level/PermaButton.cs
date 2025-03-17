@@ -1,4 +1,5 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class PermaButton : MonoBehaviour, IInteractables
@@ -37,7 +38,10 @@ public class PermaButton : MonoBehaviour, IInteractables
         circleCollider.enabled = false;
 
         ChangeAnimationState("Pressed");
-        if(unlockText != string.Empty && GameManager.Instance.LoadProgress(saveName) == false) GameManager.Instance.playerUI.MessageBoxEnable(unlockText);
+        if(GameManager.Instance.LoadProgress(saveName) == false)
+        {
+            if (unlockText != string.Empty) GameManager.Instance.playerUI.MessageBoxEnable(unlockText);
+        }
 
         Player.Instance.playerInteraction.RemoveInteraction(this);
         GameManager.Instance.SaveProgress(saveName);

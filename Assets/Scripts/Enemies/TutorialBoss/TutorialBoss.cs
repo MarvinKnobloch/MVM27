@@ -164,7 +164,8 @@ public class TutorialBoss : MonoBehaviour
         ChangeAnimationState("Idle");
         state = States.Idle;
 
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss, true, 0.1f, 0.1f);
+        AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Boss);
+        //AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Boss, true, 0.1f, 0.01f);
     }
     private void SwitchToIdle()
     {
@@ -260,7 +261,8 @@ public class TutorialBoss : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialBoss.ToString(), 1);
 
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 2, 4);
+
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 2, 0.01f);
 
         StopAllCoroutines();
         state = States.Death;
@@ -280,6 +282,7 @@ public class TutorialBoss : MonoBehaviour
     public void KillHelper()
     {
         ChangeAnimationState("Kill");
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossGroundSlam]);
     }
     public void IdleAfterHelperKill()
     {

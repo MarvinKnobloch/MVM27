@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -43,7 +44,6 @@ public class Tutorial : MonoBehaviour
     }
     private void DeactivateBlackScreen()
     {
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 4);
         GameManager.Instance.playerUI.DeactivateBlackScreen();
     }
     public void IntroStandUp()
@@ -52,8 +52,19 @@ public class Tutorial : MonoBehaviour
     }
     public void TutorialDone()
     {
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) == 0)
+        {
+            StartCoroutine(MusicStart());
+            //AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 0.01f);
+        } 
+
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
         PlayerPrefs.SetInt("NewGame", 1);
+    }
+    IEnumerator MusicStart()
+    {
+        yield return new WaitForSeconds(2);
+        AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
     }
     public void BossCameraAndGatesAndMusic()
     {

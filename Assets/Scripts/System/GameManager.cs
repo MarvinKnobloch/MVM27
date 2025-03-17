@@ -73,7 +73,11 @@ public class GameManager : MonoBehaviour
             Vector3 spawn = new Vector3(XSpawn, YSpawn, 0);
 
             Player.Instance.transform.position = spawn;
-
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("PlayerXSpawn", Player.Instance.transform.position.x);
+            PlayerPrefs.SetFloat("PlayerYSpawn", Player.Instance.transform.position.y);
         }
         StartCoroutine(CheckPointOnLoad());
         playerUI.PlayerCurrencyUpdate(PlayerPrefs.GetInt("PlayerCurrency"));
@@ -81,7 +85,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
 
 
-        if (SceneManager.GetActiveScene().buildIndex == 1) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, false, 0.1f, 4);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
+            //AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, false, 0.1f, 0.01f); 
+        }
     }
     IEnumerator CheckPointOnLoad()
     {

@@ -48,6 +48,8 @@ public class PressurePlate : MonoBehaviour
 
                     foreach (GameObject obj in objsToControl)
                     {
+                        if (obj == null) continue;
+
                         if (obj.TryGetComponent(out IActivate iactivate))
                         {
                             iactivate.Deactivate();
