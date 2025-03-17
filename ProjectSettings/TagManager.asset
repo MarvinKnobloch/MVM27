@@ -45,6 +45,9 @@ TagManager:
   - name: Background
     uniqueID: 3385943231
     locked: 0
+  - name: Rails
+    uniqueID: 3697681567
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
