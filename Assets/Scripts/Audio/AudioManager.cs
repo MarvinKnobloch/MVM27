@@ -149,6 +149,7 @@ public class AudioManager : MonoBehaviour
     {
         if (musicSource.clip == musicFiles[songNumber].audioClip) return;
 
+        StopAllCoroutines();
         musicSource.volume = musicFiles[songNumber].volume;
         musicSource.clip = musicFiles[songNumber].audioClip;
         musicSource.Play();

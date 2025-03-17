@@ -55,7 +55,6 @@ public class Tutorial : MonoBehaviour
         if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) == 0)
         {
             StartCoroutine(MusicStart());
-            //AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 0.01f);
         } 
 
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString(), PlayerPrefs.GetInt(GameManager.OverworldSaveNames.TutorialProgress.ToString()) + 1);
@@ -64,7 +63,8 @@ public class Tutorial : MonoBehaviour
     IEnumerator MusicStart()
     {
         yield return new WaitForSeconds(2);
-        AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
+        //AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
     }
     public void BossCameraAndGatesAndMusic()
     {

@@ -24,6 +24,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
 
             GetComponent<CircleCollider2D>().enabled = false;
 
+            if(abilityString == GameManager.AbilityStrings.FireElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
+
             if (disableOnCollect) gameObject.SetActive(false);
         }
     }

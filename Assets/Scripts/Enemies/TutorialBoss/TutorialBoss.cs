@@ -48,14 +48,14 @@ public class TutorialBoss : MonoBehaviour
     [SerializeField] private float fireZoneLifetime;
 
     [Header("Death")]
-    [SerializeField] private MoveOnInteraction[] bossGates;
+    [SerializeField] private MoveOnInteraction rightGate;
 
     [Header("ScreenShake")]
-    private CinemachineImpulseSource impulseSource;
     [SerializeField] private float impulseBaseForce;
     [SerializeField] private float randomImpulseForce;
     [SerializeField] private float baseImpulseVelocity;
     [SerializeField] private float randomImpulseVelocity;
+    private CinemachineImpulseSource impulseSource;
 
     //Animations
     private Animator animator;
@@ -262,7 +262,7 @@ public class TutorialBoss : MonoBehaviour
 
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
 
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 2, 0.01f);
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 2, 0.01f);
 
         StopAllCoroutines();
         state = States.Death;
@@ -270,11 +270,7 @@ public class TutorialBoss : MonoBehaviour
     }
     public void Death() 
     {
-        foreach (var obj in bossGates)
-        {
-            obj.Deactivate();
-        }
-
+        if(rightGate != null) rightGate.Deactivate();
         GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
     }
