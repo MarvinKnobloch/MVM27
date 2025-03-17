@@ -44,8 +44,8 @@ MonoBehaviour:
     dialogText: "Right! Though, it will likely be difficult to get through with everything
       in here so active.\r\nBut, I\u2019m too weak to fight back against any of the
       machines here... I\u2019ll just have to sneak ahead and see if I can help you
-      get around.\r\nAlright then, stay safe, friend!\n(You can save your game by
-      interacting with a lamp post)\r"
+      get around.\r\nAlright then! Stay safe, friend, and make sure to stop at lamps
+      if you need a rest.\r\r"
     dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
     autoPlayInterval: 5
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}

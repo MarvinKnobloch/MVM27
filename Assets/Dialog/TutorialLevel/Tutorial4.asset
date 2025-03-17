@@ -42,6 +42,6 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: ... OK...
+    dialogText: ... Wait...!
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
     autoPlayInterval: 0
