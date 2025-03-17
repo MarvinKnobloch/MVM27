@@ -11,6 +11,13 @@ public class AirBoss : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private BoxCollider2D childCollider;
     private Vector2 childColliderStartSize;
+
+    [Header("BossDialog")]
+    [SerializeField] private GameObject triggerZone;
+    [SerializeField] private VoidEventChannel cameraDoorsMusic;
+    [SerializeField] private MoveOnInteraction rightDoor;
+    [SerializeField] private MoveOnInteraction leftDoor;
+    [SerializeField] private Transform bossCamera;
     [SerializeField] private VoidEventChannel triggerBoss;
     private Rigidbody2D rb;
 
@@ -114,6 +121,12 @@ public class AirBoss : MonoBehaviour
 
     private void Awake()
     {
+        if (PlayerPrefs.GetInt(GameManager.OverworldSaveNames.AirBoss.ToString()) == 1)
+        {
+            triggerZone.SetActive(false);
+            gameObject.SetActive(false);
+        }
+
         animator = GetComponent<Animator>();
         boxCollider2D = GetComponent<BoxCollider2D>();
         boxCollider2D.enabled = false;
@@ -122,7 +135,7 @@ public class AirBoss : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         health = GetComponent<Health>();
-        isleft = false;
+        isleft = true;
 
         leftEnemySpawnPosition = (Vector2)chargeEndPositions[0].position + Vector2.up * 7;
         rightEnemySpawnPosition = (Vector2)chargeEndPositions[1].position + Vector2.up * 7;
@@ -133,10 +146,12 @@ public class AirBoss : MonoBehaviour
     }
     private void OnEnable()
     {
+        cameraDoorsMusic.OnEventRaised += CameraDoorMusic;
         triggerBoss.OnEventRaised += BossStart;
     }
     private void OnDisable()
     {
+        cameraDoorsMusic.OnEventRaised += CameraDoorMusic;
         triggerBoss.OnEventRaised -= BossStart;
     }
 
@@ -214,6 +229,15 @@ public class AirBoss : MonoBehaviour
             currentPhase++;
         }
     }
+    private void CameraDoorMusic()
+    {
+        GameManager.Instance.ChangeCamera(bossCamera);
+
+        if (leftDoor != null) leftDoor.Activate();
+        if (rightDoor != null) rightDoor.Activate();
+
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 2, 0.01f);
+    }
     public void BossStart()
     {
         GameManager.Instance.playerUI.ToggleBossHealth(true);
@@ -222,6 +246,8 @@ public class AirBoss : MonoBehaviour
         InvokeRepeating("LavaStreamActivate", 3, timeBetweenStreams);
 
         SwitchToIdle();
+
+        AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Boss);
     }
     private void SwitchToIdle()
     {
@@ -247,12 +273,19 @@ public class AirBoss : MonoBehaviour
 
         GameManager.Instance.playerUI.ToggleBossHealth(false);
 
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.AirBoss.ToString(), 1);
+        GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
+
+        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 2, 0.01f);
+        if (leftDoor != null) leftDoor.Deactivate();
+
         boxCollider2D.enabled = false;
         rb.gravityScale = 0;
         childCollider.enabled = false;
 
         ChangeAnimationState("Death");
         state = States.Death;
+
     }
     public void Death()
     {

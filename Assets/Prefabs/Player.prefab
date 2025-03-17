@@ -285,7 +285,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 3592
   jumpStrength: 10.5
-  maxJumpCount: 2
+  maxJumpCount: 1
   maxJumpTime: 0.3
   dashTime: 0.3
   dashStrength: 12

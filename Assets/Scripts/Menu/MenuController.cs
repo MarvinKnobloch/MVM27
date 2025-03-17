@@ -144,7 +144,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.AbilityStrings.Fireball.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBreak.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.AirElement.ToString(), 0);
-        PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString(), 0);
+        //PlayerPrefs.SetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.AbilityStrings.WallBoost.ToString(), 0);
 
         //Values
@@ -183,6 +183,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToLavaZone.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToEasterEgg.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialHiddenArea.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.AirBoss.ToString(), 0);
     }
     public void OverworldUpgradeReset()
     {

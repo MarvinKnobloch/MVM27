@@ -264,14 +264,15 @@ public class TutorialBoss : MonoBehaviour
 
         AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 2, 0.01f);
 
+        if (rightGate != null) rightGate.Deactivate();
+        GameManager.Instance.playerUI.ToggleBossHealth(false);
+
         StopAllCoroutines();
         state = States.Death;
         ChangeAnimationState("Death");
     }
     public void Death() 
     {
-        if(rightGate != null) rightGate.Deactivate();
-        GameManager.Instance.playerUI.ToggleBossHealth(false);
         Destroy(gameObject); 
     }
 

@@ -106,7 +106,7 @@ public class PlayerMovement
         if (player.menuController.gameIsPaused) return;
 
         int count = player.maxJumpCount;
-        if (player.doubleJumpUnlocked == false) count -= 1;
+        if (player.currentElementNumber == 2) count += 1;
         if (player.currentJumpCount >= count) return;
 
         switch (player.state)

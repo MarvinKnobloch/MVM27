@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool fireBallUnlocked;
     [NonSerialized] public bool wallbreakUnlocked;
     [NonSerialized] public bool airElementUnlocked;
-    [NonSerialized] public bool doubleJumpUnlocked;
+    //[NonSerialized] public bool doubleJumpUnlocked;
     [NonSerialized] public bool wallBoostUnlocked;
     //[NonSerialized] public bool dashUnlocked;
 
@@ -214,8 +214,8 @@ public class Player : MonoBehaviour
         else wallbreakUnlocked = false;
         if (PlayerPrefs.GetInt(GameManager.AbilityStrings.AirElement.ToString()) == 1) airElementUnlocked = true;
         else airElementUnlocked = false;
-        if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString()) == 1) doubleJumpUnlocked = true;
-        else doubleJumpUnlocked = false;
+        //if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDoubleJump.ToString()) == 1) doubleJumpUnlocked = true;
+        //else doubleJumpUnlocked = false;
         if (PlayerPrefs.GetInt(GameManager.AbilityStrings.WallBoost.ToString()) == 1) wallBoostUnlocked = true;
         else wallBoostUnlocked = false;
         //if (PlayerPrefs.GetInt(GameManager.AbilityStrings.PlayerDash.ToString()) == 1) dashUnlocked = true;

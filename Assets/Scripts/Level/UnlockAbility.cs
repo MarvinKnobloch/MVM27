@@ -12,6 +12,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     [SerializeField] private string unlockText;
     [SerializeField] private bool disableOnCollect;
 
+    [SerializeField] private MoveOnInteraction objAfterCollect;
+
     public void Interaction()
     {
         if(PlayerPrefs.GetInt(abilityString.ToString()) == 0)
@@ -25,7 +27,9 @@ public class UnlockAbility : MonoBehaviour, IInteractables
             GetComponent<CircleCollider2D>().enabled = false;
 
             if(abilityString == GameManager.AbilityStrings.FireElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
+            if(abilityString == GameManager.AbilityStrings.AirElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
 
+            if (objAfterCollect != null) objAfterCollect.Deactivate();
             if (disableOnCollect) gameObject.SetActive(false);
         }
     }
