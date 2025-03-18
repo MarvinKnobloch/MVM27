@@ -363,9 +363,9 @@ MonoBehaviour:
     attackCollider: {fileID: 4275854736510587761}
     animations: 2
     energyRestore: 3
-  enemyLayer:
+  attackLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
   state: 0
 --- !u!114 &8014953581601795898
 MonoBehaviour:
