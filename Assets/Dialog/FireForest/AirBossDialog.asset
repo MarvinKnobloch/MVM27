@@ -16,13 +16,22 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
-    characterName: Player
-    dialogText: Bastard
+  - characterSprite: {fileID: 7183014769429264709, guid: b3365169dcf23eb48a944502fe88adc3, type: 3}
+    characterName: Reaper
+    dialogText: CAWWWW!!
     dialogEvent: {fileID: 11400000, guid: 24000fe14d22d9148a6e901f8b896647, type: 2}
     autoPlayInterval: 2
-  - characterSprite: {fileID: 21300000, guid: ba3a9c3afe98ede4f8495767a8bb72fc, type: 3}
-    characterName: Boss
-    dialogText: AHHHHHH
+  - characterSprite: {fileID: 7183014769429264709, guid: b3365169dcf23eb48a944502fe88adc3, type: 3}
+    characterName: Reaper
+    dialogText: 'A VISITOR!
+
+      A CHALLENGER!!
+
+      A FOOL!!!'
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+    characterName: Player
+    dialogText: "Reaper....\r"
     dialogEvent: {fileID: 11400000, guid: f9261707e979e8d4183a4c687832d5ae, type: 2}
-    autoPlayInterval: 1
+    autoPlayInterval: 2

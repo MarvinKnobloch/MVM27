@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb2bd9c5d602644daf4c81729fbb191, type: 3}
+  m_Name: RaymondDialog
+  m_EditorClassIdentifier: 
+  cantSkipDialog: 0
+  disableInputs: 1
+  pauseGame: 0
+  dialogs:
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: Step no closer!! Only doom awaits you beyond here!
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: I have buried far too many young travellers in the graveyard ahead...
+      and I have seen it with my own eyes....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: The reaper!!
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: It haunts that accursed cemetery... swooping in to slaughter any
+      poor soul that dares enter... it is only by the grace of the gods I survived
+      my own encounter with it long ago.
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: Ah... sorry....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: Thank you, traveller... but I must continue to tend that graveyard,
+      for the sake of those who deserve peace.
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -3604816160579063904, guid: 05d90f932f46ae240929e950f528fb31, type: 3}
+    characterName: Raymond
+    dialogText: "Please... be careful.\r"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: "... OK.\r"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
