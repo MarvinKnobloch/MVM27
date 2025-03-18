@@ -42,14 +42,14 @@ MonoBehaviour:
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Player
+    characterName: ???
     dialogText: "And just a warning, we\u2019re in a Factory... even though it\u2019s
       old and overgrown, make sure to protect yourself if you must.\r\n(LMB to attack,
       hold Q in Null Form to recover health)"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Player
+    characterName: ???
     dialogText: "Anyways, I\u2019ll be up ahead. Meet me there, friend, and mind
       the thorns!"
     dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}

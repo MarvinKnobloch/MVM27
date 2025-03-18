@@ -17,12 +17,12 @@ MonoBehaviour:
   pauseGame: 0
   dialogs:
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Player
+    characterName: ???
     dialogText: Hello again, friend!
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
-    characterName: ???
+    characterName: Player
     dialogText: ... Hello....
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
@@ -40,14 +40,19 @@ MonoBehaviour:
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Player
+    characterName: ???
     dialogText: "Right! Though, it will likely be difficult to get through with everything
       in here so active.\r\nBut, I\u2019m too weak to fight back against any of the
       machines here... I\u2019ll just have to sneak ahead and see if I can help you
       get around.\r\nAlright then! Stay safe, friend, and make sure to stop at lamps
       if you need a rest.\r\r"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: ???
+    dialogText: "But i\xB4m sure you can handle them.\r"
     dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
-    autoPlayInterval: 5
+    autoPlayInterval: 2
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: "... OK....\r"

@@ -39,7 +39,7 @@ MonoBehaviour:
     dialogEvent: {fileID: 11400000, guid: b948191f22c852047b167a550077e00b, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: Player
+    characterName: ???
     dialogText: "Wait a minute... you look like another Elemental! But I\u2019ve
       never seen one like you before...."
     dialogEvent: {fileID: 11400000, guid: 6e2db33903ba8e6419ce1febef179abb, type: 2}
@@ -50,7 +50,7 @@ MonoBehaviour:
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
-    characterName: ??
+    characterName: ???
     dialogText: "Well, that doesn\u2019t matter! Get yourself ready and follow me!\r\n(A/D
       to move, Space to jump)"
     dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
