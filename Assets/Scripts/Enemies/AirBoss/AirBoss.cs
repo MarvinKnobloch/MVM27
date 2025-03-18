@@ -290,6 +290,7 @@ public class AirBoss : MonoBehaviour
         ChangeAnimationState("Death");
         state = States.Death;
 
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossDeath]);
     }
     public void Death()
     {
@@ -552,7 +553,7 @@ public class AirBoss : MonoBehaviour
             }
         }
     }    
-    public void ReflectHit()
+    public void GotHitByReflect()
     {
         StopCoroutine("ThrowProjectiles");
         timer = 0;
@@ -561,6 +562,8 @@ public class AirBoss : MonoBehaviour
 
         ChangeAnimationState("Stun");
         state = States.Stunned;
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossDeath]);
     }
     private void BossIsStunned()
     {
@@ -594,5 +597,24 @@ public class AirBoss : MonoBehaviour
     {
         yield return new WaitForSeconds(lavaDuration);
         lavaStreams[currentLavaStream].SetActive(false);
+    }
+
+    public void PlayIdleSound()
+    {
+        switch (state)
+        {
+            case States.GetToSpawnEnemyPhase:
+                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[UnityEngine.Random.Range(0, 3)]);
+                break;
+            case States.ChargeStart:
+                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[UnityEngine.Random.Range(0, 3)]);
+                break;
+            case States.ChargeEnd:
+                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[UnityEngine.Random.Range(0, 3)]);
+                break;
+                //case States.ProjectilesWait:
+                //    AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[UnityEngine.Random.Range(0, 3)]);
+                //    break;
+        }
     }
 }

@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 4055611490601023989}
   - component: {fileID: 4982468791057364026}
   - component: {fileID: 6929812050080539961}
+  - component: {fileID: 8275607675955168732}
   m_Layer: 7
   m_Name: Thwomper
   m_TagString: Untagged
@@ -307,6 +308,22 @@ MonoBehaviour:
   hitEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8275607675955168732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6693250834942662761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51888adbabb3e5f4ea78b59d726dc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropsOnDeath:
+  - dropChance: 100
+    objectToDrop: {fileID: 4324425268743135067, guid: ec66c4f848447d241b07c1fe6915fc11, type: 3}
+    objectValue: 4
 --- !u!1001 &1608369258868447601
 PrefabInstance:
   m_ObjectHideFlags: 0

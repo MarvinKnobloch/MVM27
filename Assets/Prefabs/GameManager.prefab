@@ -9824,8 +9824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: 280000005000000096000000
-  upgradeAmount: 010000000100000001000000
+  upgradeCosts: 4600000096000000
+  upgradeAmount: 0100000001000000
   upgradeString: 1
   upgrade: 1
   buttonBonusText: Heal
@@ -11224,7 +11224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: c8000000
+  upgradeCosts: 96000000
   upgradeAmount: 01000000
   upgradeString: 4
   upgrade: 4
@@ -17411,8 +17411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: 3200000064000000b4000000
-  upgradeAmount: 010000000100000001000000
+  upgradeCosts: 96000000
+  upgradeAmount: 01000000
   upgradeString: 3
   upgrade: 3
   buttonBonusText: Energy Recharge
@@ -20700,8 +20700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: 14000000280000003c0000005000000078000000
-  upgradeAmount: 0200000002000000020000000200000004000000
+  upgradeCosts: 140000002800000078000000
+  upgradeAmount: 030000000300000006000000
   upgradeString: 2
   upgrade: 2
   buttonBonusText: Energy
@@ -26491,8 +26491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: 14000000280000003c0000005000000078000000
-  upgradeAmount: 0200000002000000020000000200000004000000
+  upgradeCosts: 140000002800000078000000
+  upgradeAmount: 010000000200000003000000
   upgradeString: 0
   upgrade: 0
   buttonBonusText: Health
@@ -31315,7 +31315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52aff7b31c1a95942b195f747da396b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeCosts: 64000000b4000000
+  upgradeCosts: 5000000096000000
   upgradeAmount: 0300000003000000
   upgradeString: 5
   upgrade: 5

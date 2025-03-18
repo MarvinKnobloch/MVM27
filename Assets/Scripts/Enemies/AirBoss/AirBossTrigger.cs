@@ -15,7 +15,7 @@ public class AirBossTrigger : MonoBehaviour
         {
             if (reflectable.isReflected)
             {
-                airBoss.ReflectHit();
+                airBoss.GotHitByReflect();
                 Destroy(collision.gameObject);
             }
         }

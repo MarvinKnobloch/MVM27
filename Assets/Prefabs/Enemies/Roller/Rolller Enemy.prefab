@@ -384,7 +384,7 @@ MonoBehaviour:
   dropsOnDeath:
   - dropChance: 100
     objectToDrop: {fileID: 4324425268743135067, guid: ec66c4f848447d241b07c1fe6915fc11, type: 3}
-    objectValue: 2
+    objectValue: 4
 --- !u!1001 &3539317288099936349
 PrefabInstance:
   m_ObjectHideFlags: 0
