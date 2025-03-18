@@ -193,10 +193,29 @@ MonoBehaviour:
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: a4d66ef2b08df154f985f21caf09f7ff, type: 3}
     volume: 0.2
-  bossSounds:
+  tutorialBossSounds:
   - audioClip: {fileID: 8300000, guid: 8d31954419a86a9478205ba4db3ebb94, type: 3}
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: 18616d6025479e94396022b1f12e9cfc, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: cf8c7335fe422fe4fa63ea1204fc0fb5, type: 3}
+    volume: 0.2
+  airBossSounds:
+  - audioClip: {fileID: 8300000, guid: d5c51895997a3c24188ae62e45b65b88, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 93a32d930d17b0c44986e61abdb3f27d, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: f3205f4ed01bd074c8aead130b12b462, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: d95a346b7f8801e408151f235a68f66d, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 0c91c732bc565d842870e67ef75a697e, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 9da1acfdce6d81f4084d85497ed42a42, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 228d305a0d9f2f344bae2370ffd75318, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: ef87a972196026443a232244c2b67e3f, type: 3}
     volume: 0.2
 --- !u!1 &2366319136788864413
 GameObject:

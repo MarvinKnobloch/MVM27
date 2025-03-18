@@ -198,7 +198,7 @@ public class TutorialBoss : MonoBehaviour
         ChangeAnimationState("Air");
         state = States.Attack;
 
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossAirSlam]);
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.tutorialBossSounds[(int)AudioManager.TutorialBossSounds.FirstBossAirSlam]);
     }
     public void StartAirProjectileSpawn()
     {
@@ -224,7 +224,7 @@ public class TutorialBoss : MonoBehaviour
         ChangeAnimationState("Ground");
         state = States.Attack;
 
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossGroundSlam]);
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.tutorialBossSounds[(int)AudioManager.TutorialBossSounds.FirstBossGroundSlam]);
     }
     public void ActivateFireZone()
     {
@@ -263,6 +263,7 @@ public class TutorialBoss : MonoBehaviour
         GameManager.Instance.ChangeCamera(Player.Instance.playerCameraFollow);
 
         AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 2, 0.01f);
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.tutorialBossSounds[(int)AudioManager.TutorialBossSounds.FirstBossDeath]);
 
         if (rightGate != null) rightGate.Deactivate();
         GameManager.Instance.playerUI.ToggleBossHealth(false);
@@ -279,7 +280,7 @@ public class TutorialBoss : MonoBehaviour
     public void KillHelper()
     {
         ChangeAnimationState("Kill");
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.bossSounds[(int)AudioManager.BossSounds.FirstBossGroundSlam]);
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.tutorialBossSounds[(int)AudioManager.TutorialBossSounds.FirstBossGroundSlam]);
     }
     public void IdleAfterHelperKill()
     {

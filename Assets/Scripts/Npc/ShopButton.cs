@@ -34,7 +34,8 @@ public class ShopButton : MonoBehaviour
 
         shop.CurrencyUpdate();
         shop.ShopButtonsUpdate();
-       
+
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
     }
     public void ButtonUpdate()
     {

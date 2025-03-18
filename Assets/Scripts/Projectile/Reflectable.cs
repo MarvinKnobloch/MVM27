@@ -29,6 +29,7 @@ public class Reflectable : MonoBehaviour
         {
             animator = GetComponent<Animator>();
             ChangeAnimationState("ProjectileTranstion");
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossFireTornado]);
         }
     }
     public void FinalProjectileAnimation()

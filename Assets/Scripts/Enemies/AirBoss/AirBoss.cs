@@ -339,9 +339,9 @@ public class AirBoss : MonoBehaviour
 
         childCollider.size = new Vector2(childCollider.size.x, 0.8f);
 
-
         timer = 0;
 
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossSwoop]);
     }
     private void ChargeMovement()
     {
@@ -399,6 +399,8 @@ public class AirBoss : MonoBehaviour
 
         ChangeAnimationState("ProjectileAttack");
         StartCoroutine(TornadoSpawn());
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossShootFeathers]);
     }
     public void SpawnProjectiles()
     {
@@ -435,6 +437,8 @@ public class AirBoss : MonoBehaviour
         {
             ChangeAnimationState("ProjectileAttack");
             state = States.ProjectileThrow;
+
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossShootFeathers]);
         }
     }
     IEnumerator TornadoSpawn()
@@ -443,6 +447,8 @@ public class AirBoss : MonoBehaviour
         GameObject proj = Instantiate(tornado, tornadoSpawnPosition.position, Quaternion.identity);
         if (isleft) proj.transform.Rotate(0, 0, 0);
         else proj.transform.Rotate(0, 0, 180);
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossTornado]);
     }
     public void SetEnemySpawnPhase()
     {
@@ -492,6 +498,8 @@ public class AirBoss : MonoBehaviour
         {
             ChangeAnimationState("ShotFeathers");
             state = States.ShootFeathers;
+
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossShootFeathers]);
         }
     }
     public void ShotFeathers()

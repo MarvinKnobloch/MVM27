@@ -120,7 +120,9 @@ public class PlayerAbilties
 
         player.heavyPunchPerformed = true;
         player.ChangeAnimationState("HeavyPunch");
-        player.state = Player.States.HeavyPunch;
+        player.state = Player.States.HeavyPunch; 
+        
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackSounds[2]);
     }
     public void ExecuteHeavyPunch()
     {

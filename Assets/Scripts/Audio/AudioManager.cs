@@ -69,8 +69,11 @@ public class AudioManager : MonoBehaviour
     [Header("World")]
     [SerializeField] public AudioFiles[] worldSounds;
 
-    [Header("BossSounds")]
-    [SerializeField] public AudioFiles[] bossSounds;
+    [Header("TutorialSounds")]
+    [SerializeField] public AudioFiles[] tutorialBossSounds;
+
+    [Header("AirBossSounds")]
+    [SerializeField] public AudioFiles[] airBossSounds;
 
 
     public enum MusicSongs
@@ -105,10 +108,22 @@ public class AudioManager : MonoBehaviour
         PermaButton,
         CheckPoint,
     }
-    public enum BossSounds
+    public enum TutorialBossSounds
     {
         FirstBossAirSlam,
         FirstBossGroundSlam,
+        FirstBossDeath,
+    }
+    public enum AirBossSounds
+    {
+        AirbossIdle1,
+        AirbossIdle2,
+        AirbossIdle3,
+        AirbossSwoop,
+        AirbossTornado,
+        AirbossFireTornado,
+        AirbossShootFeathers,
+        AirbossDeath,
     }
 
     private void Awake()
