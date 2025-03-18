@@ -193,7 +193,7 @@ public class Flyer : MonoBehaviour
     /// <summary>
     /// The time in seconds to delay the destory (for animations and such)
     /// </summary>
-    private const float DEATH_DESTROY_TIME = 1.2f;
+    private const float DEATH_DESTROY_TIME = 1;
 
     private const string FLAP_ANIM = "Flap";
     private const string HIT_ANIM = "Hit";
@@ -438,9 +438,12 @@ public class Flyer : MonoBehaviour
     private void OnDie()
     {
         GetComponent<Collider2D>().enabled = false; // disable the collider so physics dont occur while dead
+
         combatData.State = CombatState.Death;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+
+        if (healthComponent.HealthBarBackground != null) healthComponent.HealthBarBackground.SetActive(false);
     }
 
     /// <summary>

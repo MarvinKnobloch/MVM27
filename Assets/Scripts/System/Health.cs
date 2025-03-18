@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
     [Header("EnemyHealthbar")]
     public GameObject HealthBarBackground;
     private Image HealthBarImage;
-    public float HealthBarOffset = 1f;
     [SerializeField] private bool isBoss;
     [Tooltip("Typically we want this false so that we can play a death animation")]
     [FormerlySerializedAs("autoDestoryOnDeath")] // TODO: an old mispelling. Fix and remove
@@ -99,23 +98,6 @@ public class Health : MonoBehaviour
         }
 
     }
-
-    void LateUpdate()
-    {
-        if (HealthBarBackground == null)
-            return;
-
-        var healthBarRotation = HealthBarBackground.transform.rotation;
-        healthBarRotation.SetLookRotation(transform.forward * -1);
-        HealthBarBackground.transform.rotation = healthBarRotation;
-
-        var healthBarPosition = HealthBarBackground.transform.position;
-        healthBarPosition.x = transform.position.x;
-        healthBarPosition.y = transform.position.y + HealthBarOffset;
-        healthBarPosition.z = transform.position.z;
-        HealthBarBackground.transform.position = healthBarPosition;
-    }
-
     public void PlayerTakeDamage(int amount, bool dontIgnoreIFrames, bool knockBack)
     {
         if (!AllowDamage)

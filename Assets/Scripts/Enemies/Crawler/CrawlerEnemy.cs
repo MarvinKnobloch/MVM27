@@ -16,6 +16,7 @@ public class CrawlerEnemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
     [SerializeField] private CrawlerDamageCollider damageCollider;
+    private RectTransform healthbarRect;
 
     [Header("Config")]
     [SerializeField] private float speed = 1.2f;
@@ -67,6 +68,13 @@ public class CrawlerEnemy : MonoBehaviour
         startPosition = rb.position;
         target = Player.Instance.transform;
 
+        if (healthComponent != null)
+        {
+            if (healthComponent.HealthBarBackground != null)
+            {
+                healthbarRect = healthComponent.HealthBarBackground.GetComponent<RectTransform>();
+            }
+        }
     }
 
     private void Update()
@@ -120,9 +128,21 @@ public class CrawlerEnemy : MonoBehaviour
     private void UpdateSpriteDirection(Vector3 direction)
     {
         if (direction.x > 0)
+        {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (healthbarRect != null)
+            {
+                healthbarRect.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
         else
+        {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (healthbarRect != null)
+            {
+                healthbarRect.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
     }
 
     // this is triggered from the health component
@@ -139,9 +159,13 @@ public class CrawlerEnemy : MonoBehaviour
     // this is triggered from the health component
     private void OnDie()
     {
+        GetComponent<Collider2D>().enabled = false;
+
         dead = true;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+
+        if (healthComponent.HealthBarBackground != null) healthComponent.HealthBarBackground.SetActive(false);
     }
 
     private void OnDrawGizmos()

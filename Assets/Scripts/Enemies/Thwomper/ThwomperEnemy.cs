@@ -187,9 +187,13 @@ public class ThwomperEnemy : MonoBehaviour
     // this is triggered from the health component
     private void OnDie()
     {
+        GetComponent<Collider2D>().enabled = false;
+
         dead = true;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+
+        if (healthComponent.HealthBarBackground != null) healthComponent.HealthBarBackground.SetActive(false);
     }
     public void SetWaypoints(Transform startPosi, Transform endPosi)
     {

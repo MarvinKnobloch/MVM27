@@ -1,0 +1,563 @@
+fileFormatVersion: 2
+guid: f9a08ae1148906c489bf5ed0fe7573bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8226749240907193140
+    second: Flyer_Sheet_Dark_0
+  - first:
+      213: -5265761843033742652
+    second: Flyer_Sheet_Dark_1
+  - first:
+      213: 1023991435115551499
+    second: Flyer_Sheet_Dark_2
+  - first:
+      213: -6727754007737815590
+    second: Flyer_Sheet_Dark_3
+  - first:
+      213: -5572055758765273808
+    second: Flyer_Sheet_Dark_4
+  - first:
+      213: 7981765399098824478
+    second: Flyer_Sheet_Dark_5
+  - first:
+      213: -767255371756435628
+    second: Flyer_Sheet_Dark_6
+  - first:
+      213: 4389001256738487652
+    second: Flyer_Sheet_Dark_7
+  - first:
+      213: 9126103975359645282
+    second: Flyer_Sheet_Dark_8
+  - first:
+      213: 6066335477721606036
+    second: Flyer_Sheet_Dark_9
+  - first:
+      213: 5329215594013623588
+    second: Flyer_Sheet_Dark_10
+  - first:
+      213: -7653710660942797990
+    second: Flyer_Sheet_Dark_11
+  - first:
+      213: 8811573528035432439
+    second: Flyer_Sheet_Dark_12
+  - first:
+      213: 5841743522427474670
+    second: Flyer_Sheet_Dark_13
+  - first:
+      213: 1749291978835336790
+    second: Flyer_Sheet_Dark_14
+  - first:
+      213: -3496330029692109840
+    second: Flyer_Sheet_Dark_15
+  - first:
+      213: -7415301054834247782
+    second: Flyer_Sheet_Dark_16
+  - first:
+      213: 8267410444875513812
+    second: Flyer_Sheet_Dark_17
+  - first:
+      213: -7379776292704693142
+    second: Flyer_Sheet_Dark_18
+  - first:
+      213: 6713004397568724462
+    second: Flyer_Sheet_Dark_19
+  - first:
+      213: -8601340084528223207
+    second: Flyer_Sheet_Dark_20
+  - first:
+      213: 1443340846404031155
+    second: Flyer_Sheet_Dark_21
+  - first:
+      213: -4394608366117646382
+    second: Flyer_Sheet_Dark_22
+  - first:
+      213: -8436491656260777246
+    second: Flyer_Sheet_Dark_23
+  - first:
+      213: 4392883476234444167
+    second: Flyer_Sheet_Dark_24
+  - first:
+      213: -8338515705171638106
+    second: Flyer_Sheet_Dark_25
+  - first:
+      213: 5404815231163410396
+    second: Flyer_Sheet_Dark_26
+  - first:
+      213: -8050572261819750780
+    second: Flyer_Sheet_Dark_27
+  - first:
+      213: 907316679821831839
+    second: Flyer_Sheet_Dark_28
+  - first:
+      213: 630892533921296122
+    second: Flyer_Sheet_Dark_29
+  - first:
+      213: -1610506393796722322
+    second: Flyer_Sheet_Dark_30
+  - first:
+      213: 6848480205551864864
+    second: Flyer_Sheet_Dark_31
+  - first:
+      213: 2085283766302653134
+    second: Flyer_Sheet_Dark_32
+  - first:
+      213: 5075763855216560204
+    second: Flyer_Sheet_Dark_33
+  - first:
+      213: -6203952482555761958
+    second: Flyer_Sheet_Dark_34
+  - first:
+      213: 8626814767653532030
+    second: Flyer_Sheet_Dark_35
+  - first:
+      213: 5305371466595403979
+    second: Flyer_Sheet_Dark_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43bdc70f8d84b2270800000000000000
+      internalID: 8226749240907193140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2ea22c0814ce6b0800000000000000
+      internalID: -5265761843033742652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bda1fe8c2f53e00800000000000000
+      internalID: 1023991435115551499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adda398006732a2a0800000000000000
+      internalID: -6727754007737815590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d40263fc41ca2b0800000000000000
+      internalID: -5572055758765273808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e171acd575de4ce60800000000000000
+      internalID: 7981765399098824478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4578272fd492a55f0800000000000000
+      internalID: -767255371756435628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46df3aa936dd8ec30800000000000000
+      internalID: 4389001256738487652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2668792a63f66ae70800000000000000
+      internalID: 9126103975359645282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49722f5e9f3ff2450800000000000000
+      internalID: 6066335477721606036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42587ace85d25f940800000000000000
+      internalID: 5329215594013623588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5362e874be88c590800000000000000
+      internalID: -7653710660942797990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f799c2207ff84a70800000000000000
+      internalID: 8811573528035432439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flyer_Sheet_Dark_13
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee29a3368ca021150800000000000000
+      internalID: 5841743522427474670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Flyer_Sheet_Dark_0: 8226749240907193140
+      Flyer_Sheet_Dark_1: -5265761843033742652
+      Flyer_Sheet_Dark_10: 5329215594013623588
+      Flyer_Sheet_Dark_11: -7653710660942797990
+      Flyer_Sheet_Dark_12: 8811573528035432439
+      Flyer_Sheet_Dark_13: 5841743522427474670
+      Flyer_Sheet_Dark_2: 1023991435115551499
+      Flyer_Sheet_Dark_3: -6727754007737815590
+      Flyer_Sheet_Dark_4: -5572055758765273808
+      Flyer_Sheet_Dark_5: 7981765399098824478
+      Flyer_Sheet_Dark_6: -767255371756435628
+      Flyer_Sheet_Dark_7: 4389001256738487652
+      Flyer_Sheet_Dark_8: 9126103975359645282
+      Flyer_Sheet_Dark_9: 6066335477721606036
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

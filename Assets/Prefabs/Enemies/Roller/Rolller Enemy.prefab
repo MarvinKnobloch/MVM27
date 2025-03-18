@@ -358,7 +358,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBarBackground: {fileID: 3884401751897927832}
-  HealthBarOffset: 1
   isBoss: 0
   autoDestroyOnDeath: 0
   maxHealth: 15
@@ -456,11 +455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.029
       objectReference: {fileID: 0}
     - target: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.5
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 1673981495662436697, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -474,9 +473,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3834550568150774586, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039317980431635844, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5039317980431635844, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 7810272586841086418, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810272586841086418, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

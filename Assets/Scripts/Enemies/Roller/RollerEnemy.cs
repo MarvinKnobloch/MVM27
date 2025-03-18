@@ -8,6 +8,7 @@ public class RollerEnemy : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Health healthComponent;
     [SerializeField] private RollerDamageCollider damageCollider;
+    private RectTransform healthbarRect;
 
     [Header("Config")]
     [SerializeField, Min(0f)] private float speed = 2f;
@@ -71,6 +72,14 @@ public class RollerEnemy : MonoBehaviour
     {
         startPosition = rb.position;
         target = Player.Instance.transform;
+
+        if(healthComponent != null)
+        {
+            if (healthComponent.HealthBarBackground != null)
+            {
+                healthbarRect = healthComponent.HealthBarBackground.GetComponent<RectTransform>();
+            }
+        }
     }
 
     private void Update()
@@ -208,9 +217,23 @@ public class RollerEnemy : MonoBehaviour
     private void UpdateSpriteDirection(Vector3 direction)
     {
         if (direction.x > 0)
+        {
             transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (healthbarRect != null)
+            {
+                healthbarRect.rotation = Quaternion.Euler(0, 0, 0);
+            }
+
+        }
         else
+        {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (healthbarRect != null) 
+            { 
+                healthbarRect.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+
     }
 
     // this is triggered from the health component
@@ -232,9 +255,13 @@ public class RollerEnemy : MonoBehaviour
     // this is triggered from the health component
     private void OnDie()
     {
+        GetComponent<Collider2D>().enabled = false;
+
         dead = true;
         animator.Play(DIE_ANIM);
         Destroy(gameObject, DEATH_DESTROY_TIME);
+
+        if(healthComponent.HealthBarBackground != null) healthComponent.HealthBarBackground.SetActive(false);
     }
 
 #if UNITY_EDITOR
