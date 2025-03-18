@@ -186,6 +186,9 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.AirBoss.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.FactoryMap.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.FireForestMap.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.ForestFirstButton.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.ForestSecondButton.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.ForestThirdButton.ToString(), 0);
     }
     public void OverworldUpgradeReset()
     {

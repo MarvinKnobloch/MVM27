@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         AirBoss,
         FactoryMap,
         FireForestMap,
+        ForestFirstButton,
+        ForestSecondButton,
+        ForestThirdButton,
     }
     private void Awake()
     {
