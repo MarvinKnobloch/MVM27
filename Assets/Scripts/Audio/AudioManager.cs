@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioSource footstepSource;
     [SerializeField] private AudioSource holdButtonSource;
+    [SerializeField] private AudioSource playerAttackSource;
  
     [Space]
     [SerializeField] private float minPitch;
@@ -56,6 +57,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioFiles[] nonAttackSounds;
     [SerializeField] public AudioFiles[] fireAttackSounds;
     [SerializeField] public AudioFiles[] airAttackSounds;
+
+    [Header("AttacksHit")]
+    [SerializeField] public AudioFiles[] nonAttackHitSounds;
+    [SerializeField] public AudioFiles[] fireAttackHitSounds;
+    [SerializeField] public AudioFiles[] airAttackHitSounds;
 
     [Header("Abilities")]
     [SerializeField] public AudioFiles[] abilitySounds;
@@ -188,6 +194,18 @@ public class AudioManager : MonoBehaviour
         holdButtonSource.Play();
     }
     public void StopHoldButton() => holdButtonSource.Stop();
+
+    public void PlayPlayerAttackSounds(AudioFiles file)
+    {
+        playerAttackSource.volume = file.volume;
+        playerAttackSource.clip = file.audioClip;
+
+        playerAttackSource.Play();
+    }
+    public void StopPlayerAttackSound()
+    {
+        playerAttackSource.Stop();
+    }
 
     public void StartMusicFadeOut(int audioFile, bool ignoreSameClip, float fadeOutSpeed, float fadeInSpeed)
     {

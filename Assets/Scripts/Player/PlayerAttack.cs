@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField] private int maxComboLength;
     [SerializeField] private AttackValues[] attacks;
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask attackLayer;
 
     [NonSerialized] public bool airAttackPerformed;
     //private float attackTimer;
@@ -26,6 +26,8 @@ public class PlayerAttack : MonoBehaviour
 
     private int upgradeAttack;
     private int upgradeSwitchAttack;
+
+    private bool enemyGotHit;
 
     //Animationen
     const string idleState = "Idle";
@@ -133,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
             else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
             else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
         }
-        AudioManager.Instance.PlayAudioFileOneShot(file);
+        AudioManager.Instance.PlayPlayerAttackSounds(file);
     }
     //private void Attack()
     //{
@@ -197,7 +199,8 @@ public class PlayerAttack : MonoBehaviour
     }
     private void DealDamage()
     {
-        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, enemyLayer);
+        enemyGotHit = false;
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attacks[currentAttackNumber].attackCollider.bounds.center, attacks[currentAttackNumber].attackCollider.radius, attackLayer);
 
         foreach (Collider2D col in collider)
         {
@@ -205,15 +208,34 @@ public class PlayerAttack : MonoBehaviour
             {
                 int upgradeBonusDamage = AddUpgradeDamage();
                 health.EnemyTakeDamage(attacks[currentAttackNumber].damage + upgradeBonusDamage);
-
+                enemyGotHit = true;
             }
         }
-        if (collider.Length != 0)
+        if (enemyGotHit)
         {
             if (attacks[currentAttackNumber].energyRestore != 0)
             {
                 player.EnergyUpdate(attacks[currentAttackNumber].energyRestore + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
             }
+        }
+        if (collider.Length != 0)
+        {
+            ////ImpactSound
+            //AudioFiles file;
+            //if (currentAttackNumber >= 2)
+            //{
+            //    //Switch or last combo sound
+            //    if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[2];
+            //    else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[2];
+            //    else file = AudioManager.Instance.airAttackSounds[2];
+            //}
+            //else
+            //{
+            //    if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[currentAttackNumber];
+            //    else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
+            //    else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
+            //}
+            //AudioManager.Instance.PlayAudioFileOneShot(file);
         }
     }
     public void EndAttack()

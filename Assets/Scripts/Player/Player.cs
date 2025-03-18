@@ -419,6 +419,8 @@ public class Player : MonoBehaviour
         hitStunTimer = 0;
         ChangeAnimationState("GetHit");
         state = States.GetHit;
+
+        AudioManager.Instance.StopPlayerAttackSound();
     }
     public void IFramesStart()
     {
