@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 2
-  amount: 1
+  amount: 3
   ID: 2
   upgradeText: 'Max energy increased by '
   objSprite:

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: 5
-  amount: 1
+  amount: 2
   ID: 5
   upgradeText: 'Switch attack damage increased by '
   objSprite:
