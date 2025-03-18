@@ -271,7 +271,7 @@ MonoBehaviour:
   timeToLeaveCombat: 10
   hitFreezeTime: 1
   hitPushbackForce: 0.4
-  collisionWithPlayerDamage: 1
+  collisionWithPlayerDamage: 2
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -298,7 +298,7 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 1345336062636419079}
   isBoss: 0
   autoDestroyOnDeath: 0
-  maxHealth: 10
+  maxHealth: 30
   bossType: 0
   activatePuzzleObjsOnDeath: []
   dieEvent:

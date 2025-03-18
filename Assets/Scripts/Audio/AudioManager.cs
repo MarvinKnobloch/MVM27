@@ -82,6 +82,7 @@ public class AudioManager : MonoBehaviour
         Tutorial,
         Boss,
         FireArea,
+        MainMenu,
     }
     public enum UtilitySounds
     {

@@ -77,6 +77,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.MainMenu, true, 0.1f, 1);
+        }
         if (Player.Instance == null) return;
 
         if (LoadFormCheckpoint)
@@ -96,7 +100,6 @@ public class GameManager : MonoBehaviour
         playerUI.PlayerCurrencyUpdate(PlayerPrefs.GetInt("PlayerCurrency"));
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
-
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {

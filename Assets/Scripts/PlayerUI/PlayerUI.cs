@@ -70,6 +70,7 @@ public class PlayerUI : MonoBehaviour
     }
     private void Update()
     {
+#if UNITY_EDITOR
         if (controls.Menu.DebugMenu.WasPerformedThisFrame())
         {
             if (DebugMenu.activeSelf == false)
@@ -83,6 +84,7 @@ public class PlayerUI : MonoBehaviour
                 DebugMenu.SetActive(false);
             }
         }
+#endif
         if (controls.Menu.Map.WasPerformedThisFrame())
         {
             HandleMap();

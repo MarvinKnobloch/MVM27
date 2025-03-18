@@ -299,7 +299,7 @@ MonoBehaviour:
   HealthBarBackground: {fileID: 1343224786366271924}
   isBoss: 0
   autoDestroyOnDeath: 0
-  maxHealth: 25
+  maxHealth: 30
   bossType: 0
   activatePuzzleObjsOnDeath: []
   dieEvent:
