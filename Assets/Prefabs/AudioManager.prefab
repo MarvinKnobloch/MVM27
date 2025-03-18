@@ -75,7 +75,13 @@ MonoBehaviour:
     volume: 0
   - audioClip: {fileID: 8300000, guid: 03e0c227d8af4594fbc997e3448eff67, type: 3}
     volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 81d50ed7934c2f74b953095a48479138, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: e68f612e88440254ea87addbfc30c338, type: 3}
+    volume: 0.2
   - audioClip: {fileID: 8300000, guid: 95b366fb37ec83547ad9797084a7c88f, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: b1070d3ac9f41c6439183489d3ec8468, type: 3}
     volume: 0.2
   nonStepsSounds:
   - audioClip: {fileID: 8300000, guid: 966764abd9f64c84f869a7166149d5fc, type: 3}
@@ -162,6 +168,9 @@ MonoBehaviour:
     volume: 0.3
   - audioClip: {fileID: 8300000, guid: 9dd69bca904c811418fc78581c21f397, type: 3}
     volume: 0.3
+  nonAttackHitSounds: []
+  fireAttackHitSounds: []
+  airAttackHitSounds: []
   abilitySounds:
   - audioClip: {fileID: 8300000, guid: 8a48de32790031b4b850b5b937abd287, type: 3}
     volume: 0.2

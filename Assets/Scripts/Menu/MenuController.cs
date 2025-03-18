@@ -112,7 +112,7 @@ public class MenuController : MonoBehaviour
             titleMenu.SetActive(false);
             ingameMenu.SetActive(false);
 
-            AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+            AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
         }
     }
 
@@ -166,7 +166,7 @@ public class MenuController : MonoBehaviour
         ShopReset();
 
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
         gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
@@ -205,7 +205,7 @@ public class MenuController : MonoBehaviour
     }
     public void LoadGame()
     {
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
         gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
@@ -213,7 +213,7 @@ public class MenuController : MonoBehaviour
     }
     public void ResetPlayer(bool playSound)
     {
-        if(playSound) AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        if(playSound) AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
         gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
@@ -227,7 +227,7 @@ public class MenuController : MonoBehaviour
     }
     public void BackToMainMenu()
     {
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
         gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
@@ -246,7 +246,7 @@ public class MenuController : MonoBehaviour
             Debug.LogWarning("No previous menu to return to. Going back to inGameMenu.");
             baseMenu.SetActive(true);
         }
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuDecline);
     }
 
     private void PauseGame()
@@ -257,7 +257,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 0;
         Time.fixedDeltaTime = 0;
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
     }
     public void EndPause()
     {
@@ -267,7 +267,7 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
     }
     private void OpenConfirmController(UnityAction buttonEvent, string text)
     {
@@ -278,13 +278,13 @@ public class MenuController : MonoBehaviour
         confirmButton.onClick.AddListener(() => buttonEvent());
         confirmController.SetActive(true);
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
     }
     public void CloseConfirmSelection()
     {
         confirmController.SetActive(false);
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuDecline);
     }
     public void TimeScaleToZero()
     {

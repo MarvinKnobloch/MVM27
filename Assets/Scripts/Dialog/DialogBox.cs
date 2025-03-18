@@ -87,6 +87,8 @@ public class DialogBox : MonoBehaviour
     }
     public void DialogContinue()
     {
+        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.DialogNext);
+
         if (currentDialogNumber < currentDialog.dialogs.Length -1)
         {
             currentDialogNumber++;

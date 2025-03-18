@@ -83,8 +83,11 @@ public class AudioManager : MonoBehaviour
     public enum UtilitySounds
     {
         Empty,
-        MenuButton,
+        MenuSelect,
+        MenuAccept,
+        MenuDecline,
         CurrenyGain,
+        DialogNext,
     }
     public enum AbiltySounds
     {

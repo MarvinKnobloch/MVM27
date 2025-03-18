@@ -29,6 +29,13 @@ public class Audioslider : MonoBehaviour
         sliderText.text = Mathf.Round(slider.normalizedValue * 100).ToString();
 
         SetDecibel(slidervalue, volumeString, 0);
+
+        if (skipFirstSound == true)
+        {
+            skipFirstSound = false;
+            return;
+        }
+        else AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
     }
     public void MusicValueChange(float slidervalue)
     {
@@ -49,7 +56,7 @@ public class Audioslider : MonoBehaviour
             skipFirstSound = false;
             return;
         }
-        else AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuButton);
+        else AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
     }
     private void SetDecibel(float sliderValue, string audioString, int maxDecibel)
     {
