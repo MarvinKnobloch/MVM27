@@ -270,7 +270,7 @@ MonoBehaviour:
   combatFlySpeed: 3
   timeToLeaveCombat: 10
   hitFreezeTime: 1
-  hitPushbackForce: 0.4
+  hitPushbackForce: 0.3
   collisionWithPlayerDamage: 1
   groundLayerMask:
     serializedVersion: 2

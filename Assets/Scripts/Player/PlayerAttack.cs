@@ -220,22 +220,22 @@ public class PlayerAttack : MonoBehaviour
         }
         if (collider.Length != 0)
         {
-            ////ImpactSound
-            //AudioFiles file;
-            //if (currentAttackNumber >= 2)
-            //{
-            //    //Switch or last combo sound
-            //    if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[2];
-            //    else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[2];
-            //    else file = AudioManager.Instance.airAttackSounds[2];
-            //}
-            //else
-            //{
-            //    if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[currentAttackNumber];
-            //    else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
-            //    else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
-            //}
-            //AudioManager.Instance.PlayAudioFileOneShot(file);
+            //ImpactSound
+            AudioFiles file;
+            if (currentAttackNumber >= 2)
+            {
+                //Switch or last combo sound
+                if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackHitSounds[2];
+                else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackHitSounds[2];
+                else file = AudioManager.Instance.airAttackHitSounds[2];
+            }
+            else
+            {
+                if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackHitSounds[currentAttackNumber];
+                else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackHitSounds[currentAttackNumber];
+                else file = AudioManager.Instance.airAttackHitSounds[currentAttackNumber];
+            }
+            AudioManager.Instance.PlayAudioFileOneShot(file);
         }
     }
     public void EndAttack()

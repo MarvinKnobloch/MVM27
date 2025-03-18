@@ -139,6 +139,10 @@ public class PlayerAbilties
                 health.EnemyTakeDamage(player.heavyPunchDamage);
             }
         }
+        //if(collider.Length > 0)
+        //{
+        //    AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackHitSounds[2]);
+        //}
         player.EnergyUpdate(-player.heavyPunchCosts);
     }
     public void EndHeavyPunch()

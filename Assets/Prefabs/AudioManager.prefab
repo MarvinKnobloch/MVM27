@@ -148,29 +148,47 @@ MonoBehaviour:
   - audioClip: {fileID: 8300000, guid: 9eb0be8d896def5418db56f96647a483, type: 3}
     volume: 0.2
   nonAttackSounds:
-  - audioClip: {fileID: 8300000, guid: 5abc34e3cd4f4374da5a7d2399f21710, type: 3}
+  - audioClip: {fileID: 8300000, guid: 7299b7143e8c46c4ebb536f035dc252e, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: 63ec87c973eb55e45be12eaa1b15fda3, type: 3}
+  - audioClip: {fileID: 8300000, guid: 825bb34958cc57c4ca71b4fae8a021a1, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: 3fa762466e37dd54abe1e91abd1f1fc9, type: 3}
+  - audioClip: {fileID: 8300000, guid: 824a7efe23786dc43903317f5c72c8eb, type: 3}
     volume: 0.3
   fireAttackSounds:
-  - audioClip: {fileID: 8300000, guid: b3ea3435b25a5414092adc0b979d1b8b, type: 3}
+  - audioClip: {fileID: 8300000, guid: 6ea09266bc265f94096966ea5465768a, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: 83c5deea600035b429b4ef29cd970088, type: 3}
+  - audioClip: {fileID: 8300000, guid: d3c24c0df1467b047b7a0b865a3d647d, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: ffd0003d6a547744e907cdb25a514c04, type: 3}
+  - audioClip: {fileID: 8300000, guid: 2e8a72767072aaf45b68358ae31be339, type: 3}
     volume: 0.3
   airAttackSounds:
-  - audioClip: {fileID: 8300000, guid: 399073d1a2ea11a4e8cec47539030b56, type: 3}
+  - audioClip: {fileID: 8300000, guid: 3ddf330429c922d4fa9441652154c9b7, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 331e6e782f8d9a14b9440b72e8c66806, type: 3}
+    volume: 0.2
+  - audioClip: {fileID: 8300000, guid: cd697332717a826459f3f71f9bca367f, type: 3}
+    volume: 0.2
+  nonAttackHitSounds:
+  - audioClip: {fileID: 8300000, guid: bb38df3498950934c9c1a018ae33f540, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: 69a036b08a52f954fb9bdb4240fa0eb6, type: 3}
+  - audioClip: {fileID: 8300000, guid: dcadb636c24f2e44ea4353901311ab98, type: 3}
     volume: 0.3
-  - audioClip: {fileID: 8300000, guid: 9dd69bca904c811418fc78581c21f397, type: 3}
+  - audioClip: {fileID: 8300000, guid: c5cf8a673ae312a4eb9afe906037bb45, type: 3}
     volume: 0.3
-  nonAttackHitSounds: []
-  fireAttackHitSounds: []
-  airAttackHitSounds: []
+  fireAttackHitSounds:
+  - audioClip: {fileID: 8300000, guid: f6af5c3c3d10a4345895a655b1151fbf, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: d27e12938b39c2e48bddb03e5a881a53, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 82a9e5669f49f4346afb5781c97e3435, type: 3}
+    volume: 0.3
+  airAttackHitSounds:
+  - audioClip: {fileID: 8300000, guid: 95ba83974d4b7bb4f8beecb6794c5bb6, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 85864364f3e78d14e9e58ad40ec79a4f, type: 3}
+    volume: 0.3
+  - audioClip: {fileID: 8300000, guid: 0f6dfecdc8cd4df4985101555a2d3334, type: 3}
+    volume: 0.3
   abilitySounds:
   - audioClip: {fileID: 8300000, guid: 8a48de32790031b4b850b5b937abd287, type: 3}
     volume: 0.2
