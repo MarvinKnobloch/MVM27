@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb2bd9c5d602644daf4c81729fbb191, type: 3}
+  m_Name: CharDialog
+  m_EditorClassIdentifier: 
+  cantSkipDialog: 0
+  disableInputs: 1
+  pauseGame: 0
+  dialogs:
+  - characterSprite: {fileID: -2102052680406568893, guid: edf84696d9ac1944bbccc397b9ea3e5a, type: 3}
+    characterName: Char
+    dialogText: "I\u2019m a fighter... just call me... Char. I know all the secrets
+      to fighting machines...."
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -2102052680406568893, guid: edf84696d9ac1944bbccc397b9ea3e5a, type: 3}
+    characterName: Char
+    dialogText: "I\u2019ve heard talk on the wind, however... a hidden technique...
+      one that even I don\u2019t understand... they say it goes like this:"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -2102052680406568893, guid: edf84696d9ac1944bbccc397b9ea3e5a, type: 3}
+    characterName: Char
+    dialogText: When elements combine their powers and attack in unison... their
+      power grows greater than what they each have alone.
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -2102052680406568893, guid: edf84696d9ac1944bbccc397b9ea3e5a, type: 3}
+    characterName: Char
+    dialogText: "But we\u2019ve all been stuck in hiding for so long from those machines...
+      no fighter has shown up here to help me figure this out. If only there was
+      a way to combine elemental powers alone...."
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: ... Ah... a combination....
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0

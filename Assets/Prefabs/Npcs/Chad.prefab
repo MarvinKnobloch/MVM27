@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 6949483534628644957}
   - component: {fileID: 2636987162624704242}
   - component: {fileID: 949369536963932904}
+  - component: {fileID: -2308192384843979957}
+  - component: {fileID: -5788490944683930425}
+  - component: {fileID: 3763416933921997942}
   m_Layer: 0
   m_Name: Chad
   m_TagString: Untagged
@@ -74,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -391545737
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5842718609361386727, guid: e51fe47d3d81778438ed81ed3dce249f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -110,3 +113,69 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &-2308192384843979957
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904808292608563387}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1
+--- !u!114 &-5788490944683930425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904808292608563387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8b17ddd001e2b46b64235f0e655c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionText: Talk
+  dialog: {fileID: 11400000, guid: cb3fe350ed40e2c46b222a7df289f6cd, type: 2}
+  isMerchant: 0
+--- !u!114 &3763416933921997942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904808292608563387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8b17ddd001e2b46b64235f0e655c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionText: Talk
+  dialog: {fileID: 11400000, guid: cb3fe350ed40e2c46b222a7df289f6cd, type: 2}
+  isMerchant: 0

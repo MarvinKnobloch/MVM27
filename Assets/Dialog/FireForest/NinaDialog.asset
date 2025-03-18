@@ -16,33 +16,18 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: -2609418810547838892, guid: 2f4d0185694489348a92795986cd3b07, type: 3}
+  - characterSprite: {fileID: -2545785032466199113, guid: d91b9dc01b907ed49bf55aea29f1ceb0, type: 3}
     characterName: Nina
-    dialogText: Hey, how are you doing?
+    dialogText: "A visitor! We don\u2019t get those often!"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
+  - characterSprite: {fileID: -2545785032466199113, guid: d91b9dc01b907ed49bf55aea29f1ceb0, type: 3}
     characterName: Player
-    dialogText: "It\xB4s tough out here."
+    dialogText: Please, do stay a while and browse as you please!
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: -2609418810547838892, guid: 2f4d0185694489348a92795986cd3b07, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Nina
-    dialogText: I see
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: -2609418810547838892, guid: 2f4d0185694489348a92795986cd3b07, type: 3}
-    characterName: Nina
-    dialogText: Loser!
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: -2609418810547838892, guid: 2f4d0185694489348a92795986cd3b07, type: 3}
-    characterName: Nina
-    dialogText: Wanna by some upgrades?
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 0
-  - characterSprite: {fileID: 8212097841903758406, guid: 25b0499d7577a304daffb33829e40c8e, type: 3}
-    characterName: Player
-    dialogText: What do you have?
+    dialogText: ... Hmm....
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
