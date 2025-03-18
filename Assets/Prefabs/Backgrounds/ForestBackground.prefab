@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1ee876cadf7a34ab831d986fe2aa5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundspeed: 0.1
-  setBackgroundOnStart: {fileID: 11400000, guid: 4b31468bc0eec154989929ffde5feb6c, type: 2}
+  backgroundspeed: 0.05
 --- !u!1 &8142734191639518167
 GameObject:
   m_ObjectHideFlags: 0

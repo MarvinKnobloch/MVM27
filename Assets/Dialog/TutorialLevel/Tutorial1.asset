@@ -53,6 +53,11 @@ MonoBehaviour:
     characterName: ???
     dialogText: "Well, that doesn\u2019t matter! Get yourself ready and follow me!\r\n(A/D
       to move, Space to jump)"
+    dialogEvent: {fileID: 0}
+    autoPlayInterval: 0
+  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+    characterName: ???
+    dialogText: Hurry up!!!
     dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
     autoPlayInterval: 2
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}

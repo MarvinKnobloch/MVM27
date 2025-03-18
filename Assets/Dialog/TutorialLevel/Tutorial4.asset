@@ -39,7 +39,7 @@ MonoBehaviour:
     dialogText: "Wait, did you hear something?\nI think it came from up ahead...
       I\u2019m going to take a look."
     dialogEvent: {fileID: 11400000, guid: e6862c4843339e444a4dd7137fbdf3e2, type: 2}
-    autoPlayInterval: 3
+    autoPlayInterval: 4
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... Wait...!
