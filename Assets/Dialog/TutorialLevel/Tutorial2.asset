@@ -53,7 +53,7 @@ MonoBehaviour:
     dialogText: "Anyways, I\u2019ll be up ahead. Meet me there, friend, and mind
       the thorns!"
     dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}
-    autoPlayInterval: 2
+    autoPlayInterval: 3
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... OK... Friend.

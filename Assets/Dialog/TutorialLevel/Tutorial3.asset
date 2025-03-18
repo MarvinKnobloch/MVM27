@@ -52,7 +52,7 @@ MonoBehaviour:
     characterName: ???
     dialogText: "But i\xB4m sure you can handle them.\r"
     dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
-    autoPlayInterval: 2
+    autoPlayInterval: 3
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: "... OK....\r"
