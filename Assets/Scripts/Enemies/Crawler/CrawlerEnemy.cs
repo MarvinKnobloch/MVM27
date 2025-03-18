@@ -110,7 +110,7 @@ public class CrawlerEnemy : MonoBehaviour
 
     public void TrigerEnter(Collider2D collider)
     {
-        Debug.Log(collider.gameObject.name, collider.gameObject);
+        //Debug.Log(collider.gameObject.name, collider.gameObject);
         if (dead || lastTimeHitPlayer > 0f)
             return;
 
