@@ -20,11 +20,17 @@ public class UnlockAbility : MonoBehaviour, IInteractables
 
     private void OnEnable()
     {
-        shrineEndEvent.OnEventRaised += ActivateMusic;
+        if (shrineEndEvent != null)
+        {
+            shrineEndEvent.OnEventRaised += ActivateMusic;
+        }
     }
     private void OnDisable()
     {
-        shrineEndEvent.OnEventRaised += ActivateMusic;
+        if (shrineEndEvent != null)
+        {
+            shrineEndEvent.OnEventRaised += ActivateMusic;
+        }
     }
     public void Interaction()
     {
