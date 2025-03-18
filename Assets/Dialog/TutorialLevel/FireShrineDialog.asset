@@ -16,18 +16,24 @@ MonoBehaviour:
   disableInputs: 1
   pauseGame: 0
   dialogs:
-  - characterSprite: {fileID: -5267708240537741467, guid: e506030dda7707d47bfa9eb0399406c7, type: 3}
-    characterName: Shrine
-    dialogText: Me Shrine
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: '.. This power... this flame... I understand now....
+
+      (2 to
+      switch to the Fire Element)
+
+      (1 to switch back to the Null Element)'
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: Me Player
+    dialogText: "With this flame, I\u2019ll charge ahead... I\u2019ll speed through
+      fire....\r\n(RMB to dash)"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
-  - characterSprite: {fileID: -5267708240537741467, guid: e506030dda7707d47bfa9eb0399406c7, type: 3}
-    characterName: Shrine
-    dialogText: Fire brzzzzzz
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
+    characterName: Player
+    dialogText: ... Friend... thank you.
     dialogEvent: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}
     autoPlayInterval: 0

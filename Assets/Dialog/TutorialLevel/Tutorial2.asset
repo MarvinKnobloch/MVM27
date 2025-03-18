@@ -35,7 +35,7 @@ MonoBehaviour:
       them all to shut... and that means we\u2019re trapped in here until we can
       open them up."
     dialogEvent: {fileID: 0}
-    autoPlayInterval: 1.5
+    autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... OK....
@@ -53,7 +53,7 @@ MonoBehaviour:
     dialogText: "Anyways, I\u2019ll be up ahead. Meet me there, friend, and mind
       the thorns!"
     dialogEvent: {fileID: 11400000, guid: 078d64d58ebb18541aeacefc7eb72e7a, type: 2}
-    autoPlayInterval: 0
+    autoPlayInterval: 2
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... OK... Friend.
