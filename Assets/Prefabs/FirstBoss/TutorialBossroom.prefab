@@ -1727,7 +1727,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7829014984911274591, guid: b09df40547a51e341a80475b0e084767, type: 3}
       propertyPath: collapseTime
-      value: 2
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8957392620582073006, guid: b09df40547a51e341a80475b0e084767, type: 3}
       propertyPath: m_LocalPosition.x
