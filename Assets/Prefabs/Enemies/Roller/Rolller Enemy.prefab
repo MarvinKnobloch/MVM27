@@ -330,10 +330,10 @@ MonoBehaviour:
   healthComponent: {fileID: 5644258311082689311}
   damageCollider: {fileID: 2967258738181450197}
   speed: 2
-  chaseSpeed: 5
+  chaseSpeed: 4.5
   waypoint: {fileID: 0}
   damage: 1
-  freezeOnHitTime: 0.3
+  freezeOnHitTime: 0.2
   visionRange: 8
   visionMask:
     serializedVersion: 2
