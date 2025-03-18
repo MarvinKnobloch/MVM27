@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using static GameManager;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -44,6 +46,10 @@ public class PlayerUI : MonoBehaviour
     [Header("Shop")]
     [SerializeField] public GameObject shop;
 
+    [Header("Maps")]
+    [SerializeField] private GameObject factoryMap;
+    [SerializeField] private GameObject forestMap;
+
     private float timer;
 
     private void Awake()
@@ -76,6 +82,10 @@ public class PlayerUI : MonoBehaviour
                 GameManager.Instance.DeactivateCursor();
                 DebugMenu.SetActive(false);
             }
+        }
+        if (controls.Menu.Map.WasPerformedThisFrame())
+        {
+            HandleMap();
         }
     }
     public void HandleInteractionBox(bool state)
@@ -182,5 +192,23 @@ public class PlayerUI : MonoBehaviour
 
         GameManager.Instance.menuController.EndPause();
         shop.SetActive(false);
+    }
+
+    private void HandleMap()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            if (PlayerPrefs.GetInt(OverworldSaveNames.FactoryMap.ToString()) == 0) return;
+
+            if (factoryMap.activeSelf == false) factoryMap.SetActive(true);
+            else factoryMap.SetActive(false);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            if (PlayerPrefs.GetInt(OverworldSaveNames.FireForestMap.ToString()) == 0) return;
+
+            if (forestMap.activeSelf == false) forestMap.SetActive(true);
+            else forestMap.SetActive(false);
+        }
     }
 }

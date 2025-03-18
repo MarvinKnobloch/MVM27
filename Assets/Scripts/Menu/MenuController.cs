@@ -184,6 +184,8 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialDoorToEasterEgg.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.TutorialHiddenArea.ToString(), 0);
         PlayerPrefs.SetInt(GameManager.OverworldSaveNames.AirBoss.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.FactoryMap.ToString(), 0);
+        PlayerPrefs.SetInt(GameManager.OverworldSaveNames.FireForestMap.ToString(), 0);
     }
     public void OverworldUpgradeReset()
     {

@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
         TutorialDoorToEasterEgg,
         TutorialHiddenArea,
         AirBoss,
+        FactoryMap,
+        FireForestMap,
     }
     private void Awake()
     {

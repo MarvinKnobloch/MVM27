@@ -360,6 +360,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a0d2da7-82d2-46f2-9ba9-faf6da7e6430"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -384,6 +393,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""DebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d978b6d-7ac5-4c68-95d0-4b442ebed731"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -406,6 +426,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuEsc = m_Menu.FindAction("MenuEsc", throwIfNotFound: true);
         m_Menu_DebugMenu = m_Menu.FindAction("DebugMenu", throwIfNotFound: true);
+        m_Menu_Map = m_Menu.FindAction("Map", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -684,6 +705,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IMenuActions> m_MenuActionsCallbackInterfaces = new List<IMenuActions>();
     private readonly InputAction m_Menu_MenuEsc;
     private readonly InputAction m_Menu_DebugMenu;
+    private readonly InputAction m_Menu_Map;
     /// <summary>
     /// Provides access to input actions defined in input action map "Menu".
     /// </summary>
@@ -703,6 +725,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Menu/DebugMenu".
         /// </summary>
         public InputAction @DebugMenu => m_Wrapper.m_Menu_DebugMenu;
+        /// <summary>
+        /// Provides access to the underlying input action "Menu/Map".
+        /// </summary>
+        public InputAction @Map => m_Wrapper.m_Menu_Map;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -735,6 +761,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DebugMenu.started += instance.OnDebugMenu;
             @DebugMenu.performed += instance.OnDebugMenu;
             @DebugMenu.canceled += instance.OnDebugMenu;
+            @Map.started += instance.OnMap;
+            @Map.performed += instance.OnMap;
+            @Map.canceled += instance.OnMap;
         }
 
         /// <summary>
@@ -752,6 +781,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @DebugMenu.started -= instance.OnDebugMenu;
             @DebugMenu.performed -= instance.OnDebugMenu;
             @DebugMenu.canceled -= instance.OnDebugMenu;
+            @Map.started -= instance.OnMap;
+            @Map.performed -= instance.OnMap;
+            @Map.canceled -= instance.OnMap;
         }
 
         /// <summary>
@@ -884,5 +916,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDebugMenu(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Map" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMap(InputAction.CallbackContext context);
     }
 }
