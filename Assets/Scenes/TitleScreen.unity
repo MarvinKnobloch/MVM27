@@ -305,15 +305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: orthographic size
-      value: 7.45
+      value: 7.453125
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: -0.106132075
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: -0.302935
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -512,10 +512,6 @@ PrefabInstance:
     - target: {fileID: 6618468528630289476, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8470980156898237872, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8720515145873285076, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
       propertyPath: m_fontAsset
