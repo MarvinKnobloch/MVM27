@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         ForestFirstButton,
         ForestSecondButton,
         ForestThirdButton,
+        ForestBoxButton,
     }
     private void Awake()
     {
