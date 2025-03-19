@@ -25320,6 +25320,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4967544969413125760, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648265618114146211, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5967682569130935668, guid: 59ac50ccb45caf54c8ea1d7cb5afae1f, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
