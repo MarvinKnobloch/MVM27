@@ -125,6 +125,7 @@ public class AudioManager : MonoBehaviour
         AirbossFireTornado,
         AirbossShootFeathers,
         AirbossDeath,
+        AirbossMinions,
     }
 
     private void Awake()

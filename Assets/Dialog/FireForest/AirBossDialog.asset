@@ -26,7 +26,7 @@ MonoBehaviour:
 
       A FOOL!!!'
     dialogEvent: {fileID: 11400000, guid: 24000fe14d22d9148a6e901f8b896647, type: 2}
-    autoPlayInterval: 3
+    autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: Reaper....
@@ -42,10 +42,9 @@ MonoBehaviour:
     characterName: Player
     dialogText: ... Show some respect.
     dialogEvent: {fileID: 0}
-    autoPlayInterval: 2
+    autoPlayInterval: 0
   - characterSprite: {fileID: 7183014769429264709, guid: b3365169dcf23eb48a944502fe88adc3, type: 3}
     characterName: Reaper
-    dialogText: "RESPECT!?\r\nIN THIS WORLD, ONLY THE STRONG DESERVE RESPECT!\r\nSHOW
-      YOUR \u201CRESPECT\u201D WHEN YOU JOIN YOUR FALLEN BRETHREN!!"
-    dialogEvent: {fileID: 0}
-    autoPlayInterval: 3
+    dialogText: "RESPECT!?\r\nIN THIS WORLD, ONLY THE STRONG DESERVE RESPECT!\r"
+    dialogEvent: {fileID: 11400000, guid: f9261707e979e8d4183a4c687832d5ae, type: 2}
+    autoPlayInterval: 2

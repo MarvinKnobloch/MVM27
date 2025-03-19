@@ -237,6 +237,8 @@ MonoBehaviour:
     volume: 0.3
   - audioClip: {fileID: 8300000, guid: ef87a972196026443a232244c2b67e3f, type: 3}
     volume: 0.2
+  - audioClip: {fileID: 8300000, guid: 22bc65d2b72b51a4d9f9cb8f54c69f9e, type: 3}
+    volume: 0.5
 --- !u!1 &2366319136788864413
 GameObject:
   m_ObjectHideFlags: 0

@@ -470,6 +470,8 @@ public class AirBoss : MonoBehaviour
 
             ChangeAnimationState("SpawnEnemies");
             state = States.EnemySpawn;
+
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.airBossSounds[(int)AudioManager.AirBossSounds.AirbossMinions]);
         }
     }
     public void SpawnEnemies()
