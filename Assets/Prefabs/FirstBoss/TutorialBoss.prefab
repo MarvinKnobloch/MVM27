@@ -184,9 +184,7 @@ MonoBehaviour:
   timeToSpawnPlatforms: 3
   fireZone: {fileID: 0}
   fireZoneLifetime: 3
-  bossGates:
-  - {fileID: 0}
-  - {fileID: 0}
+  rightGate: {fileID: 0}
   impulseBaseForce: 0.3
   randomImpulseForce: 0.05
   baseImpulseVelocity: -0.2
@@ -205,7 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBarBackground: {fileID: 0}
-  HealthBarOffset: 1
   isBoss: 1
   autoDestroyOnDeath: 0
   maxHealth: 145
@@ -326,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3085143971080225336}
   - component: {fileID: 961796048498405591}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HandsDamageCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
