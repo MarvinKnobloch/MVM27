@@ -28,8 +28,9 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: "With this flame, I\u2019ll charge ahead... I\u2019ll speed through
-      fire....\r\n(RMB to dash)"
+    dialogText: "With this flame, I\u2019ll charge ahead... I\u2019ll walk through
+      fire and dash through lava....\r\n(RMB to dash, you are now immune to fire
+      walls and can dash through lava walls in Fire Form)"
     dialogEvent: {fileID: 0}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
