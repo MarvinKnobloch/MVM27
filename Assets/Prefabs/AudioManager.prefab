@@ -65,11 +65,11 @@ MonoBehaviour:
   - audioClip: {fileID: 0}
     volume: 0
   - audioClip: {fileID: 8300000, guid: 1e3081a78b0600143a58be590a2810e9, type: 3}
-    volume: 0.3
+    volume: 0.28
   - audioClip: {fileID: 8300000, guid: efbaf7ff1f84bee4aaf91324f7816d2e, type: 3}
     volume: 0.3
   - audioClip: {fileID: 8300000, guid: f338839606dd9004eb6d4c0439996b86, type: 3}
-    volume: 0.3
+    volume: 0.28
   - audioClip: {fileID: 8300000, guid: 7016c8c58ec0f164695a90580ce259cb, type: 3}
     volume: 0.5
   utilityFiles:
@@ -87,17 +87,17 @@ MonoBehaviour:
     volume: 0.2
   nonStepsSounds:
   - audioClip: {fileID: 8300000, guid: 966764abd9f64c84f869a7166149d5fc, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: e1d18df3b32db8e46aa7d3b036746cd3, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: ea6e267cf24df734c94a2eef91c6adbb, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: cd5b945e5ee8bb54ebc675e20c4f005f, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: 6bebc19284f2d53408daef364186dd34, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: bedc9a5c3f1037947aec06ac611c6aed, type: 3}
-    volume: 0.5
+    volume: 0.45
   fireStepSounds:
   - audioClip: {fileID: 8300000, guid: 6feff79a10c23404097efa519f1266f5, type: 3}
     volume: 0.5
@@ -151,25 +151,25 @@ MonoBehaviour:
     volume: 0.2
   nonAttackSounds:
   - audioClip: {fileID: 8300000, guid: 7299b7143e8c46c4ebb536f035dc252e, type: 3}
-    volume: 0.3
+    volume: 0.35
   - audioClip: {fileID: 8300000, guid: 825bb34958cc57c4ca71b4fae8a021a1, type: 3}
-    volume: 0.3
+    volume: 0.35
   - audioClip: {fileID: 8300000, guid: 824a7efe23786dc43903317f5c72c8eb, type: 3}
-    volume: 0.3
+    volume: 0.35
   fireAttackSounds:
   - audioClip: {fileID: 8300000, guid: 6ea09266bc265f94096966ea5465768a, type: 3}
-    volume: 0.3
+    volume: 0.35
   - audioClip: {fileID: 8300000, guid: d3c24c0df1467b047b7a0b865a3d647d, type: 3}
-    volume: 0.3
+    volume: 0.35
   - audioClip: {fileID: 8300000, guid: 2e8a72767072aaf45b68358ae31be339, type: 3}
-    volume: 0.3
+    volume: 0.35
   airAttackSounds:
   - audioClip: {fileID: 8300000, guid: 3ddf330429c922d4fa9441652154c9b7, type: 3}
-    volume: 0.2
+    volume: 0.28
   - audioClip: {fileID: 8300000, guid: 331e6e782f8d9a14b9440b72e8c66806, type: 3}
-    volume: 0.2
+    volume: 0.28
   - audioClip: {fileID: 8300000, guid: cd697332717a826459f3f71f9bca367f, type: 3}
-    volume: 0.2
+    volume: 0.28
   nonAttackHitSounds:
   - audioClip: {fileID: 8300000, guid: bb38df3498950934c9c1a018ae33f540, type: 3}
     volume: 0.3
@@ -193,7 +193,7 @@ MonoBehaviour:
     volume: 0.3
   abilitySounds:
   - audioClip: {fileID: 8300000, guid: 8a48de32790031b4b850b5b937abd287, type: 3}
-    volume: 0.2
+    volume: 0.3
   - audioClip: {fileID: 8300000, guid: 2e7febc402c662e41b40c39d7d8fefbd, type: 3}
     volume: 0.2
   worldSounds:
@@ -208,7 +208,7 @@ MonoBehaviour:
   - audioClip: {fileID: 8300000, guid: 9926b9f0a33bea143adf6c64735e01df, type: 3}
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: 7b61021b04f0b134aa80ae7c3421db26, type: 3}
-    volume: 0.2
+    volume: 0.4
   - audioClip: {fileID: 8300000, guid: eb7f3c4ccc267d84f9dc1f55e7c1b32e, type: 3}
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: a4d66ef2b08df154f985f21caf09f7ff, type: 3}
@@ -356,7 +356,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -485,7 +485,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -614,7 +614,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -743,7 +743,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.4
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -812,7 +812,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
