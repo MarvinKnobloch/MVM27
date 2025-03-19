@@ -8340,7 +8340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leer
+  m_text: Space
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
   m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
@@ -25311,7 +25311,7 @@ MonoBehaviour:
 
     Manu
 
-    Soundtrack
+    Original Music
 
 
 '
