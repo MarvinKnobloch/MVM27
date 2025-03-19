@@ -306,14 +306,14 @@ MonoBehaviour:
   XWallBoostMovement: 0
   YWallBoostStrength: 10
   heavyPunchDamage: 7
-  heavyPunchCosts: 8
+  heavyPunchCosts: 7
   heavyPunchCollider: {fileID: 1608418229943619513}
   heavyPunchLayer:
     serializedVersion: 2
     m_Bits: 1152
   fireballPrefab: {fileID: 6564779881003978094, guid: 7e43342d3d19699418eee7785a0c9d78, type: 3}
   fireballCastTime: 0.25
-  fireballCosts: 8
+  fireballCosts: 7
   elementHealAmount: 4
   elementHealCosts: 20
   elementalSprite:
