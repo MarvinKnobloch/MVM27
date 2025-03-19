@@ -12,7 +12,7 @@ public class Background : MonoBehaviour
     private float[] backspeed;
 
     private float farthestback;
-    [Range(0.1f, 1f)] public float backgroundspeed;
+    [Range(0.05f, 1f)] public float backgroundspeed;
 
 
     private void Awake()

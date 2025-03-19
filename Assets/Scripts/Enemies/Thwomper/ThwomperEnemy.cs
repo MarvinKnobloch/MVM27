@@ -156,7 +156,7 @@ public class ThwomperEnemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (dead)
             return;
@@ -171,6 +171,28 @@ public class ThwomperEnemy : MonoBehaviour
                 col.excludeLayers |= 1 << target.gameObject.layer;
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Player.Instance.health.PlayerTakeDamage(damage, false, true);
+        }
+    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (dead)
+    //        return;
+    //    if (movementState != MovementState.Falling && movementState != MovementState.Idle)
+    //        return;
+
+    //    if (collision.gameObject.CompareTag(target.tag))
+    //    {
+    //        Player.Instance.health.PlayerTakeDamage(damage, false, true);
+
+    //        if (movementState == MovementState.Falling)
+    //            col.excludeLayers |= 1 << target.gameObject.layer;
+    //    }
+    //}
 
     private bool NearPosition(Vector2 targetPosition)
     {

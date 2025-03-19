@@ -36,7 +36,7 @@ MonoBehaviour:
     dialogText: ENGAGE DEFENSE
     dialogEvent: {fileID: 11400000, guid: 1e341b0c31ce9454d944b4a7f23faa6a, type: 2}
     autoPlayInterval: 1
-  - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
+  - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: 'No...!!
 
