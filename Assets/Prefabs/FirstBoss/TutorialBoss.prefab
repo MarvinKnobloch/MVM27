@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   killHelper: {fileID: 11400000, guid: 1e341b0c31ce9454d944b4a7f23faa6a, type: 2}
+  helperDeath: {fileID: 11400000, guid: d358fc8e81297834ea16fee6a1fff643, type: 2}
   triggerBoss: {fileID: 11400000, guid: e043571c1a83dee4eb4e3ea6ff218dd4, type: 2}
   attackTimer: 4.5
   randomAttackTimer: 1

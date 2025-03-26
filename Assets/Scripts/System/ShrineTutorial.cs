@@ -34,14 +34,14 @@ public class ShrineTutorial : MonoBehaviour
     private void SwitchTutorial()
     {
         TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
-        dialogText.text = ".. This power... this flame... I understand now....\n(Press <color=green>" +
+        dialogText.text = ".. This power... this flame... I understand now....\n\n(Press <color=green>" +
         controls.Player.Element2.GetBindingDisplayString() + "</color> to switch to the Fire Element)\n(Press <color=green>" +
         controls.Player.Element1.GetBindingDisplayString() + "</color> to switch back to the Null Element)";
     }
     private void DashTutorial()
     {
         TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
-        dialogText.text = "With this flame, I値l charge ahead... I値l walk through fire and dash through lava....\n(Press <color=green>" +
+        dialogText.text = "With this flame, I値l charge ahead... I値l walk through fire and dash through lava....\n\n(Press <color=green>" +
         controls.Player.Dash.GetBindingDisplayString() + "</color> to dash. You are now immune to fire and can dash through lava walls while in Fire Form)";
     }
     private void FireballTutorial()

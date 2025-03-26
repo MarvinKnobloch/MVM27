@@ -95,15 +95,16 @@ public class Tutorial : MonoBehaviour
     public void MoveTutorial()
     {
         TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
-        dialogText.text = "Well, that doesn’t matter!Get yourself ready and follow me!\n(Press <color=green>" +
+        dialogText.text = "Well, that doesn’t matter!Get yourself ready and follow me!\n\n(Press <color=green>" +
             controls.Player.Move.GetBindingDisplayString(3) + "</color>/<color=green>" + controls.Player.Move.GetBindingDisplayString(4) + "</color> to move)\n(Press <color=green>" +
-            controls.Player.Jump.GetBindingDisplayString() + "</color> to jump)";
+            controls.Player.Jump.GetBindingDisplayString() + "</color> to jump)\n" +
+            "(Hotkeys can be changed in the Menu(<color=green>ESC</color>) -> Settings";
     }
     public void AttackHealTutorial()
     {
         TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
-        dialogText.text = "And just a warning, we’re in a Factory... even though it’s old and overgrown, make sure to protect yourself if you must\n(Press <color=green>" +
-            controls.Player.Attack.GetBindingDisplayString() + "</color> multiple times to perform a 3-hit combo attack)\n(Hold <color=green>" +
-            controls.Player.ElementAbility1.GetBindingDisplayString() + "</color> to cast a ability which recovers health)";
+        dialogText.text = "And just a warning, we’re in a Factory... even though it’s old and overgrown, make sure to protect yourself if you must\n\n(Hold <color=green>" +
+            controls.Player.ElementAbility1.GetBindingDisplayString() + "</color> to cast a ability which recovers health)\n(Press <color=green>" +
+            controls.Player.Attack.GetBindingDisplayString() + "</color> multiple times to perform a 3-hit combo attack)\n(Attacking will slow down your movement)";
     }
 }

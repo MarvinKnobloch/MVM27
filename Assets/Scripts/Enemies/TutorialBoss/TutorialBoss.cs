@@ -10,6 +10,7 @@ public class TutorialBoss : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     private CircleCollider2D handCollider;
     [SerializeField] private VoidEventChannel killHelper;
+    [SerializeField] private VoidEventChannel helperDeath;
     [SerializeField] private VoidEventChannel triggerBoss;
 
     [Header("AttackTimer")]
@@ -159,7 +160,7 @@ public class TutorialBoss : MonoBehaviour
 
         currentPlatforms[currentPhase].SetActive(true);
 
-        timer = 2;
+        timer = 3;
         CalculateFinalAttackTime();
         ChangeAnimationState("Idle");
         state = States.Idle;
@@ -281,6 +282,10 @@ public class TutorialBoss : MonoBehaviour
     {
         ChangeAnimationState("Kill");
         AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.tutorialBossSounds[(int)AudioManager.TutorialBossSounds.FirstBossGroundSlam]);
+    }
+    public void HelperDeath()
+    {
+        helperDeath.OnEventRaised.Invoke();
     }
     public void IdleAfterHelperKill()
     {
