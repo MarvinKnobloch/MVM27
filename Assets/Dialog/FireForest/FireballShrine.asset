@@ -23,8 +23,7 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: 'If I hold up my hand....
-
-      (Q in Fire Form to shoot fire)'
-    dialogEvent: {fileID: 0}
+    dialogText: Fireball tutorial with script
+    dialogEvent: {fileID: 11400000, guid: d87c5f6ca37265d4eac265df72721006, type: 2}
     autoPlayInterval: 0
+  eventAfterDialogEnd: {fileID: 0}

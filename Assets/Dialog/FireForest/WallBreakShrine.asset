@@ -23,11 +23,9 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: '... Like I could break through anything....
-
-      (E in Null Form
-      to punch through walls)
+    dialogText: 'Wallbreak tutorial with script
 
 '
-    dialogEvent: {fileID: 0}
+    dialogEvent: {fileID: 11400000, guid: d2464ec72c333604aaed8c41d3a8f8ac, type: 2}
     autoPlayInterval: 0
+  eventAfterDialogEnd: {fileID: 0}
