@@ -113,17 +113,17 @@ MonoBehaviour:
     volume: 0.5
   airStepSounds:
   - audioClip: {fileID: 8300000, guid: 8b40e08415756ec419a668b4dd3050b6, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: d864690e6c0b7ab49a7a233015cf3524, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: ff20a5754c306204dbc37d6afbdb8af8, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: 079f67aa790947146a79d9e544780b5a, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: 0a3e1bfaf02c37e4b9a06a74e7be7a6f, type: 3}
-    volume: 0.5
+    volume: 0.45
   - audioClip: {fileID: 8300000, guid: c1d9a54be5335b442badc4db69bc4016, type: 3}
-    volume: 0.5
+    volume: 0.45
   nonJumpSounds:
   - audioClip: {fileID: 8300000, guid: 98476d8d0fa69f149921df1ca96ecd59, type: 3}
     volume: 0.5
@@ -144,11 +144,11 @@ MonoBehaviour:
     volume: 0.5
   playerGetHitSounds:
   - audioClip: {fileID: 8300000, guid: 8f61be4f807d79046848a2528e5516ed, type: 3}
-    volume: 0.2
+    volume: 0.25
   - audioClip: {fileID: 8300000, guid: 8f020b9557261894aa1f467e70554b35, type: 3}
-    volume: 0.2
+    volume: 0.25
   - audioClip: {fileID: 8300000, guid: 9eb0be8d896def5418db56f96647a483, type: 3}
-    volume: 0.2
+    volume: 0.25
   nonAttackSounds:
   - audioClip: {fileID: 8300000, guid: 7299b7143e8c46c4ebb536f035dc252e, type: 3}
     volume: 0.35
@@ -193,16 +193,16 @@ MonoBehaviour:
     volume: 0.3
   abilitySounds:
   - audioClip: {fileID: 8300000, guid: 8a48de32790031b4b850b5b937abd287, type: 3}
-    volume: 0.39
+    volume: 0.43
   - audioClip: {fileID: 8300000, guid: 2e7febc402c662e41b40c39d7d8fefbd, type: 3}
-    volume: 0.38
+    volume: 0.43
   worldSounds:
   - audioClip: {fileID: 8300000, guid: 5dbdf7fab9ef04b458ec9b5c7b697a9b, type: 3}
-    volume: 0.2
+    volume: 0.3
   - audioClip: {fileID: 8300000, guid: 552a36e267bbd3447bff3f567bf997eb, type: 3}
-    volume: 0.2
+    volume: 0.3
   - audioClip: {fileID: 8300000, guid: ed3ff63bc71b42040b2b9c668ddea4ca, type: 3}
-    volume: 0.2
+    volume: 0.3
   - audioClip: {fileID: 8300000, guid: c51c480835443684ab489898eba8af19, type: 3}
     volume: 0.44
   - audioClip: {fileID: 8300000, guid: 9926b9f0a33bea143adf6c64735e01df, type: 3}
