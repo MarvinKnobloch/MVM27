@@ -46,10 +46,14 @@ public class ShrineTutorial : MonoBehaviour
     }
     private void FireballTutorial()
     {
-
+        TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
+        dialogText.text = "If I hold up my hand...\n\n(Press <color=green>" +
+            controls.Player.ElementAbility1.GetBindingDisplayString() + "</color> in Fire Form to shoot a fireball which burns down obstacles or toggle switches)";
     }
     private void WallbreakTutorial()
     {
-
+        TextMeshProUGUI dialogText = GameManager.Instance.playerUI.dialogBox.GetComponent<DialogBox>().boxText;
+        dialogText.text = "... Like I could break through anything...\n\n(Press <color=green>" +
+             controls.Player.ElementAbility2.GetBindingDisplayString() + "</color> in Null Form to destroy cracked walls or damage enemies)";
     }
 }
