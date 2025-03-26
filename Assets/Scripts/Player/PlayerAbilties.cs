@@ -59,11 +59,11 @@ public class PlayerAbilties
     {
         if (player.EnergyValue < player.elementHealCosts) return;
 
-        if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
-        {
-            player.rb.linearVelocity = Vector2.zero;
-        }
-        else player.rb.linearVelocityX = 0;
+        //if (player.state == Player.States.Air || player.state == Player.States.GroundIntoAir)
+        //{
+        //    player.rb.linearVelocity = Vector2.zero;
+        //}
+        //else player.rb.linearVelocityX = 0;
 
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;

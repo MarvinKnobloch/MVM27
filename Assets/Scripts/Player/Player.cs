@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [NonSerialized] public bool faceRight;
     [NonSerialized] public float baseGravityScale;
     public LayerMask groundCheckLayer;
+    public int playerGroundDrag;
     [NonSerialized] public float sidewardsStreamMovement;
     [NonSerialized] public MovingPlatform movingPlatform;
 
@@ -334,12 +335,15 @@ public class Player : MonoBehaviour
                 playerMovement.DashTime();
                 break;
             case States.HeavyPunch:
+                playerMovement.AttackMovement();
                 break;
             case States.NonElementalHeal:
                 playerAbilties.HoldHeal();
+                playerCollision.CollisionCheckWhileAbilities();
                 break;
             case States.FireBall:
                 playerAbilties.CastFireball();
+                playerCollision.CollisionCheckWhileAbilities();
                 break;
             case States.GetHit:
                 playerMovement.PlayerHitStun();
