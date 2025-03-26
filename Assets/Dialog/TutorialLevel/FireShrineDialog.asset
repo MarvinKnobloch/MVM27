@@ -18,20 +18,13 @@ MonoBehaviour:
   dialogs:
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: '.. This power... this flame... I understand now....
-
-      (2 to
-      switch to the Fire Element)
-
-      (1 to switch back to the Null Element)'
-    dialogEvent: {fileID: 0}
+    dialogText: Switch tutorial with script
+    dialogEvent: {fileID: 11400000, guid: 8df2948f4dc6fe7478bb55cc19b14f65, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
-    dialogText: "With this flame, I\u2019ll charge ahead... I\u2019ll walk through
-      fire and dash through lava....\r\n(RMB to dash, you are now immune to fire
-      walls and can dash through lava walls in Fire Form)"
-    dialogEvent: {fileID: 0}
+    dialogText: Dash Tutorial with script
+    dialogEvent: {fileID: 11400000, guid: c1d105436f1abd841a8737fde8a1a936, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player

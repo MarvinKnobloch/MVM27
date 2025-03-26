@@ -297,6 +297,17 @@ public class Flyer : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (combatData.State == CombatState.Death)
+            return;
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Player.Instance.health.PlayerTakeDamage(collisionWithPlayerDamage, false, true);
+        }
+    }
+
     private void HandleNormalMovement()
     {
         if (movementType == MovementType.Wander)
@@ -437,7 +448,7 @@ public class Flyer : MonoBehaviour
     // this is triggered from the health component
     private void OnDie()
     {
-        GetComponent<Collider2D>().enabled = false; // disable the collider so physics dont occur while dead
+        transform.GetChild(1).gameObject.GetComponent<Collider2D>().enabled = false; // disable the collider so physics dont occur while dead
 
         combatData.State = CombatState.Death;
         animator.Play(DIE_ANIM);

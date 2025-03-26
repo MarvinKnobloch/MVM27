@@ -10,6 +10,8 @@ public class DialogObj : ScriptableObject
     public bool disableInputs;
     public bool pauseGame;
     public Dialog[] dialogs;
+
+    public VoidEventChannel eventAfterDialogEnd;
 }
 [Serializable]
 public struct Dialog

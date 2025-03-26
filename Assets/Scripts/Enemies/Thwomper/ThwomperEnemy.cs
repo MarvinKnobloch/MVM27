@@ -173,6 +173,9 @@ public class ThwomperEnemy : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (dead)
+            return;
+
         if (collision.CompareTag("Player"))
         {
             Player.Instance.health.PlayerTakeDamage(damage, false, true);

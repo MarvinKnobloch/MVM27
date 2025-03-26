@@ -10,7 +10,7 @@ public class DialogBox : MonoBehaviour
 
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI characterName;
-    [SerializeField] private TextMeshProUGUI boxText;
+    [SerializeField] public TextMeshProUGUI boxText;
     [SerializeField] private GameObject skipButton;
     [SerializeField] private TextMeshProUGUI continueText;
 
@@ -134,6 +134,8 @@ public class DialogBox : MonoBehaviour
             //    readInput = false;
             //    Time.timeScale = 1;
             //}
+
+            if(currentDialog.eventAfterDialogEnd != null) currentDialog.eventAfterDialogEnd.OnEventRaised.Invoke();
 
             readInput = false;
             if (pauseGame) GameManager.Instance.menuController.ResetTimeScale();

@@ -51,17 +51,17 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: "Well, that doesn\u2019t matter! Get yourself ready and follow me!\r\n(A/D
-      to move, Space to jump)"
-    dialogEvent: {fileID: 0}
+    dialogText: MoveTutorial with Script
+    dialogEvent: {fileID: 11400000, guid: 920c3ebc879295248bfe4edea5000a79, type: 2}
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: Hurry up!!!
+    dialogText: Follow me!
     dialogEvent: {fileID: 11400000, guid: b8d0b9984bdb1ff46bc3057e473100fa, type: 2}
     autoPlayInterval: 2
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... OK....
     dialogEvent: {fileID: 11400000, guid: 286ac85ade87d4f4dbd882a51f83cd27, type: 2}
-    autoPlayInterval: 2
+    autoPlayInterval: 0
+  eventAfterDialogEnd: {fileID: 11400000, guid: 9dd27d5e447e94042a878e2a2529ab47, type: 2}

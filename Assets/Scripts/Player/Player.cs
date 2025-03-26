@@ -45,6 +45,10 @@ public class Player : MonoBehaviour
     public int maxDashCount;
     [NonSerialized] public int currentDashCount;
 
+    [Header("Attack")]
+    public bool autoAttackMovement;
+    public float attackMovementSpeed;
+
     [Header("IFrames")]
     public float iFramesDuration;
     private float iFramesTimer;
@@ -273,6 +277,7 @@ public class Player : MonoBehaviour
             case States.NonElementalHeal:
                 break;
             case States.Attack:
+                playerMovement.AttackMovement();
                 break;
             case States.FireBall:
                 break;

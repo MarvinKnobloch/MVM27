@@ -50,7 +50,7 @@ MonoBehaviour:
     autoPlayInterval: 0
   - characterSprite: {fileID: -7933723750569194922, guid: 7d17e544fc3a36c4b8217ed85b9ec70c, type: 3}
     characterName: ???
-    dialogText: "But i\xB4m sure you can handle them.\r"
+    dialogText: "Alright, I\xB4ll be up ahead, friend\r"
     dialogEvent: {fileID: 11400000, guid: 4a8c906b96c3625448cec46220309c6a, type: 2}
     autoPlayInterval: 3
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}

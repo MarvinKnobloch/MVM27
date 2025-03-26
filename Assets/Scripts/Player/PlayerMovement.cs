@@ -79,6 +79,21 @@ public class PlayerMovement
             player.ChangeAnimationState(jumpState);
         }
     }
+    public void AttackMovement()
+    {
+        if (player.autoAttackMovement)
+        {
+            if(player.faceRight) player.playerVelocity.Set(-player.attackMovementSpeed, player.rb.linearVelocityY);
+            else player.playerVelocity.Set(player.attackMovementSpeed, player.rb.linearVelocityY);
+
+            player.rb.linearVelocity = player.playerVelocity;
+        }
+        else
+        {
+            player.playerVelocity.Set(player.moveDirection.x * player.attackMovementSpeed, player.rb.linearVelocityY);
+            player.rb.linearVelocity = player.playerVelocity;
+        }
+    }
     public void RotatePlayer()
     {
         if (player.moveDirection.x > 0 && player.faceRight == true) flip();

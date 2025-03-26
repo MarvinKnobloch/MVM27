@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5895ab4ca8341d4f9f8e4ebfcca2c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 9999
+  damage: 2
   zone: 2
   lavaIgnoreIframes: 1
 --- !u!114 &2467383294594715546

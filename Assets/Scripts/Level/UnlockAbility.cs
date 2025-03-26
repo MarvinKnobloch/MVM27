@@ -17,7 +17,6 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     [SerializeField] private VoidEventChannel shrineEndEvent;
     [SerializeField] private MoveOnInteraction objAfterCollect;
 
-
     private void OnEnable()
     {
         if (shrineEndEvent != null)

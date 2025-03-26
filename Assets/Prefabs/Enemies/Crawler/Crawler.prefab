@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3834550568150774586, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7810272586841086418, guid: 9b301340b497de54bacf23d66774a73f, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas

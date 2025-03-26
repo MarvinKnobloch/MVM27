@@ -47,16 +47,9 @@ public class CheckPoint : MonoBehaviour, IInteractables
         checkpointOn.SetActive(true);
         Player.Instance.playerInteraction.RemoveInteraction(this);
 
-        Player.Instance.health.Heal(Player.Instance.health.MaxValue);
-        int energy = Mathf.RoundToInt(Player.Instance.EnergyMaxValue * 0.5f + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
-        if(Player.Instance.EnergyValue < energy)
-        {
-            Player.Instance.EnergyValue = energy;
-            Player.Instance.EnergyUpdate(0);
-        }
+        //RestoreHealthEnergy();
 
-
-        checkpointCollider.enabled = false;
+        //checkpointCollider.enabled = false;
 
         GameManager.Instance.currentCheckpoint = this;
 
@@ -70,6 +63,21 @@ public class CheckPoint : MonoBehaviour, IInteractables
         checkpointOn.SetActive(false);
     }
 
+    private void RestoreHealthEnergy()
+    {
+        int energy = Mathf.RoundToInt(Player.Instance.EnergyMaxValue * 0.5f + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
+
+        if (Player.Instance.health.Value != Player.Instance.health.MaxValue || Player.Instance.EnergyValue < energy)
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.MenuAccept]);
+
+        Player.Instance.health.Heal(Player.Instance.health.MaxValue);
+
+        if (Player.Instance.EnergyValue < energy)
+        {
+            Player.Instance.EnergyValue = energy;
+            Player.Instance.EnergyUpdate(0);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -81,7 +89,12 @@ public class CheckPoint : MonoBehaviour, IInteractables
             }
             else
             {
-                Player.Instance.playerInteraction.AddInteraction(this);
+                if (this != GameManager.Instance.currentCheckpoint)
+                {
+                    Player.Instance.playerInteraction.AddInteraction(this);
+                }
+
+                RestoreHealthEnergy();
             }
         }
     }
