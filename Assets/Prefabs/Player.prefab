@@ -353,6 +353,7 @@ MonoBehaviour:
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 3592
+  playerGroundDrag: -10
   jumpStrength: 10.5
   maxJumpCount: 1
   maxJumpTime: 0.3

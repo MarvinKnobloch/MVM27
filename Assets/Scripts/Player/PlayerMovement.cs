@@ -50,7 +50,7 @@ public class PlayerMovement
     }
     public void GroundMovement()
     {
-        PlayerMove(-10);
+        PlayerMove(player.playerGroundDrag);
     }
     public void GroundIntoAirTransition()
     {
@@ -90,8 +90,18 @@ public class PlayerMovement
         }
         else
         {
-            player.playerVelocity.Set(player.moveDirection.x * player.attackMovementSpeed, player.rb.linearVelocityY);
-            player.rb.linearVelocity = player.playerVelocity;
+            if (player.movingPlatform != null)
+            {
+                float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
+                player.playerVelocity.Set((player.moveDirection.x * player.attackMovementSpeed) + additionalMovement, player.movingPlatform.velocity.y + player.playerGroundDrag);
+
+                player.rb.linearVelocity = player.playerVelocity;
+            }
+            else
+            {
+                player.playerVelocity.Set(player.moveDirection.x * player.attackMovementSpeed, player.rb.linearVelocityY);
+                player.rb.linearVelocity = player.playerVelocity;
+            }
         }
     }
     public void RotatePlayer()
