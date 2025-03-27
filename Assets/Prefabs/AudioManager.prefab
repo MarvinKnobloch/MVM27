@@ -201,7 +201,7 @@ MonoBehaviour:
   - audioClip: {fileID: 8300000, guid: 2e7febc402c662e41b40c39d7d8fefbd, type: 3}
     volume: 0.43
   - audioClip: {fileID: 8300000, guid: 85dc7bd68114f6f4eb24cd41e7550e18, type: 3}
-    volume: 0.3
+    volume: 0.5
   - audioClip: {fileID: 8300000, guid: 76fd71e92587dcc4e88773ec5249a00a, type: 3}
     volume: 0.3
   worldSounds:
@@ -220,9 +220,9 @@ MonoBehaviour:
   - audioClip: {fileID: 8300000, guid: eb7f3c4ccc267d84f9dc1f55e7c1b32e, type: 3}
     volume: 0.2
   - audioClip: {fileID: 8300000, guid: a4d66ef2b08df154f985f21caf09f7ff, type: 3}
-    volume: 0.2
+    volume: 0.35
   - audioClip: {fileID: 8300000, guid: a1298bc929b0d1441ae886d59f79aa79, type: 3}
-    volume: 0.2
+    volume: 0.4
   tutorialBossSounds:
   - audioClip: {fileID: 8300000, guid: 8d31954419a86a9478205ba4db3ebb94, type: 3}
     volume: 0.2
