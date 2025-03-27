@@ -68,7 +68,7 @@ public class CheckPoint : MonoBehaviour, IInteractables
         int energy = Mathf.RoundToInt(Player.Instance.EnergyMaxValue * 0.5f + PlayerPrefs.GetInt(Upgrades.StatsUpgrades.BonusEnergyRecharge.ToString()));
 
         if (Player.Instance.health.Value != Player.Instance.health.MaxValue || Player.Instance.EnergyValue < energy)
-            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.MenuAccept]);
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.CheckPointHeal]);
 
         Player.Instance.health.Heal(Player.Instance.health.MaxValue);
 

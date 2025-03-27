@@ -27,7 +27,8 @@ MonoBehaviour:
     characterName: Player
     dialogText: 'I feel as if... I could fly through the wind....
 
-      (Space
-      in the air to jump again)'
-    dialogEvent: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}
+      (Space in
+      the air to jump again)'
+    dialogEvent: {fileID: 0}
     autoPlayInterval: 0
+  eventAfterDialogEnd: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}

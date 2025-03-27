@@ -471,6 +471,7 @@ public class Player : MonoBehaviour
         ChangeAnimationState(deathState);
         state = States.Death;
 
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.PlayerDeath]);
         //trigger GameOver
     }
     public void RestartGame()

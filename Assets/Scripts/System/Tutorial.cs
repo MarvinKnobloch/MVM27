@@ -98,7 +98,7 @@ public class Tutorial : MonoBehaviour
         dialogText.text = "Well, that doesn’t matter!Get yourself ready and follow me!\n\n(Press <color=green>" +
             controls.Player.Move.GetBindingDisplayString(3) + "</color>/<color=green>" + controls.Player.Move.GetBindingDisplayString(4) + "</color> to move)\n(Press <color=green>" +
             controls.Player.Jump.GetBindingDisplayString() + "</color> to jump)\n" +
-            "(Hotkeys can be changed in the Menu(<color=green>ESC</color>) -> Settings";
+            "(Hotkeys can be changed in the Menu(<color=green>ESC</color>) -> Settings)";
     }
     public void AttackHealTutorial()
     {

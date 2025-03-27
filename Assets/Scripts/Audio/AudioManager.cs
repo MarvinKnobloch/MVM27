@@ -92,11 +92,15 @@ public class AudioManager : MonoBehaviour
         MenuDecline,
         CurrenyGain,
         DialogNext,
+        Upgrade,
+        PlayerDeath,
     }
     public enum AbiltySounds
     {
         NonHeal,
         FireBall,
+        WallBreakSwing,
+        WallBreakImpact,
     }
     public enum WolrdSounds
     {
@@ -108,6 +112,7 @@ public class AudioManager : MonoBehaviour
         PlatformBreak,
         PermaButton,
         CheckPoint,
+        CheckPointHeal,
     }
     public enum TutorialBossSounds
     {

@@ -120,9 +120,10 @@ public class PlayerAbilties
 
         player.heavyPunchPerformed = true;
         player.ChangeAnimationState("HeavyPunch");
-        player.state = Player.States.HeavyPunch; 
-        
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackSounds[2]);
+        player.state = Player.States.HeavyPunch;
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.WallBreakSwing]);
+        //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackSounds[2]);
     }
     public void ExecuteHeavyPunch()
     {
@@ -139,10 +140,10 @@ public class PlayerAbilties
                 health.EnemyTakeDamage(player.heavyPunchDamage);
             }
         }
-        //if(collider.Length > 0)
-        //{
-        //    AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackHitSounds[2]);
-        //}
+        if (collider.Length > 0)
+        {
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.WallBreakImpact]);
+        }
         player.EnergyUpdate(-player.heavyPunchCosts);
     }
     public void EndHeavyPunch()

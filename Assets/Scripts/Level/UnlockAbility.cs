@@ -13,6 +13,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     [SerializeField] private string unlockText;
     [SerializeField] private bool disableOnCollect;
 
+    private bool currentShrine;
+
     [Header("ShrineUnique")]
     [SerializeField] private VoidEventChannel shrineEndEvent;
     [SerializeField] private MoveOnInteraction objAfterCollect;
@@ -21,20 +23,22 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     {
         if (shrineEndEvent != null)
         {
-            shrineEndEvent.OnEventRaised += ActivateMusic;
+            shrineEndEvent.OnEventRaised += ShrineEndEvent;
         }
     }
     private void OnDisable()
     {
         if (shrineEndEvent != null)
         {
-            shrineEndEvent.OnEventRaised += ActivateMusic;
+            shrineEndEvent.OnEventRaised += ShrineEndEvent;
         }
     }
     public void Interaction()
     {
         if(PlayerPrefs.GetInt(abilityString.ToString()) == 0)
         {
+            currentShrine = true;
+
             PlayerPrefs.SetInt(abilityString.ToString(), 1);
             Player.Instance.PlayerAbilityUpdate();
             Player.Instance.playerInteraction.RemoveInteraction(this);
@@ -65,13 +69,19 @@ public class UnlockAbility : MonoBehaviour, IInteractables
             if (disableOnCollect) gameObject.SetActive(false);
         }
     }
-    private void ActivateMusic()
+    private void ShrineEndEvent()
     {
-        if (shrineEndEvent != null)
+        //if (shrineEndEvent != null)
+        //{
+        if (currentShrine == true)
         {
+            currentShrine = false;
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.Upgrade]);
+
             if (abilityString == GameManager.AbilityStrings.FireElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
             if (abilityString == GameManager.AbilityStrings.AirElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
         }
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

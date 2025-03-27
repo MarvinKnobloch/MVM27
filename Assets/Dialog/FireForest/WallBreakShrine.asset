@@ -28,4 +28,4 @@ MonoBehaviour:
 '
     dialogEvent: {fileID: 11400000, guid: d2464ec72c333604aaed8c41d3a8f8ac, type: 2}
     autoPlayInterval: 0
-  eventAfterDialogEnd: {fileID: 0}
+  eventAfterDialogEnd: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}

@@ -29,5 +29,6 @@ MonoBehaviour:
   - characterSprite: {fileID: 653128586696531874, guid: 0597ab9aad5d3194ba43872042b2b403, type: 3}
     characterName: Player
     dialogText: ... Friend... thank you.
-    dialogEvent: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}
+    dialogEvent: {fileID: 0}
     autoPlayInterval: 0
+  eventAfterDialogEnd: {fileID: 11400000, guid: 6655dd0749ae2d4449c47232a4fdc4a3, type: 2}
