@@ -222,7 +222,7 @@ MonoBehaviour:
   - audioClip: {fileID: 8300000, guid: a4d66ef2b08df154f985f21caf09f7ff, type: 3}
     volume: 0.35
   - audioClip: {fileID: 8300000, guid: a1298bc929b0d1441ae886d59f79aa79, type: 3}
-    volume: 0.4
+    volume: 0.68
   tutorialBossSounds:
   - audioClip: {fileID: 8300000, guid: 8d31954419a86a9478205ba4db3ebb94, type: 3}
     volume: 0.2
