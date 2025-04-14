@@ -68,22 +68,17 @@ public class PlayerCollision
             else player.canWallBoost = false;
         }
     }
-    public void CollisionCheckWhileAbilities()
+    public void GroundCheckWhileAbilities()
     {
+
         RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.99f, 0, -player.transform.up, 0.1f, player.groundCheckLayer);
         if (downwardhit)
         {
-            if (player.movingPlatform != null)
-            {
-                float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
-                player.playerVelocity.Set(additionalMovement, player.movingPlatform.velocity.y + player.playerGroundDrag);
-
-                player.rb.linearVelocity = player.playerVelocity;
-            }
-            else
-            {
-                player.rb.linearVelocityX = 0;
-            }
+            player.abilityGroundCheck = true;
+        }
+        else
+        {
+            player.abilityGroundCheck = false;
         }
     }
     public void CollisionCheckAfterAbilties()

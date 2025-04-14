@@ -142,7 +142,7 @@ public class PlayerAbilties
         }
         if (collider.Length > 0)
         {
-            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.WallBreakImpact]);
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackHitSounds[1]);
         }
         player.EnergyUpdate(-player.heavyPunchCosts);
     }

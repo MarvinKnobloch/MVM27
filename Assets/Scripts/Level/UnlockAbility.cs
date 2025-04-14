@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnlockAbility : MonoBehaviour, IInteractables
 {
@@ -37,6 +38,8 @@ public class UnlockAbility : MonoBehaviour, IInteractables
     {
         if(PlayerPrefs.GetInt(abilityString.ToString()) == 0)
         {
+            AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, false, 0.5f, 1);
+
             currentShrine = true;
 
             PlayerPrefs.SetInt(abilityString.ToString(), 1);
@@ -78,8 +81,18 @@ public class UnlockAbility : MonoBehaviour, IInteractables
             currentShrine = false;
             AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.Upgrade]);
 
-            if (abilityString == GameManager.AbilityStrings.FireElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
-            if (abilityString == GameManager.AbilityStrings.AirElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                //AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
+                AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 2, 1);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 2, 1);
+            }
+
+            //if (abilityString == GameManager.AbilityStrings.FireElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
+            //else if (abilityString == GameManager.AbilityStrings.AirElement) AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
         }
         //}
     }

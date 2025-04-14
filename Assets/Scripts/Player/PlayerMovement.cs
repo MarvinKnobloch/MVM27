@@ -12,6 +12,8 @@ public class PlayerMovement
     const string fallState = "Fall";
     const string dashState = "Dash";
 
+    private float platformGroundDrag = -10;
+
     public void PlayerMove(float grounddrag)
     {
         if (player.XWallBoostMovement > 0.1f) player.XWallBoostMovement -= Time.fixedDeltaTime * 7;
@@ -22,10 +24,18 @@ public class PlayerMovement
         else if (player.sidewardsStreamMovement < -0.1f) player.sidewardsStreamMovement += Time.fixedDeltaTime * 10;
         else player.sidewardsStreamMovement = 0;
 
-        if (player.movingPlatform != null && player.state != Player.States.Air)
+        if (player.movingPlatform != null)
         {
-            float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
-            player.playerVelocity.Set((player.moveDirection.x * player.movementSpeed) + additionalMovement, player.movingPlatform.velocity.y + grounddrag);
+            if(player.state == Player.States.GroundIntoAir || player.state == Player.States.Air)
+            {
+                float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement;
+                player.playerVelocity.Set(player.moveDirection.x * player.movementSpeed + additionalMovement, grounddrag);
+            }
+            else
+            {
+                float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
+                player.playerVelocity.Set((player.moveDirection.x * player.movementSpeed) + additionalMovement, player.movingPlatform.velocity.y + platformGroundDrag);
+            }
         }
         else
         {
@@ -102,6 +112,29 @@ public class PlayerMovement
                 player.playerVelocity.Set(player.moveDirection.x * player.attackMovementSpeed, player.rb.linearVelocityY);
                 player.rb.linearVelocity = player.playerVelocity;
             }
+        }
+    }
+    public void AbilityMovement()
+    {
+        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.99f, 0, -player.transform.up, 0.1f, player.groundCheckLayer);
+        if (downwardhit)
+        {
+            if (player.movingPlatform != null)
+            {
+                float additionalMovement = player.XWallBoostMovement + player.sidewardsStreamMovement + player.movingPlatform.velocity.x;
+                player.playerVelocity.Set(additionalMovement, player.movingPlatform.velocity.y + player.playerGroundDrag);
+
+                player.rb.linearVelocity = player.playerVelocity;
+            }
+            else
+            {
+                player.rb.linearVelocityX = 0;
+            }
+        }
+        else
+        {
+            if (player.rb.linearVelocity.y < player.maxFallSpeed) PlayerMove(player.maxFallSpeed);
+            else PlayerMove(player.rb.linearVelocity.y);
         }
     }
     public void RotatePlayer()

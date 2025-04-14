@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public int playerGroundDrag;
     [NonSerialized] public float sidewardsStreamMovement;
     [NonSerialized] public MovingPlatform movingPlatform;
+    [NonSerialized] public bool abilityGroundCheck;
 
     [Header("Jump")]
     public float jumpStrength;
@@ -274,13 +275,16 @@ public class Player : MonoBehaviour
                 playerMovement.DashMovement();
                 break;
             case States.HeavyPunch:
+                playerMovement.AttackMovement();
                 break;
             case States.NonElementalHeal:
+                playerMovement.AbilityMovement();
                 break;
             case States.Attack:
                 playerMovement.AttackMovement();
                 break;
             case States.FireBall:
+                playerMovement.AbilityMovement();
                 break;
         }
     }
@@ -335,15 +339,16 @@ public class Player : MonoBehaviour
                 playerMovement.DashTime();
                 break;
             case States.HeavyPunch:
-                playerMovement.AttackMovement();
                 break;
             case States.NonElementalHeal:
                 playerAbilties.HoldHeal();
-                playerCollision.CollisionCheckWhileAbilities();
+                playerMovement.RotatePlayer();
+                playerCollision.GroundCheckWhileAbilities();
                 break;
             case States.FireBall:
                 playerAbilties.CastFireball();
-                playerCollision.CollisionCheckWhileAbilities();
+                playerMovement.RotatePlayer();
+                playerCollision.GroundCheckWhileAbilities();
                 break;
             case States.GetHit:
                 playerMovement.PlayerHitStun();
@@ -471,8 +476,7 @@ public class Player : MonoBehaviour
         ChangeAnimationState(deathState);
         state = States.Death;
 
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.PlayerDeath]);
-        //trigger GameOver
+        //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilityFiles[(int)AudioManager.UtilitySounds.PlayerDeath]);
     }
     public void RestartGame()
     {

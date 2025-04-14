@@ -97,8 +97,7 @@ public class MenuController : MonoBehaviour
             }
             else
             {
-                ingameMenu.SetActive(false);
-                EndPause();
+                ResumeGame();
             }
         }
     }
@@ -167,7 +166,6 @@ public class MenuController : MonoBehaviour
 
 
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
-        gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
@@ -210,7 +208,6 @@ public class MenuController : MonoBehaviour
     public void LoadGame()
     {
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
-        gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
@@ -218,7 +215,9 @@ public class MenuController : MonoBehaviour
     public void ResetPlayer(bool playSound)
     {
         if(playSound) AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
-        gameIsPaused = false;
+
+        gameIsPaused = true;      //because of pressure plate sound
+
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
 
@@ -232,7 +231,7 @@ public class MenuController : MonoBehaviour
     public void BackToMainMenu()
     {
         AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
-        gameIsPaused = false;
+        //gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(0);

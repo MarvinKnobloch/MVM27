@@ -99,7 +99,7 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
             state = State.moveToEnd;
 
-            if (playSound)
+            if (playSound && GameManager.Instance.menuController.gameIsPaused == false)
             {
                 AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]); 
             }
@@ -122,7 +122,7 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
 
             state = State.moveToStart;
 
-            if (playSound) 
+            if (playSound && GameManager.Instance.menuController.gameIsPaused == false) 
             {
                 AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorClose]);
             }
