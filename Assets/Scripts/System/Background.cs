@@ -1,7 +1,11 @@
+using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Background : MonoBehaviour
 {
+    //[SerializeField] private CinemachineCamera cinemachineCamera;
+
     private Transform cam;
     private Vector2 camstartposi;
     private float distance;
@@ -13,7 +17,6 @@ public class Background : MonoBehaviour
 
     private float farthestback;
     [Range(0.05f, 1f)] public float backgroundspeed;
-
 
     private void Awake()
     {
@@ -35,12 +38,13 @@ public class Background : MonoBehaviour
         }
         backspeedcalculation(backgroundcount);
 
-        //transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
     }
     public void BackgroundOnStart()
     {
         if(cam == null) cam = Camera.main.transform;
-        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+        //transform.position = cinemachineCamera.Target.TrackingTarget.transform.position;
+        //transform.position = new Vector3(cam.position.x, cam.position.y, 0);
     }
     private void backspeedcalculation(int backgroundcount)
     {
@@ -56,13 +60,24 @@ public class Background : MonoBehaviour
             backspeed[i] = 1 - (backgrounds[i].transform.position.z - cam.position.z) / farthestback;
         }
     }
+    //private void Update()
+    //{
+    //    var v3 = new Vector3(10 * transform.localScale.x, 10 * transform.localScale.y, transform.position.z);
+    //    v3 = Camera.main.WorldToScreenPoint(v3);
+    //    var v3Zero = Camera.main.WorldToScreenPoint(Vector3.zero);
+    //    v3 = v3 - v3Zero;
+    //    Debug.Log("Image screen size: " + v3.x + " x " + v3.y);
+    //}
+
 
     private void LateUpdate()
     {
         distance = cam.position.x - camstartposi.x;
 
-        transform.position = Vector3.Lerp(transform.position, new Vector3(cam.position.x, cam.position.y, 0), 40 * Time.deltaTime);
-        //transform.position = new Vector3(cam.position.x, cam.position.y, 0);
+        //transform.position = Vector3.Lerp(transform.position, cinemachineCamera.Target.TrackingTarget.transform.position, 40 * Time.deltaTime);
+        //transform.position = cinemachineCamera.Target.TrackingTarget.transform.position;
+        //transform.position = Vector3.Lerp(transform.position, new Vector3(cam.position.x, cam.position.y, 0), 40 * Time.deltaTime);
+        transform.position = new Vector3(cam.position.x, cam.position.y, 0);
 
         for (int i = 0; i < backgrounds.Length; i++)
         {

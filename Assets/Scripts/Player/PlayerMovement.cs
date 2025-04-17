@@ -116,7 +116,7 @@ public class PlayerMovement
     }
     public void AbilityMovement()
     {
-        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.99f, 0, -player.transform.up, 0.1f, player.groundCheckLayer);
+        RaycastHit2D downwardhit = Physics2D.BoxCast(player.playerCollider.bounds.center, player.playerCollider.bounds.size * 0.99f, 0, -player.transform.up, 0.05f, player.groundCheckLayer);
         if (downwardhit)
         {
             if (player.movingPlatform != null)
