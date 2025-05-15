@@ -1,8 +1,9 @@
 using UnityEngine;
 using System;
 using Unity.VisualScripting;
+using System.Collections;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour, IPoolingList
 {
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -25,15 +26,23 @@ public class Projectile : MonoBehaviour
     [SerializeField] private LayerMask reflectLayer;
 
     private bool dontupdate;
+
+    public ObjectPooling.PoolObjectInfo poolingList { get; set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    void Start()
+    private void OnEnable()
     {
         oldPosition = transform.position;
-        Destroy(gameObject, lifetime);
+        StartCoroutine(ProjectileDisable());
     }
+    //void Start()
+    //{
+    //    oldPosition = transform.position;
+    //    StartCoroutine(ProjectileDisable());
+    //}
     private void FixedUpdate()
     {
         rb.linearVelocityY = 0;
@@ -43,6 +52,13 @@ public class Projectile : MonoBehaviour
         oldPosition = transform.position;
         transform.right = direction;
     }
+    private IEnumerator ProjectileDisable()
+    {
+        yield return new WaitForSeconds(lifetime);
+        ObjectPooling.ReturnObjectToPool(gameObject, poolingList);
+    }
+
+        
     public void Reflect()
     {
         transform.Rotate(0, 0, 180);
@@ -63,13 +79,15 @@ public class Projectile : MonoBehaviour
                     health.EnemyTakeDamage(damage);
                 }
             }
-            Destroy(gameObject);
+            ObjectPooling.ReturnObjectToPool(gameObject, poolingList);
+            //Destroy(gameObject);
         }
         // Collide
         else if(Utility.LayerCheck(other, collideLayer))
         {
             {
-                Destroy(gameObject);
+                ObjectPooling.ReturnObjectToPool(gameObject, poolingList);
+                //Destroy(gameObject);
             }
         }
         //Burn hit check
@@ -83,7 +101,8 @@ public class Projectile : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
-            Destroy(gameObject);
+            ObjectPooling.ReturnObjectToPool(gameObject, poolingList);
+            //Destroy(gameObject);
         }
         //Reflect
         else if (Utility.LayerCheck(other, reflectLayer))
@@ -91,7 +110,9 @@ public class Projectile : MonoBehaviour
             if (other.gameObject.TryGetComponent(out Reflectable reflectable))
             {
                 reflectable.ReflectProjectile();
-                Destroy(gameObject);
+
+                ObjectPooling.ReturnObjectToPool(gameObject, poolingList);
+                //Destroy(gameObject);
             }
         }
     }

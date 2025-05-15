@@ -407,7 +407,8 @@ public class AirBoss : MonoBehaviour
     {
         for (int i = 0; i < projectileSpawnAmount; i++)
         {
-            GameObject proj = Instantiate(projectiles, transform.position, Quaternion.identity);
+            GameObject proj = ObjectPooling.SpawnObject(projectiles, transform.position, Quaternion.identity, ObjectPooling.ProjectileType.Enemy);
+            //GameObject proj = Instantiate(projectiles, transform.position, Quaternion.identity);
 
             int randomAngle = UnityEngine.Random.Range(-25, 25);
             if (isleft) proj.transform.Rotate(0, 0, 15 + randomAngle);
@@ -445,7 +446,14 @@ public class AirBoss : MonoBehaviour
     IEnumerator TornadoSpawn()
     {
         yield return new WaitForSeconds(tornadoSpawnTime + UnityEngine.Random.Range(-randomTornadoTime, randomTornadoTime));
-        GameObject proj = Instantiate(tornado, tornadoSpawnPosition.position, Quaternion.identity);
+
+        //Quaternion prefabRotation = Quaternion.identity;
+        //if (isleft) prefabRotation = Quaternion.Euler(0, 180, 0);
+        //else prefabRotation = Quaternion.Euler(0, 0, 0);
+
+        GameObject proj = ObjectPooling.SpawnObject(tornado, tornadoSpawnPosition.position, Quaternion.identity, ObjectPooling.ProjectileType.Enemy);
+
+        //GameObject proj = Instantiate(tornado, tornadoSpawnPosition.position, Quaternion.identity);
         if (isleft) proj.transform.Rotate(0, 0, 0);
         else proj.transform.Rotate(0, 0, 180);
 
@@ -515,7 +523,8 @@ public class AirBoss : MonoBehaviour
 
         for (int i = 0; i < feathersAmount; i++)
         {
-            GameObject feather = Instantiate(feathers, transform.position, Quaternion.identity);
+            GameObject feather = ObjectPooling.SpawnObject(feathers, transform.position, Quaternion.identity, ObjectPooling.ProjectileType.Enemy);
+            //GameObject feather = Instantiate(feathers, transform.position, Quaternion.identity);
 
             feather.transform.Rotate(0, 0, startangle);
 

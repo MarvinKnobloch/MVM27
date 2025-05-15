@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class MoveOnInteraction : MonoBehaviour, IActivate
 {
@@ -24,6 +25,9 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     [SerializeField] private Sprite[] gateSprites;
 
     private bool playSound;
+
+    [Header("CutScene")]
+    [SerializeField] private PlayableDirector playableDirector;
 
     private State state;
     public enum State
@@ -84,25 +88,36 @@ public class MoveOnInteraction : MonoBehaviour, IActivate
     {
         if (currentGoals >= requiredGoals && isactiv == false)
         {
-            isactiv = true;
-            if (timer != 0)
+            if(playableDirector != null)
             {
-                if (fastBack) timer = backDuration - timer;
-                else timer = moveDuration - timer;
+                playableDirector.Play();
             }
-
-            travelTime = moveDuration;
-            if (fastBack)
+            else
             {
-                timer *= moveDuration / backDuration;
+                RequiermentsSuccess();
             }
+        }
+    }
+    public void RequiermentsSuccess()
+    {
+        isactiv = true;
+        if (timer != 0)
+        {
+            if (fastBack) timer = backDuration - timer;
+            else timer = moveDuration - timer;
+        }
 
-            state = State.moveToEnd;
+        travelTime = moveDuration;
+        if (fastBack)
+        {
+            timer *= moveDuration / backDuration;
+        }
 
-            if (playSound && GameManager.Instance.menuController.gameIsPaused == false)
-            {
-                AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]); 
-            }
+        state = State.moveToEnd;
+
+        if (playSound && GameManager.Instance.menuController.gameIsPaused == false)
+        {
+            //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.worldSounds[(int)AudioManager.WolrdSounds.DoorOpen]);
         }
     }
 

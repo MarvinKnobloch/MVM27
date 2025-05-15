@@ -190,7 +190,12 @@ public class PlayerAbilties
         if (castTimer >= player.fireballCastTime)
         {
             player.EnergyUpdate(-player.fireballCosts);
-            player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition);
+
+            //Quaternion prefabRotation = Quaternion.identity;
+            //if (player.faceRight) prefabRotation = Quaternion.Euler(0, 180, 0);
+            //else prefabRotation = Quaternion.Euler(0, 0, 0);
+
+            player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition, Quaternion.identity);
             player.playerCollision.CollisionCheckAfterAbilties();
 
             AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.FireBall]);

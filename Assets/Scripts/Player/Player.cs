@@ -158,6 +158,7 @@ public class Player : MonoBehaviour
         Attack,
         GetHit,
         Emtpy,
+        MoveTowards,
     }
     private void Awake()
     {
@@ -405,10 +406,13 @@ public class Player : MonoBehaviour
 
         currentAnimator.CrossFadeInFixedTime(newstate, 0.1f);
     }
-    public void CreatePrefab(GameObject obj, Transform spawnPosition)
+    public void CreatePrefab(GameObject obj, Transform spawnPosition, Quaternion rotation)
     {
-        GameObject projectile = Instantiate(obj, spawnPosition.position, Quaternion.identity);
-        if (faceRight) projectile.transform.Rotate(0, 180, 0);
+        GameObject prefab = ObjectPooling.SpawnObject(obj, spawnPosition.transform.position, rotation, ObjectPooling.ProjectileType.Player);
+        //GameObject projectile = Instantiate(obj, spawnPosition.position, Quaternion.identity);
+
+        if (faceRight) prefab.transform.Rotate(0, 180, 0);
+        else prefab.transform.Rotate(0, 0, 0);
     }
     public void CalculateMaxEnergy()
     {
@@ -481,5 +485,18 @@ public class Player : MonoBehaviour
     public void RestartGame()
     {
         menuController.ResetPlayer(false);
+    }
+    public void StopPlayerControls()
+    {
+        Player.Instance.rb.linearVelocity = Vector2.zero;
+        Player.Instance.SwitchToGround(true);
+        Player.Instance.ChangeAnimationState("Idle");
+        Player.Instance.state = Player.States.Ground;
+
+        GameManager.Instance.menuController.gameIsPaused = true;
+    }
+    public void StartPlayerControls()
+    {
+        GameManager.Instance.menuController.gameIsPaused = false;
     }
 }
