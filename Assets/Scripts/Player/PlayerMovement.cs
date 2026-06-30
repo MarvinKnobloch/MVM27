@@ -5,6 +5,7 @@ public class PlayerMovement
 {
     public Player player;
     private float dashTimer;
+    private bool wasInAir;
 
     const string idleState = "Idle";
     const string runState = "Run";
@@ -60,6 +61,16 @@ public class PlayerMovement
     }
     public void GroundMovement()
     {
+        if (wasInAir)
+        {
+            PostWwiseEvent audioScript = player.GetComponentInChildren<PostWwiseEvent>();
+            if (audioScript != null)
+            {
+                audioScript.PlayTaggedEvent("Land");
+            }
+            wasInAir = false;
+        }
+
         PlayerMove(player.playerGroundDrag);
     }
     public void GroundIntoAirTransition()
@@ -73,6 +84,8 @@ public class PlayerMovement
     }
     public void AirMovement()
     {
+        wasInAir = true;
+
         if (player.rb.linearVelocity.y < player.maxFallSpeed) PlayerMove(player.maxFallSpeed);
         else PlayerMove(player.rb.linearVelocity.y);
 

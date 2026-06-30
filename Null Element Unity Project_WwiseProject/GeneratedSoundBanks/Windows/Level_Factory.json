@@ -9,13 +9,14 @@
     "Id": "2858673722",
     "Type": "User",
     "GUID": "{2A7A48DA-2F63-4210-A1A3-4CC6CE8992D5}",
+    "Color": "13",
     "Language": "SFX",
     "Hash": "{5F8F21FF-DD44-613D-4BC2-1442B9D02027}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_Factory",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Factory",
     "ShortName": "Level_Factory",
     "Path": "Level_Factory.bnk"
    }
   ],
-  "FileHash": "{AE41A4C2-F3DB-4A72-ED04-D47B69102B30}"
+  "FileHash": "{904260A3-B48C-F752-8013-322C1ACF75AD}"
  }
 }

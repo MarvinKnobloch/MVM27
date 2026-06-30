@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{FE6641EA-8DFA-42E1-A92E-CC05E5E82880}" SchemaVersion="133">
 	<MixingSessions>
-		<WorkUnit Name="Default Work Unit" ID="{FE6641EA-8DFA-42E1-A92E-CC05E5E82880}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{FE6641EA-8DFA-42E1-A92E-CC05E5E82880}" PersistMode="Standalone">
+			<ChildrenList>
+				<MixingSession Name="Player Audio" ID="{43171D7E-EE20-45FA-A341-017CB0190DFA}">
+					<ObjectList>
+						<ObjectRef Name="Land" ID="{07B55E4D-80BA-4338-BE0F-186D0CFC155B}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+					</ObjectList>
+				</MixingSession>
+			</ChildrenList>
+		</WorkUnit>
 	</MixingSessions>
 </WwiseDocument>

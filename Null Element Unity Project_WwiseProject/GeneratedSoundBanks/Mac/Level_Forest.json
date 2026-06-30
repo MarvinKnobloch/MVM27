@@ -1,0 +1,22 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "957893059",
+    "Type": "User",
+    "GUID": "{4A721BB3-5E5D-4F56-96A5-2C52F62E3E67}",
+    "Color": "13",
+    "Language": "SFX",
+    "Hash": "{9F1B3315-36D7-FBEE-3299-7F54EE05FD38}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Forest",
+    "ShortName": "Level_Forest",
+    "Path": "Level_Forest.bnk"
+   }
+  ],
+  "FileHash": "{6184BD06-8315-AE88-F9B1-12E33936C58D}"
+ }
+}

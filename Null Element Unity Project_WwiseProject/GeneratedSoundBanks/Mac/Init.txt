@@ -1,0 +1,33 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	766723505	Game_State			\Default Work Unit\Game_State	
+
+State	ID	Name	State Group			Notes
+	89505537	Gameplay	Game_State			
+	319258907	Paused	Game_State			
+	748895195	None	Game_State			
+	2005704188	Main_Menu	Game_State			
+	2791675679	Defeated	Game_State			
+	3688152761	Boss_Fight	Game_State			
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	1138681361	Player_Bus			\Default Work Unit\Main Audio Bus\World_Bus\Player_Bus	
+	1411040840	Enemy_Bus			\Default Work Unit\Main Audio Bus\World_Bus\Enemy_Bus	
+	1836527144	World_Bus			\Default Work Unit\Main Audio Bus\World_Bus	
+	2239884906	Non-World_Bus			\Default Work Unit\Main Audio Bus\Non-World_Bus	
+	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+	2680856269	Music_Bus			\Default Work Unit\Main Audio Bus\Non-World_Bus\Music_Bus	
+	3247222208	UI_Bus			\Default Work Unit\Main Audio Bus\Non-World_Bus\UI_Bus	
+	3942603440	Environmental_Bus			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	825633738	Aux_Factory_Large			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Factory_Large	
+	1015162927	Aux_Forest_Large			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Forest_Large	
+	2096483835	Aux_Forest_Medium			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Forest_Medium	
+	2498296054	Aux_Factory_Small			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Factory_Small	
+	2958102843	Aux_Forest_Small			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Forest_Small	
+	3115457652	Aux_Factory_Medium			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Factory_Medium	
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

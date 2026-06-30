@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a050383a2daa43b39661aad46966b, type: 3}
+  m_Name: E20A4C68-A6DE-4A55-B991-74BA881BFFC6
+  m_EditorClassIdentifier: 
+  objectName: Play_Dash
+  id: 2211787386
+  guid: E20A4C68-A6DE-4A55-B991-74BA881BFFC6
+  IsInUserDefinedSoundBank: 1

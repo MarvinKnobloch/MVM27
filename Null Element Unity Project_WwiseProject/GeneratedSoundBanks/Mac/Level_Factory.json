@@ -1,0 +1,22 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "2858673722",
+    "Type": "User",
+    "GUID": "{2A7A48DA-2F63-4210-A1A3-4CC6CE8992D5}",
+    "Color": "13",
+    "Language": "SFX",
+    "Hash": "{5F8F21FF-DD44-613D-4BC2-1442B9D02027}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Factory",
+    "ShortName": "Level_Factory",
+    "Path": "Level_Factory.bnk"
+   }
+  ],
+  "FileHash": "{DF33EE6E-A810-2C76-C23C-3D6E54C627F0}"
+ }
+}

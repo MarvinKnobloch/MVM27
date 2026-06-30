@@ -38,6 +38,9 @@
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
 												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Null_Form" ID="{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}" WorkUnitID="{3C521066-F824-4842-837F-2AFB1A251F1D}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1F61FF5D-7CE7-49D2-AC65-5B0ACC9B5F2B}"/>
 												</Reference>
@@ -188,6 +191,9 @@
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
 												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Null_Form" ID="{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}" WorkUnitID="{3C521066-F824-4842-837F-2AFB1A251F1D}"/>
+												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1F61FF5D-7CE7-49D2-AC65-5B0ACC9B5F2B}"/>
 												</Reference>
@@ -197,6 +203,21 @@
 											</ReferenceList>
 											<ChildrenList>
 												<RandomSequenceContainer Name="Footsteps_Air" ID="{49146E02-A93F-4DD7-A795-59C1D4ED2FC5}" ShortID="954481052">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{D90C4B92-A225-4D3B-8DF4-9725D0653109}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="50"/>
+																			<Property Name="Min" Type="Real64" Value="-25"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
@@ -341,6 +362,21 @@
 													</ChildrenList>
 												</RandomSequenceContainer>
 												<RandomSequenceContainer Name="Footsteps_Fire" ID="{010B8C0D-DBA2-40CB-BF60-CAA482108123}" ShortID="826676675">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{C367667B-28AB-4CFA-B607-F94B85570D90}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="50"/>
+																			<Property Name="Min" Type="Real64" Value="-25"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
@@ -485,6 +521,21 @@
 													</ChildrenList>
 												</RandomSequenceContainer>
 												<RandomSequenceContainer Name="Footsteps_Null" ID="{555DF788-3EF0-4021-B722-160B98644992}" ShortID="15306828">
+													<PropertyList>
+														<Property Name="Pitch" Type="int32">
+															<ModifierList>
+																<ModifierInfo>
+																	<Modifier Name="" ID="{5040CA9E-AE95-4D3D-AAFA-E30F60A15DDF}">
+																		<PropertyList>
+																			<Property Name="Enabled" Type="bool" Value="True"/>
+																			<Property Name="Max" Type="Real64" Value="50"/>
+																			<Property Name="Min" Type="Real64" Value="-25"/>
+																		</PropertyList>
+																	</Modifier>
+																</ModifierInfo>
+															</ModifierList>
+														</Property>
+													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
 															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
@@ -664,9 +715,19 @@
 											</GroupingInfo>
 										</SwitchContainer>
 										<SwitchContainer Name="Land" ID="{07B55E4D-80BA-4338-BE0F-186D0CFC155B}" ShortID="309959281">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Null_Form" ID="{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}" WorkUnitID="{3C521066-F824-4842-837F-2AFB1A251F1D}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1F61FF5D-7CE7-49D2-AC65-5B0ACC9B5F2B}"/>
@@ -865,6 +926,9 @@
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{5BC9F89E-06B1-4380-BA34-F0844920EC82}"/>
+												</Reference>
+												<Reference Name="DefaultSwitchOrState">
+													<ObjectRef Name="Null_Form" ID="{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}" WorkUnitID="{3C521066-F824-4842-837F-2AFB1A251F1D}"/>
 												</Reference>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{1F61FF5D-7CE7-49D2-AC65-5B0ACC9B5F2B}"/>

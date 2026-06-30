@@ -1,0 +1,30 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "2096483835",
+    "Type": "Bus",
+    "GUID": "{400B817C-CB97-4023-BC9F-24747E599B62}",
+    "Language": "SFX",
+    "Hash": "{0204D50F-4259-572C-6558-AAB638C6CD93}",
+    "ObjectPath": "Aux_Forest_Medium",
+    "ShortName": "Aux_Forest_Medium",
+    "Path": "Bus/Aux_Forest_Medium.bnk",
+    "AuxBusses": [
+     {
+      "Id": "2096483835",
+      "Name": "Aux_Forest_Medium",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Forest_Medium",
+      "GUID": "{400B817C-CB97-4023-BC9F-24747E599B62}",
+      "Color": "3"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{BB2D2AD7-CCE3-8FD9-52D7-5D0857AC9ECA}"
+ }
+}

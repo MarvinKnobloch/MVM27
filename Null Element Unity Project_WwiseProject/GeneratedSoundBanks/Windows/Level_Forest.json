@@ -9,13 +9,14 @@
     "Id": "957893059",
     "Type": "User",
     "GUID": "{4A721BB3-5E5D-4F56-96A5-2C52F62E3E67}",
+    "Color": "13",
     "Language": "SFX",
     "Hash": "{9F1B3315-36D7-FBEE-3299-7F54EE05FD38}",
-    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_Forest",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Forest",
     "ShortName": "Level_Forest",
     "Path": "Level_Forest.bnk"
    }
   ],
-  "FileHash": "{7D1ABAFA-4ACB-431B-DC42-6A3CF0065404}"
+  "FileHash": "{B3C82478-284D-4E24-43A6-D6977A864BB2}"
  }
 }

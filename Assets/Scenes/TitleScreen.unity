@@ -222,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174699686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 244cce5858c10aa488c44ea055ffcf17, type: 3}
   m_Name: 
@@ -366,19 +366,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.14434332
+      value: -0.05136541
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: -0.4083067
+      value: -0.10855683
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1.6540964
+      value: 1.1027309
       objectReference: {fileID: 0}
     - target: {fileID: 7402258122306132004, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1.828754
+      value: 1.2183908
       objectReference: {fileID: 0}
     - target: {fileID: 8798038167513100143, guid: e90c7303301019e49ad9bca01a071679, type: 3}
       propertyPath: m_Name

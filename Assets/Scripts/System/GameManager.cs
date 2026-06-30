@@ -77,10 +77,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+       /* if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.MainMenu, true, 0.1f, 1);
-        }
+        }*/
         if (Player.Instance == null) return;
 
         if (LoadFormCheckpoint)
@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
         PlayerPrefs.SetInt("CurrentLevel", SceneManager.GetActiveScene().buildIndex);
 
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+       /* if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             //AudioManager.Instance.SetSong((int)AudioManager.MusicSongs.Tutorial);
             AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Tutorial, true, 0.1f, 1);
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         else if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.FireArea, true, 0.1f, 1);
-        }
+        }*/
     }
     IEnumerator CheckPointOnLoad()
     {

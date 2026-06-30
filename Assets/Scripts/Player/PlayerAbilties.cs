@@ -278,6 +278,14 @@ public class PlayerAbilties
         player.playerUI.SetElementalIcon(player.currentElementNumber);
         player.currentstate = null;
         //player.ChangeAnimationState(switchState);
+
+        PostWwiseEvent audioScript = player.GetComponentInChildren<PostWwiseEvent>();
+
+        if (audioScript != null)
+        {
+            audioScript.SetElementalForm(slot);
+        }
+
     }
 
     public void ControllerAbility1Input()

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{BA99683D-839C-4E70-9389-327FABBF9B5A}",
     "Language": "SFX",
-    "Hash": "{42CCA3D3-1A18-9621-8A62-FD63E5B1CA46}",
+    "Hash": "{13041C05-E918-DECA-EA3B-2EF7BE15378E}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Player_Core",
     "ShortName": "Player_Core",
     "Path": "Player_Core.bnk",
@@ -104,6 +104,14 @@
       "CachePath": "BA/{BA21B1A0-69CB-A9E9-08F2-F74EE9E96CAF}.wem"
      },
      {
+      "Id": "441081003",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerAir_Land_1.wav",
+      "CachePath": "72/{72276F12-CA4C-EF5F-C025-B439D5999597}.wem"
+     },
+     {
       "Id": "467558422",
       "Language": "SFX",
       "Streaming": "false",
@@ -152,6 +160,14 @@
       "CachePath": "A7/{A71C6D9A-65D2-CEFC-2B90-FFC38CA8751E}.wem"
      },
      {
+      "Id": "567160537",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerFire_Land_1.wav",
+      "CachePath": "EF/{EF2B3578-B535-E795-5961-8DF5A395A9A0}.wem"
+     },
+     {
       "Id": "613456842",
       "Language": "SFX",
       "Streaming": "false",
@@ -174,6 +190,14 @@
       "Location": "Memory",
       "ShortName": "PlayerFire_Footsteps_1.wav",
       "CachePath": "7C/{7CCD4423-C633-3144-C314-92A7F2FD7A7D}.wem"
+     },
+     {
+      "Id": "683166165",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNull_Land_1.wav",
+      "CachePath": "8C/{8CDD89CF-C25C-5321-E331-94E2FFBFD0E7}.wem"
      },
      {
       "Id": "688517180",
@@ -353,7 +377,8 @@
          "GroupId": "1725842569",
          "Id": "1066927599",
          "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
-         "Color": "1"
+         "Color": "1",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -385,8 +410,8 @@
       "GUID": "{FA6FB610-9A6C-4846-97B3-1D196C5C17EA}",
       "Color": "1",
       "DurationType": "OneShot",
-      "DurationMin": "0.050166667",
-      "DurationMax": "0.12904167",
+      "DurationMin": "0.048738517",
+      "DurationMax": "0.13091862",
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -452,7 +477,8 @@
          "GroupId": "1725842569",
          "Id": "1066927599",
          "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
-         "Color": "1"
+         "Color": "1",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -547,7 +573,8 @@
          "GroupId": "1725842569",
          "Id": "1066927599",
          "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
-         "Color": "1"
+         "Color": "1",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -564,8 +591,53 @@
       "GUID": "{6E9E246E-41E7-464F-8292-B0BC106F0804}",
       "Color": "1",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "0.13889584",
+      "DurationMax": "0.23933333",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "2482295332",
+         "GUID": "{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}",
+         "Color": "1"
+        },
+        "MediaRefs": [
+         {
+          "Id": "441081003"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "699461374",
+         "GUID": "{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}",
+         "Color": "1"
+        },
+        "MediaRefs": [
+         {
+          "Id": "567160537"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "1066927599",
+         "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
+         "Color": "1",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "683166165"
+         }
+        ]
+       }
+      ]
      },
      {
       "Id": "3767549391",
@@ -642,6 +714,6 @@
     ]
    }
   ],
-  "FileHash": "{93A17821-36F2-429C-4378-D6EBA15983FB}"
+  "FileHash": "{8C5E0C21-A89B-8D14-C7E9-68F17ED60DA9}"
  }
 }

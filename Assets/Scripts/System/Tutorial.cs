@@ -58,7 +58,7 @@ public class Tutorial : MonoBehaviour
     private void ActivateBlackScreen()
     {
         GameManager.Instance.playerUI.ActivateBlackscreen();
-        AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 0.1f, 4);
+       // AudioManager.Instance.StartMusicFadeOut((int)AudioManager.MusicSongs.Empty, true, 0.1f, 4);
     }
     private void PlayerSleep()
     {

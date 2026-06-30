@@ -1,0 +1,3 @@
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	825633738	Aux_Factory_Large			\Default Work Unit\Main Audio Bus\World_Bus\Environmental_Bus\Aux_Factory_Large	
+
