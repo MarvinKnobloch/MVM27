@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 721970013142479049}
   - component: {fileID: 7402258122306132004}
-  - component: {fileID: 3925101996864547910}
   - component: {fileID: 6922466135756583384}
   - component: {fileID: 9215016083035191403}
   - component: {fileID: 5925941195900166977}
@@ -63,10 +62,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: -0.067216985
-    y: -0.35849056
-    width: 1
-    height: 0.99999994
+    x: -0.55006504
+    y: 0.4083067
+    width: 1.6540964
+    height: 1.828754
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
@@ -87,14 +86,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3925101996864547910
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8798038167513100143}
-  m_Enabled: 1
 --- !u!114 &6922466135756583384
 MonoBehaviour:
   m_ObjectHideFlags: 0

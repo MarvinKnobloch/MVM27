@@ -1,0 +1,257 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "1355168291",
+    "Type": "User",
+    "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
+    "Language": "SFX",
+    "Hash": "{B1812201-EF18-337D-B6F6-46194F1027BB}",
+    "ObjectPath": "Init",
+    "ShortName": "Init",
+    "Path": "Init.bnk",
+    "Plugins": {
+     "AudioDevices": [
+      {
+       "Id": "2317455096",
+       "Name": "No_Output",
+       "ObjectPath": "\\Devices\\Default Work Unit\\No_Output",
+       "GUID": "{5A98E446-6F9E-4907-B3B5-3C4E2A528C84}",
+       "LibName": "No Output",
+       "LibId": "11862023"
+      },
+      {
+       "Id": "3859886410",
+       "Name": "System",
+       "ObjectPath": "\\Devices\\Default Work Unit\\System",
+       "GUID": "{558ACA9C-30A4-4032-A040-EC43F86C2959}",
+       "LibName": "System",
+       "LibId": "11403271"
+      }
+     ]
+    },
+    "Busses": [
+     {
+      "Id": "1138681361",
+      "Name": "Player_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Player_Bus",
+      "GUID": "{A1F182BE-03EA-4CA3-824B-C0A49D8F0944}",
+      "Color": "1"
+     },
+     {
+      "Id": "1411040840",
+      "Name": "Enemy_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Enemy_Bus",
+      "GUID": "{A7CE1A84-9F16-4C6E-89E4-0E149D03B09C}",
+      "Color": "10"
+     },
+     {
+      "Id": "1836527144",
+      "Name": "World_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus",
+      "GUID": "{20165EFF-02A7-446A-8EA6-C516DCCF54F8}",
+      "Color": "3"
+     },
+     {
+      "Id": "2239884906",
+      "Name": "Non-World_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\Non-World_Bus",
+      "GUID": "{81E7806D-F859-436C-880D-233623F17A61}",
+      "Color": "11"
+     },
+     {
+      "Id": "2246998526",
+      "Name": "Main Audio Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     },
+     {
+      "Id": "2680856269",
+      "Name": "Music_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\Non-World_Bus\\Music_Bus",
+      "GUID": "{2CA81CED-D97C-47ED-B397-FA810E8A4DCC}",
+      "Color": "11"
+     },
+     {
+      "Id": "3247222208",
+      "Name": "UI_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\Non-World_Bus\\UI_Bus",
+      "GUID": "{48F3CAB1-4E71-447E-8FAB-9F4959071AB0}",
+      "Color": "11"
+     },
+     {
+      "Id": "3942603440",
+      "Name": "Environmental_Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus",
+      "GUID": "{D44591DD-DDD1-4E8E-8780-DC166CA3D2EE}",
+      "Color": "3"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "825633738",
+      "Name": "Aux_Factory_Large",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Factory_Large",
+      "GUID": "{570B55C8-D80C-4951-A199-E64A388CEB58}",
+      "Color": "3"
+     },
+     {
+      "Id": "1015162927",
+      "Name": "Aux_Forest_Large",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Forest_Large",
+      "GUID": "{5D846E5F-3A42-4887-AACE-44E706C4EED9}",
+      "Color": "3"
+     },
+     {
+      "Id": "2096483835",
+      "Name": "Aux_Forest_Medium",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Forest_Medium",
+      "GUID": "{400B817C-CB97-4023-BC9F-24747E599B62}",
+      "Color": "3"
+     },
+     {
+      "Id": "2498296054",
+      "Name": "Aux_Factory_Small",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Factory_Small",
+      "GUID": "{B287A0FB-9992-42C2-AE13-96B3DACE430F}",
+      "Color": "3"
+     },
+     {
+      "Id": "2958102843",
+      "Name": "Aux_Forest_Small",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Forest_Small",
+      "GUID": "{0F42A9FA-40F2-47D3-9D6E-8E4A6B258DD6}",
+      "Color": "3"
+     },
+     {
+      "Id": "3115457652",
+      "Name": "Aux_Factory_Medium",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Factory_Medium",
+      "GUID": "{0B3DAF63-B4F7-4921-9323-07AC5E118B99}",
+      "Color": "3"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "766723505",
+      "Name": "Game_State",
+      "ObjectPath": "\\States\\Default Work Unit\\Game_State",
+      "GUID": "{285B3D41-65CF-46DC-8C50-0E14BC9F7A98}",
+      "Color": "20",
+      "States": [
+       {
+        "Id": "89505537",
+        "Name": "Gameplay",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\Gameplay",
+        "GUID": "{7306FD9C-CEB3-413C-AD56-6F720FCC2F94}",
+        "Color": "20"
+       },
+       {
+        "Id": "319258907",
+        "Name": "Paused",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\Paused",
+        "GUID": "{06C79FEF-E96F-46DD-8CFE-B432B5ABAAC9}",
+        "Color": "20"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\None",
+        "GUID": "{F494975C-73A2-4AD8-9357-ACB807F41EA0}",
+        "Color": "20"
+       },
+       {
+        "Id": "2005704188",
+        "Name": "Main_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\Main_Menu",
+        "GUID": "{92DE0703-4196-493E-995B-66BDC5BD0E53}",
+        "Color": "20"
+       },
+       {
+        "Id": "2791675679",
+        "Name": "Defeated",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\Defeated",
+        "GUID": "{61FED22B-C867-4AE9-81AE-E8814270AFF5}",
+        "Color": "20"
+       },
+       {
+        "Id": "3688152761",
+        "Name": "Boss_Fight",
+        "ObjectPath": "\\States\\Default Work Unit\\Game_State\\Boss_Fight",
+        "GUID": "{40A60048-AD93-4AEE-94AC-CC121C7752D5}",
+        "Color": "20"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "788347211",
+      "Name": "AttackSwing_Number",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number",
+      "GUID": "{DBFC6771-E6F1-4E9E-A838-E9B99918F39F}",
+      "Color": "1",
+      "Switches": [
+       {
+        "Id": "1950540977",
+        "Name": "AttackSwing_1",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_1",
+        "GUID": "{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}",
+        "Color": "1"
+       },
+       {
+        "Id": "1950540978",
+        "Name": "AttackSwing_2",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_2",
+        "GUID": "{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}",
+        "Color": "1"
+       },
+       {
+        "Id": "1950540979",
+        "Name": "AttackSwing_3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_3",
+        "GUID": "{B5472173-6A48-4C18-8B98-F7C8C7694E6E}",
+        "Color": "1"
+       }
+      ]
+     },
+     {
+      "Id": "1725842569",
+      "Name": "Elemental_Form",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form",
+      "GUID": "{972C7E1D-1CD6-4B94-9D54-3C95EC0C0EC0}",
+      "Color": "1",
+      "Switches": [
+       {
+        "Id": "699461374",
+        "Name": "Fire_Form",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form\\Fire_Form",
+        "GUID": "{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}",
+        "Color": "1"
+       },
+       {
+        "Id": "1066927599",
+        "Name": "Null_Form",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form\\Null_Form",
+        "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
+        "Color": "1"
+       },
+       {
+        "Id": "2482295332",
+        "Name": "Air_Form",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form\\Air_Form",
+        "GUID": "{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}",
+        "Color": "1"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{3762AC21-1458-A338-90FB-1C55C0C5811D}"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "825633738",
+    "Type": "Bus",
+    "GUID": "{570B55C8-D80C-4951-A199-E64A388CEB58}",
+    "Language": "SFX",
+    "Hash": "{7099B262-268C-A569-8B1B-80AE34BC07E1}",
+    "ObjectPath": "Aux_Factory_Large",
+    "ShortName": "Aux_Factory_Large",
+    "Path": "Bus/Aux_Factory_Large.bnk",
+    "AuxBusses": [
+     {
+      "Id": "825633738",
+      "Name": "Aux_Factory_Large",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\World_Bus\\Environmental_Bus\\Aux_Factory_Large",
+      "GUID": "{570B55C8-D80C-4951-A199-E64A388CEB58}",
+      "Color": "3"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{B6339053-B767-3155-88BA-3BCAFF1914C9}"
+ }
+}

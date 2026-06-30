@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{3C521066-F824-4842-837F-2AFB1A251F1D}" SchemaVersion="133">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{3C521066-F824-4842-837F-2AFB1A251F1D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{3C521066-F824-4842-837F-2AFB1A251F1D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Player_Switches" ID="{FD27CB18-E737-4FF4-92AE-6CBE9BA95DF2}" ShortID="551940442">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<SwitchGroup Name="AttackSwing_Number" ID="{DBFC6771-E6F1-4E9E-A838-E9B99918F39F}">
+							<ChildrenList>
+								<Switch Name="AttackSwing_1" ID="{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}"/>
+								<Switch Name="AttackSwing_2" ID="{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}"/>
+								<Switch Name="AttackSwing_3" ID="{B5472173-6A48-4C18-8B98-F7C8C7694E6E}"/>
+							</ChildrenList>
+						</SwitchGroup>
+						<SwitchGroup Name="Elemental_Form" ID="{972C7E1D-1CD6-4B94-9D54-3C95EC0C0EC0}">
+							<ChildrenList>
+								<Switch Name="Null_Form" ID="{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}"/>
+								<Switch Name="Fire_Form" ID="{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}"/>
+								<Switch Name="Air_Form" ID="{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}"/>
+							</ChildrenList>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

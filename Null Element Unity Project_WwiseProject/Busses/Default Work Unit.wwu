@@ -4,11 +4,56 @@
 		<WorkUnit Name="Default Work Unit" ID="{1F61FF5D-7CE7-49D2-AC65-5B0ACC9B5F2B}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Main Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<PropertyList>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{558ACA9C-30A4-4032-A040-EC43F86C2959}" WorkUnitID="{A27591BB-A490-462E-BFD5-418546CFC60E}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="Non-World_Bus" ID="{81E7806D-F859-436C-880D-233623F17A61}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="UI_Bus" ID="{48F3CAB1-4E71-447E-8FAB-9F4959071AB0}"/>
+								<Bus Name="Music_Bus" ID="{2CA81CED-D97C-47ED-B397-FA810E8A4DCC}"/>
+							</ChildrenList>
+						</Bus>
+						<Bus Name="World_Bus" ID="{20165EFF-02A7-446A-8EA6-C516DCCF54F8}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="3"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Bus Name="Environmental_Bus" ID="{D44591DD-DDD1-4E8E-8780-DC166CA3D2EE}">
+									<ChildrenList>
+										<AuxBus Name="Aux_Factory_Large" ID="{570B55C8-D80C-4951-A199-E64A388CEB58}"/>
+										<AuxBus Name="Aux_Factory_Medium" ID="{0B3DAF63-B4F7-4921-9323-07AC5E118B99}"/>
+										<AuxBus Name="Aux_Factory_Small" ID="{B287A0FB-9992-42C2-AE13-96B3DACE430F}"/>
+										<AuxBus Name="Aux_Forest_Large" ID="{5D846E5F-3A42-4887-AACE-44E706C4EED9}"/>
+										<AuxBus Name="Aux_Forest_Medium" ID="{400B817C-CB97-4023-BC9F-24747E599B62}"/>
+										<AuxBus Name="Aux_Forest_Small" ID="{0F42A9FA-40F2-47D3-9D6E-8E4A6B258DD6}"/>
+									</ChildrenList>
+								</Bus>
+								<Bus Name="Player_Bus" ID="{A1F182BE-03EA-4CA3-824B-C0A49D8F0944}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="1"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+								<Bus Name="Enemy_Bus" ID="{A7CE1A84-9F16-4C6E-89E4-0E149D03B09C}">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="10"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
+						</Bus>
+					</ChildrenList>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

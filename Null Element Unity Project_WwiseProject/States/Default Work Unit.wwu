@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{05F14951-9061-4C60-897A-7DEE6FA03CA1}" SchemaVersion="133">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{05F14951-9061-4C60-897A-7DEE6FA03CA1}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{05F14951-9061-4C60-897A-7DEE6FA03CA1}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="Game_State" ID="{285B3D41-65CF-46DC-8C50-0E14BC9F7A98}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="20"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{F494975C-73A2-4AD8-9357-ACB807F41EA0}"/>
+						<State Name="Main_Menu" ID="{92DE0703-4196-493E-995B-66BDC5BD0E53}"/>
+						<State Name="Gameplay" ID="{7306FD9C-CEB3-413C-AD56-6F720FCC2F94}"/>
+						<State Name="Paused" ID="{06C79FEF-E96F-46DD-8CFE-B432B5ABAAC9}"/>
+						<State Name="Boss_Fight" ID="{40A60048-AD93-4AEE-94AC-CC121C7752D5}"/>
+						<State Name="Defeated" ID="{61FED22B-C867-4AE9-81AE-E8814270AFF5}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

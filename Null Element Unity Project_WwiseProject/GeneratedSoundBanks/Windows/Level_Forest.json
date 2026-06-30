@@ -1,0 +1,21 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "957893059",
+    "Type": "User",
+    "GUID": "{4A721BB3-5E5D-4F56-96A5-2C52F62E3E67}",
+    "Language": "SFX",
+    "Hash": "{9F1B3315-36D7-FBEE-3299-7F54EE05FD38}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level_Forest",
+    "ShortName": "Level_Forest",
+    "Path": "Level_Forest.bnk"
+   }
+  ],
+  "FileHash": "{7D1ABAFA-4ACB-431B-DC42-6A3CF0065404}"
+ }
+}

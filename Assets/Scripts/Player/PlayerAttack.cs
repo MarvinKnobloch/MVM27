@@ -122,7 +122,7 @@ public class PlayerAttack : MonoBehaviour
 
         state = States.Attack;
 
-        AudioFiles file;
+       /* AudioFiles file;
         if(currentAttackNumber >= 2)
         {
             if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[2];
@@ -135,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
             else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
             else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
         }
-        AudioManager.Instance.PlayPlayerAttackSounds(file);
+        AudioManager.Instance.PlayPlayerAttackSounds(file);*/
     }
     //private void Attack()
     //{
@@ -221,7 +221,7 @@ public class PlayerAttack : MonoBehaviour
         if (collider.Length != 0)
         {
             //ImpactSound
-            AudioFiles file;
+           /* AudioFiles file;
             if (currentAttackNumber >= 2)
             {
                 //Switch or last combo sound
@@ -235,7 +235,7 @@ public class PlayerAttack : MonoBehaviour
                 else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackHitSounds[currentAttackNumber];
                 else file = AudioManager.Instance.airAttackHitSounds[currentAttackNumber];
             }
-            AudioManager.Instance.PlayAudioFileOneShot(file);
+            AudioManager.Instance.PlayAudioFileOneShot(file);*/
         }
     }
     public void EndAttack()
