@@ -899,6 +899,11 @@
 													</ReferenceList>
 													<ChildrenList>
 														<AudioFileSource Name="PlayerFire_Fireball_1" ID="{F8878C97-532C-4EA6-9560-B28A97A682FF}">
+															<PropertyList>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.17921"/>
+																<Property Name="FadeOutShape" Type="int16" Value="4"/>
+																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>PlayerFire_Fireball_1.wav</AudioFile>
 															<MediaIDList>

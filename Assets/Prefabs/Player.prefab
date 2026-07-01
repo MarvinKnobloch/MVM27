@@ -943,6 +943,11 @@ MonoBehaviour:
       idInternal: 0
       valueGuidInternal: 
       WwiseObjectReference: {fileID: 11400000, guid: ae8d8b776f6ed9d44bb625ff4bf7e2a4, type: 2}
+  - audioKey: Fireball
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: cba4b980a032fdf4aac9ff436bb68530, type: 2}
   nullElementSwitch:
     idInternal: 0
     valueGuidInternal: 
@@ -961,6 +966,14 @@ MonoBehaviour:
     groupIdInternal: 0
     groupGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 6941c741c98c4e444ab53495321e17bc, type: 2}
+  playHealEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: ce5c0a26cbfee044e9688ef99df32860, type: 2}
+  stopHealEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 37332409825167d4888ab83aff83e242, type: 2}
 --- !u!1 &7692559484238975251
 GameObject:
   m_ObjectHideFlags: 0

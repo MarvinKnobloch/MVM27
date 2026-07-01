@@ -141,6 +141,21 @@
 												</Action>
 											</ChildrenList>
 										</Event>
+										<Event Name="Stop_Heal" ID="{E0FE835A-C8A0-4828-B3BD-4E8155BD5E28}">
+											<ChildrenList>
+												<Action Name="" ID="{46C59C81-E616-4E42-A378-73E5592D97E9}" ShortID="690197132">
+													<PropertyList>
+														<Property Name="ActionType" Type="int16" Value="2"/>
+														<Property Name="FadeTime" Type="Real64" Value="0.15"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Heal" ID="{A450CDFC-7C9A-4CE0-9C6F-12C75E011D0E}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
 									</ChildrenList>
 								</Folder>
 							</ChildrenList>

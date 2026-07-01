@@ -22,12 +22,18 @@ public class PostWwiseEvent : MonoBehaviour
         public AK.Wwise.Event wwiseEvent;
     }
 
+    // Events, Switches, etc... 
+
     public List<AnimationAudioMapping> animationAudioEvents;
 
     [Header("Wwise Switches")]
     public AK.Wwise.Switch nullElementSwitch;
     public AK.Wwise.Switch fireElementSwitch;
     public AK.Wwise.Switch airElementSwitch;
+
+    [Header("Continous Ability Events")]
+    public AK.Wwise.Event playHealEvent;
+    public AK.Wwise.Event stopHealEvent;
 
     public void SetElementalForm(int elementNumber)
     {
@@ -58,5 +64,15 @@ public class PostWwiseEvent : MonoBehaviour
             }
         }
         Debug.LogWarning($"Audio key '{key}' not found on {gameObject.name!}");
+    }
+
+    public void AudioStartHeal()
+    {
+        playHealEvent.Post(gameObject);
+    }
+
+    public void AudioStopHeal()
+    {
+        stopHealEvent.Post(gameObject);
     }
 }

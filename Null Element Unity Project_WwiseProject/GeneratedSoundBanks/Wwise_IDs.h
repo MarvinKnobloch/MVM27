@@ -23,6 +23,7 @@ namespace AK
         static const AkUniqueID PLAY_JUMP = 3689126666U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
         static const AkUniqueID PLAY_WALLBREAK = 3767549391U;
+        static const AkUniqueID STOP_HEAL = 3138967574U;
     } // namespace EVENTS
 
     namespace STATES

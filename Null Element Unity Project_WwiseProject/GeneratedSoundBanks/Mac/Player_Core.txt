@@ -5,6 +5,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2211787386	Play_Dash			\Default Work Unit\World_Events\Player_Events\Skills\Play_Dash	
 	2639148008	Play_Heal			\Default Work Unit\World_Events\Player_Events\Skills\Play_Heal	
 	2960666077	Play_Hit			\Default Work Unit\World_Events\Player_Events\Combat\Play_Hit	
+	3138967574	Stop_Heal			\Default Work Unit\World_Events\Player_Events\Skills\Stop_Heal	
 	3468848948	Play_AttackSwing			\Default Work Unit\World_Events\Player_Events\Combat\Play_AttackSwing	
 	3689126666	Play_Jump			\Default Work Unit\World_Events\Player_Events\Movement\Play_Jump	
 	3767549391	Play_Wallbreak			\Default Work Unit\World_Events\Player_Events\Skills\Play_Wallbreak	

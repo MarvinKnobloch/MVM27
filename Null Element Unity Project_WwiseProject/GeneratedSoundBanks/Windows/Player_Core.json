@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{BA99683D-839C-4E70-9389-327FABBF9B5A}",
     "Language": "SFX",
-    "Hash": "{13041C05-E918-DECA-EA3B-2EF7BE15378E}",
+    "Hash": "{42B07AEF-0B13-E098-8FD2-26D6C1AAE082}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Player_Core",
     "ShortName": "Player_Core",
     "Path": "Player_Core.bnk",
@@ -648,6 +648,17 @@
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0"
+     },
+     {
+      "Id": "3138967574",
+      "Name": "Stop_Heal",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Skills\\Stop_Heal",
+      "GUID": "{E0FE835A-C8A0-4828-B3BD-4E8155BD5E28}",
+      "Color": "1",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ],
     "SwitchGroups": [
@@ -714,6 +725,6 @@
     ]
    }
   ],
-  "FileHash": "{8C5E0C21-A89B-8D14-C7E9-68F17ED60DA9}"
+  "FileHash": "{57D73C73-E152-68D8-ED94-281FE8D639F0}"
  }
 }

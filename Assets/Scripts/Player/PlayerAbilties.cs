@@ -68,7 +68,7 @@ public class PlayerAbilties
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
 
-        AudioManager.Instance.PlayHoldButton(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.NonHeal]);
+        player.GetComponentInChildren<PostWwiseEvent>().AudioStartHeal();
     }
     public void HoldHeal()
     {
@@ -76,7 +76,7 @@ public class PlayerAbilties
         {
             player.SwitchToAir();
 
-            AudioManager.Instance.StopHoldButton();
+            player.GetComponentInChildren<PostWwiseEvent>().AudioStopHeal();
         }
     }
     public void NonElementHeal()
