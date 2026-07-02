@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class PostWwiseEvent : MonoBehaviour
 {
+    #region Old System
+
     /*
     public List<AK.Wwise.Event> WwiseEvents;
 
@@ -14,6 +16,7 @@ public class PostWwiseEvent : MonoBehaviour
         }
     }
     */
+    #endregion
 
     [System.Serializable]
     public struct AnimationAudioMapping
@@ -30,7 +33,7 @@ public class PostWwiseEvent : MonoBehaviour
     public AK.Wwise.Switch nullElementSwitch;
     public AK.Wwise.Switch fireElementSwitch;
     public AK.Wwise.Switch airElementSwitch;
-
+    
     [Header("Continous Ability Events")]
     public AK.Wwise.Event playHealEvent;
     public AK.Wwise.Event stopHealEvent;
@@ -52,7 +55,6 @@ public class PostWwiseEvent : MonoBehaviour
                 break;
         }
     }
-
     public void PlayTaggedEvent(string key)
     {
         foreach (var mapping in animationAudioEvents)

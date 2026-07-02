@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{BA99683D-839C-4E70-9389-327FABBF9B5A}",
     "Language": "SFX",
-    "Hash": "{42B07AEF-0B13-E098-8FD2-26D6C1AAE082}",
+    "Hash": "{516A1F02-B1D7-62BA-5ACB-25EDF32C49A8}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Player_Core",
     "ShortName": "Player_Core",
     "Path": "Player_Core.bnk",
@@ -46,6 +46,14 @@
       "Location": "Memory",
       "ShortName": "PlayerAir_Footsteps_2.wav",
       "CachePath": "13/{130DC1B2-FD10-3223-4761-814B21B1265F}.wem"
+     },
+     {
+      "Id": "160046227",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerFire_Attack2_Swing.wav",
+      "CachePath": "73/{73D379C6-C6A5-E52F-A4F1-E419B59A3F66}.wem"
      },
      {
       "Id": "218015561",
@@ -88,12 +96,52 @@
       "CachePath": "C2/{C2F279F1-BFA4-704F-BD58-612640CAAF59}.wem"
      },
      {
+      "Id": "303259911",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerFire_Attack3_Swing.wav",
+      "CachePath": "36/{36598F6E-31E2-6A83-4114-29A6817E8537}.wem"
+     },
+     {
+      "Id": "331920973",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerFire_Attack1_Swing.wav",
+      "CachePath": "23/{23BC8920-699C-8595-8C69-8D4E00CA0F1C}.wem"
+     },
+     {
       "Id": "332543188",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PlayerFire_Dash_1.wav",
       "CachePath": "93/{93D36EF6-29D4-EEFA-10C5-7E4E101D29B5}.wem"
+     },
+     {
+      "Id": "386207308",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerAir_Attack3_Swing.wav",
+      "CachePath": "AC/{AC7B1F9A-2A9B-F38B-F8CA-2ABA4CC8C596}.wem"
+     },
+     {
+      "Id": "405500657",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNull_Attack1_Swing.wav",
+      "CachePath": "F6/{F6DE4045-DC83-9B3B-C1E0-CBC97E16CAAC}.wem"
+     },
+     {
+      "Id": "408960322",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerAir_Attack1_Swing.wav",
+      "CachePath": "15/{155A8179-0B58-1C5D-3BED-3B8D89AFABDB}.wem"
      },
      {
       "Id": "423303982",
@@ -150,6 +198,14 @@
       "Location": "Memory",
       "ShortName": "PlayerNull_Footsteps_6.wav",
       "CachePath": "30/{30204D78-6EEA-1785-7DD1-4E1A81A89288}.wem"
+     },
+     {
+      "Id": "538252256",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNull_Attack2_Swing.wav",
+      "CachePath": "B7/{B71DDFA4-FB5D-E380-E0F3-B29C6A9A22A0}.wem"
      },
      {
       "Id": "538974033",
@@ -221,7 +277,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "PlayerFire_Fireball_1.wav",
-      "CachePath": "11/{11E2C911-19EA-4F76-52F4-0B3E0AA8E3FF}.wem"
+      "CachePath": "A1/{A13018EF-809A-34DB-1C13-6D029BDEBE1E}.wem"
      },
      {
       "Id": "855809405",
@@ -230,6 +286,14 @@
       "Location": "Memory",
       "ShortName": "PlayerNull_Footsteps_3.wav",
       "CachePath": "CF/{CF71B959-787F-7000-CC5D-2C26E67C2B50}.wem"
+     },
+     {
+      "Id": "1008059739",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerAir_Attack2_Swing.wav",
+      "CachePath": "D7/{D7A715C8-E830-C36F-2CD4-4BF7E00D4C58}.wem"
      },
      {
       "Id": "1031295784",
@@ -246,90 +310,212 @@
       "Location": "Memory",
       "ShortName": "PlayerNull_Footsteps_4.wav",
       "CachePath": "81/{819B9FEA-0AC8-BE8A-A34E-1F719AEA9579}.wem"
+     },
+     {
+      "Id": "1044810234",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PlayerNull_Attack3_Swing.wav",
+      "CachePath": "E6/{E6828F91-64C5-4E5F-469E-65C8E00FF6BF}.wem"
      }
     ],
     "Events": [
      {
-      "Id": "1847283560",
-      "Name": "Play_AttackImpact",
-      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Play_AttackImpact",
+      "Id": "1792764820",
+      "Name": "Play_AttackImpact_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Impact\\Play_AttackImpact_1",
       "GUID": "{C578A5F5-1EF4-4A1D-B400-721A4C1E99FB}",
       "Color": "1",
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0",
-      "SwitchContainers": [
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540979",
-         "GUID": "{B5472173-6A48-4C18-8B98-F7C8C7694E6E}",
-         "Color": "1"
-        },
-        "Children": []
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540978",
-         "GUID": "{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}",
-         "Color": "1"
-        },
-        "Children": []
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540977",
-         "GUID": "{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}",
-         "Color": "1"
-        },
-        "Children": []
-       }
-      ]
+      "SwitchContainers": []
      },
      {
-      "Id": "3468848948",
-      "Name": "Play_AttackSwing",
-      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Play_AttackSwing",
-      "GUID": "{3912893E-AAC8-4AB9-95E0-2664994C8F72}",
+      "Id": "1792764823",
+      "Name": "Play_AttackImpact_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Impact\\Play_AttackImpact_2",
+      "GUID": "{FAC8489C-916D-4F1D-9EA8-10CA5F1F9A2D}",
       "Color": "1",
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0",
+      "SwitchContainers": []
+     },
+     {
+      "Id": "1792764822",
+      "Name": "Play_AttackImpact_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Impact\\Play_AttackImpact_3",
+      "GUID": "{ED28FCD3-D27C-428B-A520-4086E93F3B01}",
+      "Color": "1",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "SwitchContainers": []
+     },
+     {
+      "Id": "3022379016",
+      "Name": "Play_AttackSwing_1",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Swing\\Play_AttackSwing_1",
+      "GUID": "{3912893E-AAC8-4AB9-95E0-2664994C8F72}",
+      "Color": "1",
+      "DurationType": "OneShot",
+      "DurationMin": "0.159375",
+      "DurationMax": "0.27354166",
       "SwitchContainers": [
        {
         "SwitchValue": {
          "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540979",
-         "GUID": "{B5472173-6A48-4C18-8B98-F7C8C7694E6E}",
+         "GroupId": "1725842569",
+         "Id": "2482295332",
+         "GUID": "{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}",
          "Color": "1"
         },
-        "Children": []
+        "MediaRefs": [
+         {
+          "Id": "408960322"
+         }
+        ]
        },
        {
         "SwitchValue": {
          "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540978",
-         "GUID": "{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}",
+         "GroupId": "1725842569",
+         "Id": "699461374",
+         "GUID": "{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}",
          "Color": "1"
         },
-        "Children": []
+        "MediaRefs": [
+         {
+          "Id": "331920973"
+         }
+        ]
        },
        {
         "SwitchValue": {
          "GroupType": "Switch",
-         "GroupId": "788347211",
-         "Id": "1950540977",
-         "GUID": "{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}",
+         "GroupId": "1725842569",
+         "Id": "1066927599",
+         "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
+         "Color": "1",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "405500657"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "3022379019",
+      "Name": "Play_AttackSwing_2",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Swing\\Play_AttackSwing_2",
+      "GUID": "{B4A3F43C-EE00-46CB-AAA4-FB727C253622}",
+      "Color": "1",
+      "DurationType": "OneShot",
+      "DurationMin": "0.27810416",
+      "DurationMax": "0.3519375",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "2482295332",
+         "GUID": "{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}",
          "Color": "1"
         },
-        "Children": []
+        "MediaRefs": [
+         {
+          "Id": "1008059739"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "699461374",
+         "GUID": "{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}",
+         "Color": "1"
+        },
+        "MediaRefs": [
+         {
+          "Id": "160046227"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "1066927599",
+         "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
+         "Color": "1",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "538252256"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "Id": "3022379018",
+      "Name": "Play_AttackSwing_3",
+      "ObjectPath": "\\Events\\Default Work Unit\\World_Events\\Player_Events\\Combat\\Attack Swing\\Play_AttackSwing_3",
+      "GUID": "{4A26D0C0-E583-4869-806C-831A102969EC}",
+      "Color": "1",
+      "DurationType": "OneShot",
+      "DurationMin": "0.24804166",
+      "DurationMax": "0.49725",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "2482295332",
+         "GUID": "{47A05E72-5163-4CB6-AF6C-291D0AC60DD3}",
+         "Color": "1"
+        },
+        "MediaRefs": [
+         {
+          "Id": "386207308"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "699461374",
+         "GUID": "{411D0EBE-05BA-4AD0-9C29-7054DB16BFE4}",
+         "Color": "1"
+        },
+        "MediaRefs": [
+         {
+          "Id": "303259911"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1725842569",
+         "Id": "1066927599",
+         "GUID": "{51050DD6-1878-4735-8DC0-A17AE3C7C3D3}",
+         "Color": "1",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "1044810234"
+         }
+        ]
        }
       ]
      },
@@ -663,36 +849,6 @@
     ],
     "SwitchGroups": [
      {
-      "Id": "788347211",
-      "Name": "AttackSwing_Number",
-      "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number",
-      "GUID": "{DBFC6771-E6F1-4E9E-A838-E9B99918F39F}",
-      "Color": "1",
-      "Switches": [
-       {
-        "Id": "1950540977",
-        "Name": "AttackSwing_1",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_1",
-        "GUID": "{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}",
-        "Color": "1"
-       },
-       {
-        "Id": "1950540978",
-        "Name": "AttackSwing_2",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_2",
-        "GUID": "{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}",
-        "Color": "1"
-       },
-       {
-        "Id": "1950540979",
-        "Name": "AttackSwing_3",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_3",
-        "GUID": "{B5472173-6A48-4C18-8B98-F7C8C7694E6E}",
-        "Color": "1"
-       }
-      ]
-     },
-     {
       "Id": "1725842569",
       "Name": "Elemental_Form",
       "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form",
@@ -725,6 +881,6 @@
     ]
    }
   ],
-  "FileHash": "{57D73C73-E152-68D8-ED94-281FE8D639F0}"
+  "FileHash": "{A9AD07C0-DC81-0D4F-8A02-8F4FAA99BF25}"
  }
 }

@@ -948,6 +948,21 @@ MonoBehaviour:
       idInternal: 0
       valueGuidInternal: 
       WwiseObjectReference: {fileID: 11400000, guid: cba4b980a032fdf4aac9ff436bb68530, type: 2}
+  - audioKey: Attack1
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 99cdb73f205ba5e45abd98c0f12f9eb4, type: 2}
+  - audioKey: Attack2
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 641998d05de851f45b6f491a1f1e03c5, type: 2}
+  - audioKey: Attack3
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: acf0ee10ed5609042a194c3f5c73b1c9, type: 2}
   nullElementSwitch:
     idInternal: 0
     valueGuidInternal: 

@@ -13,8 +13,12 @@ namespace AK
 {
     namespace EVENTS
     {
-        static const AkUniqueID PLAY_ATTACKIMPACT = 1847283560U;
-        static const AkUniqueID PLAY_ATTACKSWING = 3468848948U;
+        static const AkUniqueID PLAY_ATTACKIMPACT_1 = 1792764820U;
+        static const AkUniqueID PLAY_ATTACKIMPACT_2 = 1792764823U;
+        static const AkUniqueID PLAY_ATTACKIMPACT_3 = 1792764822U;
+        static const AkUniqueID PLAY_ATTACKSWING_1 = 3022379016U;
+        static const AkUniqueID PLAY_ATTACKSWING_2 = 3022379019U;
+        static const AkUniqueID PLAY_ATTACKSWING_3 = 3022379018U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
         static const AkUniqueID PLAY_FIREBALL = 146533081U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
@@ -47,18 +51,6 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace ATTACKSWING_NUMBER
-        {
-            static const AkUniqueID GROUP = 788347211U;
-
-            namespace SWITCH
-            {
-                static const AkUniqueID ATTACKSWING_1 = 1950540977U;
-                static const AkUniqueID ATTACKSWING_2 = 1950540978U;
-                static const AkUniqueID ATTACKSWING_3 = 1950540979U;
-            } // namespace SWITCH
-        } // namespace ATTACKSWING_NUMBER
-
         namespace ELEMENTAL_FORM
         {
             static const AkUniqueID GROUP = 1725842569U;

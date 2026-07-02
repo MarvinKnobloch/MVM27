@@ -190,36 +190,6 @@
     ],
     "SwitchGroups": [
      {
-      "Id": "788347211",
-      "Name": "AttackSwing_Number",
-      "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number",
-      "GUID": "{DBFC6771-E6F1-4E9E-A838-E9B99918F39F}",
-      "Color": "1",
-      "Switches": [
-       {
-        "Id": "1950540977",
-        "Name": "AttackSwing_1",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_1",
-        "GUID": "{CE5FF3C4-80F5-4CF5-90E7-DCDBD52ED031}",
-        "Color": "1"
-       },
-       {
-        "Id": "1950540978",
-        "Name": "AttackSwing_2",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_2",
-        "GUID": "{ED7DEDA2-BE7F-4643-9B25-4CE558D0CA13}",
-        "Color": "1"
-       },
-       {
-        "Id": "1950540979",
-        "Name": "AttackSwing_3",
-        "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\AttackSwing_Number\\AttackSwing_3",
-        "GUID": "{B5472173-6A48-4C18-8B98-F7C8C7694E6E}",
-        "Color": "1"
-       }
-      ]
-     },
-     {
       "Id": "1725842569",
       "Name": "Elemental_Form",
       "ObjectPath": "\\Switches\\Default Work Unit\\Player_Switches\\Elemental_Form",
@@ -252,6 +222,6 @@
     ]
    }
   ],
-  "FileHash": "{5AAAE5AB-5F1C-4A2F-BDCE-03006EE7F6B3}"
+  "FileHash": "{14DEAFC4-529A-CF15-2936-0F07B6F1076E}"
  }
 }

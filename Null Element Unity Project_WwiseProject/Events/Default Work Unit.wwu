@@ -60,28 +60,6 @@
 								</Folder>
 								<Folder Name="Combat" ID="{B25AD461-BF84-4A65-B6B4-B963FF36D244}" ShortID="228456842">
 									<ChildrenList>
-										<Event Name="Play_AttackImpact" ID="{C578A5F5-1EF4-4A1D-B400-721A4C1E99FB}">
-											<ChildrenList>
-												<Action Name="" ID="{39F8FD4A-EA47-465C-8048-8F4615A124BC}" ShortID="17506199">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="Attack Impact" ID="{84BBD1C2-EF68-4198-9277-8C61729F73E2}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
-										<Event Name="Play_AttackSwing" ID="{3912893E-AAC8-4AB9-95E0-2664994C8F72}">
-											<ChildrenList>
-												<Action Name="" ID="{EAB4C4C6-841E-4053-B994-D25953C822C0}" ShortID="309490907">
-													<ReferenceList>
-														<Reference Name="Target">
-															<ObjectRef Name="Attack Swing" ID="{238D5145-F232-423A-B8A9-63B749E858B4}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
-														</Reference>
-													</ReferenceList>
-												</Action>
-											</ChildrenList>
-										</Event>
 										<Event Name="Play_Hit" ID="{ABD49FE5-C5D5-4F3E-A138-4FC3F480B740}">
 											<ChildrenList>
 												<Action Name="" ID="{C5F39ECC-A1CC-4722-AE2F-72DC75577785}" ShortID="497224434">
@@ -93,6 +71,80 @@
 												</Action>
 											</ChildrenList>
 										</Event>
+										<Folder Name="Attack Swing" ID="{03BAD1FD-0885-4B3A-B8DF-C8F32DE5457F}" ShortID="38936503">
+											<ChildrenList>
+												<Event Name="Play_AttackSwing_1" ID="{3912893E-AAC8-4AB9-95E0-2664994C8F72}">
+													<ChildrenList>
+														<Action Name="" ID="{EAB4C4C6-841E-4053-B994-D25953C822C0}" ShortID="309490907">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackSwing_1" ID="{36864E5D-E3BC-457A-BE7A-F53612CCA19E}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+												<Event Name="Play_AttackSwing_2" ID="{B4A3F43C-EE00-46CB-AAA4-FB727C253622}">
+													<ChildrenList>
+														<Action Name="" ID="{070127FF-619D-4E32-B345-EE54A3CD4A91}" ShortID="26997422">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackSwing_2" ID="{5994B5D5-FC2D-4E0C-8EB2-81CDDEFC2403}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+												<Event Name="Play_AttackSwing_3" ID="{4A26D0C0-E583-4869-806C-831A102969EC}">
+													<ChildrenList>
+														<Action Name="" ID="{A7E4572B-767B-49FF-BFC8-7796A6F013EE}" ShortID="304354759">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackSwing_3" ID="{54AAA218-EC9D-4756-927C-AD94AC330F60}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+											</ChildrenList>
+										</Folder>
+										<Folder Name="Attack Impact" ID="{D708134E-17A9-4545-8032-385CD27C6024}" ShortID="188087759">
+											<ChildrenList>
+												<Event Name="Play_AttackImpact_1" ID="{C578A5F5-1EF4-4A1D-B400-721A4C1E99FB}">
+													<ChildrenList>
+														<Action Name="" ID="{39F8FD4A-EA47-465C-8048-8F4615A124BC}" ShortID="17506199">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackImpact_1" ID="{3AD7E973-9459-4DB2-8476-BCDB99E8D4F9}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+												<Event Name="Play_AttackImpact_2" ID="{FAC8489C-916D-4F1D-9EA8-10CA5F1F9A2D}">
+													<ChildrenList>
+														<Action Name="" ID="{84AE071A-0076-4387-B742-B2B402E2AA65}" ShortID="584545105">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackImpact_2" ID="{BECA89CB-92AA-451A-854D-10DFA3ED41FB}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+												<Event Name="Play_AttackImpact_3" ID="{ED28FCD3-D27C-428B-A520-4086E93F3B01}">
+													<ChildrenList>
+														<Action Name="" ID="{FB5D60B9-73F3-4AF3-B411-A12BF9759F27}" ShortID="467258661">
+															<ReferenceList>
+																<Reference Name="Target">
+																	<ObjectRef Name="AttackImpact_3" ID="{9F3C7655-37DC-47AE-9AA6-C7CCD38BFB94}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+																</Reference>
+															</ReferenceList>
+														</Action>
+													</ChildrenList>
+												</Event>
+											</ChildrenList>
+										</Folder>
 									</ChildrenList>
 								</Folder>
 								<Folder Name="Skills" ID="{28BF0DDA-5763-4212-A2E6-56F45CA51654}" ShortID="696981648">
