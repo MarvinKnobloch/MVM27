@@ -1,0 +1,85 @@
+Event	ID	Name			Wwise Object Path	Notes
+	40516875	Play_MenuSelect			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuSelect	
+	146533081	Play_Fireball			\Default Work Unit\World_Events\Player_Events\Skills\Play_Fireball	
+	1505887647	Play_MenuDecline			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuDecline	
+	1602358412	Play_Footstep			\Default Work Unit\World_Events\Player_Events\Movement\Play_Footstep	
+	1792764820	Play_AttackImpact_1			\Default Work Unit\World_Events\Player_Events\Combat\Attack Impact\Play_AttackImpact_1	
+	1792764822	Play_AttackImpact_3			\Default Work Unit\World_Events\Player_Events\Combat\Attack Impact\Play_AttackImpact_3	
+	1792764823	Play_AttackImpact_2			\Default Work Unit\World_Events\Player_Events\Combat\Attack Impact\Play_AttackImpact_2	
+	2211787386	Play_Dash			\Default Work Unit\World_Events\Player_Events\Skills\Play_Dash	
+	2232356269	Play_BossFight			\Default Work Unit\Non-World_Events\Music_Events\Non-Level Specific\Play_BossFight	
+	2639148008	Play_Heal			\Default Work Unit\World_Events\Player_Events\Skills\Play_Heal	
+	2960666077	Play_Hit			\Default Work Unit\World_Events\Player_Events\Combat\Play_Hit	
+	3022379016	Play_AttackSwing_1			\Default Work Unit\World_Events\Player_Events\Combat\Attack Swing\Play_AttackSwing_1	
+	3022379018	Play_AttackSwing_3			\Default Work Unit\World_Events\Player_Events\Combat\Attack Swing\Play_AttackSwing_3	
+	3022379019	Play_AttackSwing_2			\Default Work Unit\World_Events\Player_Events\Combat\Attack Swing\Play_AttackSwing_2	
+	3138967574	Stop_Heal			\Default Work Unit\World_Events\Player_Events\Skills\Stop_Heal	
+	3689126666	Play_Jump			\Default Work Unit\World_Events\Player_Events\Movement\Play_Jump	
+	3767549391	Play_Wallbreak			\Default Work Unit\World_Events\Player_Events\Skills\Play_Wallbreak	
+	4250076383	Play_MenuAccept			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuAccept	
+	4285282925	Play_Land			\Default Work Unit\World_Events\Player_Events\Movement\Play_Land	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1725842569	Elemental_Form			\Default Work Unit\Player_Switches\Elemental_Form	
+
+Switch	ID	Name	Switch Group			Notes
+	699461374	Fire_Form	Elemental_Form			
+	1066927599	Null_Form	Elemental_Form			
+	2482295332	Air_Form	Elemental_Form			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	28154029	PlayerFire_Footsteps_3	.cache\FE\{FE837DF9-9DE5-D9A8-00A2-8885891F0DDE}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_3		12392
+	42674418	PlayerFire_Footsteps_5	.cache\5B\{5B0D40C7-8907-6CA1-46FB-644B56E2748C}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_5		11884
+	44461693	PlayerFire_Jump_1	.cache\4E\{4E9B89CF-98BC-E1C1-8272-0E7780489E15}.wem		\Containers\Default Work Unit\World\Player\Movement\Jump\Jump_Fire\PlayerFire_Jump_1		25840
+	59055816	PlayerNull_Attack2_Impact	.cache\4E\{4EE35F89-FF4D-730A-DE55-831DAB2CE1B4}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_2\AttackImpact_2_Null\PlayerNull_Attack2_Impact		21840
+	63956747	PlayerAir_Footsteps_2	.cache\13\{130DC1B2-FD10-3223-4761-814B21B1265F}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_2		9000
+	160046227	PlayerFire_Attack2_Swing	.cache\73\{73D379C6-C6A5-E52F-A4F1-E419B59A3F66}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_2\AttackSwing_2_Fire\PlayerFire_Attack2_Swing		26794
+	177689416	Score_BossFight_Loop	.cache\CF\{CF524E6E-88BE-57D5-C463-D795CEC9BFA7}.wem		\Containers\Default Work Unit\Non-World\Music\Non-Level Specific\Boss\Score_BossFight_Loop		10057624
+	218015561	PlayerFire_Footsteps_4	.cache\B0\{B0B4E986-F9AD-8359-6A5E-8DA2E44122DF}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_4		12484
+	245412887	PlayerNull_Footsteps_2	.cache\B1\{B13533F6-CCC8-491D-A878-962D9223CF82}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_2		9184
+	265264745	PlayerNull_Footsteps_5	.cache\17\{175E7873-F292-7C8F-5921-B519DCF97318}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_5		5430
+	290974024	PlayerAir_Footsteps_1	.cache\EF\{EF0D7F10-0EC3-A849-2B68-63A9994C071C}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_1		10288
+	291647144	PlayerNull_Dash_1	.cache\C2\{C2F279F1-BFA4-704F-BD58-612640CAAF59}.wem		\Containers\Default Work Unit\World\Player\Skills\Dash\Dash_Null\PlayerNull_Dash_1		42186
+	303259911	PlayerFire_Attack3_Swing	.cache\36\{36598F6E-31E2-6A83-4114-29A6817E8537}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_3\AttackSwing_3_Fire\PlayerFire_Attack3_Swing		34000
+	313536866	UI_MenuAccept_1	.cache\6A\{6A5E2C0A-70E5-FDF2-00F2-2975C6C8F0E5}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Accept\UI_MenuAccept_1		37142
+	331920973	PlayerFire_Attack1_Swing	.cache\23\{23BC8920-699C-8595-8C69-8D4E00CA0F1C}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_1\AttackSwing_1_Fire\PlayerFire_Attack1_Swing		26356
+	332543188	PlayerFire_Dash_1	.cache\93\{93D36EF6-29D4-EEFA-10C5-7E4E101D29B5}.wem		\Containers\Default Work Unit\World\Player\Skills\Dash\Dash_Fire\PlayerFire_Dash_1		51962
+	367649518	PlayerAir_Damage_1	.cache\E7\{E76AFE6A-778B-2CC7-A872-5E6B81C174C6}.wem		\Containers\Default Work Unit\World\Player\Combat\Hit\Hit_Air\PlayerAir_Damage_1		53816
+	386207308	PlayerAir_Attack3_Swing	.cache\AC\{AC7B1F9A-2A9B-F38B-F8CA-2ABA4CC8C596}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_3\AttackSwing_3_Air\PlayerAir_Attack3_Swing		23908
+	405500657	PlayerNull_Attack1_Swing	.cache\F6\{F6DE4045-DC83-9B3B-C1E0-CBC97E16CAAC}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_1\AttackSwing_1_Null\PlayerNull_Attack1_Swing		15396
+	408960322	PlayerAir_Attack1_Swing	.cache\15\{155A8179-0B58-1C5D-3BED-3B8D89AFABDB}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_1\AttackSwing_1_Air\PlayerAir_Attack1_Swing		23338
+	419589925	UI_MenuDecline_1	.cache\4B\{4B098AE6-703E-5297-956A-45C7169C7303}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Decline\UI_MenuDecline_1		33908
+	423303982	PlayerFire_Footsteps_6	.cache\BA\{BA21B1A0-69CB-A9E9-08F2-F74EE9E96CAF}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_6		11080
+	441081003	PlayerAir_Land_1	.cache\72\{72276F12-CA4C-EF5F-C025-B439D5999597}.wem		\Containers\Default Work Unit\World\Player\Movement\Land\Land_Air\PlayerAir_Land_1		18476
+	444086116	PlayerAir_Attack2_Impact	.cache\52\{522FF80F-F5B4-35EE-6476-BAB8A9AD80B5}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_2\AttackImpact_2_Air\PlayerAir_Attack2_Impact		34002
+	467558422	PlayerAir_Footsteps_3	.cache\74\{746C2906-65F7-7949-5B83-ECC0351D73EC}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_3		8740
+	480952033	PlayerNull_Jump_1	.cache\0F\{0FD60B0C-6594-B152-2178-2A205A9E1826}.wem		\Containers\Default Work Unit\World\Player\Movement\Jump\Jump_Null\PlayerNull_Jump_1		26042
+	482395611	PlayerAir_Dash_1	.cache\CE\{CEE6F651-5A41-BDEB-5FF3-5CBC3C77888D}.wem		\Containers\Default Work Unit\World\Player\Skills\Dash\Dash_Air\PlayerAir_Dash_1		48948
+	515117862	PlayerNull_Heal_1	.cache\86\{86B0F722-265E-951F-4B2D-63A110B21DDC}.wem		\Containers\Default Work Unit\World\Player\Skills\Heal\PlayerNull_Heal_1		256952
+	533742694	PlayerNull_Footsteps_6	.cache\30\{30204D78-6EEA-1785-7DD1-4E1A81A89288}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_6		6614
+	538252256	PlayerNull_Attack2_Swing	.cache\B7\{B71DDFA4-FB5D-E380-E0F3-B29C6A9A22A0}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_2\AttackSwing_2_Null\PlayerNull_Attack2_Swing		27216
+	538974033	PlayerAir_Footsteps_4	.cache\A7\{A71C6D9A-65D2-CEFC-2B90-FFC38CA8751E}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_4		7668
+	567160537	PlayerFire_Land_1	.cache\EF\{EF2B3578-B535-E795-5961-8DF5A395A9A0}.wem		\Containers\Default Work Unit\World\Player\Movement\Land\Land_Fire\PlayerFire_Land_1		23072
+	586187251	PlayerAir_Attack3_Impact	.cache\EA\{EAAE8905-3003-02B4-0601-16F93431A0C0}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_3\AttackImpact_3_Air\PlayerAir_Attack3_Impact		52786
+	613456842	PlayerAir_Footsteps_5	.cache\43\{43A0BCAE-6DDA-F8F3-C10C-0F5A03039905}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_5		8952
+	615967065	PlayerFire_Attack2_Impact	.cache\BF\{BF69C62C-2405-58E5-E333-65DF21874A81}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_2\AttackImpact_2_Fire\PlayerFire_Attack2_Impact		39364
+	642358947	PlayerAir_Jump_1	.cache\BA\{BABCC08C-B13C-7A60-1D3B-99585B67F0F2}.wem		\Containers\Default Work Unit\World\Player\Movement\Jump\Jump_Air\PlayerAir_Jump_1		24336
+	674574101	PlayerFire_Footsteps_1	.cache\7C\{7CCD4423-C633-3144-C314-92A7F2FD7A7D}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_1		9888
+	675406832	PlayerAir_Attack1_Impact	.cache\BF\{BF6DFAF9-8409-E77B-B8FB-06B3BF5626A7}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_1\AttackImpact_1_Air\PlayerAir_Attack1_Impact		39702
+	683166165	PlayerNull_Land_1	.cache\8C\{8CDD89CF-C25C-5321-E331-94E2FFBFD0E7}.wem		\Containers\Default Work Unit\World\Player\Movement\Land\Land_Null\PlayerNull_Land_1		13430
+	683177890	PlayerNull_Damage_1	.cache\32\{32B4EFEF-4CAE-74B4-FF10-261D61F5BD54}.wem		\Containers\Default Work Unit\World\Player\Combat\Hit\Hit_Null\PlayerNull_Damage_1		65684
+	688517180	PlayerAir_Footsteps_6	.cache\4E\{4E06D995-617B-D23F-236E-00881676685B}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Air\PlayerAir_Footsteps_6		10880
+	693586878	PlayerFire_Attack3_Impact	.cache\82\{823BEFA8-C9B0-B558-42D6-0CD0BD3429A0}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_3\AttackImpact_3_Fire\PlayerFire_Attack3_Impact		30748
+	713980937	UI_MenuSelect_1	.cache\55\{5565ECB6-16C3-89A8-83B4-5375E4AF6223}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Select\UI_MenuSelect_1		15268
+	754821457	PlayerNull_Footsteps_1	.cache\B6\{B6A6066D-99DD-2182-7FD6-27D51F79DC43}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_1		7320
+	811105564	PlayerNull_Attack3_Impact	.cache\4A\{4AF730A3-56B2-61B2-17F2-4BFEDA4ECCB9}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_3\AttackImpact_3_Null\PlayerNull_Attack3_Impact		33040
+	813192456	PlayerFire_Fireball_1	.cache\A1\{A13018EF-809A-34DB-1C13-6D029BDEBE1E}.wem		\Containers\Default Work Unit\World\Player\Skills\Fireball\PlayerFire_Fireball_1		52202
+	836757115	PlayerNull_Attack1_Impact	.cache\1E\{1E3AF469-8198-2246-9EB3-513A27FC08FE}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_1\AttackImpact_1_Null\PlayerNull_Attack1_Impact		18854
+	855809405	PlayerNull_Footsteps_3	.cache\CF\{CF71B959-787F-7000-CC5D-2C26E67C2B50}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_3		4912
+	961055517	PlayerFire_Attack1_Impact	.cache\6C\{6C57302E-5A98-FC0B-205D-8CB1A94FA245}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Impact\AttackImpact_1\AttackImpact_1_Fire\PlayerFire_Attack1_Impact		34660
+	966345659	PlayerFire_Damage_1	.cache\54\{54B6ADB2-36B4-037D-0482-2B29A09AA230}.wem		\Containers\Default Work Unit\World\Player\Combat\Hit\Hit_Fire\PlayerFire_Damage_1		55258
+	1008059739	PlayerAir_Attack2_Swing	.cache\D7\{D7A715C8-E830-C36F-2CD4-4BF7E00D4C58}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_2\AttackSwing_2_Air\PlayerAir_Attack2_Swing		33882
+	1031295784	PlayerFire_Footsteps_2	.cache\3D\{3D62D1AC-9B9E-480C-FDBA-51FC3CDC350F}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Fire\PlayerFire_Footsteps_2		11188
+	1037884432	PlayerNull_Footsteps_4	.cache\81\{819B9FEA-0AC8-BE8A-A34E-1F719AEA9579}.wem		\Containers\Default Work Unit\World\Player\Movement\Footsteps\Footsteps_Null\PlayerNull_Footsteps_4		6594
+	1044810234	PlayerNull_Attack3_Swing	.cache\E6\{E6828F91-64C5-4E5F-469E-65C8E00FF6BF}.wem		\Containers\Default Work Unit\World\Player\Combat\Attack Swing\AttackSwing_3\AttackSwing_3_Null\PlayerNull_Attack3_Swing		47832
+

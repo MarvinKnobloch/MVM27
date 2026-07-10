@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "2987489389",
+    "Type": "User",
+    "GUID": "{E25083C0-DD7C-4D2F-B25F-6A3399C8DAC3}",
+    "Color": "3",
+    "Language": "SFX",
+    "Hash": "{FD340A6A-DF79-DFCF-85DC-58A74BA084DA}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_FireRealm",
+    "ShortName": "Level_FireRealm",
+    "Path": "Level_FireRealm.bnk",
+    "Media": [
+     {
+      "Id": "497001359",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score_FireRealm_Loop.wav",
+      "CachePath": "9D/{9D803D17-D5A0-4222-9872-1F15FB1A12C9}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "1585334087",
+      "Name": "Play_FireRealm",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\Music_Events\\Level Specific\\Play_FireRealm",
+      "GUID": "{4C63B030-904C-4E7A-9C8E-5E32B04755A8}",
+      "Color": "11",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "497001359"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{FFD23589-107E-993A-D6CF-267196026C82}"
+ }
+}

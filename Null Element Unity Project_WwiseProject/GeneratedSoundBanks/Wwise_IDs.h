@@ -19,13 +19,20 @@ namespace AK
         static const AkUniqueID PLAY_ATTACKSWING_1 = 3022379016U;
         static const AkUniqueID PLAY_ATTACKSWING_2 = 3022379019U;
         static const AkUniqueID PLAY_ATTACKSWING_3 = 3022379018U;
+        static const AkUniqueID PLAY_BOSSFIGHT = 2232356269U;
         static const AkUniqueID PLAY_DASH = 2211787386U;
+        static const AkUniqueID PLAY_FACTORY = 3757240376U;
         static const AkUniqueID PLAY_FIREBALL = 146533081U;
+        static const AkUniqueID PLAY_FIREREALM = 1585334087U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
         static const AkUniqueID PLAY_HEAL = 2639148008U;
         static const AkUniqueID PLAY_HIT = 2960666077U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
         static const AkUniqueID PLAY_LAND = 4285282925U;
+        static const AkUniqueID PLAY_MAINMENU = 3738780720U;
+        static const AkUniqueID PLAY_MENUACCEPT = 4250076383U;
+        static const AkUniqueID PLAY_MENUDECLINE = 1505887647U;
+        static const AkUniqueID PLAY_MENUSELECT = 40516875U;
         static const AkUniqueID PLAY_WALLBREAK = 3767549391U;
         static const AkUniqueID STOP_HEAL = 3138967574U;
     } // namespace EVENTS
@@ -68,9 +75,10 @@ namespace AK
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
+        static const AkUniqueID COMMON_GAMEPLAY = 2222749205U;
         static const AkUniqueID LEVEL_FACTORY = 2858673722U;
-        static const AkUniqueID LEVEL_FOREST = 957893059U;
-        static const AkUniqueID PLAYER_CORE = 2509385384U;
+        static const AkUniqueID LEVEL_FIREREALM = 2987489389U;
+        static const AkUniqueID MAIN_MENU = 2005704188U;
     } // namespace BANKS
 
     namespace BUSSES

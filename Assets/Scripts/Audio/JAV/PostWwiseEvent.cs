@@ -18,8 +18,10 @@ public class PostWwiseEvent : MonoBehaviour
     */
     #endregion
 
+    // Types of Lists (with key + events)
+
     [System.Serializable]
-    public struct AnimationAudioMapping
+    public struct KeyAudioMapping
     {
         public string audioKey;
         public AK.Wwise.Event wwiseEvent;
@@ -27,16 +29,29 @@ public class PostWwiseEvent : MonoBehaviour
 
     // Events, Switches, etc... 
 
-    public List<AnimationAudioMapping> animationAudioEvents;
+    [Header("=== ANIMATION TRIGGER EVENTS ===")]
+    [Tooltip("One-shot events strictly tied to and triggered by Animation Events in the timeline.")]
+    public List<KeyAudioMapping> animationAudioEvents;
+
+
+    [Header("=== STATE & GAMEPLAY ONE-SHOTS ===")]
+    [Tooltip("One-shot events triggered via C# script logic (e.g., collisions, damage calculations).")]
+    public List<KeyAudioMapping> impactAudioEvents;
+
+
+    [Header("=== CONTINUOUS / LOOPING EVENTS ===")]
+    [Tooltip("Events that loop and require explicit Start/Stop code execution or key tracking.")]
+    public List<KeyAudioMapping> continuousLoopingEvents;
+
+
+    [Header("=== PERSISTENT MUSIC & AMBIENCE ===")]
+    [Tooltip("Global music/ambience events managed via States, Switches, or persistent object calls.")]
+
 
     [Header("Wwise Switches")]
     public AK.Wwise.Switch nullElementSwitch;
     public AK.Wwise.Switch fireElementSwitch;
     public AK.Wwise.Switch airElementSwitch;
-    
-    [Header("Continous Ability Events")]
-    public AK.Wwise.Event playHealEvent;
-    public AK.Wwise.Event stopHealEvent;
 
     public void SetElementalForm(int elementNumber)
     {
@@ -68,13 +83,44 @@ public class PostWwiseEvent : MonoBehaviour
         Debug.LogWarning($"Audio key '{key}' not found on {gameObject.name!}");
     }
 
-    public void AudioStartHeal()
+    public void PlayImpactEvent(string key)
     {
-        playHealEvent.Post(gameObject);
+        foreach (var mapping in impactAudioEvents)
+        {
+            if (mapping.audioKey == key)
+            {
+                mapping.wwiseEvent.Post(gameObject);
+                return;
+            }
+        }
+        Debug.LogWarning($"Impact key '{key}' not found in Impact Audio Events on {gameObject.name}!");
     }
 
-    public void AudioStopHeal()
+    public void PlayContinuousEvent(string key)
     {
-        stopHealEvent.Post(gameObject);
+        foreach (var mapping in continuousLoopingEvents)
+        {
+            if (mapping.audioKey == key)
+            {
+                mapping.wwiseEvent.Post(gameObject);
+                return;
+            }
+        }
+        Debug.LogWarning($"Continuous '{key}' not found in Impact Audio Events on {gameObject.name}!");
     }
+
+    /* public void AudioPlayHit()
+     {
+         PlayImpactEvent("PlayHitEvent");
+     }
+
+     public void AudioStartHeal()
+     {
+         PlayContinuousEvent("PlayHealEvent");
+     }
+
+     public void AudioStopHeal()
+     {
+         PlayContinuousEvent("StopHealEvent");
+     }*/
 }

@@ -8,15 +8,40 @@
    {
     "Id": "2858673722",
     "Type": "User",
-    "GUID": "{2A7A48DA-2F63-4210-A1A3-4CC6CE8992D5}",
-    "Color": "13",
+    "GUID": "{E6466B2B-80EE-4B56-A5A9-FEA935AFB634}",
+    "Color": "3",
     "Language": "SFX",
-    "Hash": "{5F8F21FF-DD44-613D-4BC2-1442B9D02027}",
+    "Hash": "{BE9A3547-A923-A6D1-DC14-D474A1FCD9B3}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Factory",
     "ShortName": "Level_Factory",
-    "Path": "Level_Factory.bnk"
+    "Path": "Level_Factory.bnk",
+    "Media": [
+     {
+      "Id": "878543128",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score_FactoryLevel_Loop.wav",
+      "CachePath": "B0/{B03A8742-651C-7CF2-BE96-BEC5CBB621ED}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3757240376",
+      "Name": "Play_Factory",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\Music_Events\\Level Specific\\Play_Factory",
+      "GUID": "{82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E}",
+      "Color": "11",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "878543128"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{904260A3-B48C-F752-8013-322C1ACF75AD}"
+  "FileHash": "{1A5F5905-23CC-CC02-B15D-B3E755DA5691}"
  }
 }

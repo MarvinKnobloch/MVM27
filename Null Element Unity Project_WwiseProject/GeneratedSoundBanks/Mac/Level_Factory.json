@@ -9,14 +9,108 @@
     "Id": "2858673722",
     "Type": "User",
     "GUID": "{2A7A48DA-2F63-4210-A1A3-4CC6CE8992D5}",
-    "Color": "13",
+    "Color": "3",
     "Language": "SFX",
-    "Hash": "{5F8F21FF-DD44-613D-4BC2-1442B9D02027}",
+    "Hash": "{D3D2D75C-8F55-C4C4-C16A-D5BF0BB5AADE}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Factory",
     "ShortName": "Level_Factory",
-    "Path": "Level_Factory.bnk"
+    "Path": "Level_Factory.bnk",
+    "Media": [
+     {
+      "Id": "313536866",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuAccept_1.wav",
+      "CachePath": "6A/{6A5E2C0A-70E5-FDF2-00F2-2975C6C8F0E5}.wem"
+     },
+     {
+      "Id": "419589925",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuDecline_1.wav",
+      "CachePath": "4B/{4B098AE6-703E-5297-956A-45C7169C7303}.wem"
+     },
+     {
+      "Id": "713980937",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuSelect_1.wav",
+      "CachePath": "55/{5565ECB6-16C3-89A8-83B4-5375E4AF6223}.wem"
+     },
+     {
+      "Id": "878543128",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score_FactoryLevel_Loop.wav",
+      "CachePath": "B0/{B03A8742-651C-7CF2-BE96-BEC5CBB621ED}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "3757240376",
+      "Name": "Play_Factory",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\Music_Events\\Level Specific\\Play_Factory",
+      "GUID": "{82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E}",
+      "Color": "11",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "878543128"
+       }
+      ]
+     },
+     {
+      "Id": "4250076383",
+      "Name": "Play_MenuAccept",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuAccept",
+      "GUID": "{5C09EB4C-EDDA-4B0B-8AE6-BDCDF752CD87}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.38589582",
+      "DurationMax": "0.38589582",
+      "MediaRefs": [
+       {
+        "Id": "313536866"
+       }
+      ]
+     },
+     {
+      "Id": "1505887647",
+      "Name": "Play_MenuDecline",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuDecline",
+      "GUID": "{49613076-9B94-48C2-B013-4C428A677AED}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.35220835",
+      "DurationMax": "0.35220835",
+      "MediaRefs": [
+       {
+        "Id": "419589925"
+       }
+      ]
+     },
+     {
+      "Id": "40516875",
+      "Name": "Play_MenuSelect",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuSelect",
+      "GUID": "{1D0CB6EB-54F5-4A0E-83E1-04A44C998CD0}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15804167",
+      "DurationMax": "0.15804167",
+      "MediaRefs": [
+       {
+        "Id": "713980937"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{DF33EE6E-A810-2C76-C23C-3D6E54C627F0}"
+  "FileHash": "{61C1550E-CDE9-AFF2-D63F-514DC0DA8782}"
  }
 }

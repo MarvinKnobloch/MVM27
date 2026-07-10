@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1585334087	Play_FireRealm			\Default Work Unit\Non-World_Events\Music_Events\Level Specific\Play_FireRealm	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	497001359	Score_FireRealm_Loop	.cache\9D\{9D803D17-D5A0-4222-9872-1F15FB1A12C9}.wem		\Containers\Default Work Unit\Non-World\Music\Level-Specific\Overworld_Forest\Score_FireRealm_Loop		26726496
+

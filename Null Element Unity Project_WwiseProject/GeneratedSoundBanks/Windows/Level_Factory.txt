@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3757240376	Play_Factory			\Default Work Unit\Non-World_Events\Music_Events\Level Specific\Play_Factory	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	878543128	Score_Factory_Loop	.cache\B0\{B03A8742-651C-7CF2-BE96-BEC5CBB621ED}.wem		\Containers\Default Work Unit\Non-World\Music\Level-Specific\Overworld_Factory\Score_Factory_Loop		23853272
+

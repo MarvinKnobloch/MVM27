@@ -2,37 +2,53 @@
 <WwiseDocument Type="WorkUnit" ID="{DDE80D2C-913C-4370-A900-715B746CE2FF}" SchemaVersion="133">
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{DDE80D2C-913C-4370-A900-715B746CE2FF}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="3"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
-				<SoundBank Name="Player_Core" ID="{BA99683D-839C-4E70-9389-327FABBF9B5A}">
-					<ObjectInclusionList>
-						<ObjectRef Name="Player_Events" ID="{68D5F467-0837-4968-896D-740CED4CF2A5}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
-					</ObjectInclusionList>
-					<ObjectExclusionList/>
-					<GameSyncExclusionList/>
-				</SoundBank>
-				<Folder Name="Level-Specific" ID="{C3B01D39-9CFC-4C9A-8343-67062FA91849}" ShortID="757768481">
+				<Folder Name="Non Level-Specific" ID="{440E91FD-831C-4D25-8ED7-C4D0652D4566}" ShortID="418428474">
 					<PropertyList>
-						<Property Name="Color" Type="int16" Value="13"/>
+						<Property Name="Color" Type="int16" Value="24"/>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<SoundBank Name="Level_Forest" ID="{4A721BB3-5E5D-4F56-96A5-2C52F62E3E67}">
-							<ObjectInclusionList/>
+						<SoundBank Name="Common_Gameplay" ID="{66F56C54-07D1-432C-ADF9-FE5B0E80025F}">
+							<ObjectInclusionList>
+								<ObjectRef Name="World_Events" ID="{C255DB4E-2BCE-4254-9C30-DE35C9C80747}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Menus" ID="{D8106397-9EB4-48AF-820A-2AE3657023ED}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Play_BossFight" ID="{307066D4-E40D-4E17-974D-5B7F002B9BCF}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
 							<ObjectExclusionList/>
 							<GameSyncExclusionList/>
 						</SoundBank>
-						<SoundBank Name="Level_Factory" ID="{2A7A48DA-2F63-4210-A1A3-4CC6CE8992D5}">
-							<ObjectInclusionList/>
+						<SoundBank Name="Main_Menu" ID="{17309733-8B49-41D1-9354-570D1A3876A5}">
+							<ObjectInclusionList>
+								<ObjectRef Name="Menus" ID="{D8106397-9EB4-48AF-820A-2AE3657023ED}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+								<ObjectRef Name="Play_MainMenu" ID="{07E20676-B434-4C49-ABF4-A6B7428E4BF2}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
 							<ObjectExclusionList/>
 							<GameSyncExclusionList/>
 						</SoundBank>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="Non Level-Specific" ID="{59532E6A-E776-442C-8DF6-F8BF2B37B2CC}" ShortID="155604388">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="1"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
+				<Folder Name="Level-Specific" ID="{341B1E02-EE99-4776-B536-E6FEE6C5E660}" ShortID="207330393">
+					<ChildrenList>
+						<SoundBank Name="Level_Factory" ID="{E6466B2B-80EE-4B56-A5A9-FEA935AFB634}">
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_Factory" ID="{82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+						<SoundBank Name="Level_FireRealm" ID="{E25083C0-DD7C-4D2F-B25F-6A3399C8DAC3}">
+							<ObjectInclusionList>
+								<ObjectRef Name="Play_FireRealm" ID="{4C63B030-904C-4E7A-9C8E-5E32B04755A8}" WorkUnitID="{507E85DA-9C62-4CBB-9AA0-A26DE34E9E19}" Origin="Manual" Filter="7"/>
+							</ObjectInclusionList>
+							<ObjectExclusionList/>
+							<GameSyncExclusionList/>
+						</SoundBank>
+					</ChildrenList>
 				</Folder>
 			</ChildrenList>
 		</WorkUnit>

@@ -226,8 +226,107 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Folder Name="Music_Events" ID="{8B9A1D86-DF67-4EF6-AE71-4FDD2C42EF26}" ShortID="209825009"/>
-						<Folder Name="UI_Events" ID="{6916548D-27F1-418E-BAD3-4B89CECB486C}" ShortID="325122903"/>
+						<Folder Name="Music_Events" ID="{8B9A1D86-DF67-4EF6-AE71-4FDD2C42EF26}" ShortID="209825009">
+							<ChildrenList>
+								<Folder Name="Level Specific" ID="{E63C09C9-E43D-4815-9E8F-1F18201F422D}" ShortID="935210119">
+									<ChildrenList>
+										<Event Name="Play_Factory" ID="{82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E}">
+											<ChildrenList>
+												<Action Name="" ID="{1E326F4C-BD82-416E-B08D-AED7D0BEBF92}" ShortID="199477999">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Overworld_Factory" ID="{1078EE6D-125C-4D1B-A1DF-B539F4EDE2AC}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_FireRealm" ID="{4C63B030-904C-4E7A-9C8E-5E32B04755A8}">
+											<ChildrenList>
+												<Action Name="" ID="{C28B4749-A303-41BB-9494-33278A713065}" ShortID="355090494">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Overworld_Forest" ID="{475C8690-A5FE-4E8E-BAC0-9DA264B7BE1E}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Non-Level Specific" ID="{21734EAF-D36A-4605-9C42-77F136B72622}" ShortID="808238564">
+									<ChildrenList>
+										<Event Name="Play_MainMenu" ID="{07E20676-B434-4C49-ABF4-A6B7428E4BF2}">
+											<ChildrenList>
+												<Action Name="" ID="{D78DEBF5-A4ED-4826-8850-6AD693CAA658}" ShortID="194722672">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="MainMenu" ID="{B7DB2FE9-D7B5-4D41-8599-EC01749D2CF6}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_BossFight" ID="{307066D4-E40D-4E17-974D-5B7F002B9BCF}">
+											<ChildrenList>
+												<Action Name="" ID="{901EBFC9-A9B0-404B-964E-EE4C8D98FDD7}" ShortID="687920001">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Boss" ID="{8237F949-BA3B-4636-9898-2D5D914520F8}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI_Events" ID="{6916548D-27F1-418E-BAD3-4B89CECB486C}" ShortID="325122903">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="24"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Folder Name="Menus" ID="{D8106397-9EB4-48AF-820A-2AE3657023ED}" ShortID="1048591926">
+									<ChildrenList>
+										<Event Name="Play_MenuAccept" ID="{5C09EB4C-EDDA-4B0B-8AE6-BDCDF752CD87}">
+											<ChildrenList>
+												<Action Name="" ID="{A53CDE07-2671-46ED-9652-FE617FCE63EF}" ShortID="1005193590">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Menu_Accept" ID="{01B36490-8E9A-477D-8AF1-76D731A6D3BF}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_MenuSelect" ID="{1D0CB6EB-54F5-4A0E-83E1-04A44C998CD0}">
+											<ChildrenList>
+												<Action Name="" ID="{76689C44-20D5-4B09-B6B0-53669FFB50EB}" ShortID="545290346">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Menu_Select" ID="{048CF0E8-D7DF-4957-AC09-228A267E9EEC}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+										<Event Name="Play_MenuDecline" ID="{49613076-9B94-48C2-B013-4C428A677AED}">
+											<ChildrenList>
+												<Action Name="" ID="{F2360B76-B0A0-402D-9054-05142202A79C}" ShortID="950625926">
+													<ReferenceList>
+														<Reference Name="Target">
+															<ObjectRef Name="Menu_Decline" ID="{ACEDBD25-774D-4CEA-9E25-99CE8844D479}" WorkUnitID="{F3069853-9E13-4E67-ADA0-AC81CC9009AF}"/>
+														</Reference>
+													</ReferenceList>
+												</Action>
+											</ChildrenList>
+										</Event>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

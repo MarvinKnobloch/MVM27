@@ -1,0 +1,14 @@
+Event	ID	Name			Wwise Object Path	Notes
+	40516875	Play_MenuSelect			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuSelect	
+	1505887647	Play_MenuDecline			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuDecline	
+	1585334087	Play_FireRealm			\Default Work Unit\Non-World_Events\Music_Events\Level Specific\Play_FireRealm	
+	2232356269	Play_BossFight			\Default Work Unit\Non-World_Events\Music_Events\Non-Level Specific\Play_BossFight	
+	4250076383	Play_MenuAccept			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuAccept	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	177689416	Score_BossFight_Loop	.cache\CF\{CF524E6E-88BE-57D5-C463-D795CEC9BFA7}.wem		\Containers\Default Work Unit\Non-World\Music\Non-Level Specific\Boss\Score_BossFight_Loop		10057624
+	313536866	UI_MenuAccept_1	.cache\6A\{6A5E2C0A-70E5-FDF2-00F2-2975C6C8F0E5}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Accept\UI_MenuAccept_1		37142
+	419589925	UI_MenuDecline_1	.cache\4B\{4B098AE6-703E-5297-956A-45C7169C7303}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Decline\UI_MenuDecline_1		33908
+	497001359	Score_FireRealm_Loop	.cache\9D\{9D803D17-D5A0-4222-9872-1F15FB1A12C9}.wem		\Containers\Default Work Unit\Non-World\Music\Level-Specific\Overworld_Forest\Score_FireRealm_Loop		26726496
+	713980937	UI_MenuSelect_1	.cache\55\{5565ECB6-16C3-89A8-83B4-5375E4AF6223}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Select\UI_MenuSelect_1		15268
+

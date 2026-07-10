@@ -9,14 +9,131 @@
     "Id": "957893059",
     "Type": "User",
     "GUID": "{4A721BB3-5E5D-4F56-96A5-2C52F62E3E67}",
-    "Color": "13",
+    "Color": "3",
     "Language": "SFX",
-    "Hash": "{9F1B3315-36D7-FBEE-3299-7F54EE05FD38}",
+    "Hash": "{DFD3DBE0-1138-6A09-D090-FAD3D05245A3}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Level-Specific\\Level_Forest",
     "ShortName": "Level_Forest",
-    "Path": "Level_Forest.bnk"
+    "Path": "Level_Forest.bnk",
+    "Media": [
+     {
+      "Id": "177689416",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score_BossFight_Loop.wav",
+      "CachePath": "CF/{CF524E6E-88BE-57D5-C463-D795CEC9BFA7}.wem"
+     },
+     {
+      "Id": "313536866",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuAccept_1.wav",
+      "CachePath": "6A/{6A5E2C0A-70E5-FDF2-00F2-2975C6C8F0E5}.wem"
+     },
+     {
+      "Id": "419589925",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuDecline_1.wav",
+      "CachePath": "4B/{4B098AE6-703E-5297-956A-45C7169C7303}.wem"
+     },
+     {
+      "Id": "497001359",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Score_FireRealm_Loop.wav",
+      "CachePath": "9D/{9D803D17-D5A0-4222-9872-1F15FB1A12C9}.wem"
+     },
+     {
+      "Id": "713980937",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "UI_MenuSelect_1.wav",
+      "CachePath": "55/{5565ECB6-16C3-89A8-83B4-5375E4AF6223}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2232356269",
+      "Name": "Play_BossFight",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\Music_Events\\Non-Level Specific\\Play_BossFight",
+      "GUID": "{307066D4-E40D-4E17-974D-5B7F002B9BCF}",
+      "Color": "11",
+      "DurationType": "OneShot",
+      "DurationMin": "52.382957",
+      "DurationMax": "52.382957",
+      "MediaRefs": [
+       {
+        "Id": "177689416"
+       }
+      ]
+     },
+     {
+      "Id": "1585334087",
+      "Name": "Play_FireRealm",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\Music_Events\\Level Specific\\Play_FireRealm",
+      "GUID": "{4C63B030-904C-4E7A-9C8E-5E32B04755A8}",
+      "Color": "11",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "497001359"
+       }
+      ]
+     },
+     {
+      "Id": "4250076383",
+      "Name": "Play_MenuAccept",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuAccept",
+      "GUID": "{5C09EB4C-EDDA-4B0B-8AE6-BDCDF752CD87}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.38589582",
+      "DurationMax": "0.38589582",
+      "MediaRefs": [
+       {
+        "Id": "313536866"
+       }
+      ]
+     },
+     {
+      "Id": "1505887647",
+      "Name": "Play_MenuDecline",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuDecline",
+      "GUID": "{49613076-9B94-48C2-B013-4C428A677AED}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.35220835",
+      "DurationMax": "0.35220835",
+      "MediaRefs": [
+       {
+        "Id": "419589925"
+       }
+      ]
+     },
+     {
+      "Id": "40516875",
+      "Name": "Play_MenuSelect",
+      "ObjectPath": "\\Events\\Default Work Unit\\Non-World_Events\\UI_Events\\Menus\\Play_MenuSelect",
+      "GUID": "{1D0CB6EB-54F5-4A0E-83E1-04A44C998CD0}",
+      "Color": "24",
+      "DurationType": "OneShot",
+      "DurationMin": "0.15804167",
+      "DurationMax": "0.15804167",
+      "MediaRefs": [
+       {
+        "Id": "713980937"
+       }
+      ]
+     }
+    ]
    }
   ],
-  "FileHash": "{6184BD06-8315-AE88-F9B1-12E33936C58D}"
+  "FileHash": "{D2B8B11B-B7EC-B2ED-3ABE-20BE9F270D00}"
  }
 }

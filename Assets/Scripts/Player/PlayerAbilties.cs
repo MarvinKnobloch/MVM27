@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class PlayerAbilties
 {
@@ -9,7 +10,15 @@ public class PlayerAbilties
     const string switchState = "Switch";
     const string elementHealState = "Heal";
 
+    private PostWwiseEvent _playerAudio;
 
+    private void InitializeAudio()
+    {
+        if (player != null)
+        {
+            _playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
+        }
+    }
     public void Ability1Input(InputAction.CallbackContext ctx)
     {
         bool pressed = ctx.ReadValueAsButton();
@@ -68,7 +77,10 @@ public class PlayerAbilties
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
 
-        player.GetComponentInChildren<PostWwiseEvent>().AudioStartHeal();
+        if (_playerAudio != null)
+        {
+            _playerAudio.PlayContinuousEvent("PlayHealEvent");
+        }
     }
     public void HoldHeal()
     {
@@ -76,7 +88,10 @@ public class PlayerAbilties
         {
             player.SwitchToAir();
 
-            player.GetComponentInChildren<PostWwiseEvent>().AudioStopHeal();
+            if (_playerAudio != null)
+            {
+                _playerAudio.PlayContinuousEvent("StopHealEvent");
+            }
         }
     }
     public void NonElementHeal()
@@ -122,7 +137,7 @@ public class PlayerAbilties
         player.ChangeAnimationState("HeavyPunch");
         player.state = Player.States.HeavyPunch;
 
-        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.WallBreakSwing]);
+        //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.WallBreakSwing]);
         //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackSounds[2]);
     }
     public void ExecuteHeavyPunch()
@@ -140,10 +155,10 @@ public class PlayerAbilties
                 health.EnemyTakeDamage(player.heavyPunchDamage);
             }
         }
-        if (collider.Length > 0)
+        /*if (collider.Length > 0)
         {
             AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.nonAttackHitSounds[1]);
-        }
+        }*/
         player.EnergyUpdate(-player.heavyPunchCosts);
     }
     public void EndHeavyPunch()

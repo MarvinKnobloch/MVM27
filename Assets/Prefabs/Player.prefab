@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 56580513609240995}
   - component: {fileID: 6082850999215385598}
   - component: {fileID: 8146377878462345245}
+  - component: {fileID: 635081078937721138}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -604,6 +605,30 @@ MonoBehaviour:
     DissipationDistance: 100
     PropagationSpeed: 343
   DefaultVelocity: {x: -0.3, y: -0.5, z: 0}
+--- !u!114 &635081078937721138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118283228436607075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8625d61dcbe98db4c93081471c04f366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  usePositionOffsetData: 0
+  m_positionOffsetData:
+    KeepMe: 1
+    positionOffset: {x: 0, y: 0, z: 0}
+  scalingFactor: 1
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &5261946198451038558
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +988,38 @@ MonoBehaviour:
       idInternal: 0
       valueGuidInternal: 
       WwiseObjectReference: {fileID: 11400000, guid: acf0ee10ed5609042a194c3f5c73b1c9, type: 2}
+  impactAudioEvents:
+  - audioKey: Impact1
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 5f2efd5616b734d4da8f1be70eb671a3, type: 2}
+  - audioKey: Impact2
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 58db11b0405632b42aa1834afaa35eb5, type: 2}
+  - audioKey: Impact3
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: e06e8b75e6765c54b90e89956dd6826f, type: 2}
+  - audioKey: PlayHitEvent
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 65d0b81381a2a394c804c2705831c74b, type: 2}
+  continuousLoopingEvents:
+  - audioKey: PlayHealEvent
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: ce5c0a26cbfee044e9688ef99df32860, type: 2}
+  - audioKey: StopHealEvent
+    wwiseEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 37332409825167d4888ab83aff83e242, type: 2}
   nullElementSwitch:
     idInternal: 0
     valueGuidInternal: 
@@ -981,14 +1038,6 @@ MonoBehaviour:
     groupIdInternal: 0
     groupGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 6941c741c98c4e444ab53495321e17bc, type: 2}
-  playHealEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: ce5c0a26cbfee044e9688ef99df32860, type: 2}
-  stopHealEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 37332409825167d4888ab83aff83e242, type: 2}
 --- !u!1 &7692559484238975251
 GameObject:
   m_ObjectHideFlags: 0

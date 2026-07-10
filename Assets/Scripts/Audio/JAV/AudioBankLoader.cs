@@ -6,7 +6,7 @@ public class AudioBankLoader : MonoBehaviour
 {
     [SerializeField] private List<Bank> soundBanks;
 
-    private void Start()
+    private void Awake()
     {
         foreach (var bank in soundBanks)
         {

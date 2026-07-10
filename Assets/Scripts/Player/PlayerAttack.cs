@@ -220,22 +220,23 @@ public class PlayerAttack : MonoBehaviour
         }
         if (collider.Length != 0)
         {
-            //ImpactSound
-           /* AudioFiles file;
-            if (currentAttackNumber >= 2)
+            string impactKey = "Impact1";
+
+            if (currentAttackNumber == 1)
             {
-                //Switch or last combo sound
-                if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackHitSounds[2];
-                else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackHitSounds[2];
-                else file = AudioManager.Instance.airAttackHitSounds[2];
+                impactKey = "Impact2";
             }
-            else
+            else if (currentAttackNumber >= 2)
             {
-                if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackHitSounds[currentAttackNumber];
-                else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackHitSounds[currentAttackNumber];
-                else file = AudioManager.Instance.airAttackHitSounds[currentAttackNumber];
+                impactKey = "Impact3";
             }
-            AudioManager.Instance.PlayAudioFileOneShot(file);*/
+
+            PostWwiseEvent playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
+
+            if (playerAudio != null)
+            {
+                playerAudio.PlayImpactEvent(impactKey);
+            }
         }
     }
     public void EndAttack()

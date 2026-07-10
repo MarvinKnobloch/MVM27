@@ -1,0 +1,12 @@
+Event	ID	Name			Wwise Object Path	Notes
+	40516875	Play_MenuSelect			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuSelect	
+	1505887647	Play_MenuDecline			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuDecline	
+	3738780720	Play_MainMenu			\Default Work Unit\Non-World_Events\Music_Events\Non-Level Specific\Play_MainMenu	
+	4250076383	Play_MenuAccept			\Default Work Unit\Non-World_Events\UI_Events\Menus\Play_MenuAccept	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	313536866	UI_MenuAccept_1	.cache\6A\{6A5E2C0A-70E5-FDF2-00F2-2975C6C8F0E5}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Accept\UI_MenuAccept_1		37142
+	330963934	Score_MainMenu	.cache\84\{84D019CB-4611-2F09-E500-D74A669F858E}.wem		\Containers\Default Work Unit\Non-World\Music\Non-Level Specific\MainMenu\Score_MainMenu		7891216
+	419589925	UI_MenuDecline_1	.cache\4B\{4B098AE6-703E-5297-956A-45C7169C7303}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Decline\UI_MenuDecline_1		33908
+	713980937	UI_MenuSelect_1	.cache\55\{5565ECB6-16C3-89A8-83B4-5375E4AF6223}.wem		\Containers\Default Work Unit\Non-World\UI\Menus\Menu_Select\UI_MenuSelect_1		15268
+

@@ -111,7 +111,7 @@ public class MenuController : MonoBehaviour
             titleMenu.SetActive(false);
             ingameMenu.SetActive(false);
 
-            AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
+            //AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuSelect);
         }
     }
 
@@ -165,7 +165,7 @@ public class MenuController : MonoBehaviour
         ShopReset();
 
 
-        AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
+        //AudioManager.Instance.PlaySoundOneshot((int)AudioManager.UtilitySounds.MenuAccept);
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
