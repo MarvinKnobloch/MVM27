@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Background background;
 
+    [Header("Audio Setup")]
+    [SerializeField] private GameObject audioBootstrapperPrefab;
+
     [NonSerialized] public int playerCurrency;
     public enum AbilityStrings
     {
@@ -56,12 +59,27 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
+        //=== FALLBACK AUDIO INITIALIZATION ===
+        if (WwiseAudioManager.Instance == null && audioBootstrapperPrefab != null)
+        {
+            Instantiate(audioBootstrapperPrefab);
+        }
+        // ====
+
         if (Instance == null)
         {
             Instance = this;
         }
-        else Destroy(gameObject);
+        else
 
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        
+
+       
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 120;
 

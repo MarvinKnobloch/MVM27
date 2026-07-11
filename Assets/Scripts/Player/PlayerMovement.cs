@@ -61,7 +61,7 @@ public class PlayerMovement
     }
     public void GroundMovement()
     {
-        if (wasInAir)
+        /*if (wasInAir)
         {
             PostWwiseEvent audioScript = player.GetComponentInChildren<PostWwiseEvent>();
             if (audioScript != null)
@@ -69,7 +69,7 @@ public class PlayerMovement
                 audioScript.PlayTaggedEvent("Land");
             }
             wasInAir = false;
-        }
+        }*/
 
         PlayerMove(player.playerGroundDrag);
     }
@@ -279,9 +279,9 @@ public class PlayerMovement
         dashTimer = 0;
         player.state = Player.States.Dash;
 
-        if (player.currentElementNumber == 0) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.nonDashSounds);
-        else if (player.currentElementNumber == 1) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.fireDashSounds);
-        else if (player.currentElementNumber == 2) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.airDashSounds);
+        //if (player.currentElementNumber == 0) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.nonDashSounds);
+       // else if (player.currentElementNumber == 1) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.fireDashSounds);
+       // else if (player.currentElementNumber == 2) AudioManager.Instance.PlayRandomOneShot(AudioManager.Instance.airDashSounds);
     }
     public void DashMovement()
     {

@@ -89,8 +89,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.016666668
-    functionName: PlayTaggedEvent
-    data: Attack1
+    functionName: PlayAnimationSound
+    data: Play_AttackSwing_1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

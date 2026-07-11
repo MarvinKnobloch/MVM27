@@ -10,15 +10,15 @@ public class PlayerAbilties
     const string switchState = "Switch";
     const string elementHealState = "Heal";
 
-    private PostWwiseEvent _playerAudio;
+    //private PostWwiseEvent _playerAudio;
 
-    private void InitializeAudio()
+    /*private void InitializeAudio()
     {
         if (player != null)
         {
             _playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
         }
-    }
+    }*/
     public void Ability1Input(InputAction.CallbackContext ctx)
     {
         bool pressed = ctx.ReadValueAsButton();
@@ -77,10 +77,10 @@ public class PlayerAbilties
         player.ChangeAnimationState(elementHealState);
         player.state = Player.States.NonElementalHeal;
 
-        if (_playerAudio != null)
+        /*if (_playerAudio != null)
         {
             _playerAudio.PlayContinuousEvent("PlayHealEvent");
-        }
+        }*/
     }
     public void HoldHeal()
     {
@@ -88,10 +88,10 @@ public class PlayerAbilties
         {
             player.SwitchToAir();
 
-            if (_playerAudio != null)
+           /* if (_playerAudio != null)
             {
                 _playerAudio.PlayContinuousEvent("StopHealEvent");
-            }
+            }*/
         }
     }
     public void NonElementHeal()
@@ -213,7 +213,7 @@ public class PlayerAbilties
             player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition, Quaternion.identity);
             player.playerCollision.CollisionCheckAfterAbilties();
 
-            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.FireBall]);
+           // AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.FireBall]);
         }
     }
     private void AirAbility1()
@@ -294,13 +294,28 @@ public class PlayerAbilties
         player.currentstate = null;
         //player.ChangeAnimationState(switchState);
 
-        PostWwiseEvent audioScript = player.GetComponentInChildren<PostWwiseEvent>();
+        // === Wwise Switch Routing ===
 
-        if (audioScript != null)
+        if (WwiseAudioManager.Instance != null)
         {
-            audioScript.SetElementalForm(slot);
-        }
+            string switchKey = slot switch
+            {
+                0 => "Null_Form",
+                1 => "Fire_Form",
+                2 => "Air_Form",
+                _ => ""
+            };
 
+            if (!string.IsNullOrEmpty(switchKey))
+            {
+                WwiseAudioManager.Instance.SetSwitch(switchKey, player.gameObject);
+
+                if (player.currentAnimator != null)
+                {
+                    WwiseAudioManager.Instance.SetSwitch(switchKey, player.currentAnimator.gameObject);
+                }
+            }
+        }
     }
 
     public void ControllerAbility1Input()

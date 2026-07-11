@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860a050383a2daa43b39661aad46966b, type: 3}
+  m_Name: 82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E
+  m_EditorClassIdentifier: 
+  objectName: Play_Factory
+  id: 3757240376
+  guid: 82F714EF-84F6-42B0-8CF3-7DFA4F8EC64E
+  IsInUserDefinedSoundBank: 1

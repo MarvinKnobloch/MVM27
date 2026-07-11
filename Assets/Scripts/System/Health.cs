@@ -63,10 +63,10 @@ public class Health : MonoBehaviour
     /// </summary>
     public bool AllowDamage { get; set; } = true;
 
-    private PostWwiseEvent _playerAudio;
+    //private PostWwiseEvent _playerAudio;
     void Start()
     {
-        _playerAudio = GetComponentInChildren<PostWwiseEvent>();
+        //_playerAudio = GetComponentInChildren<PostWwiseEvent>();
 
         if (HealthBarBackground != null)
             HealthBarImage = HealthBarBackground.transform.GetChild(0).GetComponent<Image>();
@@ -122,11 +122,11 @@ public class Health : MonoBehaviour
             Player.Instance.IFramesStart();
 
   
-        if (_playerAudio != null )
+       /* if (_playerAudio != null )
         {
             _playerAudio.PlayImpactEvent("PlayHitEvent");
         }
-       
+       */
 
         CheckForDeath();
 

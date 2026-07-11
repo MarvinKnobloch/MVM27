@@ -1,52 +1,62 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 [System.Serializable]
 public struct WwiseEventMapping
 {
-    [Tooltip("The custom key name used to call this sound in code (e.g., 'Player_Jump', 'Sword_Swing').")]
-    public string Key;
+    [Tooltip("The custom key name used to call this sound in code (e.g., 'Player_Jump', 'Sword_Swing')")]
+    public string eventKey;
+
     [Tooltip("The corresponding Wwise Event from your Wwise Project.")]
-    public AK.Wwise.Event WwiseEvent;
+    public AK.Wwise.Event audioEvent;
 }
 
 [System.Serializable]
 public struct WwiseSwitchMapping
 {
-    [Tooltip("The custom key name used to call this switch in code (e.g., 'Grass', 'Stone').")]
-    public string Key;
+    [Tooltip("The custom key name used to call this switch in code (e.g., 'Grass', 'Stone')")]
+    public string switchKey;
+
     [Tooltip("The corresponding Wwise Switch.")]
-    public AK.Wwise.Switch WwiseSwitch;
+    public AK.Wwise.Switch audioSwitch;
 }
 
-[DefaultExecutionOrder(-50)] // Ensures the manager initializes before other scripts attempt to call it
+[DefaultExecutionOrder(-50)]
 public class WwiseAudioManager : MonoBehaviour
 {
+    // === Singleton structure
+
     public static WwiseAudioManager Instance { get; private set; }
 
-    [Header("--- Animation / Sync Events ---")]
+    // === Event categories
+
+    [Header("=== Animation / Sync Events ===")]
     [Tooltip("Audio events strictly driven by Animation Events inside character or enemy timelines.")]
-    [SerializeField] private List<WwiseEventMapping> animationEvents = new List<WwiseEventMapping>();
+    public List<WwiseEventMapping> animationEvents = new List<WwiseEventMapping>();
 
-    [Header("--- Fire-and-Forget Events ---")]
+    [Header("=== Triggered Fire-and-Forget Events ===")]
     [Tooltip("One-shot occurrences triggered programmatically (e.g., UI clicks, player damage grunts, item pickups).")]
-    [SerializeField] private List<WwiseEventMapping> triggerEvents = new List<WwiseEventMapping>();
+    public List<WwiseEventMapping> triggeredEvents = new List<WwiseEventMapping>();
 
-    [Header("--- Managed / Persistent Events ---")]
+    [Header("=== Managed / Persistent Events ===")]
     [Tooltip("Continuous events requiring explicit Play and Stop actions (e.g., healing channels, wall-sliding loops).")]
-    [SerializeField] private List<WwiseEventMapping> managedEvents = new List<WwiseEventMapping>();
+    public List<WwiseEventMapping> managedEvents = new List<WwiseEventMapping>();
 
-    [Header("--- Interactive Music & Ambience ---")]
+    [Header("=== Global Events ===")]
     [Tooltip("Long-running background audio or structural music triggered globally or via zone entry.")]
-    [SerializeField] private List<WwiseEventMapping> globalEvents = new List<WwiseEventMapping>();
+    public List<WwiseEventMapping> globalEvents = new List<WwiseEventMapping>();
 
-    [Header("--- Global Switches ---")]
+    [Header("=== Global Switches ===")]
     [Tooltip("A modular list of Wwise Switches used to swap audio variations like footstep surfaces.")]
-    [SerializeField] private List<WwiseSwitchMapping> globalSwitches = new List<WwiseSwitchMapping>();
+    public List<WwiseSwitchMapping> globalSwitches = new List<WwiseSwitchMapping>();
 
-    // High-performance runtime lookups
-    private Dictionary<string, AK.Wwise.Event> eventCache = new Dictionary<string, AK.Wwise.Event>();
-    private Dictionary<string, AK.Wwise.Switch> switchCache = new Dictionary<string, AK.Wwise.Switch>();
+
+    // === Dictionaries
+
+    public Dictionary<string, AK.Wwise.Event> eventCache = new Dictionary<string, AK.Wwise.Event>();
+    public Dictionary<string, AK.Wwise.Switch> switchCache = new Dictionary<string, AK.Wwise.Switch>();
+
+    // === Methods
 
     private void Awake()
     {
@@ -55,93 +65,81 @@ public class WwiseAudioManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
+
         DontDestroyOnLoad(gameObject);
 
         InitializeCaches();
     }
 
-    private void InitializeCaches()
+    public void InitializeCaches()
     {
-        // Populate events dynamically from all list categories into a single O(1) Lookup Table
-        PopulateEventList(animationEvents);
-        PopulateEventList(triggerEvents);
-        PopulateEventList(managedEvents);
-        PopulateEventList(globalEvents);
+        //Populate Events Cache
+        PopulateEventCache(animationEvents);
+        PopulateEventCache(triggeredEvents);
+        PopulateEventCache(managedEvents);
+        PopulateEventCache(globalEvents);
 
-        // Populate switches
+        //Populate Switches Cache
         foreach (var mapping in globalSwitches)
         {
-            if (!string.IsNullOrEmpty(mapping.Key) && !switchCache.ContainsKey(mapping.Key))
-            {
-                switchCache.Add(mapping.Key, mapping.WwiseSwitch);
-            }
-        }
-    }
+            if (string.IsNullOrEmpty(mapping.switchKey)) continue;
 
-    private void PopulateEventList(List<WwiseEventMapping> list)
-    {
-        foreach (var mapping in list)
-        {
-            if (string.IsNullOrEmpty(mapping.Key)) continue;
-
-            if (!eventCache.ContainsKey(mapping.Key))
+            if (!switchCache.ContainsKey(mapping.switchKey))
             {
-                eventCache.Add(mapping.Key, mapping.WwiseEvent);
+                switchCache.Add(mapping.switchKey, mapping.audioSwitch);
             }
             else
             {
-                Debug.LogWarning($"[AudioManager] Duplicate event key found: '{mapping.Key}'. Skipping duplicates.");
+                Debug.LogWarning($"[AudioManager] Duplicate switch key found: '{mapping.switchKey}'. Skipping duplicates.");
+            }
+
+        }
+    }
+
+    public void PopulateEventCache(List<WwiseEventMapping> list)
+    {
+        foreach (var mapping in list)
+        {
+            if (string.IsNullOrEmpty(mapping.eventKey)) continue;
+
+            if (!eventCache.ContainsKey(mapping.eventKey))
+            {
+                eventCache.Add(mapping.eventKey, mapping.audioEvent);
+            }
+            else
+            {
+                Debug.LogWarning($"[AudioManager] Duplicate event key found: '{mapping.eventKey}'. Skipping duplicates.");
             }
         }
     }
 
-    /// <summary>
-    /// Posts a Wwise event using your custom key string.
-    /// </summary>
-    /// <param name="key">The custom inspector identifier string.</param>
-    /// <param name="sourceEmitter">Optional: Pass the GameObject emitting the sound to preserve 3D positioning.</param>
-    public void PlayEvent(string key, GameObject sourceEmitter = null)
+    public void TriggerEvent(string eventKey, GameObject target)
     {
-        GameObject target = sourceEmitter != null ? sourceEmitter : gameObject;
+        if (string.IsNullOrEmpty(eventKey)) return;
 
-        if (eventCache.TryGetValue(key, out AK.Wwise.Event wwiseEvent))
+        if (eventCache.TryGetValue(eventKey, out AK.Wwise.Event audioEvent))
         {
-            wwiseEvent.Post(target);
+            audioEvent.Post(target);
         }
         else
         {
-            Debug.LogWarning($"[AudioManager] Event key '{key}' not found in registry.");
+            Debug.LogWarning($"[AudioManager] Trigger Event failed. Key '{eventKey}' not found in cache.");
         }
     }
 
-    /// <summary>
-    /// Explicitly stops an event (Crucial for your Looping SFX category).
-    /// </summary>
-    public void StopEvent(string key, GameObject sourceEmitter = null)
+    public void SetSwitch(string switchKey, GameObject target)
     {
-        GameObject target = sourceEmitter != null ? sourceEmitter : gameObject;
+        if (string.IsNullOrEmpty(switchKey)) return;
 
-        if (eventCache.TryGetValue(key, out AK.Wwise.Event wwiseEvent))
+        if (switchCache.TryGetValue(switchKey, out AK.Wwise.Switch audioSwitch))
         {
-            wwiseEvent.Stop(target);
-        }
-    }
-
-    /// <summary>
-    /// Sets a Wwise switch using your custom key string.
-    /// </summary>
-    public void SetGlobalSwitch(string key, GameObject sourceEmitter = null)
-    {
-        GameObject target = sourceEmitter != null ? sourceEmitter : gameObject;
-
-        if (switchCache.TryGetValue(key, out AK.Wwise.Switch wwiseSwitch))
-        {
-            wwiseSwitch.SetValue(target);
+            audioSwitch.SetValue(target);
         }
         else
         {
-            Debug.LogWarning($"[AudioManager] Switch key '{key}' not found in registry.");
+            Debug.LogWarning($"[AudioManager] SetSwitch failed. Key '{switchKey}' not found in cache");
         }
     }
 }

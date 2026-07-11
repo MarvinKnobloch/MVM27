@@ -4,6 +4,6 @@ public class AnimationAudioRouter : MonoBehaviour
 {
     public void PlayAnimationSound(string eventKey)
     {
-        //AudioManager.Instance.TriggerEvent(eventKey, gameObject);
+        WwiseAudioManager.Instance.TriggerEvent(eventKey, gameObject);
     }
 }

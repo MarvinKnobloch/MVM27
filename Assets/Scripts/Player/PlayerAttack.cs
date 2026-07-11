@@ -231,12 +231,12 @@ public class PlayerAttack : MonoBehaviour
                 impactKey = "Impact3";
             }
 
-            PostWwiseEvent playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
+            //PostWwiseEvent playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
 
-            if (playerAudio != null)
+            /*if (playerAudio != null)
             {
                 playerAudio.PlayImpactEvent(impactKey);
-            }
+            }*/
         }
     }
     public void EndAttack()
