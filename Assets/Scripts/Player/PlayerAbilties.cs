@@ -213,13 +213,13 @@ public class PlayerAbilties
             player.CreatePrefab(player.fireballPrefab, player.projectileSpawnPosition, Quaternion.identity);
             player.playerCollision.CollisionCheckAfterAbilties();
 
-           // AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.abilitySounds[(int)AudioManager.AbiltySounds.FireBall]);
+           // WwiseAudioManager.Instance.TriggerEvent("Play_Fireball", player.gameObject);
         }
     }
-    private void AirAbility1()
-    {
+    //private void AirAbility1()
+    //{
 
-    }
+    //}
     public void FirstElementInput(InputAction.CallbackContext ctx)
     {
         bool pressed = ctx.ReadValueAsButton();

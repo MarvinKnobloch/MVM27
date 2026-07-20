@@ -122,20 +122,7 @@ public class PlayerAttack : MonoBehaviour
 
         state = States.Attack;
 
-       /* AudioFiles file;
-        if(currentAttackNumber >= 2)
-        {
-            if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[2];
-            else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[2];
-            else file = AudioManager.Instance.airAttackSounds[2];
-        }
-        else
-        {
-            if (player.currentElementNumber == 0) file = AudioManager.Instance.nonAttackSounds[currentAttackNumber];
-            else if (player.currentElementNumber == 1) file = AudioManager.Instance.fireAttackSounds[currentAttackNumber];
-            else file = AudioManager.Instance.airAttackSounds[currentAttackNumber];
-        }
-        AudioManager.Instance.PlayPlayerAttackSounds(file);*/
+      
     }
     //private void Attack()
     //{
@@ -220,23 +207,19 @@ public class PlayerAttack : MonoBehaviour
         }
         if (collider.Length != 0)
         {
-            string impactKey = "Impact1";
+            string impactKey = "Play_AttackImpact_1";
 
             if (currentAttackNumber == 1)
             {
-                impactKey = "Impact2";
+                impactKey = "Play_AttackImpact_2";
             }
             else if (currentAttackNumber >= 2)
             {
-                impactKey = "Impact3";
+                impactKey = "Play_AttackImpact_3";
             }
 
-            //PostWwiseEvent playerAudio = player.GetComponentInChildren<PostWwiseEvent>();
-
-            /*if (playerAudio != null)
-            {
-                playerAudio.PlayImpactEvent(impactKey);
-            }*/
+            WwiseAudioManager.Instance.TriggerEvent(impactKey, gameObject);                       
+                          
         }
     }
     public void EndAttack()

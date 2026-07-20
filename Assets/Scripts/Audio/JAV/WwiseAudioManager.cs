@@ -53,8 +53,8 @@ public class WwiseAudioManager : MonoBehaviour
 
     // === Dictionaries
 
-    public Dictionary<string, AK.Wwise.Event> eventCache = new Dictionary<string, AK.Wwise.Event>();
-    public Dictionary<string, AK.Wwise.Switch> switchCache = new Dictionary<string, AK.Wwise.Switch>();
+    private Dictionary<string, AK.Wwise.Event> eventCache = new Dictionary<string, AK.Wwise.Event>();
+    private Dictionary<string, AK.Wwise.Switch> switchCache = new Dictionary<string, AK.Wwise.Switch>();
 
     // === Methods
 
@@ -73,7 +73,7 @@ public class WwiseAudioManager : MonoBehaviour
         InitializeCaches();
     }
 
-    public void InitializeCaches()
+    private void InitializeCaches()
     {
         //Populate Events Cache
         PopulateEventCache(animationEvents);
@@ -82,27 +82,21 @@ public class WwiseAudioManager : MonoBehaviour
         PopulateEventCache(globalEvents);
 
         //Populate Switches Cache
-        foreach (var mapping in globalSwitches)
-        {
-            if (string.IsNullOrEmpty(mapping.switchKey)) continue;
 
-            if (!switchCache.ContainsKey(mapping.switchKey))
-            {
-                switchCache.Add(mapping.switchKey, mapping.audioSwitch);
-            }
-            else
-            {
-                Debug.LogWarning($"[AudioManager] Duplicate switch key found: '{mapping.switchKey}'. Skipping duplicates.");
-            }
-
-        }
+        PopulateSwitchCache(globalSwitches);
     }
 
-    public void PopulateEventCache(List<WwiseEventMapping> list)
+    private void PopulateEventCache(List<WwiseEventMapping> list)
     {
         foreach (var mapping in list)
         {
             if (string.IsNullOrEmpty(mapping.eventKey)) continue;
+
+            if (mapping.audioEvent == null)
+            {
+                Debug.LogWarning($"[AudioManager] Event Key '{mapping.eventKey}' has an unassigned Wwise Event object!");
+                continue;
+            }
 
             if (!eventCache.ContainsKey(mapping.eventKey))
             {
@@ -113,6 +107,30 @@ public class WwiseAudioManager : MonoBehaviour
                 Debug.LogWarning($"[AudioManager] Duplicate event key found: '{mapping.eventKey}'. Skipping duplicates.");
             }
         }
+    }
+
+    private void PopulateSwitchCache(List<WwiseSwitchMapping> list)
+    {
+        foreach (var mapping in list)
+        {
+            if (string.IsNullOrEmpty(mapping.switchKey)) continue;
+
+            if (mapping.audioSwitch == null)
+            {
+                Debug.LogWarning($"[AudioManager] SwitchKey '{mapping.switchKey}' has an unassigned Wwise Switch object!");
+                continue;
+            }
+
+            if (!switchCache.ContainsKey(mapping.switchKey))
+            {
+                switchCache.Add(mapping.switchKey, mapping.audioSwitch);
+            }
+
+            else
+            {
+                Debug.LogWarning($"[AudioManager] Duplicate switch key found: '{mapping.switchKey}'. Skipping duplicates.");
+            }
+        }        
     }
 
     public void TriggerEvent(string eventKey, GameObject target)

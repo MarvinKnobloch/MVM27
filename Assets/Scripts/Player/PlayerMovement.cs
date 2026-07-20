@@ -61,15 +61,11 @@ public class PlayerMovement
     }
     public void GroundMovement()
     {
-        /*if (wasInAir)
+        if (wasInAir)
         {
-            PostWwiseEvent audioScript = player.GetComponentInChildren<PostWwiseEvent>();
-            if (audioScript != null)
-            {
-                audioScript.PlayTaggedEvent("Land");
-            }
+            WwiseAudioManager.Instance.TriggerEvent("Play_Land", player.gameObject);
             wasInAir = false;
-        }*/
+        }
 
         PlayerMove(player.playerGroundDrag);
     }

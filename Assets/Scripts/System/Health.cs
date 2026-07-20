@@ -121,12 +121,7 @@ public class Health : MonoBehaviour
         if (Value > 0)
             Player.Instance.IFramesStart();
 
-  
-       /* if (_playerAudio != null )
-        {
-            _playerAudio.PlayImpactEvent("PlayHitEvent");
-        }
-       */
+        WwiseAudioManager.Instance.TriggerEvent("Play_Hit", gameObject);
 
         CheckForDeath();
 

@@ -76,8 +76,48 @@ MonoBehaviour:
       idInternal: 0
       valueGuidInternal: 
       WwiseObjectReference: {fileID: 11400000, guid: ae8d8b776f6ed9d44bb625ff4bf7e2a4, type: 2}
-  triggeredEvents: []
-  managedEvents: []
+  - eventKey: Play_Fireball
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: cba4b980a032fdf4aac9ff436bb68530, type: 2}
+  triggeredEvents:
+  - eventKey: Play_Land
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: d3000495a5e49a346b234d69b287c179, type: 2}
+  - eventKey: Play_AttackImpact_1
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 5f2efd5616b734d4da8f1be70eb671a3, type: 2}
+  - eventKey: Play_AttackImpact_2
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 58db11b0405632b42aa1834afaa35eb5, type: 2}
+  - eventKey: Play_AttackImpact_3
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: e06e8b75e6765c54b90e89956dd6826f, type: 2}
+  - eventKey: Play_Hit
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 65d0b81381a2a394c804c2705831c74b, type: 2}
+  managedEvents:
+  - eventKey: Play_Heal
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: ce5c0a26cbfee044e9688ef99df32860, type: 2}
+  - eventKey: Stop_Heal
+    audioEvent:
+      idInternal: 0
+      valueGuidInternal: 
+      WwiseObjectReference: {fileID: 11400000, guid: 37332409825167d4888ab83aff83e242, type: 2}
   globalEvents:
   - eventKey: Play_MainMenu
     audioEvent:
